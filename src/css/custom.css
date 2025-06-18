@@ -1,0 +1,190 @@
+/**
+ * プログラミング演習Ⅰ - カスタムスタイル
+ * 授業資料として読みやすく設計されたスタイル
+ */
+
+/* 授業資料用のカラーパレット */
+:root {
+  --ifm-color-primary: #1976d2;
+  --ifm-color-primary-dark: #1565c0;
+  --ifm-color-primary-darker: #1459a8;
+  --ifm-color-primary-darkest: #0d47a1;
+  --ifm-color-primary-light: #1e88e5;
+  --ifm-color-primary-lighter: #2196f3;
+  --ifm-color-primary-lightest: #42a5f5;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  
+  /* 授業資料用の追加変数 */
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.7;
+  --ifm-spacing-horizontal: 1.5rem;
+  --ifm-spacing-vertical: 1.5rem;
+}
+
+/* ダークモード */
+[data-theme='dark'] {
+  --ifm-color-primary: #64b5f6;
+  --ifm-color-primary-dark: #42a5f5;
+  --ifm-color-primary-darker: #2196f3;
+  --ifm-color-primary-darkest: #1e88e5;
+  --ifm-color-primary-light: #90caf9;
+  --ifm-color-primary-lighter: #bbdefb;
+  --ifm-color-primary-lightest: #e3f2fd;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* 授業資料用の追加スタイル */
+
+/* 読みやすい行間とフォントサイズ */
+.markdown {
+  line-height: 1.7;
+}
+
+/* コードブロックの見た目を改善 */
+.prism-code {
+  font-size: 14px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 小テストと演習のスタイル */
+details {
+  margin: 1rem 0;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  background: var(--ifm-background-surface-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+details summary {
+  padding: 1rem;
+  cursor: pointer;
+  background: var(--ifm-color-emphasis-100);
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+  user-select: none;
+  transition: background-color 0.2s ease;
+  list-style: none;
+  text-indent: 0;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary::marker {
+  content: '';
+}
+
+details summary::before {
+  content: '▶ ';
+  margin-right: 0;
+}
+
+details[open] summary::before {
+  content: '▼ ';
+}
+
+
+
+details summary:hover {
+  background: var(--ifm-color-emphasis-200);
+}
+
+details[open] summary {
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+}
+
+details .details-content {
+  padding: 1rem;
+}
+
+/* detailsの中身のコンテンツを適切にラップ */
+details > *:not(summary) {
+  padding: 1rem;
+}
+
+/* ダウンロードリンクのスタイル */
+a[href$=".txt"], a[href$=".html"] {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background: var(--ifm-color-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  margin: 0.5rem 0;
+  transition: background-color 0.2s ease;
+}
+
+a[href$=".txt"]:hover, a[href$=".html"]:hover {
+  background: var(--ifm-color-primary-dark);
+  text-decoration: none;
+  color: white;
+}
+
+a[href$=".txt"]::before {
+  content: "📄 ";
+  margin-right: 0.5rem;
+}
+
+a[href$=".html"]::before {
+  content: "📝 ";
+  margin-right: 0.5rem;
+}
+
+/* 見出しのスタイル改善 */
+.markdown h1 {
+  border-bottom: 3px solid var(--ifm-color-primary);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.markdown h2 {
+  border-bottom: 2px solid var(--ifm-color-emphasis-200);
+  padding-bottom: 0.3rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.markdown h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: var(--ifm-color-primary);
+}
+
+/* 強調表示の改善 */
+.markdown strong {
+  color: var(--ifm-color-primary);
+  font-weight: 700;
+}
+
+/* 小テストの番号付きリストのスタイル */
+.markdown ol > li {
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+}
+
+.markdown ul > li {
+  margin-bottom: 0.5rem;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  :root {
+    --ifm-font-size-base: 15px;
+    --ifm-spacing-horizontal: 1rem;
+  }
+  
+  details summary {
+    padding: 0.8rem;
+    font-size: 14px;
+  }
+  
+  details > div {
+    padding: 0.8rem;
+  }
+}
