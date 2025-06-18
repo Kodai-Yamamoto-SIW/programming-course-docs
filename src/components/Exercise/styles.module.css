@@ -1,0 +1,161 @@
+/* 解答セクションのスタイル（Docusaurusの標準details/summaryを模倣） */
+.exerciseSolution {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-border-radius);
+  padding: var(--ifm-alert-padding-vertical) var(--ifm-alert-padding-horizontal);
+  margin: var(--ifm-spacing-vertical) 0;
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.exerciseSolution>summary {
+  font-weight: var(--ifm-font-weight-bold);
+  color: var(--ifm-color-primary-dark);
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+  outline: none;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.exerciseSolution>summary::-webkit-details-marker {
+  display: none;
+}
+
+.exerciseSolution>summary::before {
+  content: '▶';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--ifm-color-primary);
+  font-size: 0.8em;
+  transition: transform 0.2s ease;
+}
+
+.exerciseSolution[open]>summary::before {
+  transform: rotate(90deg);
+}
+
+[data-theme='dark'] .exerciseSolution>summary {
+  color: var(--ifm-color-primary-light);
+}
+
+.exerciseSolution>summary:hover {
+  color: var(--ifm-color-primary);
+}
+
+.exerciseSolutionContent {
+  /* CSS Only Animation (一部のブラウザーのみ対応) */
+  margin-top: var(--ifm-spacing-vertical);
+  padding-top: var(--ifm-spacing-vertical);
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.exerciseSolution::details-content {
+  transition: height 306ms ease-in-out,
+    content-visibility 306ms allow-discrete;
+  interpolate-size: allow-keywords;
+  overflow: hidden;
+  height: 0;
+}
+
+.exerciseSolution[open]::details-content {
+  height: auto;
+}
+
+/* 演習セクション全体のスタイル */
+.exerciseSection {
+  background: linear-gradient(135deg, #f0f7ff 0%, #e6f3ff 100%);
+  border: 2px solid var(--ifm-color-primary-light);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 4px 12px rgba(25, 118, 210, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme='dark'] .exerciseSection {
+  background: linear-gradient(135deg, #1a2332 0%, #253140 100%);
+  border-color: var(--ifm-color-primary-darker);
+  box-shadow: 0 4px 12px rgba(100, 181, 246, 0.15);
+}
+
+/* 演習セクションの左側のアクセント */
+.exerciseSection::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: linear-gradient(180deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-light) 100%);
+}
+
+/* 演習タイトルのスタイル */
+.exerciseSection h3,
+.exerciseSection h4 {
+  color: var(--ifm-color-primary-dark);
+  font-weight: 700;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+[data-theme='dark'] .exerciseSection h3,
+[data-theme='dark'] .exerciseSection h4 {
+  color: var(--ifm-color-primary-light);
+}
+
+/* 演習タイトルにアイコンを追加 */
+.exerciseSection h3::before,
+.exerciseSection h4::before {
+  content: "💪";
+  margin-right: 0.8rem;
+  font-size: 1.2em;
+}
+
+/* 演習内のコードブロックのスタイル */
+.exerciseSection .prism-code {
+  border: 1px solid var(--ifm-color-primary-lighter);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme='dark'] .exerciseSection .prism-code {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: var(--ifm-color-primary-darker);
+}
+
+/* 演習内のリストのスタイル */
+.exerciseSection ol,
+.exerciseSection ul {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+}
+
+[data-theme='dark'] .exerciseSection ol,
+[data-theme='dark'] .exerciseSection ul {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* 演習内のステップ番号のスタイル */
+.exerciseSection ol>li {
+  font-weight: 600;
+  color: var(--ifm-color-primary-dark);
+  margin-bottom: 1rem;
+}
+
+[data-theme='dark'] .exerciseSection ol>li {
+  color: var(--ifm-color-primary-light);
+}
+
+/* 解答セクションのスタイル */
+.exerciseSolution {
+  margin-top: 1.5rem;
+}

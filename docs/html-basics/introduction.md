@@ -2,6 +2,8 @@
 sidebar_position: 1
 ---
 
+import Exercise, { Solution } from '@site/src/components/Exercise';
+
 # HTMLの基本を知ろう！
 
 ## HTML/CSS
@@ -68,13 +70,13 @@ CSSはWebページの見た目を整えるための言語です。
 </head>
 ```
 
-### 演習1
+<Exercise title="演習1">
+
 - 自分の名前を `<h1>` で表示しよう
 - 自己紹介（出身地、趣味など）を `<p>` に書こう
 - `<style>` を使って見出しを好きな色にしよう
 
-<details>
-<summary>解答を表示</summary>
+<Solution>
 
 ```html
 <!DOCTYPE html>
@@ -97,7 +99,9 @@ CSSはWebページの見た目を整えるための言語です。
 </html>
 ```
 
-</details>
+</Solution>
+
+</Exercise>
 
 ---
 

@@ -1,3 +1,5 @@
+import Exercise, { Solution } from '@site/src/components/Exercise';
+
 # HTMLの基本構造を学ぼう！
 
 ## HTMLの基本構造
@@ -62,7 +64,8 @@
 - 要素：`<html lang="ja">`から`</html>`まで
 - 属性：`lang="ja"`
 
-### 演習1
+<Exercise title="演習1">
+
 以下のHTMLの各要素について、要素名と属性を答えてください。複数の属性がある場合は、すべての属性を答えてください：
    - 要素名（例：`a`）
    - 属性（例：`href="https://example.com"`）
@@ -73,8 +76,7 @@
 <a href="https://example.com" target="_blank">サンプルリンク</a>
 ```
 
-<details>
-<summary>解答を表示</summary>
+<Solution>
 
 ```
 1. 要素名: h1
@@ -85,9 +87,12 @@
    属性：href="https://example.com" と target="_blank"
 ```
 
-</details>
+</Solution>
 
-### 演習1-発展
+</Exercise>
+
+<Exercise title="演習1-発展">
+
 以下のHTMLの各要素について、要素名と属性を答えてください。複数の属性がある場合は、すべての属性を答えてください：
 ```html
 <div class="container">
@@ -97,8 +102,7 @@
 </div>
 ```
 
-<details>
-<summary>解答を表示</summary>
+<Solution>
 
 ```
 1. 要素名: div
@@ -111,7 +115,9 @@
    属性：href="https://example.com" と target="_blank" と rel="noopener"
 ```
 
-</details>
+</Solution>
+
+</Exercise>
 
 ---
 
@@ -144,7 +150,8 @@
 2. 親要素の開始タグ → 子要素の開始タグ → 子要素の終了タグ → 親要素の終了タグ
 3. タグの対応関係を明確にする
 
-### 演習2
+<Exercise title="演習2">
+
 以下のHTMLには入れ子構造の誤りがあります。誤りを修正してください：
 
 ```html
@@ -158,8 +165,7 @@
 </div>
 ```
 
-<details>
-<summary>解答を表示</summary>
+<Solution>
 
 ```html
 <!-- 演習2の解答 -->
@@ -174,12 +180,15 @@
 <!-- 修正箇所の説明 -->
 <!--
 - <p>タグの終了タグが<div>タグの外にあったため、<div>タグの内側に移動しました。
---> 
+-->
 ```
 
-</details>
+</Solution>
 
-### 演習2-発展
+</Exercise>
+
+<Exercise title="演習2-発展">
+
 以下のHTMLには複数の誤りがあります。すべての誤りを修正してください：
 ```html
 <div>
@@ -199,8 +208,7 @@
 </div>
 ```
 
-<details>
-<summary>解答を表示</summary>
+<Solution>
 
 ```html
 <!-- 演習2-発展の解答 -->
@@ -224,10 +232,12 @@
 1. <li>タグの終了タグが2箇所欠落していたため、追加しました。
 2. <p>タグの終了タグが2箇所欠落していたため、追加しました。
 3. 余分な<h2>タグの終了タグが<div>タグの外にあったため、削除しました。
---> 
+-->
 ```
 
-</details>
+</Solution>
+
+</Exercise>
 
 ---
 
@@ -260,7 +270,8 @@
 -->
 ```
 
-### 演習3
+<Exercise title="演習3">
+
 1. 以下のHTMLに、セクションの区切りを示すコメントを追加してください：
    ```html
    <h1>自己紹介</h1>
@@ -273,10 +284,9 @@
    ```
 2. 趣味の段落をコメントにして一時的に無効化してください。
 
-<details>
-<summary>解答を表示</summary>
+<Solution>
 
-**解答1（コメント追加）：**
+解答1（コメント追加）：
 ```html
 <!-- 基本情報 -->
 <h1>自己紹介</h1>
@@ -292,7 +302,7 @@
 <p>〇〇株式会社 システム開発部</p>
 ```
 
-**解答2（趣味の段落を無効化）：**
+解答2（趣味の段落を無効化）：
 ```html
 <h1>自己紹介</h1>
 <p>名前：山田太郎</p>
@@ -300,10 +310,12 @@
 <h2>学歴</h2>
 <p>〇〇大学 情報学部</p>
 <h2>職歴</h2>
-<p>〇〇株式会社 システム開発部</p> 
+<p>〇〇株式会社 システム開発部</p>
 ```
 
-</details>
+</Solution>
+
+</Exercise>
 
 ---
 
