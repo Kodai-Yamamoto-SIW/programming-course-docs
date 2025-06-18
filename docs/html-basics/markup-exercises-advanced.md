@@ -207,4 +207,12 @@ sidebar_position: 7
 
 ---
 
+## 📥 完成形のダウンロード
+
+授業終了時点での完成形ファイルをダウンロードできます：
+
+[markup-exercises-advanced-complete.zip](@site/static/files/markup-exercises-advanced-complete.zip)
+
+---
+
 👋 おつかれさまでした！

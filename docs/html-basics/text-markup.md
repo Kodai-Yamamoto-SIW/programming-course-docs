@@ -9,6 +9,24 @@
 - `<small>`：補足説明などを小さい文字で表示するタグ
 - `<img>`：画像を埋め込むタグ（`src`、`alt`属性）
 
+### 演習用画像のダウンロード
+
+演習で使用する画像ファイルをダウンロードしてください：
+
+- [picnic.jpgをダウンロード](@site/static/files/picnic.jpg)
+- [park_map.jpgをダウンロード](@site/static/files/park_map.jpg)
+
+**重要**: ダウンロードした画像ファイルは、HTMLファイルと同じフォルダ内に`images`フォルダを作成し、その中に保存してください。
+
+**フォルダ構成例**:
+```
+作業フォルダ/
+├── index.html
+└── images/
+    ├── picnic.jpg
+    └── park_map.jpg
+```
+
 ### マークアップの手順
 
 #### 1. `<br>`タグを学習・マークアップ
@@ -102,6 +120,14 @@
 <!-- 修正後 -->
     <img src="images/park_map.jpg" alt="公園の地図画像">
 ```
+
+---
+
+## 📥 完成形のダウンロード
+
+授業終了時点での完成形ファイルをダウンロードできます：
+
+[text-markup-complete.zip](@site/static/files/text-markup-complete.zip)
 
 ---
 

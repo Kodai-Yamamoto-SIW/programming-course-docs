@@ -49,7 +49,7 @@
 }
 
 /* ダウンロードリンクのスタイル */
-a[href$=".txt"], a[href$=".html"] {
+a[href*="."] {
   display: inline-flex;
   align-items: center;
   padding: 0.5rem 1rem;
@@ -62,7 +62,7 @@ a[href$=".txt"], a[href$=".html"] {
   transition: background-color 0.2s ease;
 }
 
-a[href$=".txt"]:hover, a[href$=".html"]:hover {
+a[href*="."]:hover {
   background: var(--ifm-color-primary-dark);
   text-decoration: none;
   color: white;
@@ -75,6 +75,16 @@ a[href$=".txt"]::before {
 
 a[href$=".html"]::before {
   content: "📝 ";
+  margin-right: 0.5rem;
+}
+
+a[href$=".css"]::before {
+  content: "🎨 ";
+  margin-right: 0.5rem;
+}
+
+a[href$=".zip"]::before {
+  content: "📦 ";
   margin-right: 0.5rem;
 }
 
