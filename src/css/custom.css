@@ -48,64 +48,6 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* 小テストと演習のスタイル */
-details {
-  margin: 1rem 0;
-  border: 1px solid var(--ifm-color-emphasis-200);
-  border-radius: 8px;
-  background: var(--ifm-background-surface-color);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  overflow: hidden;
-}
-
-details summary {
-  padding: 1rem;
-  cursor: pointer;
-  background: var(--ifm-color-emphasis-100);
-  font-weight: 600;
-  color: var(--ifm-color-primary);
-  user-select: none;
-  transition: background-color 0.2s ease;
-  list-style: none;
-  text-indent: 0;
-}
-
-details summary::-webkit-details-marker {
-  display: none;
-}
-
-details summary::marker {
-  content: '';
-}
-
-details summary::before {
-  content: '▶ ';
-  margin-right: 0;
-}
-
-details[open] summary::before {
-  content: '▼ ';
-}
-
-
-
-details summary:hover {
-  background: var(--ifm-color-emphasis-200);
-}
-
-details[open] summary {
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
-}
-
-details .details-content {
-  padding: 1rem;
-}
-
-/* detailsの中身のコンテンツを適切にラップ */
-details > *:not(summary) {
-  padding: 1rem;
-}
-
 /* ダウンロードリンクのスタイル */
 a[href$=".txt"], a[href$=".html"] {
   display: inline-flex;
@@ -177,14 +119,5 @@ a[href$=".html"]::before {
   :root {
     --ifm-font-size-base: 15px;
     --ifm-spacing-horizontal: 1rem;
-  }
-  
-  details summary {
-    padding: 0.8rem;
-    font-size: 14px;
-  }
-  
-  details > div {
-    padding: 0.8rem;
   }
 }
