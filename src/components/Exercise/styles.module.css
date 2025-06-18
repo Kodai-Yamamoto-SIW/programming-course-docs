@@ -12,7 +12,6 @@
   font-weight: var(--ifm-font-weight-bold);
   color: var(--ifm-color-primary-dark);
   cursor: pointer;
-  user-select: none;
   margin-bottom: 0;
   padding: 0;
   list-style: none;
