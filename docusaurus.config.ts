@@ -46,8 +46,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/Kodai-Yamamoto-SIW/programming-course-docs/tree/master/',
+          editUrl: undefined,
         },
         blog: false, // ブログ機能を無効化
         pages: {
