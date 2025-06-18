@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'プログラミング演習Ⅰ',
+  title: 'プログラミング演習',
   tagline: 'HTML・CSSの基礎から実践まで',
   favicon: 'img/favicon.ico',
 
@@ -58,7 +58,7 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'プログラミング演習Ⅰ',
+      title: 'プログラミング演習',
       logo: {
         alt: 'Site Logo',
         src: 'img/logo.svg',
@@ -81,15 +81,6 @@ const config: Config = {
             {
               label: 'HTML基礎',
               to: '/docs/html-basics/introduction',
-            },
-          ],
-        },
-        {
-          title: '授業について',
-          items: [
-            {
-              label: '授業資料ダウンロード',
-              href: '/files/',
             },
           ],
         },
