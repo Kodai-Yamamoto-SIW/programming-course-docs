@@ -15,15 +15,17 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://kodai-yamamoto-siw.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/programming-course-docs/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'Kodai-Yamamoto-SIW', // Usually your GitHub org/user name.
+  projectName: 'programming-course-docs', // Usually your repo name.
+  deploymentBranch: 'gh-pages',
+  trailingSlash: false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -44,9 +46,14 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: undefined,
+          editUrl:
+            'https://github.com/Kodai-Yamamoto-SIW/programming-course-docs/tree/master/',
         },
         blog: false, // ブログ機能を無効化
+        pages: {
+          path: 'src/pages',
+          routeBasePath: '/',
+        },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -60,15 +67,20 @@ const config: Config = {
     navbar: {
       title: 'プログラミング演習',
       logo: {
-        alt: 'Site Logo',
+        alt: 'プログラミング演習 Logo',
         src: 'img/logo.svg',
       },
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'mainSidebar',
           position: 'left',
           label: '学習内容',
+        },
+        {
+          href: 'https://github.com/Kodai-Yamamoto-SIW/programming-course-docs',
+          label: 'GitHub',
+          position: 'right',
         },
       ],
     },
