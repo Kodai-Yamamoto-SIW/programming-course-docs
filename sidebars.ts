@@ -36,6 +36,14 @@ const sidebars: SidebarsConfig = {
         },
       ],
     },
+    {
+      type: 'category',
+      label: '🎨 CSS基礎',
+      collapsed: false,
+      items: [
+        'css-basics/css-introduction',
+      ],
+    },
   ],
 };
 
