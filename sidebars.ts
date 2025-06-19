@@ -42,6 +42,7 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       items: [
         'css-basics/css-introduction',
+        'css-basics/css-units',
       ],
     },
   ],
