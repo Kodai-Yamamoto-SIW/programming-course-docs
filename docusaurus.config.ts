@@ -100,6 +100,10 @@ const config: Config = {
               label: 'HTML基礎',
               to: '/docs/html-basics/introduction',
             },
+            {
+              label: 'CSS基礎',
+              to: '/docs/css-basics/css-introduction',
+            },
           ],
         },
       ],
