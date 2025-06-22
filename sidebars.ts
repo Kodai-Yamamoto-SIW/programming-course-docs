@@ -43,6 +43,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'css-basics/css-introduction',
         'css-basics/css-units',
+        'css-basics/css-styling-basics',
       ],
     },
   ],

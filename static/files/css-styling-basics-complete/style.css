@@ -1,0 +1,42 @@
+/* 基本設定 */
+body {
+    color: rgb(51, 51, 51);
+    background-color: #f0fff0;
+}
+
+/* ヘッダー */
+header {
+    background-color: #ffffff;
+}
+
+header h1 {
+    color: #2e8b57;
+}
+
+header nav li a {
+    color: #2e8b57;
+}
+
+/* メインコンテンツ */
+section {
+    background-color: #ffffff;
+}
+
+section h2 {
+    color: #2e8b57;
+}
+
+section h3 {
+    color: #2e8b57;
+}
+
+/* リンク */
+a {
+    color: #2e8b57;
+}
+
+/* フッター */
+footer {
+    background-color: #2e8b57;
+    color: white;
+} 
