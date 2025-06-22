@@ -69,6 +69,7 @@ const config: Config = {
         alt: 'プログラミング演習 Logo',
         src: 'img/logo.svg',
       },
+      hideOnScroll: false, // スクロール時にナビバーを隠さない
       items: [
         {
           type: 'docSidebar',
@@ -82,6 +83,12 @@ const config: Config = {
           position: 'right',
         },
       ],
+    },
+    docs: {
+      sidebar: {
+        hideable: true, // サイドバーを隠せるようにする
+        autoCollapseCategories: false, // カテゴリの自動折りたたみを無効
+      },
     },
     footer: {
       style: 'dark',

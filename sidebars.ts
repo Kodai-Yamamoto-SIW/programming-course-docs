@@ -18,7 +18,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: '📚 HTML基礎',
-      collapsed: false,
+      collapsed: true,
       items: [
         'html-basics/introduction',
         'html-basics/structure',
@@ -28,7 +28,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: '💪 実践演習',
-          collapsed: false,
+          collapsed: true,
           items: [
             'html-basics/markup-exercises',
             'html-basics/markup-exercises-advanced',
@@ -39,7 +39,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: '🎨 CSS基礎',
-      collapsed: false,
+      collapsed: true,
       items: [
         'css-basics/css-introduction',
         'css-basics/css-units',
