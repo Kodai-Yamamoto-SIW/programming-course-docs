@@ -390,34 +390,69 @@ export default function CodePreview({
     if (isUpdatingHtml.current) return; // 再帰的な更新を防ぐ
     
     const element = e.currentTarget;
-    let newValue = element.innerText || ''; // innerTextは改行を\nで返す
-    const originalValue = newValue;
     
-    // 最後に改行を追加
-    newValue = ensureTrailingNewline(newValue);
+    // innerTextではなく、DOM構造から正確なテキストを抽出
+    const extractTextFromElement = (element: HTMLElement): string => {
+      let text = '';
+      for (let i = 0; i < element.childNodes.length; i++) {
+        const node = element.childNodes[i];
+        if (node.nodeType === Node.TEXT_NODE) {
+          text += node.textContent || '';
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+          const el = node as HTMLElement;
+          if (el.tagName === 'DIV') {
+            if (el.innerHTML === '<br>') {
+              text += '\n';
+            } else {
+              text += el.textContent || '';
+              text += '\n';
+            }
+          } else if (el.tagName === 'BR') {
+            text += '\n';
+          } else {
+            text += el.textContent || '';
+          }
+        }
+      }
+      return text;
+    };
+
+    let newValue = extractTextFromElement(element);
     
+    // 末尾の余分な改行を削除（最後のdivによる自動改行を除去）
+    if (newValue.endsWith('\n\n')) {
+      newValue = newValue.slice(0, -1);
+    }
+
     // カーソル位置を保存
     htmlCursorPosition.current = getCursorPosition(element);
     
-    // 改行が追加された場合、DOM要素も更新
-    if (originalValue !== newValue) {
-      ensureTrailingNewlineInEditor(element, newValue);
-      // カーソル位置を改行追加前の位置に戻す
-      if (htmlCursorPosition.current) {
-        setTimeout(() => {
-          if (htmlCursorPosition.current) {
-            setCursorPosition(element, htmlCursorPosition.current);
-          }
-        }, 0);
-      }
+    // 変更前の内容と比較して、適切なカーソル位置を計算
+    const originalValue = htmlCode;
+    const addedTrailingNewline = newValue.trim() !== '' && !newValue.endsWith('\n');
+    
+    // 文末に改行を自動追加（ただし、空欄または既に改行で終わっている場合は追加しない）
+    if (addedTrailingNewline) {
+      newValue = newValue + '\n';
     }
     
-    // フラグを設定して再レンダリングを一時的に抑制
+    // React stateを更新
     isUpdatingHtml.current = true;
     setHtmlCode(newValue);
     
-    // 次のレンダリングサイクル後にフラグをリセット
+    // DOM要素を更新（必要な場合のみ）
     setTimeout(() => {
+      if (addedTrailingNewline) {
+        // 自動で末尾改行が追加された場合のみDOM操作を行う
+        ensureTrailingNewlineInEditor(element, newValue);
+        
+        // 元のカーソル位置を復元
+        if (htmlCursorPosition.current) {
+          setCursorPosition(element, htmlCursorPosition.current);
+        }
+      }
+      // それ以外の場合（通常の入力や改行入力）は、DOM操作を行わずブラウザの自然な動作に任せる
+      
       isUpdatingHtml.current = false;
     }, 0);
   };
@@ -426,34 +461,69 @@ export default function CodePreview({
     if (isUpdatingCss.current) return; // 再帰的な更新を防ぐ
     
     const element = e.currentTarget;
-    let newValue = element.innerText || ''; // innerTextは改行を\nで返す
-    const originalValue = newValue;
     
-    // 最後に改行を追加
-    newValue = ensureTrailingNewline(newValue);
+    // innerTextではなく、DOM構造から正確なテキストを抽出
+    const extractTextFromElement = (element: HTMLElement): string => {
+      let text = '';
+      for (let i = 0; i < element.childNodes.length; i++) {
+        const node = element.childNodes[i];
+        if (node.nodeType === Node.TEXT_NODE) {
+          text += node.textContent || '';
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+          const el = node as HTMLElement;
+          if (el.tagName === 'DIV') {
+            if (el.innerHTML === '<br>') {
+              text += '\n';
+            } else {
+              text += el.textContent || '';
+              text += '\n';
+            }
+          } else if (el.tagName === 'BR') {
+            text += '\n';
+          } else {
+            text += el.textContent || '';
+          }
+        }
+      }
+      return text;
+    };
+
+    let newValue = extractTextFromElement(element);
+    
+    // 末尾の余分な改行を削除（最後のdivによる自動改行を除去）
+    if (newValue.endsWith('\n\n')) {
+      newValue = newValue.slice(0, -1);
+    }
     
     // カーソル位置を保存
     cssCursorPosition.current = getCursorPosition(element);
     
-    // 改行が追加された場合、DOM要素も更新
-    if (originalValue !== newValue) {
-      ensureTrailingNewlineInEditor(element, newValue);
-      // カーソル位置を改行追加前の位置に戻す
-      if (cssCursorPosition.current) {
-        setTimeout(() => {
-          if (cssCursorPosition.current) {
-            setCursorPosition(element, cssCursorPosition.current);
-          }
-        }, 0);
-      }
+    // 変更前の内容と比較して、適切なカーソル位置を計算
+    const originalValue = cssCode;
+    const addedTrailingNewline = newValue.trim() !== '' && !newValue.endsWith('\n');
+    
+    // 文末に改行を自動追加（ただし、空欄または既に改行で終わっている場合は追加しない）
+    if (addedTrailingNewline) {
+      newValue = newValue + '\n';
     }
     
-    // フラグを設定して再レンダリングを一時的に抑制
+    // React stateを更新
     isUpdatingCss.current = true;
     setCssCode(newValue);
     
-    // 次のレンダリングサイクル後にフラグをリセット
+    // DOM要素を更新（必要な場合のみ）
     setTimeout(() => {
+      if (addedTrailingNewline) {
+        // 自動で末尾改行が追加された場合のみDOM操作を行う
+        ensureTrailingNewlineInEditor(element, newValue);
+        
+        // 元のカーソル位置を復元
+        if (cssCursorPosition.current) {
+          setCursorPosition(element, cssCursorPosition.current);
+        }
+      }
+      // それ以外の場合（通常の入力や改行入力）は、DOM操作を行わずブラウザの自然な動作に任せる
+      
       isUpdatingCss.current = false;
     }, 0);
   };
