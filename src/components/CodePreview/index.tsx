@@ -22,9 +22,13 @@ export default function CodePreview({
   const [htmlCode, setHtmlCode] = useState(initialCode);
   const [cssCode, setCssCode] = useState(initialCSS || '');
   const [previewHeight, setPreviewHeight] = useState('200px');
-  const htmlTextareaRef = useRef<HTMLTextAreaElement>(null);
-  const cssTextareaRef = useRef<HTMLTextAreaElement>(null);
+  const htmlEditorRef = useRef<HTMLDivElement>(null);
+  const cssEditorRef = useRef<HTMLDivElement>(null);
+  const htmlCursorPosition = useRef<{ start: number; end: number } | null>(null);
+  const cssCursorPosition = useRef<{ start: number; end: number } | null>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+
+
   const { colorMode } = useColorMode();
 
   // useBaseUrlは常に呼び出す必要がある
@@ -32,6 +36,90 @@ export default function CodePreview({
 
   // CSSエディタを表示するかどうかを判定
   const showCSSEditor = initialCSS !== undefined;
+
+  // カーソル位置を取得する関数
+  const getCursorPosition = (element: HTMLElement): { start: number; end: number } => {
+    try {
+      const selection = window.getSelection();
+      if (!selection || selection.rangeCount === 0 || !element) {
+        return { start: 0, end: 0 };
+      }
+
+      const range = selection.getRangeAt(0);
+      
+      // 選択範囲がエディタ要素内にあるかチェック
+      if (!element.contains(range.commonAncestorContainer)) {
+        return { start: 0, end: 0 };
+      }
+
+      const preCaretRange = range.cloneRange();
+      preCaretRange.selectNodeContents(element);
+      preCaretRange.setEnd(range.startContainer, range.startOffset);
+      const start = preCaretRange.toString().length;
+
+      const preCaretRangeEnd = range.cloneRange();
+      preCaretRangeEnd.selectNodeContents(element);
+      preCaretRangeEnd.setEnd(range.endContainer, range.endOffset);
+      const end = preCaretRangeEnd.toString().length;
+
+      return { start, end };
+    } catch (error) {
+      console.warn('カーソル位置取得エラー:', error);
+      return { start: 0, end: 0 };
+    }
+  };
+
+  // カーソル位置を設定する関数
+  const setCursorPosition = (element: HTMLElement, position: { start: number; end: number }) => {
+    try {
+      const selection = window.getSelection();
+      if (!selection || !element) return;
+
+      const range = document.createRange();
+      let currentOffset = 0;
+      let startNode: Node | null = null;
+      let endNode: Node | null = null;
+      let startOffset = 0;
+      let endOffset = 0;
+
+      const walker = document.createTreeWalker(
+        element,
+        NodeFilter.SHOW_TEXT,
+        null
+      );
+
+      let node: Node | null;
+      while ((node = walker.nextNode())) {
+        const nodeLength = node.textContent?.length || 0;
+        
+        if (!startNode && currentOffset + nodeLength >= position.start) {
+          startNode = node;
+          startOffset = Math.min(position.start - currentOffset, nodeLength);
+        }
+        
+        if (!endNode && currentOffset + nodeLength >= position.end) {
+          endNode = node;
+          endOffset = Math.min(position.end - currentOffset, nodeLength);
+          break;
+        }
+        
+        currentOffset += nodeLength;
+      }
+
+      if (startNode && endNode) {
+        range.setStart(startNode, Math.max(0, startOffset));
+        range.setEnd(endNode, Math.max(0, endOffset));
+        selection.removeAllRanges();
+        selection.addRange(range);
+      }
+    } catch (error) {
+      console.warn('カーソル位置設定エラー:', error);
+    }
+  };
+
+
+
+
 
   // iframeの高さを内容に合わせて調整
   const adjustIframeHeight = () => {
@@ -103,20 +191,72 @@ export default function CodePreview({
     }
   }, [htmlCode, cssCode, minHeight]);
 
-  // textareaとハイライト要素のスクロール同期
+  // 初期値を設定
+  useEffect(() => {
+    const htmlEditor = htmlEditorRef.current;
+    if (htmlEditor && htmlEditor.innerText !== htmlCode) {
+      htmlEditor.innerText = htmlCode;
+    }
+  }, []);
+
+  useEffect(() => {
+    const cssEditor = cssEditorRef.current;
+    if (cssEditor && showCSSEditor && cssEditor.innerText !== cssCode) {
+      cssEditor.innerText = cssCode;
+    }
+  }, [showCSSEditor]);
+
+
+
+
+
+  // エディターとハイライト要素のスクロール同期
   const handleHtmlScroll = () => {
-    const highlightElement = document.querySelector(`.${styles.htmlHighlightLayer}`);
-    if (htmlTextareaRef.current && highlightElement) {
-      (highlightElement as HTMLElement).scrollTop = htmlTextareaRef.current.scrollTop;
-      (highlightElement as HTMLElement).scrollLeft = htmlTextareaRef.current.scrollLeft;
+    const editor = htmlEditorRef.current;
+    if (!editor) return;
+    
+    // 直接親要素内のハイライト要素を探す
+    const wrapper = editor.parentElement;
+    const highlightElement = wrapper?.querySelector('pre');
+    
+    console.log('HTML Scroll:', {
+      scrollTop: editor.scrollTop,
+      scrollLeft: editor.scrollLeft,
+      scrollWidth: editor.scrollWidth,
+      clientWidth: editor.clientWidth,
+      maxScrollLeft: editor.scrollWidth - editor.clientWidth,
+      highlightElement: !!highlightElement
+    });
+    
+    if (highlightElement) {
+      const scrollTop = editor.scrollTop;
+      const scrollLeft = editor.scrollLeft;
+      
+      // ハイライト要素をtransformで移動させる
+      (highlightElement as HTMLElement).style.transform = `translate(-${scrollLeft}px, -${scrollTop}px)`;
     }
   };
 
   const handleCssScroll = () => {
-    const highlightElement = document.querySelector(`.${styles.cssHighlightLayer}`);
-    if (cssTextareaRef.current && highlightElement) {
-      (highlightElement as HTMLElement).scrollTop = cssTextareaRef.current.scrollTop;
-      (highlightElement as HTMLElement).scrollLeft = cssTextareaRef.current.scrollLeft;
+    const editor = cssEditorRef.current;
+    if (!editor) return;
+    
+    // 直接親要素内のハイライト要素を探す
+    const wrapper = editor.parentElement;
+    const highlightElement = wrapper?.querySelector('pre');
+    
+    console.log('CSS Scroll:', {
+      scrollTop: editor.scrollTop,
+      scrollLeft: editor.scrollLeft,
+      highlightElement: !!highlightElement
+    });
+    
+    if (highlightElement) {
+      const scrollTop = editor.scrollTop;
+      const scrollLeft = editor.scrollLeft;
+      
+      // ハイライト要素をtransformで移動させる
+      (highlightElement as HTMLElement).style.transform = `translate(-${scrollLeft}px, -${scrollTop}px)`;
     }
   };
 
@@ -198,66 +338,72 @@ export default function CodePreview({
     }
   };
 
-  const handleHtmlCodeChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setHtmlCode(e.target.value);
+  const isUpdatingHtml = useRef(false);
+  const isUpdatingCss = useRef(false);
+
+  const handleHtmlInput = (e: React.FormEvent<HTMLDivElement>) => {
+    if (isUpdatingHtml.current) return; // 再帰的な更新を防ぐ
+    
+    const element = e.currentTarget;
+    const newValue = element.innerText || ''; // innerTextは改行を\nで返す
+    
+    // カーソル位置を保存
+    htmlCursorPosition.current = getCursorPosition(element);
+    
+    // フラグを設定して再レンダリングを一時的に抑制
+    isUpdatingHtml.current = true;
+    setHtmlCode(newValue);
+    
+    // 次のレンダリングサイクル後にフラグをリセット
+    setTimeout(() => {
+      isUpdatingHtml.current = false;
+    }, 0);
   };
 
-  const handleCssCodeChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setCssCode(e.target.value);
+  const handleCssInput = (e: React.FormEvent<HTMLDivElement>) => {
+    if (isUpdatingCss.current) return; // 再帰的な更新を防ぐ
+    
+    const element = e.currentTarget;
+    const newValue = element.innerText || ''; // innerTextは改行を\nで返す
+    
+    // カーソル位置を保存
+    cssCursorPosition.current = getCursorPosition(element);
+    
+    // フラグを設定して再レンダリングを一時的に抑制
+    isUpdatingCss.current = true;
+    setCssCode(newValue);
+    
+    // 次のレンダリングサイクル後にフラグをリセット
+    setTimeout(() => {
+      isUpdatingCss.current = false;
+    }, 0);
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>, setter: React.Dispatch<React.SetStateAction<string>>) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     // Tabキーでインデント操作
     if (e.key === 'Tab') {
       e.preventDefault();
-      const textarea = e.currentTarget;
-      const start = textarea.selectionStart;
-      const end = textarea.selectionEnd;
-      const value = textarea.value;
+      
+      const selection = window.getSelection();
+      if (!selection || selection.rangeCount === 0) return;
+      
+      const range = selection.getRangeAt(0);
       
       if (e.shiftKey) {
-        // Shift+Tab: インデントを減らす
-        const beforeCursor = value.substring(0, start);
-        const afterCursor = value.substring(end);
-        const currentLineStart = beforeCursor.lastIndexOf('\n') + 1;
-        const currentLine = value.substring(currentLineStart, value.indexOf('\n', start) === -1 ? value.length : value.indexOf('\n', start));
-        
-        let newLine = currentLine;
-        let removedChars = 0;
-        
-        // 行の先頭から2つのスペースまたは1つのタブを削除
-        if (currentLine.startsWith('  ')) {
-          newLine = currentLine.substring(2);
-          removedChars = 2;
-        } else if (currentLine.startsWith('\t')) {
-          newLine = currentLine.substring(1);
-          removedChars = 1;
-        } else if (currentLine.startsWith(' ')) {
-          newLine = currentLine.substring(1);
-          removedChars = 1;
-        }
-        
-        if (removedChars > 0) {
-          const newValue = value.substring(0, currentLineStart) + newLine + value.substring(currentLineStart + currentLine.length);
-          setter(newValue);
-          
-          // カーソル位置を調整
-          setTimeout(() => {
-            const newStart = Math.max(currentLineStart, start - removedChars);
-            const newEnd = Math.max(currentLineStart, end - removedChars);
-            textarea.selectionStart = newStart;
-            textarea.selectionEnd = newEnd;
-          }, 0);
-        }
+        // Shift+Tab: インデントを減らす（簡単な実装）
+        const textNode = document.createTextNode('');
+        range.insertNode(textNode);
       } else {
-        // Tab: インデントを追加
-        const newValue = value.substring(0, start) + '  ' + value.substring(end);
-        setter(newValue);
+        // Tab: 2つのスペースを挿入
+        const textNode = document.createTextNode('  ');
+        range.deleteContents();
+        range.insertNode(textNode);
         
-        // カーソル位置を調整
-        setTimeout(() => {
-          textarea.selectionStart = textarea.selectionEnd = start + 2;
-        }, 0);
+        // カーソルを挿入したテキストの後に移動
+        range.setStartAfter(textNode);
+        range.collapse(true);
+        selection.removeAllRanges();
+        selection.addRange(range);
       }
     }
   };
@@ -290,19 +436,21 @@ export default function CodePreview({
                         position: 'absolute',
                         top: 0,
                         left: 0,
-                        width: '100%',
+                        width: 'max-content',
+                        minWidth: '100%',
                         height: '100%',
-                        maxWidth: '100%',
                         minHeight: minHeight,
-                        padding: '1rem',
+                        padding: '1rem 1rem 1rem 1rem',
                         margin: 0,
                         border: 'none',
+                        borderRadius: '0',
+                        boxShadow: 'none',
                         fontFamily: 'var(--ifm-font-family-monospace)',
                         fontSize: '0.875rem',
                         lineHeight: '1.5',
                         whiteSpace: 'pre',
                         wordWrap: 'normal',
-                        overflow: 'auto',
+                        overflow: 'visible',
                         pointerEvents: 'none',
                         zIndex: 1,
                         boxSizing: 'border-box'
@@ -319,16 +467,17 @@ export default function CodePreview({
                   );
                 }}
               </Highlight>
-              <textarea
-                ref={htmlTextareaRef}
-                value={htmlCode}
-                onChange={handleHtmlCodeChange}
-                onKeyDown={(e) => handleKeyDown(e, setHtmlCode)}
+              <div
+                ref={htmlEditorRef}
+                contentEditable
+                onInput={handleHtmlInput}
+                onKeyDown={handleKeyDown}
                 onScroll={handleHtmlScroll}
                 className={styles.editor}
-                placeholder="HTMLコードを入力してください..."
                 spellCheck={false}
-                style={{ '--min-height': minHeight } as React.CSSProperties}
+                style={{ '--min-height': minHeight, whiteSpace: 'pre', wordWrap: 'normal' } as React.CSSProperties}
+                suppressContentEditableWarning={true}
+                data-placeholder="HTMLコードを入力してください..."
               />
             </div>
           </div>
@@ -354,19 +503,21 @@ export default function CodePreview({
                           position: 'absolute',
                           top: 0,
                           left: 0,
-                          width: '100%',
+                          width: 'max-content',
+                          minWidth: '100%',
                           height: '100%',
-                          maxWidth: '100%',
                           minHeight: minHeight,
-                          padding: '1rem',
+                          padding: '1rem 1rem 1rem 1rem',
                           margin: 0,
                           border: 'none',
+                          borderRadius: '0',
+                          boxShadow: 'none',
                           fontFamily: 'var(--ifm-font-family-monospace)',
                           fontSize: '0.875rem',
                           lineHeight: '1.5',
                           whiteSpace: 'pre',
                           wordWrap: 'normal',
-                          overflow: 'auto',
+                          overflow: 'visible',
                           pointerEvents: 'none',
                           zIndex: 1,
                           boxSizing: 'border-box'
@@ -383,16 +534,17 @@ export default function CodePreview({
                     );
                   }}
                 </Highlight>
-                <textarea
-                  ref={cssTextareaRef}
-                  value={cssCode}
-                  onChange={handleCssCodeChange}
-                  onKeyDown={(e) => handleKeyDown(e, setCssCode)}
+              <div
+                  ref={cssEditorRef}
+                  contentEditable
+                  onInput={handleCssInput}
+                  onKeyDown={handleKeyDown}
                   onScroll={handleCssScroll}
                   className={styles.editor}
-                  placeholder="CSSコードを入力してください..."
                   spellCheck={false}
-                  style={{ '--min-height': minHeight } as React.CSSProperties}
+                  style={{ '--min-height': minHeight, whiteSpace: 'pre', wordWrap: 'normal' } as React.CSSProperties}
+                  suppressContentEditableWarning={true}
+                  data-placeholder="CSSコードを入力してください..."
                 />
               </div>
             </div>
