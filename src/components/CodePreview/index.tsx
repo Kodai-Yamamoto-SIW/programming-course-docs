@@ -64,7 +64,7 @@ export default function CodePreview({
 
       return { start, end };
     } catch (error) {
-      console.warn('カーソル位置取得エラー:', error);
+      // エラー時は無言でデフォルト値を返す
       return { start: 0, end: 0 };
     }
   };
@@ -113,7 +113,7 @@ export default function CodePreview({
         selection.addRange(range);
       }
     } catch (error) {
-      console.warn('カーソル位置設定エラー:', error);
+      // エラー時は無言で終了
     }
   };
 
@@ -142,10 +142,10 @@ export default function CodePreview({
       const minHeightPx = parseInt(minHeight);
       const finalHeight = Math.max(height, minHeightPx);
       
-      console.log('計算した高さ:', height, '最終高さ:', finalHeight);
+
       setPreviewHeight(finalHeight + 'px');
     } catch (error) {
-      console.log('高さ調整エラー:', error);
+      // エラー時は無言で終了
     }
   };
 
@@ -194,15 +194,31 @@ export default function CodePreview({
   // 初期値を設定
   useEffect(() => {
     const htmlEditor = htmlEditorRef.current;
-    if (htmlEditor && htmlEditor.innerText !== htmlCode) {
-      htmlEditor.innerText = htmlCode;
+    if (htmlEditor) {
+      const processedHtmlCode = ensureTrailingNewline(htmlCode);
+      
+      // contentEditableに適した方法で設定
+      ensureTrailingNewlineInEditor(htmlEditor, processedHtmlCode);
+      
+      // 状態も更新（初期値の場合のみ）
+      if (htmlCode !== processedHtmlCode) {
+        setHtmlCode(processedHtmlCode);
+      }
     }
   }, []);
 
   useEffect(() => {
     const cssEditor = cssEditorRef.current;
-    if (cssEditor && showCSSEditor && cssEditor.innerText !== cssCode) {
-      cssEditor.innerText = cssCode;
+    if (cssEditor && showCSSEditor) {
+      const processedCssCode = ensureTrailingNewline(cssCode);
+      
+      // contentEditableに適した方法で設定
+      ensureTrailingNewlineInEditor(cssEditor, processedCssCode);
+      
+      // 状態も更新（初期値の場合のみ）
+      if (cssCode !== processedCssCode) {
+        setCssCode(processedCssCode);
+      }
     }
   }, [showCSSEditor]);
 
@@ -219,14 +235,7 @@ export default function CodePreview({
     const wrapper = editor.parentElement;
     const highlightElement = wrapper?.querySelector('pre');
     
-    console.log('HTML Scroll:', {
-      scrollTop: editor.scrollTop,
-      scrollLeft: editor.scrollLeft,
-      scrollWidth: editor.scrollWidth,
-      clientWidth: editor.clientWidth,
-      maxScrollLeft: editor.scrollWidth - editor.clientWidth,
-      highlightElement: !!highlightElement
-    });
+
     
     if (highlightElement) {
       const scrollTop = editor.scrollTop;
@@ -245,11 +254,7 @@ export default function CodePreview({
     const wrapper = editor.parentElement;
     const highlightElement = wrapper?.querySelector('pre');
     
-    console.log('CSS Scroll:', {
-      scrollTop: editor.scrollTop,
-      scrollLeft: editor.scrollLeft,
-      highlightElement: !!highlightElement
-    });
+
     
     if (highlightElement) {
       const scrollTop = editor.scrollTop;
@@ -341,14 +346,71 @@ export default function CodePreview({
   const isUpdatingHtml = useRef(false);
   const isUpdatingCss = useRef(false);
 
+  // 最後に改行を追加する関数（状態用）
+  const ensureTrailingNewline = (code: string): string => {
+    if (code.trim() === '') return code; // 完全に空欄の場合はそのまま
+    if (!code.endsWith('\n')) {
+      return code + '\n';
+    }
+    return code;
+  };
+
+  // contentEditableに改行を追加する関数
+  const ensureTrailingNewlineInEditor = (element: HTMLDivElement, code: string) => {
+    if (code.trim() === '') {
+      element.innerHTML = '';
+      return;
+    }
+
+    // 既に末尾に改行がある場合はそのまま
+    if (code.endsWith('\n')) {
+      // コードをHTMLエスケープして設定
+      const escapedCode = code.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      const lines = escapedCode.split('\n');
+      
+      // 最後の行が空の場合（つまり\nで終わっている場合）
+      if (lines[lines.length - 1] === '') {
+        lines.pop(); // 最後の空要素を削除
+        const htmlContent = lines.map(line => line === '' ? '<div><br></div>' : `<div>${line}</div>`).join('');
+        element.innerHTML = htmlContent + '<div><br></div>'; // 末尾改行用のdivを追加
+      } else {
+        const htmlContent = lines.map(line => line === '' ? '<div><br></div>' : `<div>${line}</div>`).join('');
+        element.innerHTML = htmlContent;
+      }
+    } else {
+      // 改行がない場合は追加
+      const escapedCode = code.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      const lines = escapedCode.split('\n');
+      const htmlContent = lines.map(line => line === '' ? '<div><br></div>' : `<div>${line}</div>`).join('');
+      element.innerHTML = htmlContent + '<div><br></div>'; // 末尾改行用のdivを追加
+    }
+  };
+
   const handleHtmlInput = (e: React.FormEvent<HTMLDivElement>) => {
     if (isUpdatingHtml.current) return; // 再帰的な更新を防ぐ
     
     const element = e.currentTarget;
-    const newValue = element.innerText || ''; // innerTextは改行を\nで返す
+    let newValue = element.innerText || ''; // innerTextは改行を\nで返す
+    const originalValue = newValue;
+    
+    // 最後に改行を追加
+    newValue = ensureTrailingNewline(newValue);
     
     // カーソル位置を保存
     htmlCursorPosition.current = getCursorPosition(element);
+    
+    // 改行が追加された場合、DOM要素も更新
+    if (originalValue !== newValue) {
+      ensureTrailingNewlineInEditor(element, newValue);
+      // カーソル位置を改行追加前の位置に戻す
+      if (htmlCursorPosition.current) {
+        setTimeout(() => {
+          if (htmlCursorPosition.current) {
+            setCursorPosition(element, htmlCursorPosition.current);
+          }
+        }, 0);
+      }
+    }
     
     // フラグを設定して再レンダリングを一時的に抑制
     isUpdatingHtml.current = true;
@@ -364,10 +426,27 @@ export default function CodePreview({
     if (isUpdatingCss.current) return; // 再帰的な更新を防ぐ
     
     const element = e.currentTarget;
-    const newValue = element.innerText || ''; // innerTextは改行を\nで返す
+    let newValue = element.innerText || ''; // innerTextは改行を\nで返す
+    const originalValue = newValue;
+    
+    // 最後に改行を追加
+    newValue = ensureTrailingNewline(newValue);
     
     // カーソル位置を保存
     cssCursorPosition.current = getCursorPosition(element);
+    
+    // 改行が追加された場合、DOM要素も更新
+    if (originalValue !== newValue) {
+      ensureTrailingNewlineInEditor(element, newValue);
+      // カーソル位置を改行追加前の位置に戻す
+      if (cssCursorPosition.current) {
+        setTimeout(() => {
+          if (cssCursorPosition.current) {
+            setCursorPosition(element, cssCursorPosition.current);
+          }
+        }, 0);
+      }
+    }
     
     // フラグを設定して再レンダリングを一時的に抑制
     isUpdatingCss.current = true;
