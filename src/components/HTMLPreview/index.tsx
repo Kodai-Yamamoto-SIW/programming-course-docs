@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import { Highlight, themes } from 'prism-react-renderer';
+import { useColorMode } from '@docusaurus/theme-common';
 import styles from './styles.module.css';
 
 interface HTMLPreviewProps {
@@ -19,6 +21,7 @@ export default function HTMLPreview({
   const [previewHeight, setPreviewHeight] = useState('200px');
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const { colorMode } = useColorMode();
 
   // useBaseUrlは常に呼び出す必要がある
   const baseUrl = useBaseUrl('/');
@@ -70,6 +73,15 @@ export default function HTMLPreview({
       };
     }
   }, [code, minHeight]);
+
+  // textareaとハイライト要素のスクロール同期
+  const handleScroll = () => {
+    const highlightElement = document.querySelector(`.${styles.highlightLayer}`);
+    if (textareaRef.current && highlightElement) {
+      (highlightElement as HTMLElement).scrollTop = textareaRef.current.scrollTop;
+      (highlightElement as HTMLElement).scrollLeft = textareaRef.current.scrollLeft;
+    }
+  };
 
   // 画像パスを変換する関数
   const processImagePaths = (htmlCode: string): string => {
@@ -189,16 +201,60 @@ export default function HTMLPreview({
         <div className={styles.editorSection}>
           <div className={styles.sectionHeader}>HTML</div>
           <div className={styles.editorContainer}>
-            <textarea
-              ref={textareaRef}
-              value={code}
-              onChange={handleCodeChange}
-              onKeyDown={handleKeyDown}
-              className={styles.editor}
-              placeholder="HTMLコードを入力してください..."
-              spellCheck={false}
-              style={{ '--min-height': minHeight } as React.CSSProperties}
-            />
+            <div className={styles.codeEditorWrapper}>
+              <Highlight
+                code={code || ''}
+                language="markup"
+                theme={colorMode === 'dark' ? themes.vsDark : themes.github}
+              >
+                {({ className, style, tokens, getLineProps, getTokenProps }) => {
+                  return (
+                    <pre
+                      className={`${styles.highlightLayer} ${className}`}
+                      style={{ 
+                        ...style,
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        minHeight: minHeight,
+                        padding: '1rem',
+                        margin: 0,
+                        border: 'none',
+                        fontFamily: 'var(--ifm-font-family-monospace)',
+                        fontSize: '0.875rem',
+                        lineHeight: '1.5',
+                        whiteSpace: 'pre-wrap',
+                        wordWrap: 'break-word',
+                        overflow: 'hidden',
+                        pointerEvents: 'none',
+                        zIndex: 1,
+                        boxSizing: 'border-box'
+                      }}
+                    >
+                      {tokens.map((line, i) => (
+                        <div key={i} {...getLineProps({ line })}>
+                          {line.map((token, key) => (
+                            <span key={key} {...getTokenProps({ token })} />
+                          ))}
+                        </div>
+                      ))}
+                    </pre>
+                  );
+                }}
+              </Highlight>
+              <textarea
+                ref={textareaRef}
+                value={code}
+                onChange={handleCodeChange}
+                onKeyDown={handleKeyDown}
+                onScroll={handleScroll}
+                className={styles.editor}
+                placeholder="HTMLコードを入力してください..."
+                spellCheck={false}
+                style={{ '--min-height': minHeight } as React.CSSProperties}
+              />
+            </div>
           </div>
         </div>
         
