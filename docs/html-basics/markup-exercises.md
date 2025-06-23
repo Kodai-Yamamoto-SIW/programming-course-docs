@@ -2,7 +2,7 @@
 sidebar_position: 6
 ---
 
-import HTMLPreview from '@site/src/components/HTMLPreview';
+import CodePreview from '@site/src/components/CodePreview';
 
 # HTMLマークアップ演習
 
@@ -41,7 +41,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 
 `演習用原稿.txt` の内容をすべて `<body>` 要素内に貼り付けてください。  
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -66,7 +66,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 - セクションの見出しとして適切な部分はどこでしょうか？
 - サブセクションの見出しはありますか？
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<h1>メインタイトル</h1>
 <h2>セクションタイトル</h2>
 <h3>サブセクションタイトル</h3>`}
@@ -83,7 +83,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 - 原稿の中で、独立した文章や説明文はどこでしょうか？
 - 一つの話題としてまとまっている部分はどこでしょうか？
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<p>これは一つの段落です。関連する内容をまとめて記述します。</p>
 <p>これは別の段落です。新しい話題や内容を記述します。</p>`}
 />
@@ -100,7 +100,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 - その項目に順序は重要でしょうか？
 - 時系列や手順を表している部分はありますか？
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<!-- 順序のないリスト -->
 <ul>
     <li>項目1</li>
@@ -129,7 +129,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 - ページ全体の導入部分はどこでしょうか？
 - サイトのタイトルや案内を含む部分はありますか？
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<header>
     <h1>サイトタイトル</h1>
     <nav>
@@ -153,7 +153,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 - ページの最後に来る情報はどれでしょうか？
 - 著作権や連絡先の情報はありますか？
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<footer>
     <p>© 2025 サイト名</p>
     <p>お問い合わせ: example@email.com</p>
@@ -172,7 +172,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 - このページの中心的な内容はどの部分でしょうか？
 - ヘッダーとフッターを除いた、主要な情報はどこからどこまででしょうか？
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<main>
     <h1>メインコンテンツのタイトル</h1>
     <p>これがページの主要な内容です。</p>
@@ -198,7 +198,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 - 原稿の中で、独立したテーマや話題はいくつありますか？
 - それぞれのセクションは明確に分かれていますか？
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<section>
     <h2>セクション1のタイトル</h2>
     <p>セクション1の内容です。独立したテーマや話題をまとめます。</p>
@@ -221,7 +221,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 - ページ内の各セクションへジャンプできるナビゲーションがあると便利でしょうか？
 - どのセクションへのリンクを作成しますか？
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<nav>
     <ul>
         <li>セクション1</li>

@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-import HTMLPreview from '@site/src/components/HTMLPreview';
+import CodePreview from '@site/src/components/CodePreview';
 
 # リンクとHTML文法チェック
 
@@ -21,7 +21,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 
 **説明**: `<a>`タグの`href`属性に絶対URLを指定すると外部サイトへのリンクになる。`target="_blank"`属性を指定すると、新しいタブ（または新しいウィンドウ）でリンクを開くことができる。
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<!-- 修正前 -->
 <p>JR東日本の路線をご利用ください。</p>
 
@@ -33,7 +33,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 
 **説明**: 相対パスを指定すると内部サイトへのリンクになる。  
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<p><a href="about.html">会社概要</a></p>
 <p><a href="contact/index.html">お問い合わせ</a></p>`}
 />
@@ -107,7 +107,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 </section>
 ```
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<!-- 修正前 -->
 <ul>
     <li>概要</li>

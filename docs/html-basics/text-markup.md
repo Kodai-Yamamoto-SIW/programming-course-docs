@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-import HTMLPreview from '@site/src/components/HTMLPreview';
+import CodePreview from '@site/src/components/CodePreview';
 
 # テキスト装飾と画像をマークアップしよう！
 
@@ -39,7 +39,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 
 **説明**: `<br>`タグは改行を挿入するタグ  
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<!-- 修正前 -->
 <li>天候により中止になる場合があります。
     ※ 中止の場合は、当日朝9時までにご連絡いたします。</li>
@@ -53,7 +53,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 
 **説明**: `<strong>`タグは重要なキーワードを強調するタグ  
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<!-- 修正前 -->
 <li>天候により中止になる場合があります。<br>
     ※ 中止の場合は、当日朝9時までにご連絡いたします。</li>
@@ -69,7 +69,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 
 **適用箇所①**:
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<!-- 修正前 -->
 <li>天候により<strong>中止</strong>になる場合があります。<br>
     ※ <strong>中止</strong>の場合は、<strong>当日朝9時</strong>までにご連絡いたします。</li>
@@ -82,7 +82,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 
 **適用箇所②**:
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<!-- 修正前 -->
 <p>参加者の皆様には、事前にご案内申し上げております。</p>
 
@@ -92,7 +92,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 
 **適用箇所③**:
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<!-- 修正前 -->
 <p>© 2025 ピクニック実行委員会</p>
 
@@ -108,7 +108,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 
 **適用箇所① (ピクニック画像)**:
 
-<HTMLPreview 
+<CodePreview 
   imageBasePath="@site/static/files/text-markup-complete/"
   initialCode={`<!-- 修正前 -->
 <section>
@@ -125,7 +125,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 
 **適用箇所② (地図画像)**:
 
-<HTMLPreview 
+<CodePreview 
   imageBasePath="@site/static/files/text-markup-complete/"
   initialCode={`<!-- 修正前 -->
 [公園の地図画像]

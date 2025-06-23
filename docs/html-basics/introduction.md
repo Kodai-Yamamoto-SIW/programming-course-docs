@@ -3,7 +3,7 @@ sidebar_position: 1
 ---
 
 import Exercise, { Solution } from '@site/src/components/Exercise';
-import HTMLPreview from '@site/src/components/HTMLPreview';
+import CodePreview from '@site/src/components/CodePreview';
 
 # HTMLの基本を知ろう！
 
@@ -38,7 +38,7 @@ CSSはWebページの見た目を整えるための言語です。
 - `<body>` に直接文字を書くと、Webページに文字が表示されます。
 - 単に文字をずらずら書くだけでは、改行を入れても表示上、改行されません。
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<body>
     はじめてのHTML
     はじめてのWebページです。
@@ -49,7 +49,7 @@ CSSはWebページの見た目を整えるための言語です。
 - `<h1>` ～ `<h6>` は見出しを表すタグです。`<h1>` が一番大きな見出し、`<h6>` が一番小さな見出しです。
 - `<p>` は段落を表すタグです。
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<body>
     <h1>はじめてのHTML</h1>
     <p>はじめてのWebページです。</p>
@@ -61,7 +61,7 @@ CSSはWebページの見た目を整えるための言語です。
 - `<style>` タグを `<head>` 内に記述し、CSSを書くことができます。
 - `color` プロパティで文字の色を指定できます。
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<!DOCTYPE html>
   <html>
   <head>

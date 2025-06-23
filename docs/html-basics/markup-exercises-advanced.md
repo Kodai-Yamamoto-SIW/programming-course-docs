@@ -4,7 +4,7 @@ sidebar_position: 7
 
 # HTMLマークアップ演習（続き）
 
-import HTMLPreview from '@site/src/components/HTMLPreview';
+import CodePreview from '@site/src/components/CodePreview';
 
 ## HTMLマークアップ演習
 
@@ -29,7 +29,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 
 **使用例：**
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<p>開催日時: 2025年10月15日（土）～ 10月16日（日）<br>
 両日とも 9:00 ～ 17:00</p>`}
 />
@@ -48,7 +48,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 
 **使用例：**
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<p>入場料は<strong>無料</strong>です</p>
 <p>事前申込は<strong>不要</strong>です</p>`}
 />
@@ -67,7 +67,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 
 **使用例：**
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<p><small>※ 雨天の場合は一部内容を変更して実施いたします</small></p>
 <p><small>© 2025 学校祭実行委員会 All Rights Reserved.</small></p>`}
 />
@@ -91,7 +91,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 
 **使用例（images フォルダの中に画像がある場合）：**
 
-<HTMLPreview 
+<CodePreview 
   imageBasePath="@site/static/files/markup-exercises-advanced-complete"
   initialCode={`<img src="images/main.png" alt="学校祭メインビジュアル">
 <img src="images/map.png" alt="会場マップ画像">`}
@@ -117,7 +117,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 
 **手順1: 各セクションに`id`属性を追加**
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<section id="overview">
     <h2>開催概要</h2>
     ...
@@ -126,7 +126,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 
 **手順2: ナビゲーションにリンクを追加**
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<nav>
     <ul>
         <li><a href="#overview">開催概要</a></li>
@@ -148,7 +148,7 @@ import HTMLPreview from '@site/src/components/HTMLPreview';
 
 **使用例：**
 
-<HTMLPreview 
+<CodePreview 
   initialCode={`<p>詳しいアクセス方法は<a href="https://www.siw.ac.jp/" target="_blank">学校公式サイト</a>をご確認ください。</p>`}
 />
 

@@ -4,27 +4,34 @@ import { Highlight, themes } from 'prism-react-renderer';
 import { useColorMode } from '@docusaurus/theme-common';
 import styles from './styles.module.css';
 
-interface HTMLPreviewProps {
+interface CodePreviewProps {
   initialCode?: string;
+  initialCSS?: string;
   title?: string;
   minHeight?: string;
   imageBasePath?: string;
 }
 
-export default function HTMLPreview({ 
+export default function CodePreview({ 
   initialCode = '', 
+  initialCSS,
   title = '',
   minHeight = '200px',
   imageBasePath
-}: HTMLPreviewProps): React.ReactElement {
-  const [code, setCode] = useState(initialCode);
+}: CodePreviewProps): React.ReactElement {
+  const [htmlCode, setHtmlCode] = useState(initialCode);
+  const [cssCode, setCssCode] = useState(initialCSS || '');
   const [previewHeight, setPreviewHeight] = useState('200px');
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const htmlTextareaRef = useRef<HTMLTextAreaElement>(null);
+  const cssTextareaRef = useRef<HTMLTextAreaElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const { colorMode } = useColorMode();
 
   // useBaseUrlは常に呼び出す必要がある
   const baseUrl = useBaseUrl('/');
+
+  // CSSエディタを表示するかどうかを判定
+  const showCSSEditor = initialCSS !== undefined;
 
   // iframeの高さを内容に合わせて調整
   useEffect(() => {
@@ -72,14 +79,22 @@ export default function HTMLPreview({
         iframe.removeEventListener('load', handleLoad);
       };
     }
-  }, [code, minHeight]);
+  }, [htmlCode, cssCode, minHeight]);
 
   // textareaとハイライト要素のスクロール同期
-  const handleScroll = () => {
-    const highlightElement = document.querySelector(`.${styles.highlightLayer}`);
-    if (textareaRef.current && highlightElement) {
-      (highlightElement as HTMLElement).scrollTop = textareaRef.current.scrollTop;
-      (highlightElement as HTMLElement).scrollLeft = textareaRef.current.scrollLeft;
+  const handleHtmlScroll = () => {
+    const highlightElement = document.querySelector(`.${styles.htmlHighlightLayer}`);
+    if (htmlTextareaRef.current && highlightElement) {
+      (highlightElement as HTMLElement).scrollTop = htmlTextareaRef.current.scrollTop;
+      (highlightElement as HTMLElement).scrollLeft = htmlTextareaRef.current.scrollLeft;
+    }
+  };
+
+  const handleCssScroll = () => {
+    const highlightElement = document.querySelector(`.${styles.cssHighlightLayer}`);
+    if (cssTextareaRef.current && highlightElement) {
+      (highlightElement as HTMLElement).scrollTop = cssTextareaRef.current.scrollTop;
+      (highlightElement as HTMLElement).scrollLeft = cssTextareaRef.current.scrollLeft;
     }
   };
 
@@ -130,11 +145,46 @@ export default function HTMLPreview({
     return processed;
   };
 
-  const handleCodeChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setCode(e.target.value);
+  // HTML+CSSを結合したドキュメントを生成
+  const generatePreviewDocument = (): string => {
+    const processedHtml = processHtmlCode(htmlCode);
+    
+    // CSSエディタが表示されていて、かつCSSコードがある場合のみstyleタグで埋め込む
+    const styleTag = (showCSSEditor && cssCode) ? `<style>\n${cssCode}\n</style>` : '';
+    
+    // 完全なHTMLドキュメントとして組み立て
+    if (processedHtml.includes('<!DOCTYPE') || processedHtml.includes('<html')) {
+      // 既に完全なHTMLドキュメントの場合、headタグ内にstyleを挿入
+      if (styleTag) {
+        return processedHtml.replace(/<\/head>/, `${styleTag}\n</head>`);
+      }
+      return processedHtml;
+    } else {
+      // HTMLフラグメントの場合、完全なドキュメントとして包む
+      return `<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プレビュー</title>
+  ${styleTag}
+</head>
+<body>
+  ${processedHtml}
+</body>
+</html>`;
+    }
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+  const handleHtmlCodeChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setHtmlCode(e.target.value);
+  };
+
+  const handleCssCodeChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setCssCode(e.target.value);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>, setter: React.Dispatch<React.SetStateAction<string>>) => {
     // Tabキーでインデント操作
     if (e.key === 'Tab') {
       e.preventDefault();
@@ -167,7 +217,7 @@ export default function HTMLPreview({
         
         if (removedChars > 0) {
           const newValue = value.substring(0, currentLineStart) + newLine + value.substring(currentLineStart + currentLine.length);
-          setCode(newValue);
+          setter(newValue);
           
           // カーソル位置を調整
           setTimeout(() => {
@@ -179,7 +229,8 @@ export default function HTMLPreview({
         }
       } else {
         // Tab: インデントを追加
-        setCode(value.substring(0, start) + '  ' + value.substring(end));
+        const newValue = value.substring(0, start) + '  ' + value.substring(end);
+        setter(newValue);
         
         // カーソル位置を調整
         setTimeout(() => {
@@ -190,7 +241,7 @@ export default function HTMLPreview({
   };
 
   return (
-    <div className={styles.htmlPreviewContainer}>
+    <div className={styles.codePreviewContainer}>
       {title && (
         <div className={styles.header}>
           <h4 className={styles.title}>{title}</h4>
@@ -198,19 +249,20 @@ export default function HTMLPreview({
       )}
       
       <div className={styles.splitLayout}>
+        {/* HTMLエディタセクション */}
         <div className={styles.editorSection}>
           <div className={styles.sectionHeader}>HTML</div>
           <div className={styles.editorContainer}>
             <div className={styles.codeEditorWrapper}>
               <Highlight
-                code={code || ''}
+                code={htmlCode || ''}
                 language="markup"
                 theme={colorMode === 'dark' ? themes.vsDark : themes.github}
               >
                 {({ className, style, tokens, getLineProps, getTokenProps }) => {
                   return (
                     <pre
-                      className={`${styles.highlightLayer} ${className}`}
+                      className={`${styles.highlightLayer} ${styles.htmlHighlightLayer} ${className}`}
                       style={{ 
                         ...style,
                         position: 'absolute',
@@ -245,11 +297,11 @@ export default function HTMLPreview({
                 }}
               </Highlight>
               <textarea
-                ref={textareaRef}
-                value={code}
-                onChange={handleCodeChange}
-                onKeyDown={handleKeyDown}
-                onScroll={handleScroll}
+                ref={htmlTextareaRef}
+                value={htmlCode}
+                onChange={handleHtmlCodeChange}
+                onKeyDown={(e) => handleKeyDown(e, setHtmlCode)}
+                onScroll={handleHtmlScroll}
                 className={styles.editor}
                 placeholder="HTMLコードを入力してください..."
                 spellCheck={false}
@@ -258,7 +310,72 @@ export default function HTMLPreview({
             </div>
           </div>
         </div>
+
+        {/* CSSエディタセクション（CSSが定義されている場合のみ表示） */}
+        {showCSSEditor && (
+          <div className={styles.editorSection}>
+            <div className={styles.sectionHeader}>CSS</div>
+            <div className={styles.editorContainer}>
+              <div className={styles.codeEditorWrapper}>
+                <Highlight
+                  code={cssCode || ''}
+                  language="css"
+                  theme={colorMode === 'dark' ? themes.vsDark : themes.github}
+                >
+                  {({ className, style, tokens, getLineProps, getTokenProps }) => {
+                    return (
+                      <pre
+                        className={`${styles.highlightLayer} ${styles.cssHighlightLayer} ${className}`}
+                        style={{ 
+                          ...style,
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          width: '100%',
+                          height: '100%',
+                          minHeight: minHeight,
+                          padding: '1rem',
+                          margin: 0,
+                          border: 'none',
+                          fontFamily: 'var(--ifm-font-family-monospace)',
+                          fontSize: '0.875rem',
+                          lineHeight: '1.5',
+                          whiteSpace: 'pre',
+                          wordWrap: 'break-word',
+                          overflow: 'hidden',
+                          pointerEvents: 'none',
+                          zIndex: 1,
+                          boxSizing: 'border-box'
+                        }}
+                      >
+                        {tokens.map((line, i) => (
+                          <div key={i} {...getLineProps({ line })}>
+                            {line.map((token, key) => (
+                              <span key={key} {...getTokenProps({ token })} />
+                            ))}
+                          </div>
+                        ))}
+                      </pre>
+                    );
+                  }}
+                </Highlight>
+                <textarea
+                  ref={cssTextareaRef}
+                  value={cssCode}
+                  onChange={handleCssCodeChange}
+                  onKeyDown={(e) => handleKeyDown(e, setCssCode)}
+                  onScroll={handleCssScroll}
+                  className={styles.editor}
+                  placeholder="CSSコードを入力してください..."
+                  spellCheck={false}
+                  style={{ '--min-height': minHeight } as React.CSSProperties}
+                />
+              </div>
+            </div>
+          </div>
+        )}
         
+        {/* プレビューセクション */}
         <div className={styles.previewSection}>
           <div className={styles.sectionHeader}>プレビュー</div>
           <div 
@@ -267,9 +384,9 @@ export default function HTMLPreview({
           >
             <iframe
               ref={iframeRef}
-              srcDoc={processHtmlCode(code)}
+              srcDoc={generatePreviewDocument()}
               className={styles.preview}
-              title="HTML Preview"
+              title="HTML+CSS Preview"
               sandbox="allow-scripts allow-same-origin"
               style={{ 
                 height: previewHeight,
