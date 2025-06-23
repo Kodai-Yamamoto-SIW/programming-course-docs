@@ -34,35 +34,35 @@ export default function CodePreview({
   const showCSSEditor = initialCSS !== undefined;
 
   // iframeの高さを内容に合わせて調整
+  const adjustIframeHeight = () => {
+    const iframe = iframeRef.current;
+    if (!iframe) return;
+
+    try {
+      const iframeDoc = iframe.contentDocument;
+      if (!iframeDoc) return;
+
+      // 高さを計算
+      const height = Math.max(
+        iframeDoc.body?.scrollHeight || 0,
+        iframeDoc.body?.offsetHeight || 0,
+        iframeDoc.documentElement?.clientHeight || 0,
+        iframeDoc.documentElement?.scrollHeight || 0,
+        iframeDoc.documentElement?.offsetHeight || 0
+      );
+
+      const minHeightPx = parseInt(minHeight);
+      const finalHeight = Math.max(height, minHeightPx);
+      
+      console.log('計算した高さ:', height, '最終高さ:', finalHeight);
+      setPreviewHeight(finalHeight + 'px');
+    } catch (error) {
+      console.log('高さ調整エラー:', error);
+    }
+  };
+
+  // 初回レンダリング時の高さ調整
   useEffect(() => {
-    const adjustIframeHeight = () => {
-      const iframe = iframeRef.current;
-      if (!iframe) return;
-
-      try {
-        const iframeDoc = iframe.contentDocument;
-        if (!iframeDoc) return;
-
-        // 高さを計算
-        const height = Math.max(
-          iframeDoc.body?.scrollHeight || 0,
-          iframeDoc.body?.offsetHeight || 0,
-          iframeDoc.documentElement?.clientHeight || 0,
-          iframeDoc.documentElement?.scrollHeight || 0,
-          iframeDoc.documentElement?.offsetHeight || 0
-        );
-
-        const minHeightPx = parseInt(minHeight);
-        const finalHeight = Math.max(height, minHeightPx);
-        
-        console.log('計算した高さ:', height, '最終高さ:', finalHeight);
-        setPreviewHeight(finalHeight + 'px');
-      } catch (error) {
-        console.log('高さ調整エラー:', error);
-      }
-    };
-
-    // iframeの内容が変更されたときに高さを調整
     const iframe = iframeRef.current;
     if (iframe) {
       // iframeの読み込み完了後に高さを調整
@@ -75,9 +75,31 @@ export default function CodePreview({
 
       iframe.addEventListener('load', handleLoad);
       
+      // 既に読み込み済みの場合は即座に実行
+      if (iframe.contentDocument && iframe.contentDocument.readyState === 'complete') {
+        handleLoad();
+      }
+      
       return () => {
         iframe.removeEventListener('load', handleLoad);
       };
+    }
+  }, []); // 初回レンダリング時のみ実行
+
+  // コード変更時の高さ調整
+  useEffect(() => {
+    // コードが変更された場合の高さ調整
+    const iframe = iframeRef.current;
+    if (iframe) {
+      // srcDoc更新後に高さを調整
+      const timer = setTimeout(() => {
+        adjustIframeHeight();
+        // 画像などの読み込み待ち
+        setTimeout(adjustIframeHeight, 100);
+        setTimeout(adjustIframeHeight, 500);
+      }, 50);
+
+      return () => clearTimeout(timer);
     }
   }, [htmlCode, cssCode, minHeight]);
 
