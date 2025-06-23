@@ -3,6 +3,7 @@ sidebar_position: 1
 ---
 
 import Exercise, { Solution } from '@site/src/components/Exercise';
+import HTMLPreview from '@site/src/components/HTMLPreview';
 
 # HTMLの基本を知ろう！
 
@@ -37,38 +38,45 @@ CSSはWebページの見た目を整えるための言語です。
 - `<body>` に直接文字を書くと、Webページに文字が表示されます。
 - 単に文字をずらずら書くだけでは、改行を入れても表示上、改行されません。
 
-```html
-<body>
-  はじめてのHTML
-  はじめてのWebページです。
-</body>
-```
+<HTMLPreview 
+  initialCode={`<body>
+    はじめてのHTML
+    はじめてのWebページです。
+  </body>`}
+/>
 
 - HTMLはタグを使って文書の各部分に意味を与える（**マークアップ** する）言語です。
 - `<h1>` ～ `<h6>` は見出しを表すタグです。`<h1>` が一番大きな見出し、`<h6>` が一番小さな見出しです。
 - `<p>` は段落を表すタグです。
 
-```html
-<body>
-  <h1>はじめてのHTML</h1>
-  <p>はじめてのWebページです。</p>
-</body>
-```
+<HTMLPreview 
+  initialCode={`<body>
+    <h1>はじめてのHTML</h1>
+    <p>はじめてのWebページです。</p>
+  </body>`}
+/>
 
 ### 🎨 CSSで色を変える
 
 - `<style>` タグを `<head>` 内に記述し、CSSを書くことができます。
 - `color` プロパティで文字の色を指定できます。
 
-```html
-<head>
-  <style>
-    h1 {
-      color: red; /* h1タグの文字色を赤色にする */
-    }
-  </style>
-</head>
-```
+<HTMLPreview 
+  initialCode={`<!DOCTYPE html>
+  <html>
+  <head>
+    <style>
+      h1 {
+        color: red; /* h1タグの文字色を赤色にする */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>はじめてのHTML</h1>
+    <p>はじめてのWebページです。</p>
+  </body>
+  </html>`}
+/>
 
 <Exercise title="演習1">
 

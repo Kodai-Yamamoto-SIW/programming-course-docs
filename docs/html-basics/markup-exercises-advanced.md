@@ -4,6 +4,8 @@ sidebar_position: 7
 
 # HTMLマークアップ演習（続き）
 
+import HTMLPreview from '@site/src/components/HTMLPreview';
+
 ## HTMLマークアップ演習
 
 ### 演習について
@@ -26,10 +28,11 @@ sidebar_position: 7
 - 住所の表示で改行したい部分はありますか？
 
 **使用例：**
-```html
-<p>開催日時: 2025年10月15日（土）～ 10月16日（日）<br>
-両日とも 9:00 ～ 17:00</p>
-```
+
+<HTMLPreview 
+  initialCode={`<p>開催日時: 2025年10月15日（土）～ 10月16日（日）<br>
+両日とも 9:00 ～ 17:00</p>`}
+/>
 
 #### 2. `<strong>`要素のマークアップ
 
@@ -44,10 +47,11 @@ sidebar_position: 7
 - 注意事項の重要なポイントはどこでしょうか？
 
 **使用例：**
-```html
-<p>入場料は<strong>無料</strong>です</p>
-<p>事前申込は<strong>不要</strong>です</p>
-```
+
+<HTMLPreview 
+  initialCode={`<p>入場料は<strong>無料</strong>です</p>
+<p>事前申込は<strong>不要</strong>です</p>`}
+/>
 
 #### 3. `<small>`要素のマークアップ
 
@@ -62,10 +66,11 @@ sidebar_position: 7
 - 補足的な情報はどこでしょうか？
 
 **使用例：**
-```html
-<p><small>※ 雨天の場合は一部内容を変更して実施いたします</small></p>
-<p><small>© 2025 学校祭実行委員会 All Rights Reserved.</small></p>
-```
+
+<HTMLPreview 
+  initialCode={`<p><small>※ 雨天の場合は一部内容を変更して実施いたします</small></p>
+<p><small>© 2025 学校祭実行委員会 All Rights Reserved.</small></p>`}
+/>
 
 #### 4. `<img>`要素のマークアップ
 
@@ -80,15 +85,17 @@ sidebar_position: 7
 - メインビジュアルの画像はどこに配置しますか？
 - 地図やイラストが必要な箇所はありますか？
 
-**使用例（images フォルダの中に画像がある場合）：**
-```html
-<img src="images/festival_main.jpg" alt="学校祭メインビジュアル">
-<img src="images/venue_map.jpg" alt="会場マップ画像">
-```
-
 **画像ファイルについて：**
 - 画像は好きな画像をインターネット上から取ってきて使ってください
 - 画像は `images` フォルダに入れて下さい
+
+**使用例（images フォルダの中に画像がある場合）：**
+
+<HTMLPreview 
+  imageBasePath="@site/static/files/markup-exercises-advanced-complete"
+  initialCode={`<img src="images/main.png" alt="学校祭メインビジュアル">
+<img src="images/map.png" alt="会場マップ画像">`}
+/>
 
 #### 5. `<a>`要素とページ内リンクのマークアップ
 
@@ -109,22 +116,24 @@ sidebar_position: 7
  （変数名と同様、自分の好きな名前を付けることができます）
 
 **手順1: 各セクションに`id`属性を追加**
-```html
-<section id="overview">
+
+<HTMLPreview 
+  initialCode={`<section id="overview">
     <h2>開催概要</h2>
     ...
-</section>
-```
+</section>`}
+/>
 
 **手順2: ナビゲーションにリンクを追加**
-```html
-<nav>
+
+<HTMLPreview 
+  initialCode={`<nav>
     <ul>
         <li><a href="#overview">開催概要</a></li>
         <li><a href="#events">イベント内容</a></li>
     </ul>
-</nav>
-```
+</nav>`}
+/>
 
 #### 6. 外部サイトへのリンクのマークアップ
 
@@ -138,9 +147,10 @@ sidebar_position: 7
 - 外部サイトへのリンクを設置したい箇所を見つけましょう
 
 **使用例：**
-```html
-<p>詳しいアクセス方法は<a href="https://www.siw.ac.jp/" target="_blank">学校公式サイト</a>をご確認ください。</p>
-```
+
+<HTMLPreview 
+  initialCode={`<p>詳しいアクセス方法は<a href="https://www.siw.ac.jp/" target="_blank">学校公式サイト</a>をご確認ください。</p>`}
+/>
 
 #### 7. HTML文法チェック
 

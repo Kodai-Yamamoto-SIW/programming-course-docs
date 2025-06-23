@@ -2,6 +2,8 @@
 sidebar_position: 5
 ---
 
+import HTMLPreview from '@site/src/components/HTMLPreview';
+
 # リンクとHTML文法チェック
 
 ## HTMLマークアップ
@@ -19,24 +21,22 @@ sidebar_position: 5
 
 **説明**: `<a>`タグの`href`属性に絶対URLを指定すると外部サイトへのリンクになる。`target="_blank"`属性を指定すると、新しいタブ（または新しいウィンドウ）でリンクを開くことができる。
 
-**適用箇所**:
-```html
-<!-- 修正前 -->
+<HTMLPreview 
+  initialCode={`<!-- 修正前 -->
 <p>JR東日本の路線をご利用ください。</p>
 
 <!-- 修正後 -->
-<p><a href="https://www.jreast.co.jp/" target="_blank">JR東日本</a>の路線をご利用ください。</p>
-```
+<p><a href="https://www.jreast.co.jp/" target="_blank">JR東日本</a>の路線をご利用ください。</p>`}
+/>
 
 #### 2. 内部サイトへのリンク
 
 **説明**: 相対パスを指定すると内部サイトへのリンクになる。  
 
-**例**:
-```html
-<p><a href="about.html">会社概要</a></p>
-<p><a href="contact/index.html">お問い合わせ</a></p>
-```
+<HTMLPreview 
+  initialCode={`<p><a href="about.html">会社概要</a></p>
+<p><a href="contact/index.html">お問い合わせ</a></p>`}
+/>
 
 #### 3. ページ内へのアンカーリンクと `id` 属性
 
@@ -107,23 +107,27 @@ sidebar_position: 5
 </section>
 ```
 
-```html
-<!-- 修正前 -->
-<li>概要</li>
-<li>内容</li>
-<li>注意事項</li>
-<li>アクセス</li>
-<li>お問い合わせ</li>
-<li>周辺情報</li>
+<HTMLPreview 
+  initialCode={`<!-- 修正前 -->
+<ul>
+    <li>概要</li>
+    <li>内容</li>
+    <li>注意事項</li>
+    <li>アクセス</li>
+    <li>お問い合わせ</li>
+    <li>周辺情報</li>
+</ul>
 
 <!-- 修正後 -->
-<li><a href="#about">概要</a></li>
-<li><a href="#content">内容</a></li>
-<li><a href="#attention">注意事項</a></li>
-<li><a href="#access">アクセス</a></li>
-<li><a href="#contact">お問い合わせ</a></li>
-<li><a href="#info">周辺情報</a></li>
-```
+<ul>
+    <li><a href="#about">概要</a></li>
+    <li><a href="#content">内容</a></li>
+    <li><a href="#attention">注意事項</a></li>
+    <li><a href="#access">アクセス</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+    <li><a href="#info">周辺情報</a></li>
+</ul>`}
+/>
 
 #### 4. HTML文法チェック
 

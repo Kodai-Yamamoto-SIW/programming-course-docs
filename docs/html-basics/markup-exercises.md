@@ -2,6 +2,8 @@
 sidebar_position: 6
 ---
 
+import HTMLPreview from '@site/src/components/HTMLPreview';
+
 # HTMLマークアップ演習
 
 ## HTMLマークアップ演習
@@ -39,6 +41,19 @@ sidebar_position: 6
 
 `演習用原稿.txt` の内容をすべて `<body>` 要素内に貼り付けてください。  
 
+<HTMLPreview 
+  initialCode={`<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ページタイトル</title>
+</head>
+<body>
+    ここに演習用原稿の内容を貼り付けます
+</body>
+</html>`}
+/>
+
 #### 3. 見出し要素（h1～h6）のマークアップ
 
 **見出し要素の特徴：**
@@ -51,12 +66,11 @@ sidebar_position: 6
 - セクションの見出しとして適切な部分はどこでしょうか？
 - サブセクションの見出しはありますか？
 
-**使用例：**
-```html
-<h1>メインタイトル</h1>
+<HTMLPreview 
+  initialCode={`<h1>メインタイトル</h1>
 <h2>セクションタイトル</h2>
-<h3>サブセクションタイトル</h3>
-```
+<h3>サブセクションタイトル</h3>`}
+/>
 
 #### 4. 段落要素（p）のマークアップ
 
@@ -69,11 +83,10 @@ sidebar_position: 6
 - 原稿の中で、独立した文章や説明文はどこでしょうか？
 - 一つの話題としてまとまっている部分はどこでしょうか？
 
-**使用例：**
-```html
-<p>これは一つの段落です。関連する内容をまとめて記述します。</p>
-<p>これは別の段落です。新しい話題や内容を記述します。</p>
-```
+<HTMLPreview 
+  initialCode={`<p>これは一つの段落です。関連する内容をまとめて記述します。</p>
+<p>これは別の段落です。新しい話題や内容を記述します。</p>`}
+/>
 
 #### 5. リスト要素（ul/ol, li）のマークアップ
 
@@ -87,9 +100,8 @@ sidebar_position: 6
 - その項目に順序は重要でしょうか？
 - 時系列や手順を表している部分はありますか？
 
-**使用例：**
-```html
-<!-- 順序のないリスト -->
+<HTMLPreview 
+  initialCode={`<!-- 順序のないリスト -->
 <ul>
     <li>項目1</li>
     <li>項目2</li>
@@ -101,8 +113,8 @@ sidebar_position: 6
     <li>手順1</li>
     <li>手順2</li>
     <li>手順3</li>
-</ol>
-```
+</ol>`}
+/>
 
 #### 6. セクション要素のマークアップ
 
@@ -117,6 +129,19 @@ sidebar_position: 6
 - ページ全体の導入部分はどこでしょうか？
 - サイトのタイトルや案内を含む部分はありますか？
 
+<HTMLPreview 
+  initialCode={`<header>
+    <h1>サイトタイトル</h1>
+    <nav>
+        <ul>
+            <li>ホーム</li>
+            <li>サービス</li>
+            <li>お問い合わせ</li>
+        </ul>
+    </nav>
+</header>`}
+/>
+
 ##### footer要素
 
 **footer要素の特徴：**
@@ -127,6 +152,14 @@ sidebar_position: 6
 **考えてみよう：**
 - ページの最後に来る情報はどれでしょうか？
 - 著作権や連絡先の情報はありますか？
+
+<HTMLPreview 
+  initialCode={`<footer>
+    <p>© 2025 サイト名</p>
+    <p>お問い合わせ: example@email.com</p>
+    <p>電話: 03-1234-5678</p>
+</footer>`}
+/>
 
 ##### main要素
 
@@ -139,6 +172,21 @@ sidebar_position: 6
 - このページの中心的な内容はどの部分でしょうか？
 - ヘッダーとフッターを除いた、主要な情報はどこからどこまででしょうか？
 
+<HTMLPreview 
+  initialCode={`<main>
+    <h1>メインコンテンツのタイトル</h1>
+    <p>これがページの主要な内容です。</p>
+    <section>
+        <h2>セクション1</h2>
+        <p>セクション1の内容です。</p>
+    </section>
+    <section>
+        <h2>セクション2</h2>
+        <p>セクション2の内容です。</p>
+    </section>
+</main>`}
+/>
+
 ##### section要素
 
 **section要素の特徴：**
@@ -149,6 +197,18 @@ sidebar_position: 6
 **考えてみよう：**
 - 原稿の中で、独立したテーマや話題はいくつありますか？
 - それぞれのセクションは明確に分かれていますか？
+
+<HTMLPreview 
+  initialCode={`<section>
+    <h2>セクション1のタイトル</h2>
+    <p>セクション1の内容です。独立したテーマや話題をまとめます。</p>
+</section>
+
+<section>
+    <h2>セクション2のタイトル</h2>
+    <p>セクション2の内容です。別のテーマや話題をまとめます。</p>
+</section>`}
+/>
 
 ##### nav要素
 
@@ -161,16 +221,15 @@ sidebar_position: 6
 - ページ内の各セクションへジャンプできるナビゲーションがあると便利でしょうか？
 - どのセクションへのリンクを作成しますか？
 
-**使用例：**
-```html
-<nav>
+<HTMLPreview 
+  initialCode={`<nav>
     <ul>
         <li>セクション1</li>
         <li>セクション2</li>
         <li>セクション3</li>
     </ul>
-</nav>
-```
+</nav>`}
+/>
 
 ### 演習のポイント
 
