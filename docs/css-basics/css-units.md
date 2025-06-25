@@ -3,6 +3,7 @@ sidebar_position: 2
 ---
 
 import Exercise, { Solution } from '@site/src/components/Exercise';
+import CodePreview from '@site/src/components/CodePreview';
 
 # CSSの単位を学ぼう！
 
@@ -78,15 +79,27 @@ html {
 
 **ピクセル（px）** は、画面の最小単位である「点」の数を表します。
 
-```css
-h1 {
+<CodePreview 
+  initialCode={`<h1>24pxの見出し</h1>
+<h2>20pxの小見出し</h2>
+<p>16pxの段落テキスト</p>
+<small>12pxの小さなテキスト</small>`}
+  initialCSS={`h1 {
     font-size: 24px; /* 24ピクセルのフォントサイズ */
+}
+
+h2 {
+    font-size: 20px; /* 20ピクセルのフォントサイズ */
 }
 
 p {
     font-size: 16px; /* 16ピクセルのフォントサイズ */
 }
-```
+
+small {
+    font-size: 12px; /* 12ピクセルのフォントサイズ */
+}`}
+/>
 
 ### 🔍 ピクセルを実際に見てみよう
 
@@ -107,6 +120,7 @@ p {
 **重要なポイント**：
 - `font-size`で指定しているのは、文字そのものの高さではない
 - フォントデータ内で定義されている「em square」という設計領域の高さ
+- このため、フォントサイズは文字の上下にある余白も含めたサイズを指定していることに注意
 
 ![em squareとフォントサイズの関係](@site/static/files/em-square-font-size-animation.gif)
 
@@ -140,42 +154,25 @@ p {
 1. 例えば、フォントサイズが16pxの場合、1em = 16px
 2. つまり、1em = 1文字分の大きさ　のイメージ
 
-### 💡 使用例
+### 💡 emの相対的な性質を理解しよう
 
-以下のようなHTMLがあると想定します：
+<CodePreview 
+  initialCode={`<h1>大きな見出し（24px）<span>子要素は1em</span></h1>
 
-```html
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>CSS単位の練習</title>
-    <style>
-        /* ここにCSSを書きます */
-    </style>
-</head>
-<body>
-    <h1>メインタイトル</h1>
-    <h2>サブタイトル</h2>
-    <p>段落のテキストです。<span>ここは強調部分</span>です。</p>
-</body>
-</html>
-```
+<h2>普通の見出し（16px）<span>子要素は1em</span></h2>`}
+  initialCSS={`/* emは親要素のフォントサイズに依存する */
+h1 {
+    font-size: 24px; /* 見出しを24pxに設定 */
+}
 
-**emの使用例**：
-
-```css
-/* ブラウザのデフォルト（16px）の場合 */
-p {
-    font-size: 1em;    /* 16px と同じ */
-    font-size: 1.5em;  /* 16*1.5 = 24px と同じ */
-    font-size: 0.8em;  /* 16*0.8 = 12.8px と同じ */
+h2 {
+    font-size: 16px; /* 見出しを16pxに設定 */
 }
 
 span {
-    font-size: 0.8em;  /* 親要素（p）のフォントサイズの0.8倍 */
-}
-```
+    font-size: 1em; /* 親要素のフォントサイズの1倍 */
+}`}
+/>
 
 ---
 
@@ -191,24 +188,25 @@ span {
 - 親要素のフォントサイズに影響されない
 - 計算が分かりやすい
 
-```css
-/* htmlのフォントサイズが16px（デフォルト）の場合 */
+### remの絶対的な性質を理解しよう
+
+<CodePreview 
+  initialCode={`<h1>大きな見出し（24px）<span>子要素は1rem</span></h1>
+
+<h2>小さな見出し（12px）<span>子要素は1rem</span></h2>`}
+  initialCSS={`/* remは常にhtml要素のフォントサイズ（16px）に依存 */
 h1 {
-    font-size: 2rem;    /* 32px */
+    font-size: 24px; /* 見出しを24pxに設定 */
 }
 
 h2 {
-    font-size: 1.5rem;  /* 24px */
+    font-size: 12px; /* 見出しを12pxに設定 */
 }
 
-p {
-    font-size: 1rem;    /* 16px */
-}
-
-small {
-    font-size: 0.8rem;  /* 12.8px */
-}
-```
+span {
+    font-size: 1rem; /* html（16px）の1倍 = 16px（親に影響されない） */
+}`}
+/>
 
 ---
 
@@ -225,38 +223,28 @@ small {
 
 ### vw・vhの使用例
 
-以下のHTMLで説明します：
-
-```html
-<body>
-    <header>ヘッダー</header>
-    <main>メインコンテンツ</main>
-    <footer>フッター</footer>
-</body>
-```
-
-```css
-/* 画面幅いっぱいのヘッダー */
-header {
-    width: 100vw;        /* 画面幅の100% */
-    height: 10vh;        /* 画面高さの10% */
+<CodePreview 
+  initialCode={`<header>ヘッダー（画面幅100%、高さ10%）</header>
+<main>メインコンテンツ（画面幅80%、高さ60%）</main>
+<footer>フッター（画面幅100%、高さ15%）</footer>`}
+  initialCSS={`header {
+    width: 100vw;  /* 画面幅の100% */
+    height: 10vh;  /* 画面高さの10% */
     background-color: blue;
 }
 
-/* 画面中央の大きなボックス */
 main {
-    width: 80vw;         /* 画面幅の80% */
-    height: 60vh;        /* 画面高さの60% */
+    width: 80vw;  /* 画面幅の80% */
+    height: 60vh; /* 画面高さの60% */
     background-color: lightgray;
 }
 
-/* フッター */
 footer {
-    width: 100vw;        /* 画面幅の100% */
-    height: 15vh;        /* 画面高さの15% */
+    width: 100vw;  /* 画面幅の100% */
+    height: 15vh;  /* 画面高さの15% */
     background-color: darkgray;
-}
-```
+}`}
+/>
 
 ### vw・vhの特徴
 
@@ -294,26 +282,38 @@ footer {
 
 <Solution>
 
-**style.css**
-```css
-h1 {
-    font-size: 32px;         /* 32px */
-    width: 100vw;            /* 画面幅の100% */
-    background-color: blue;  /* 青色の背景 */
+<CodePreview 
+  initialCode={`<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS単位演習</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>メインタイトル</h1>
+    <h2>サブタイトル</h2>
+    <p>本文のテキストです。<small>注釈テキスト</small></p>
+</body>
+</html>`}
+  initialCSS={`h1 {
+    font-size: 32px;        /* 32px */
+    width: 100vw;           /* 画面幅の100% */
+    background-color: blue; /* 青色の背景 */
 }
 
 h2 {
-    font-size: 1.5em;   /* 親要素のフォントサイズ（body：16px）の1.5倍 = 24px */
+    font-size: 1.5em; /* 親要素のフォントサイズ（body：16px）の1.5倍 = 24px */
 }
 
 p {
-    font-size: 0.9rem;  /* html要素のフォントサイズ（16px）の0.9倍 = 14.4px */
+    font-size: 0.9rem; /* html要素のフォントサイズ（16px）の0.9倍 = 14.4px */
 }
 
 small {
-    font-size: 0.8em;   /* 親要素のフォントサイズ（p：14.4px）の0.8倍 = 11.52px */
-}
-```
+    font-size: 0.8em; /* 親要素のフォントサイズ（p：14.4px）の0.8倍 = 11.52px */
+}`}
+/>
 
 </Solution>
 

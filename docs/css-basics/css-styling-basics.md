@@ -2,6 +2,8 @@
 sidebar_position: 3
 ---
 
+import CodePreview from '@site/src/components/CodePreview';
+
 # CSSでスタイリングしよう！
 
 ## CSSスタイリング
@@ -120,6 +122,21 @@ footer {
 - 16進数カラーコード：`#ff0000`（赤）, `#0000ff`（青）など
 - RGB値：`rgb(255, 0, 0)`（赤）, `rgb(0, 0, 255)`（青）など
 
+<CodePreview 
+  initialCode={`<h1>見出しの背景色</h1>
+<p>段落の背景色</p>
+<div>div要素の背景色</div>`}
+  initialCSS={`h1 {
+    background-color: red;        /* カラーネーム */
+}
+p {
+    background-color: #0000ff;    /* 16進数カラーコード */
+}
+div {
+    background-color: rgb(0, 255, 0); /* RGB値 */
+}`}
+/>
+
 ### 手順: 背景色を段階的に追加
 
 **適用箇所①（body全体の背景色）**:
@@ -171,9 +188,8 @@ footer {
 
 ### 子孫セレクタの例
 
-**HTML**:
-```html
-<header>
+<CodePreview 
+  initialCode={`<header>
     <h1>サイトタイトル</h1>
 </header>
 <main>
@@ -182,12 +198,8 @@ footer {
         <h2>セクション見出し</h2>
         <p>段落テキスト</p>
     </section>
-</main>
-```
-
-**CSS**:
-```css
-/* headerの中にあるh1だけを赤色にする */
+</main>`}
+  initialCSS={`/* headerの中にあるh1だけを赤色にする */
 header h1 {
     color: red;
 }
@@ -200,8 +212,8 @@ section h2 {
 /* sectionの中にあるpだけを緑色にする */
 section p {
     color: green;
-}
-```
+}`}
+/>
 
 **結果**:
 - 「サイトタイトル」→ 赤色（`header h1`が適用）
