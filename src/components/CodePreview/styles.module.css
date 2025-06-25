@@ -43,13 +43,11 @@
 }
 
 .editorSection {
-  flex: 0 1 auto;
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   border-right: 1px solid var(--ifm-color-emphasis-300);
-  min-width: 250px;
-  width: max-content;
-  max-width: 50%;
+  min-width: 200px;
   overflow: hidden;
 }
 
@@ -66,10 +64,10 @@
 }
 
 .previewSection {
-  flex: 1 1 auto;
+  flex: 1 1 300px;
   display: flex;
   flex-direction: column;
-  min-width: 250px;
+  min-width: 300px;
 }
 
 .sectionHeader {

@@ -30,7 +30,15 @@ export default function CodePreview({
   const [htmlCode, setHtmlCode] = useState(ensureTrailingNewline(initialCode));
   const [cssCode, setCssCode] = useState(ensureTrailingNewline(initialCSS || ''));
   const [previewHeight, setPreviewHeight] = useState('200px');
+  
+  // 各セクションの幅を管理するstate
+  const [sectionWidths, setSectionWidths] = useState<{
+    html: number;
+    css: number;
+  }>({ html: 50, css: 50 });
+  
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   
   // エディタの参照を保持
   const htmlEditorRef = useRef<any>(null);
@@ -43,6 +51,124 @@ export default function CodePreview({
 
   // CSSエディタを表示するかどうかを判定
   const showCSSEditor = initialCSS !== undefined;
+
+  // エディタの実際のコンテンツ幅を取得する関数
+  const getEditorScrollWidth = (editorRef: React.RefObject<any>): number => {
+    if (!editorRef.current) return 200;
+    
+    try {
+      const editor = editorRef.current;
+      const domNode = editor.getDomNode();
+      if (!domNode) return 200;
+      
+      // monaco-mouse-cursor-text内の.view-lineを取得
+      const cursorTextElement = domNode.querySelector('.monaco-mouse-cursor-text') as HTMLElement;
+      if (cursorTextElement) {
+        const viewLines = cursorTextElement.querySelectorAll('.view-line');
+        let maxSpanWidth = 0;
+        
+        // 各行のspan要素の幅を調べて最大値を取得
+        for (let i = 0; i < Math.min(viewLines.length, 50); i++) { // 最初の50行をチェック
+          const viewLine = viewLines[i] as HTMLElement;
+          const spans = viewLine.querySelectorAll('span');
+          
+          // 各span要素の累積幅を計算
+          let lineWidth = 0;
+          for (let j = 0; j < spans.length; j++) {
+            const span = spans[j];
+            const spanStyle = window.getComputedStyle(span);
+            const spanWidth = parseFloat(spanStyle.width) || 0;
+            lineWidth += spanWidth;
+          }
+          
+          maxSpanWidth = Math.max(maxSpanWidth, lineWidth);
+        }
+        
+        if (maxSpanWidth > 0) {
+          // 最大行幅 + Monaco内部左パディング + 余裕分右パディング
+          return maxSpanWidth + 10 + 20;
+        }
+      }
+      
+      return 200; // 取得できない場合は最小幅
+    } catch (error) {
+      return 200; // エラー時は最小幅
+    }
+  };
+
+  // エディタセクションの最適な幅を計算する関数（プレビューは残り幅を使用）
+  const calculateOptimalWidths = (): { html: number; css: number } => {
+    const container = containerRef.current;
+    if (!container) {
+      return showCSSEditor 
+        ? { html: 50, css: 50 }
+        : { html: 100, css: 0 };
+    }
+
+    const containerWidth = container.offsetWidth;
+    const minEditorWidth = 200;
+    const previewMinWidth = 300;
+    
+    // 各エディタの実際の必要幅を取得
+    const htmlNeededWidth = Math.max(getEditorScrollWidth(htmlEditorRef), minEditorWidth);
+    const cssNeededWidth = showCSSEditor ? Math.max(getEditorScrollWidth(cssEditorRef), minEditorWidth) : 0;
+    
+    const totalEditorNeededWidth = htmlNeededWidth + cssNeededWidth;
+    const availableWidth = containerWidth - previewMinWidth; // プレビューの最小幅を確保
+    
+    console.log("totalEditorNeededWidth", totalEditorNeededWidth);
+    console.log("availableWidth", availableWidth);
+    console.log("containerWidth", containerWidth);
+    console.log("htmlNeededWidth", htmlNeededWidth);
+    console.log("cssNeededWidth", cssNeededWidth);
+
+    if (!showCSSEditor) {
+      // CSSエディタがない場合
+      const htmlWidth = Math.min(htmlNeededWidth, availableWidth);
+      return { 
+        html: (htmlWidth / containerWidth) * 100, 
+        css: 0 
+      };
+    }
+
+    // CSSエディタがある場合
+    if (totalEditorNeededWidth <= availableWidth) {
+      // エディタの必要幅がすべて収まる場合、コンテンツ幅ぴったりに
+      return {
+        html: (htmlNeededWidth / containerWidth) * 100,
+        css: (cssNeededWidth / containerWidth) * 100
+      };
+    } else {
+      // エディタの必要幅が多い場合は比例配分
+      const htmlRatio = htmlNeededWidth / totalEditorNeededWidth;
+      const cssRatio = cssNeededWidth / totalEditorNeededWidth;
+      
+      const htmlWidth = availableWidth * htmlRatio;
+      const cssWidth = availableWidth * cssRatio;
+      
+      return {
+        html: (htmlWidth / containerWidth) * 100,
+        css: (cssWidth / containerWidth) * 100
+      };
+    }
+  };
+
+  // 幅を再計算して更新する関数
+  const updateSectionWidths = () => {
+    const newWidths = calculateOptimalWidths();
+    setSectionWidths(newWidths);
+  };
+
+  // リサイズ時の処理
+  useEffect(() => {
+    const handleResize = () => {
+      console.log("リサイズ時の幅調整");
+      updateSectionWidths();
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // iframeの高さを内容に合わせて調整
   const adjustIframeHeight = () => {
@@ -75,7 +201,7 @@ export default function CodePreview({
   useEffect(() => {
     const iframe = iframeRef.current;
     if (iframe) {
-      // iframeの読み込み完了後に高さを調整
+      // iframeの読み込み完了後に高さと幅を調整
       const handleLoad = () => {
         adjustIframeHeight();
         // 少し遅延させて再度実行（画像などの読み込み待ち）
@@ -240,11 +366,39 @@ export default function CodePreview({
   // HTMLエディタのマウントハンドラ
   const handleHtmlEditorDidMount = (editor: any) => {
     htmlEditorRef.current = editor;
+    
+    // エディタマウント後に初回幅調整
+    setTimeout(() => {
+      console.log("HTMLエディタマウント後の初回幅調整");
+      updateSectionWidths();
+    }, 100);
+    
+    // エディタのコンテンツ変更を監視して幅を調整
+    editor.onDidChangeModelContent(() => {
+      setTimeout(() => {
+        console.log("HTMLエディタのコンテンツ変更");
+        updateSectionWidths();
+      }, 50);
+    });
   };
 
   // CSSエディタのマウントハンドラ
   const handleCssEditorDidMount = (editor: any) => {
     cssEditorRef.current = editor;
+    
+    // エディタマウント後に初回幅調整
+    setTimeout(() => {
+      console.log("CSSエディタマウント後の初回幅調整");
+      updateSectionWidths();
+    }, 100);
+    
+    // エディタのコンテンツ変更を監視して幅を調整
+    editor.onDidChangeModelContent(() => {
+      setTimeout(() => {
+        console.log("CSSエディタのコンテンツ変更");
+        updateSectionWidths();
+      }, 50);
+    });
   };
 
   return (
@@ -255,9 +409,12 @@ export default function CodePreview({
         </div>
       )}
       
-      <div className={styles.splitLayout}>
+      <div className={styles.splitLayout} ref={containerRef}>
         {/* HTMLエディタセクション */}
-        <div className={styles.editorSection}>
+        <div 
+          className={styles.editorSection}
+          style={{ width: `${sectionWidths.html}%` }}
+        >
           <div className={styles.sectionHeader}>HTML</div>
           <div className={styles.editorContainer}>
             <Editor
@@ -284,7 +441,10 @@ export default function CodePreview({
 
         {/* CSSエディタセクション（CSSが定義されている場合のみ表示） */}
         {showCSSEditor && (
-          <div className={styles.editorSection}>
+          <div 
+            className={styles.editorSection}
+            style={{ width: `${sectionWidths.css}%` }}
+          >
             <div className={styles.sectionHeader}>CSS</div>
             <div className={styles.editorContainer}>
               <Editor
@@ -311,7 +471,9 @@ export default function CodePreview({
         )}
         
         {/* プレビューセクション */}
-        <div className={styles.previewSection}>
+        <div 
+          className={styles.previewSection}
+        >
           <div className={styles.sectionHeader}>プレビュー</div>
           <div 
             className={styles.previewContainer}
