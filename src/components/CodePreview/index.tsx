@@ -183,7 +183,7 @@ export default function CodePreview({
       if (!code) return parseInt(minHeight);
       const lines = code.split('\n').length;
       const lineHeight = 19; // Monaco editorの行の高さ
-      const padding = 20; // 上下のパディング
+      const padding = 22; // 上下のパディング
       return Math.max(lines * lineHeight + padding, parseInt(minHeight));
     };
 
@@ -455,6 +455,7 @@ export default function CodePreview({
                 wordWrap: 'off',
                 tabSize: 2,
                 insertSpaces: true,
+                scrollBeyondLastLine: false,
               }}
             />
           </div>
@@ -485,6 +486,7 @@ export default function CodePreview({
                    wordWrap: 'off',
                    tabSize: 2,
                    insertSpaces: true,
+                   scrollBeyondLastLine: false,
                  }}
               />
             </div>
