@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import { Highlight, themes } from 'prism-react-renderer';
 import { useColorMode } from '@docusaurus/theme-common';
+import Editor from '@monaco-editor/react';
 import styles from './styles.module.css';
 
 interface CodePreviewProps {
@@ -19,15 +19,22 @@ export default function CodePreview({
   minHeight = '200px',
   imageBasePath
 }: CodePreviewProps): React.ReactElement {
-  const [htmlCode, setHtmlCode] = useState(initialCode);
-  const [cssCode, setCssCode] = useState(initialCSS || '');
-  const [previewHeight, setPreviewHeight] = useState('200px');
-  const htmlEditorRef = useRef<HTMLDivElement>(null);
-  const cssEditorRef = useRef<HTMLDivElement>(null);
-  const htmlCursorPosition = useRef<{ start: number; end: number } | null>(null);
-  const cssCursorPosition = useRef<{ start: number; end: number } | null>(null);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
+  // 末尾に改行を追加する関数
+  const ensureTrailingNewline = (code: string): string => {
+    if (code && !code.endsWith('\n')) {
+      return code + '\n';
+    }
+    return code;
+  };
 
+  const [htmlCode, setHtmlCode] = useState(ensureTrailingNewline(initialCode));
+  const [cssCode, setCssCode] = useState(ensureTrailingNewline(initialCSS || ''));
+  const [previewHeight, setPreviewHeight] = useState('200px');
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  
+  // エディタの参照を保持
+  const htmlEditorRef = useRef<any>(null);
+  const cssEditorRef = useRef<any>(null);
 
   const { colorMode } = useColorMode();
 
@@ -36,90 +43,6 @@ export default function CodePreview({
 
   // CSSエディタを表示するかどうかを判定
   const showCSSEditor = initialCSS !== undefined;
-
-  // カーソル位置を取得する関数
-  const getCursorPosition = (element: HTMLElement): { start: number; end: number } => {
-    try {
-      const selection = window.getSelection();
-      if (!selection || selection.rangeCount === 0 || !element) {
-        return { start: 0, end: 0 };
-      }
-
-      const range = selection.getRangeAt(0);
-      
-      // 選択範囲がエディタ要素内にあるかチェック
-      if (!element.contains(range.commonAncestorContainer)) {
-        return { start: 0, end: 0 };
-      }
-
-      const preCaretRange = range.cloneRange();
-      preCaretRange.selectNodeContents(element);
-      preCaretRange.setEnd(range.startContainer, range.startOffset);
-      const start = preCaretRange.toString().length;
-
-      const preCaretRangeEnd = range.cloneRange();
-      preCaretRangeEnd.selectNodeContents(element);
-      preCaretRangeEnd.setEnd(range.endContainer, range.endOffset);
-      const end = preCaretRangeEnd.toString().length;
-
-      return { start, end };
-    } catch (error) {
-      // エラー時は無言でデフォルト値を返す
-      return { start: 0, end: 0 };
-    }
-  };
-
-  // カーソル位置を設定する関数
-  const setCursorPosition = (element: HTMLElement, position: { start: number; end: number }) => {
-    try {
-      const selection = window.getSelection();
-      if (!selection || !element) return;
-
-      const range = document.createRange();
-      let currentOffset = 0;
-      let startNode: Node | null = null;
-      let endNode: Node | null = null;
-      let startOffset = 0;
-      let endOffset = 0;
-
-      const walker = document.createTreeWalker(
-        element,
-        NodeFilter.SHOW_TEXT,
-        null
-      );
-
-      let node: Node | null;
-      while ((node = walker.nextNode())) {
-        const nodeLength = node.textContent?.length || 0;
-        
-        if (!startNode && currentOffset + nodeLength >= position.start) {
-          startNode = node;
-          startOffset = Math.min(position.start - currentOffset, nodeLength);
-        }
-        
-        if (!endNode && currentOffset + nodeLength >= position.end) {
-          endNode = node;
-          endOffset = Math.min(position.end - currentOffset, nodeLength);
-          break;
-        }
-        
-        currentOffset += nodeLength;
-      }
-
-      if (startNode && endNode) {
-        range.setStart(startNode, Math.max(0, startOffset));
-        range.setEnd(endNode, Math.max(0, endOffset));
-        selection.removeAllRanges();
-        selection.addRange(range);
-      }
-    } catch (error) {
-      // エラー時は無言で終了
-    }
-  };
-
-
-
-
 
   // iframeの高さを内容に合わせて調整
   const adjustIframeHeight = () => {
@@ -142,7 +65,6 @@ export default function CodePreview({
       const minHeightPx = parseInt(minHeight);
       const finalHeight = Math.max(height, minHeightPx);
       
-
       setPreviewHeight(finalHeight + 'px');
     } catch (error) {
       // エラー時は無言で終了
@@ -191,79 +113,41 @@ export default function CodePreview({
     }
   }, [htmlCode, cssCode, minHeight]);
 
-  // 初期値を設定
+  // HTMLコードの末尾改行チェック
   useEffect(() => {
-    const htmlEditor = htmlEditorRef.current;
-    if (htmlEditor) {
-      const processedHtmlCode = ensureTrailingNewline(htmlCode);
+    if (htmlCode && !htmlCode.endsWith('\n')) {
+      const newValue = htmlCode + '\n';
+      setHtmlCode(newValue);
       
-      // contentEditableに適した方法で設定
-      ensureTrailingNewlineInEditor(htmlEditor, processedHtmlCode);
-      
-      // 状態も更新（初期値の場合のみ）
-      if (htmlCode !== processedHtmlCode) {
-        setHtmlCode(processedHtmlCode);
+      // エディタの値も更新（カーソル位置を保持）
+      if (htmlEditorRef.current) {
+        const editor = htmlEditorRef.current;
+        const position = editor.getPosition();
+        editor.setValue(newValue);
+        if (position) {
+          editor.setPosition(position);
+        }
       }
     }
-  }, []);
+  }, [htmlCode]);
 
+  // CSSコードの末尾改行チェック
   useEffect(() => {
-    const cssEditor = cssEditorRef.current;
-    if (cssEditor && showCSSEditor) {
-      const processedCssCode = ensureTrailingNewline(cssCode);
+    if (cssCode && !cssCode.endsWith('\n')) {
+      const newValue = cssCode + '\n';
+      setCssCode(newValue);
       
-      // contentEditableに適した方法で設定
-      ensureTrailingNewlineInEditor(cssEditor, processedCssCode);
-      
-      // 状態も更新（初期値の場合のみ）
-      if (cssCode !== processedCssCode) {
-        setCssCode(processedCssCode);
+      // エディタの値も更新（カーソル位置を保持）
+      if (cssEditorRef.current) {
+        const editor = cssEditorRef.current;
+        const position = editor.getPosition();
+        editor.setValue(newValue);
+        if (position) {
+          editor.setPosition(position);
+        }
       }
     }
-  }, [showCSSEditor]);
-
-
-
-
-
-  // エディターとハイライト要素のスクロール同期
-  const handleHtmlScroll = () => {
-    const editor = htmlEditorRef.current;
-    if (!editor) return;
-    
-    // 直接親要素内のハイライト要素を探す
-    const wrapper = editor.parentElement;
-    const highlightElement = wrapper?.querySelector('pre');
-    
-
-    
-    if (highlightElement) {
-      const scrollTop = editor.scrollTop;
-      const scrollLeft = editor.scrollLeft;
-      
-      // ハイライト要素をtransformで移動させる
-      (highlightElement as HTMLElement).style.transform = `translate(-${scrollLeft}px, -${scrollTop}px)`;
-    }
-  };
-
-  const handleCssScroll = () => {
-    const editor = cssEditorRef.current;
-    if (!editor) return;
-    
-    // 直接親要素内のハイライト要素を探す
-    const wrapper = editor.parentElement;
-    const highlightElement = wrapper?.querySelector('pre');
-    
-
-    
-    if (highlightElement) {
-      const scrollTop = editor.scrollTop;
-      const scrollLeft = editor.scrollLeft;
-      
-      // ハイライト要素をtransformで移動させる
-      (highlightElement as HTMLElement).style.transform = `translate(-${scrollLeft}px, -${scrollTop}px)`;
-    }
-  };
+  }, [cssCode]);
 
   // 画像パスを変換する関数
   const processImagePaths = (htmlCode: string): string => {
@@ -343,218 +227,24 @@ export default function CodePreview({
     }
   };
 
-  const isUpdatingHtml = useRef(false);
-  const isUpdatingCss = useRef(false);
-
-  // 最後に改行を追加する関数（状態用）
-  const ensureTrailingNewline = (code: string): string => {
-    if (code.trim() === '') return code; // 完全に空欄の場合はそのまま
-    if (!code.endsWith('\n')) {
-      return code + '\n';
-    }
-    return code;
+  // HTMLコード変更ハンドラ
+  const handleHtmlChange = (value: string | undefined) => {
+    setHtmlCode(value || '');
   };
 
-  // contentEditableに改行を追加する関数
-  const ensureTrailingNewlineInEditor = (element: HTMLDivElement, code: string) => {
-    if (code.trim() === '') {
-      element.innerHTML = '';
-      return;
-    }
-
-    // 既に末尾に改行がある場合はそのまま
-    if (code.endsWith('\n')) {
-      // コードをHTMLエスケープして設定
-      const escapedCode = code.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-      const lines = escapedCode.split('\n');
-      
-      // 最後の行が空の場合（つまり\nで終わっている場合）
-      if (lines[lines.length - 1] === '') {
-        lines.pop(); // 最後の空要素を削除
-        const htmlContent = lines.map(line => line === '' ? '<div><br></div>' : `<div>${line}</div>`).join('');
-        element.innerHTML = htmlContent + '<div><br></div>'; // 末尾改行用のdivを追加
-      } else {
-        const htmlContent = lines.map(line => line === '' ? '<div><br></div>' : `<div>${line}</div>`).join('');
-        element.innerHTML = htmlContent;
-      }
-    } else {
-      // 改行がない場合は追加
-      const escapedCode = code.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-      const lines = escapedCode.split('\n');
-      const htmlContent = lines.map(line => line === '' ? '<div><br></div>' : `<div>${line}</div>`).join('');
-      element.innerHTML = htmlContent + '<div><br></div>'; // 末尾改行用のdivを追加
-    }
+  // CSSコード変更ハンドラ
+  const handleCssChange = (value: string | undefined) => {
+    setCssCode(value || '');
   };
 
-  const handleHtmlInput = (e: React.FormEvent<HTMLDivElement>) => {
-    if (isUpdatingHtml.current) return; // 再帰的な更新を防ぐ
-    
-    const element = e.currentTarget;
-    
-    // innerTextではなく、DOM構造から正確なテキストを抽出
-    const extractTextFromElement = (element: HTMLElement): string => {
-      let text = '';
-      for (let i = 0; i < element.childNodes.length; i++) {
-        const node = element.childNodes[i];
-        if (node.nodeType === Node.TEXT_NODE) {
-          text += node.textContent || '';
-        } else if (node.nodeType === Node.ELEMENT_NODE) {
-          const el = node as HTMLElement;
-          if (el.tagName === 'DIV') {
-            if (el.innerHTML === '<br>') {
-              text += '\n';
-            } else {
-              text += el.textContent || '';
-              text += '\n';
-            }
-          } else if (el.tagName === 'BR') {
-            text += '\n';
-          } else {
-            text += el.textContent || '';
-          }
-        }
-      }
-      return text;
-    };
-
-    let newValue = extractTextFromElement(element);
-    
-    // 末尾の余分な改行を削除（最後のdivによる自動改行を除去）
-    if (newValue.endsWith('\n\n')) {
-      newValue = newValue.slice(0, -1);
-    }
-
-    // カーソル位置を保存
-    htmlCursorPosition.current = getCursorPosition(element);
-    
-    // 変更前の内容と比較して、適切なカーソル位置を計算
-    const originalValue = htmlCode;
-    const addedTrailingNewline = newValue.trim() !== '' && !newValue.endsWith('\n');
-    
-    // 文末に改行を自動追加（ただし、空欄または既に改行で終わっている場合は追加しない）
-    if (addedTrailingNewline) {
-      newValue = newValue + '\n';
-    }
-    
-    // React stateを更新
-    isUpdatingHtml.current = true;
-    setHtmlCode(newValue);
-    
-    // DOM要素を更新（必要な場合のみ）
-    setTimeout(() => {
-      if (addedTrailingNewline) {
-        // 自動で末尾改行が追加された場合のみDOM操作を行う
-        ensureTrailingNewlineInEditor(element, newValue);
-        
-        // 元のカーソル位置を復元
-        if (htmlCursorPosition.current) {
-          setCursorPosition(element, htmlCursorPosition.current);
-        }
-      }
-      // それ以外の場合（通常の入力や改行入力）は、DOM操作を行わずブラウザの自然な動作に任せる
-      
-      isUpdatingHtml.current = false;
-    }, 0);
+  // HTMLエディタのマウントハンドラ
+  const handleHtmlEditorDidMount = (editor: any) => {
+    htmlEditorRef.current = editor;
   };
 
-  const handleCssInput = (e: React.FormEvent<HTMLDivElement>) => {
-    if (isUpdatingCss.current) return; // 再帰的な更新を防ぐ
-    
-    const element = e.currentTarget;
-    
-    // innerTextではなく、DOM構造から正確なテキストを抽出
-    const extractTextFromElement = (element: HTMLElement): string => {
-      let text = '';
-      for (let i = 0; i < element.childNodes.length; i++) {
-        const node = element.childNodes[i];
-        if (node.nodeType === Node.TEXT_NODE) {
-          text += node.textContent || '';
-        } else if (node.nodeType === Node.ELEMENT_NODE) {
-          const el = node as HTMLElement;
-          if (el.tagName === 'DIV') {
-            if (el.innerHTML === '<br>') {
-              text += '\n';
-            } else {
-              text += el.textContent || '';
-              text += '\n';
-            }
-          } else if (el.tagName === 'BR') {
-            text += '\n';
-          } else {
-            text += el.textContent || '';
-          }
-        }
-      }
-      return text;
-    };
-
-    let newValue = extractTextFromElement(element);
-    
-    // 末尾の余分な改行を削除（最後のdivによる自動改行を除去）
-    if (newValue.endsWith('\n\n')) {
-      newValue = newValue.slice(0, -1);
-    }
-    
-    // カーソル位置を保存
-    cssCursorPosition.current = getCursorPosition(element);
-    
-    // 変更前の内容と比較して、適切なカーソル位置を計算
-    const originalValue = cssCode;
-    const addedTrailingNewline = newValue.trim() !== '' && !newValue.endsWith('\n');
-    
-    // 文末に改行を自動追加（ただし、空欄または既に改行で終わっている場合は追加しない）
-    if (addedTrailingNewline) {
-      newValue = newValue + '\n';
-    }
-    
-    // React stateを更新
-    isUpdatingCss.current = true;
-    setCssCode(newValue);
-    
-    // DOM要素を更新（必要な場合のみ）
-    setTimeout(() => {
-      if (addedTrailingNewline) {
-        // 自動で末尾改行が追加された場合のみDOM操作を行う
-        ensureTrailingNewlineInEditor(element, newValue);
-        
-        // 元のカーソル位置を復元
-        if (cssCursorPosition.current) {
-          setCursorPosition(element, cssCursorPosition.current);
-        }
-      }
-      // それ以外の場合（通常の入力や改行入力）は、DOM操作を行わずブラウザの自然な動作に任せる
-      
-      isUpdatingCss.current = false;
-    }, 0);
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
-    // Tabキーでインデント操作
-    if (e.key === 'Tab') {
-      e.preventDefault();
-      
-      const selection = window.getSelection();
-      if (!selection || selection.rangeCount === 0) return;
-      
-      const range = selection.getRangeAt(0);
-      
-      if (e.shiftKey) {
-        // Shift+Tab: インデントを減らす（簡単な実装）
-        const textNode = document.createTextNode('');
-        range.insertNode(textNode);
-      } else {
-        // Tab: 2つのスペースを挿入
-        const textNode = document.createTextNode('  ');
-        range.deleteContents();
-        range.insertNode(textNode);
-        
-        // カーソルを挿入したテキストの後に移動
-        range.setStartAfter(textNode);
-        range.collapse(true);
-        selection.removeAllRanges();
-        selection.addRange(range);
-      }
-    }
+  // CSSエディタのマウントハンドラ
+  const handleCssEditorDidMount = (editor: any) => {
+    cssEditorRef.current = editor;
   };
 
   return (
@@ -570,65 +260,25 @@ export default function CodePreview({
         <div className={styles.editorSection}>
           <div className={styles.sectionHeader}>HTML</div>
           <div className={styles.editorContainer}>
-            <div className={styles.codeEditorWrapper}>
-              <Highlight
-                code={htmlCode || ''}
-                language="markup"
-                theme={colorMode === 'dark' ? themes.vsDark : themes.github}
-              >
-                {({ className, style, tokens, getLineProps, getTokenProps }) => {
-                  return (
-                    <pre
-                      className={`${styles.highlightLayer} ${styles.htmlHighlightLayer} ${className}`}
-                      style={{ 
-                        ...style,
-                        position: 'absolute',
-                        top: 0,
-                        left: 0,
-                        width: 'max-content',
-                        minWidth: '100%',
-                        height: '100%',
-                        minHeight: minHeight,
-                        padding: '1rem 1rem 1rem 1rem',
-                        margin: 0,
-                        border: 'none',
-                        borderRadius: '0',
-                        boxShadow: 'none',
-                        fontFamily: 'var(--ifm-font-family-monospace)',
-                        fontSize: '0.875rem',
-                        lineHeight: '1.5',
-                        whiteSpace: 'pre',
-                        wordWrap: 'normal',
-                        overflow: 'visible',
-                        pointerEvents: 'none',
-                        zIndex: 1,
-                        boxSizing: 'border-box'
-                      }}
-                    >
-                      {tokens.map((line, i) => (
-                        <div key={i} {...getLineProps({ line })}>
-                          {line.map((token, key) => (
-                            <span key={key} {...getTokenProps({ token })} />
-                          ))}
-                        </div>
-                      ))}
-                    </pre>
-                  );
-                }}
-              </Highlight>
-              <div
-                ref={htmlEditorRef}
-                contentEditable
-                onInput={handleHtmlInput}
-                onKeyDown={handleKeyDown}
-                onScroll={handleHtmlScroll}
-                className={styles.editor}
-                spellCheck={false}
-                style={{ '--min-height': minHeight, whiteSpace: 'pre', wordWrap: 'normal' } as React.CSSProperties}
-                suppressContentEditableWarning={true}
-                data-placeholder="HTMLコードを入力してください..."
-              />
-            </div>
+            <Editor
+              height={minHeight}
+              defaultLanguage="html"
+              value={htmlCode}
+              onChange={handleHtmlChange}
+              onMount={handleHtmlEditorDidMount}
+              theme={colorMode === 'dark' ? 'vs-dark' : 'light'}
+              options={{
+                minimap: { enabled: false },
+                fontSize: 14,
+                lineNumbers: 'off',
+                folding: false,
+                padding: { top: 5, bottom: 5 },
+                roundedSelection: false,
+                wordWrap: 'off',
+                tabSize: 2,
+                insertSpaces: true,
+              }}
+            />
           </div>
         </div>
 
@@ -637,65 +287,25 @@ export default function CodePreview({
           <div className={styles.editorSection}>
             <div className={styles.sectionHeader}>CSS</div>
             <div className={styles.editorContainer}>
-              <div className={styles.codeEditorWrapper}>
-                <Highlight
-                  code={cssCode || ''}
-                  language="css"
-                  theme={colorMode === 'dark' ? themes.vsDark : themes.github}
-                >
-                  {({ className, style, tokens, getLineProps, getTokenProps }) => {
-                    return (
-                      <pre
-                        className={`${styles.highlightLayer} ${styles.cssHighlightLayer} ${className}`}
-                        style={{ 
-                          ...style,
-                          position: 'absolute',
-                          top: 0,
-                          left: 0,
-                          width: 'max-content',
-                          minWidth: '100%',
-                          height: '100%',
-                          minHeight: minHeight,
-                          padding: '1rem 1rem 1rem 1rem',
-                          margin: 0,
-                          border: 'none',
-                          borderRadius: '0',
-                          boxShadow: 'none',
-                          fontFamily: 'var(--ifm-font-family-monospace)',
-                          fontSize: '0.875rem',
-                          lineHeight: '1.5',
-                          whiteSpace: 'pre',
-                          wordWrap: 'normal',
-                          overflow: 'visible',
-                          pointerEvents: 'none',
-                          zIndex: 1,
-                          boxSizing: 'border-box'
-                        }}
-                      >
-                        {tokens.map((line, i) => (
-                          <div key={i} {...getLineProps({ line })}>
-                            {line.map((token, key) => (
-                              <span key={key} {...getTokenProps({ token })} />
-                            ))}
-                          </div>
-                        ))}
-                      </pre>
-                    );
-                  }}
-                </Highlight>
-              <div
-                  ref={cssEditorRef}
-                  contentEditable
-                  onInput={handleCssInput}
-                  onKeyDown={handleKeyDown}
-                  onScroll={handleCssScroll}
-                  className={styles.editor}
-                  spellCheck={false}
-                  style={{ '--min-height': minHeight, whiteSpace: 'pre', wordWrap: 'normal' } as React.CSSProperties}
-                  suppressContentEditableWarning={true}
-                  data-placeholder="CSSコードを入力してください..."
-                />
-              </div>
+              <Editor
+                height={minHeight}
+                defaultLanguage="css"
+                value={cssCode}
+                onChange={handleCssChange}
+                onMount={handleCssEditorDidMount}
+                theme={colorMode === 'dark' ? 'vs-dark' : 'light'}
+                options={{
+                   minimap: { enabled: false },
+                   fontSize: 14,
+                   lineNumbers: 'off',
+                   folding: false,
+                   padding: { top: 5, bottom: 5 },
+                   roundedSelection: false,
+                   wordWrap: 'off',
+                   tabSize: 2,
+                   insertSpaces: true,
+                 }}
+              />
             </div>
           </div>
         )}
