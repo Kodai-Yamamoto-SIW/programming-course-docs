@@ -132,11 +132,11 @@ h1 {
 ### widthの動作例
 
 <CodePreview 
-  initialCode={`<div class="box1">幅50pxの箱</div>
+  initialCode={`<div class="box1">幅100pxの箱</div>
 <div class="box2">幅50%の箱</div>
 <div class="box3">幅autoの箱（デフォルト）</div>`}
   initialCSS={`.box1 {
-    width: 50px;
+    width: 100px;
     background-color: lightblue;
 }
 
