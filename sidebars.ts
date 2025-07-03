@@ -44,6 +44,7 @@ const sidebars: SidebarsConfig = {
         'css-basics/css-introduction',
         'css-basics/css-units',
         'css-basics/css-styling-basics',
+        'css-basics/box-model',
       ],
     },
   ],
