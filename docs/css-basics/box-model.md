@@ -41,17 +41,17 @@ import Exercise from '@site/src/components/Exercise';
 
 <CodePreview 
   initialCode={`<h1>普通の見出し</h1>
-<h1 class="special">特別な見出し</h1>
+<h1 class="mark">特別な見出し</h1>
 <h1>普通の見出し</h1>
-<p class="special">特別な段落</p>
+<p class="mark">特別な段落</p>
 <p>普通の段落</p>`}
   initialCSS={`/* 全ての h1 要素 */
 h1 {
     color: blue;
 }
 
-/* specialクラスを持つ要素 */
-.special {
+/* markクラスを持つ要素 */
+.mark {
     background-color: yellow;
     color: red;
 }`}
@@ -60,28 +60,49 @@ h1 {
 **重要なポイント**:
 - クラス名の前に `.`（ドット）を付ける
 - 複数の要素に同じクラスを適用できる
-- 1つの要素に複数のクラスを指定することも可能
 
-<Exercise title="演習1">
+<Exercise title="演習1(1)">
 
 以下のHTMLに対して、CSSを書いてください：
 
 **HTML**:
 ```html
 <h1>サイトタイトル</h1>
-<p class="highlight">重要なお知らせ</p>
+<p class="mark">重要なお知らせ</p>
 <p>通常の段落</p>
-<p class="highlight">もう一つの重要な情報</p>
+<p class="mark">もう一つの重要な情報</p>
 ```
 
 **要求**:
-1. `highlight`クラスの要素に黄色の背景色を設定
-2. `highlight`クラスの要素の文字色を赤に設定
+1. `mark`クラスの要素に黄色の背景色を設定
+2. `mark`クラスの要素の文字色を赤に設定
 
 **期待される表示**:
 - サイトタイトルは通常の表示
 - 「重要なお知らせ」と「もう一つの重要な情報」は黄色背景・赤文字
 - 「通常の段落」は通常の表示
+
+</Exercise>
+
+<Exercise title="演習1(2)">
+
+以下のHTMLに対して、適切なクラス名を付けてCSSを書いてください：
+
+**HTML**:
+```html
+<h1>ニュースサイト</h1>
+<h2>速報：台風が接近中</h2>
+<p>最新の気象情報をお届けします。</p>
+<div>緊急避難情報が発表されました。</div>
+<p>通常のニュース記事です。</p>
+```
+
+**要求**:
+1. 「速報：台風が接近中」と「緊急避難情報が発表されました。」に同じクラス名を付けて、背景色を赤、文字色を白に設定
+2. 「最新の気象情報をお届けします。」と「通常のニュース記事です。」に同じクラス名を付けて、背景色を薄い青に設定
+
+**ヒント**:
+- クラス名は内容を表す分かりやすい名前をつけましょう（例：`urgent`、`info`など）
 
 </Exercise>
 
@@ -105,7 +126,13 @@ h1 {
 3. `title`クラス：青い文字色
 4. `normal`クラス：グレーの文字色
 
-**ヒント**: 1つの要素に複数のクラス（`highlight warning`）が指定されている場合、両方のスタイルが適用されます。
+**ヒント**: HTMLでは、スペース区切りで複数のクラスを指定することができます。
+
+例えば `class="highlight warning"` の場合：
+- `highlight`というクラス
+- `warning`というクラス
+
+この2つのクラスが指定されており、両方のスタイルが適用されます。つまり、黄色い背景色と赤い文字色（`highlight`クラス）に加えて、オレンジの境界線（`warning`クラス）も表示されます。
 
 </Exercise>
 
@@ -147,15 +174,15 @@ h1 {
 
 .box3 {
     width: auto;
-    background-color: lightyellow;
+    background-color: lightcoral;
 }`}
 />
 
-:::important width: auto の重要な特性
+:::info width: auto の重要な特性
 
 `width: auto`（デフォルト値）は**親要素の幅いっぱいに広がります**。
 
-ブロック要素（`div`、`p`、`h1`など）のデフォルトの`width`は`auto`なので、何も指定しなければ自動的に親要素の横幅いっぱいに広がります。
+デフォルトの`width`は`auto`なので、ブロック要素（`div`、`p`、`h1`など）は、何も指定しなければ自動的に親要素の横幅いっぱいに広がります。
 
 :::
 
@@ -169,15 +196,15 @@ h1 {
 
 **HTML**:
 ```html
-<div class="narrow">狭い箱</div>
-<div class="medium">中くらいの箱</div>
-<div class="wide">広い箱</div>
+<div class="box1">狭い箱</div>
+<div class="box2">中くらいの箱</div>
+<div class="box3">広い箱</div>
 ```
 
 **要求**:
-1. `narrow`クラス：幅200px
-2. `medium`クラス：幅40%
-3. `wide`クラス：幅80%
+1. `box1`クラス：幅200px
+2. `box2`クラス：幅40%
+3. `box3`クラス：幅80%
 
 </Exercise>
 
@@ -187,17 +214,22 @@ h1 {
 
 **HTML**:
 ```html
-<div class="container">
-    <div class="narrow">狭い箱</div>
-    <div class="medium">中くらいの箱</div>
-    <div class="wide">広い箱</div>
+<div class="box">
+    <div class="box1">狭い箱</div>
+    <div class="box2">中くらいの箱</div>
+    <div class="box3">広い箱</div>
+    <div class="box4">画面幅の箱</div>
 </div>
 ```
 
 **要求**:
-1. `narrow`クラス：幅200px、背景色を薄い青に設定
-2. `medium`クラス：幅40%、背景色を薄い緑に設定  
-3. `wide`クラス：幅80%、背景色を薄い黄色に設定
+1. `box1`クラス：幅15rem、背景色を薄い青に設定
+2. `box2`クラス：幅40%、背景色を薄い緑に設定  
+3. `box3`クラス：幅30em、背景色を薄い黄色に設定
+4. `box4`クラス：幅50vw、背景色を薄いピンクに設定
+
+**ヒント**:
+- rem、em、vw など様々な単位を使って幅を指定してみましょう
 
 </Exercise>
 
@@ -246,10 +278,13 @@ h1 {
 }`}
 />
 
-**重要なポイント**:
+:::tip heightプロパティのポイント
+
 - `height: auto`は中身（テキストなど）に合わせて高さが決まる
 - パーセントで指定する場合、親要素に明確な高さが必要
 - 内容が指定した高さより大きい場合、はみ出ることがある
+
+:::
 
 <Exercise title="演習3">
 
@@ -257,15 +292,15 @@ h1 {
 
 **HTML**:
 ```html
-<div class="square">正方形の箱</div>
-<div class="rectangle">長方形の箱</div>
-<div class="small-box">小さな箱</div>
+<div class="box1">正方形の箱</div>
+<div class="box2">長方形の箱</div>
+<div class="box3">小さな箱</div>
 ```
 
 **要求**:
-1. `square`クラス：幅200px、高さ200px
-2. `rectangle`クラス：幅300px、高さ100px
-3. `small-box`クラス：幅100px、高さ80px
+1. `box1`クラス：幅200px、高さ200px
+2. `box2`クラス：幅300px、高さ100px
+3. `box3`クラス：幅100px、高さ80px
 
 </Exercise>
 
@@ -275,15 +310,18 @@ h1 {
 
 **HTML**:
 ```html
-<div class="square">正方形の箱</div>
-<div class="rectangle">長方形の箱</div>
-<div class="small-box">小さな箱</div>
+<div class="box1">ヒーローセクション</div>
+<div class="box2">カードセクション</div>
+<div class="box3">サイドバー</div>
 ```
 
 **要求**:
-1. `square`クラス：幅200px、高さ200px、背景色を薄い赤に設定
-2. `rectangle`クラス：幅300px、高さ100px、背景色を薄い青に設定
-3. `small-box`クラス：幅100px、高さ80px、背景色を薄い緑に設定
+1. `box1`クラス：幅50vw、高さ30vh、背景色を16進数カラーコード`#FF6B35`、文字色を白
+2. `box2`クラス：幅25rem、高さ15em、背景色をRGB値`rgb(46, 125, 50)`、文字色を16進数`#FFFFFF`
+3. `box3`クラス：幅200px、高さ80%、背景色をRGBA値`rgba(63, 81, 181, 0.8)`、文字色をカラーネーム`white`
+
+**ヒント**:
+- 様々な単位（vw、vh、rem、em、px、%）と色指定方法（16進数、RGB、RGBA、カラーネーム）を使い分けてみましょう
 
 </Exercise>
 
@@ -345,14 +383,7 @@ h1 {
 }`}
 />
 
-**個別指定も可能**:
-```css
-.detailed-border {
-    border-width: 2px;     /* 太さ */
-    border-style: solid;   /* スタイル */
-    border-color: blue;    /* 色 */
-}
-```
+
 
 <Exercise title="演習4">
 
@@ -360,15 +391,18 @@ h1 {
 
 **HTML**:
 ```html
-<div class="frame1">額縁風の箱1</div>
-<div class="frame2">額縁風の箱2</div>
-<div class="frame3">額縁風の箱3</div>
+<div class="box1">額縁風の箱1</div>
+<div class="box2">額縁風の箱2</div>
+<div class="box3">額縁風の箱3</div>
 ```
 
 **要求**:
-1. `frame1`クラス：2px の黒い実線の境界線
-2. `frame2`クラス：3px の青い破線の境界線
-3. `frame3`クラス：5px の赤い実線の境界線
+1. `box1`クラス：2px の黒い実線の境界線
+2. `box2`クラス：3px の青い破線の境界線
+3. `box3`クラス：5px の赤い実線の境界線
+
+**ヒント**:
+- borderは「太さ スタイル 色」の3つの要素をきちんと読み取りましょう
 
 </Exercise>
 
@@ -378,15 +412,19 @@ h1 {
 
 **HTML**:
 ```html
-<div class="card1">カード1</div>
-<div class="card2">カード2</div>
-<div class="card3">カード3</div>
+<div class="alert">緊急通知</div>
+<div class="info">お知らせ</div>
+<div class="success">完了メッセージ</div>
 ```
 
 **要求**:
-1. `card1`クラス：幅250px、高さ100px、2px の黒い実線の境界線、背景色を薄い青
-2. `card2`クラス：幅250px、高さ100px、3px の青い破線の境界線、背景色を薄い黄色
-3. `card3`クラス：幅250px、高さ100px、5px の赤い実線の境界線、背景色を薄い緑
+1. `alert`クラス：幅20rem、高さ8vh、4px の16進数カラーコード`#FF0000`の実線境界線、背景色をRGBA`rgba(255, 0, 0, 0.1)`
+2. `info`クラス：幅300px、高さ6em、2px のRGB値`rgb(0, 123, 255)`の破線境界線、背景色を16進数`#E7F3FF`
+3. `success`クラス：幅25vw、高さ80px、3px のカラーネーム`green`の二重線境界線、背景色をRGBパーセント`rgb(90%, 100%, 90%)`
+
+**ヒント**:
+- 境界線の色と背景色で統一感のあるデザインにしましょう
+- 様々な単位と色指定方法を使い分けてみましょう
 
 </Exercise>
 
@@ -399,25 +437,28 @@ h1 {
 **説明**: 要素の境界線から内容（テキストなど）までの余白を設定するプロパティです。要素の内側の余白です。
 
 **基本的な書き方**:
+
+paddingは、スペース区切りで値を書くことで、様々な指定方法ができます：
+
 ```css
-/* 全方向に同じ余白 */
+/* 1つの値：全方向に同じ余白 */
 セレクタ {
-    padding: 値;
+    padding: 値;  /* 上下左右すべて同じ値 */
 }
 
-/* 上下・左右で指定 */
+/* 4つの値：上・右・下・左で個別指定 */
 セレクタ {
-    padding: 上下 左右;
+    padding: 上 右 下 左;  /* 上から順に時計回り */
 }
 
-/* 上・左右・下で指定 */
+/* 2つの値：上下・左右で指定 */
 セレクタ {
-    padding: 上 左右 下;
+    padding: 上下 左右;  /* 1つ目が上下、2つ目が左右 */
 }
 
-/* 上・右・下・左で個別指定 */
+/* 3つの値：上・左右・下で指定 */
 セレクタ {
-    padding: 上 右 下 左;
+    padding: 上 左右 下;  /* 1つ目が上、2つ目が左右、3つ目が下 */
 }
 ```
 
@@ -461,15 +502,7 @@ h1 {
 }`}
 />
 
-**個別指定も可能**:
-```css
-.individual-padding {
-    padding-top: 10px;      /* 上 */
-    padding-right: 20px;    /* 右 */
-    padding-bottom: 15px;   /* 下 */
-    padding-left: 25px;     /* 左 */
-}
-```
+
 
 <Exercise title="演習5">
 
@@ -483,9 +516,9 @@ h1 {
 ```
 
 **要求**:
-1. `box1`クラス：padding 15px
-2. `box2`クラス：padding 上下10px・左右30px
-3. `box3`クラス：padding 上20px・右10px・下15px・左25px
+1. `box1`クラス：padding 上下左右15px、背景色を`lightblue`
+2. `box2`クラス：padding 上下10px・左右30px、背景色を`#90EE90`
+3. `box3`クラス：padding 上20px・右10px・下15px・左25px、背景色を`rgb(255, 255, 180)`
 
 </Exercise>
 
@@ -495,15 +528,15 @@ h1 {
 
 **HTML**:
 ```html
-<div class="card1">カード1</div>
-<div class="card2">カード2</div>
-<div class="card3">カード3</div>
+<div class="box1">カード1</div>
+<div class="box2">カード2</div>
+<div class="box3">カード3</div>
 ```
 
 **要求**:
-1. `card1`クラス：幅200px、高さ100px、padding 15px、境界線 1px solid gray、背景色 lightblue
-2. `card2`クラス：幅200px、高さ100px、padding 上下10px・左右30px、境界線 2px solid blue、背景色 lightgreen  
-3. `card3`クラス：幅200px、高さ100px、padding 上20px・右10px・下15px・左25px、境界線 1px solid red、背景色 lightyellow
+1. `box1`クラス：幅200px、高さ100px、padding 上下左右15px、境界線 1px solid gray、背景色 lightblue
+2. `box2`クラス：幅200px、高さ100px、padding 上下10px・左右30px、境界線 2px solid blue、背景色 lightgreen  
+3. `box3`クラス：幅200px、高さ100px、padding 上20px・右10px・下15px・左25px、境界線 1px solid red、背景色 lightyellow
 
 </Exercise>
 
@@ -516,20 +549,28 @@ h1 {
 **説明**: 要素の境界線から他の要素までの余白を設定するプロパティです。要素の外側の余白です。
 
 **基本的な書き方**:
+
+marginは、スペース区切りで値を書くことで、様々な指定方法ができます：
+
 ```css
-/* 全方向に同じ余白 */
+/* 1つの値：全方向に同じ余白 */
 セレクタ {
-    margin: 値;
+    margin: 値;  /* 上下左右すべて同じ値 */
 }
 
-/* 上下・左右で指定 */
+/* 4つの値：上・右・下・左で個別指定 */
 セレクタ {
-    margin: 上下 左右;
+    margin: 上 右 下 左;  /* 上から順に時計回り */
 }
 
-/* 上・右・下・左で個別指定 */
+/* 2つの値：上下・左右で指定 */
 セレクタ {
-    margin: 上 右 下 左;
+    margin: 上下 左右;  /* 1つ目が上下、2つ目が左右 */
+}
+
+/* 3つの値：上・左右・下で指定 */
+セレクタ {
+    margin: 上 左右 下;  /* 1つ目が上、2つ目が左右、3つ目が下 */
 }
 ```
 
@@ -573,15 +614,7 @@ h1 {
 }`}
 />
 
-**個別指定も可能**:
-```css
-.individual-margin {
-    margin-top: 10px;      /* 上 */
-    margin-right: 20px;    /* 右 */
-    margin-bottom: 15px;   /* 下 */
-    margin-left: 25px;     /* 左 */
-}
-```
+
 
 <Exercise title="演習6">
 
@@ -589,15 +622,15 @@ h1 {
 
 **HTML**:
 ```html
-<div class="section1">セクション1</div>
-<div class="section2">セクション2</div>
-<div class="section3">セクション3</div>
+<div class="box1">セクション1</div>
+<div class="box2">セクション2</div>
+<div class="box3">セクション3</div>
 ```
 
 **要求**:
-1. `section1`クラス：margin 20px
-2. `section2`クラス：margin 上下30px・左右0
-3. `section3`クラス：margin 上10px・右20px・下30px・左40px
+1. `box1`クラス：margin 上下左右20px、背景色を`lightcoral`
+2. `box2`クラス：margin 上下30px・左右0、背景色を`#FFE4B5`
+3. `box3`クラス：margin 上10px・右20px・下30px・左40px、背景色を`rgb(144, 238, 144)`
 
 </Exercise>
 
@@ -613,9 +646,9 @@ h1 {
 ```
 
 **要求**:
-1. `section1`クラス：幅300px、height 80px、margin 20px、padding 15px、境界線 1px solid black、背景色 lightblue
-2. `section2`クラス：幅300px、height 80px、margin 上下30px・左右0、padding 15px、境界線 1px solid black、背景色 lightgreen
-3. `section3`クラス：幅300px、height 80px、margin 上10px・右20px・下30px・左40px、padding 15px、境界線 1px solid black、背景色 lightyellow
+1. `box1`クラス：幅300px、height 80px、margin 上下左右20px、padding 上下左右15px、境界線 1px solid black、背景色 lightblue
+2. `box2`クラス：幅300px、height 80px、margin 上下30px・左右0、padding 上下左右15px、境界線 1px solid black、背景色 lightgreen
+3. `box3`クラス：幅300px、height 80px、margin 上10px・右20px・下30px・左40px、padding 上下左右15px、境界線 1px solid black、背景色 lightyellow
 
 </Exercise>
 
@@ -631,42 +664,47 @@ h1 {
 ```css
 セレクタ {
     margin: 0 auto;        /* 上下0、左右auto */
-    margin-left: auto;     /* 左だけauto */
-    margin-right: auto;    /* 右だけauto */
 }
 ```
 
-**重要な条件**:
+:::important 重要な仕組み
+
+`margin: 0 auto` のように左右に `auto` を指定すると、左右の余白が自動的に等しくなり、その結果、要素自体が親要素の中央に配置されます。
+
+:::
+
+:::caution 必要な条件
+
 - 要素に明確な`width`が設定されている必要がある
 - ブロック要素である必要がある
+
+:::
 
 ### 中央揃えの動作例
 
 <CodePreview 
   initialCode={`<div class="left-align">左寄せ（デフォルト）</div>
 <div class="center-align">中央揃え</div>
-<div class="center-with-margin">中央揃え（margin指定）</div>`}
+<div class="center-with-margin">中央揃え（上下margin付き）</div>`}
   initialCSS={`.left-align {
-    width: 300px;
+    width: 150px;
     height: 60px;
     background-color: lightblue;
     border: 1px solid black;
     padding: 10px;
-    margin-bottom: 10px;
 }
 
 .center-align {
-    width: 300px;
+    width: 150px;
     height: 60px;
     background-color: lightgreen;
     border: 1px solid black;
     padding: 10px;
     margin: 0 auto;        /* 左右中央揃え */
-    margin-bottom: 10px;
 }
 
 .center-with-margin {
-    width: 250px;
+    width: 150px;
     height: 60px;
     background-color: lightyellow;
     border: 1px solid black;
@@ -681,33 +719,38 @@ h1 {
 
 **HTML**:
 ```html
-<div class="header-box">ヘッダー</div>
-<div class="content-box">メインコンテンツ</div>
-<div class="footer-box">フッター</div>
+<div class="box1">ヘッダー</div>
+<div class="box2">メインコンテンツ</div>
 ```
 
 **要求**:
-1. `header-box`クラス：幅400px、左右中央揃え
-2. `content-box`クラス：幅600px、左右中央揃え
-3. `footer-box`クラス：幅400px、左右中央揃え
+1. `box1`クラス：幅300px、左右中央揃え、境界線 1px solid black
+2. `box2`クラス：幅500px、左右中央揃え、境界線 1px solid black
 
 </Exercise>
 
 <Exercise title="演習7-発展">
 
-以下のHTMLに対して、CSSを書いてください：
+以下のHTMLに対して、「カフェのメニューボード」のようなレイアウトを作成してください：
 
 **HTML**:
 ```html
-<div class="header-box">ヘッダー</div>
-<div class="content-box">メインコンテンツ</div>
-<div class="footer-box">フッター</div>
+<div class="title">CAFE MENU</div>
+<div class="menu1">ホットコーヒー ¥300</div>
+<div class="menu2">アイスラテ ¥400</div>
+<div class="menu3">チーズケーキ ¥500</div>
+<div class="special">本日のスペシャル：限定パンケーキ ¥800</div>
 ```
 
 **要求**:
-1. `header-box`クラス：幅400px、height 80px、padding 20px、境界線 2px solid navy、背景色 lightblue、左右中央揃え
-2. `content-box`クラス：幅600px、height 200px、padding 30px、境界線 1px solid gray、背景色 white、左右中央揃え、上下margin 20px
-3. `footer-box`クラス：幅400px、height 60px、padding 15px、境界線 2px solid navy、背景色 lightgray、左右中央揃え
+1. `title`クラス：幅600px、height 60px、padding 20px、背景色 `#8B4513`、文字色 white、左右中央揃え
+2. `menu1`クラス：幅400px、padding 15px、margin 上下10px・左右auto、背景色 `#F5F5DC`、境界線 1px solid brown
+3. `menu2`クラス：幅400px、padding 15px、margin 上下10px・左右auto、背景色 `#F0F8FF`、境界線 1px solid blue  
+4. `menu3`クラス：幅400px、padding 15px、margin 上下10px・左右auto、背景色 `#FFF8DC`、境界線 1px solid orange
+5. `special`クラス：幅500px、padding 20px、margin 上下20px・左右auto、背景色 `#FFD700`、境界線 3px solid red
+
+**ポイント**:
+- カフェのメニューボードのような見た目を目指しましょう！
 
 </Exercise>
 
@@ -715,13 +758,13 @@ h1 {
 
 ## 8. 総合演習
 
-<Exercise title="演習7-発展">
+<Exercise title="総合演習">
 
 以下のHTMLに対して、美しいカードレイアウトを作成してください：
 
 **HTML**:
 ```html
-<div class="container">
+<div class="box">
     <div class="card featured">
         <h2>特集記事</h2>
         <p>今月の特集記事です。</p>
@@ -738,13 +781,12 @@ h1 {
 ```
 
 **要求**:
-1. `container`クラス：最大幅800px、左右中央揃え、padding 20px
+1. `box`クラス：最大幅800px、左右中央揃え、padding 20px
 2. `card`クラス（共通）：幅100%、padding 20px、margin-bottom 20px、境界線 1px solid #ddd
 3. `featured`クラス：背景色 #f0f8ff、境界線 3px solid #4169e1
 4. `normal`クラス：背景色 #ffffff
 
 **ボーナス要求**:
-- `card`クラスにhover効果を追加（`:hover`疑似クラス）
 - より美しい見た目になるように工夫してみてください
 
 </Exercise>
@@ -780,6 +822,8 @@ h1 {
 
 ### ボックスモデルの理解
 
+:::note ボックスモデルの構造
+
 要素は以下の構造になっています：
 
 ```
@@ -792,6 +836,4 @@ padding（内側の余白）
 content（内容）width × height
 ```
 
-### 次回に向けて
-
-次回は、テキストのスタイリング（`font-size`、`text-align`、`line-height`）について学習します。今回学んだボックスモデルと組み合わせて、より美しいレイアウトを作成していきましょう。 
+:::
