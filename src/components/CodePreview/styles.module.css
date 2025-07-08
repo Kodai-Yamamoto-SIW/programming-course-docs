@@ -39,8 +39,18 @@
 
 .splitLayout {
   display: flex;
+  flex-direction: column;
   min-height: 300px;
   height: auto;
+}
+
+.editorsRow {
+  display: flex;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+}
+
+[data-theme='dark'] .editorsRow {
+  border-bottom-color: var(--ifm-color-emphasis-600);
 }
 
 .editorSection {
@@ -53,23 +63,19 @@
   height: 100%;
 }
 
-.editorSection:last-of-type {
-  border-right: 1px solid var(--ifm-color-emphasis-300);
+.editorSection:last-child {
+  border-right: none;
 }
 
 [data-theme='dark'] .editorSection {
   border-right-color: var(--ifm-color-emphasis-600);
 }
 
-[data-theme='dark'] .editorSection:last-of-type {
-  border-right-color: var(--ifm-color-emphasis-600);
-}
-
 .previewSection {
-  flex: 1 1 300px;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  min-width: 300px;
+  min-width: 100%;
   height: 100%;
 }
 
@@ -124,33 +130,39 @@
   background: var(--ifm-background-color);
 }
 
-/* レスポンシブ対応：小さい画面では縦並びに */
+/* レスポンシブ対応：小さい画面でもエディタを上段、プレビューを下段に維持 */
 @media (max-width: 768px) {
   .splitLayout {
     flex-direction: column;
     height: auto;
   }
   
+  .editorsRow {
+    flex-direction: column;
+  }
+  
   .editorSection {
     border-right: none;
     border-bottom: 1px solid var(--ifm-color-emphasis-300);
     height: auto;
+    width: 100% !important; /* 小さい画面では全幅を使用 */
   }
   
-  .editorSection:last-of-type {
-    border-right: none;
+  .editorSection:last-child {
+    border-bottom: none;
   }
   
   .previewSection {
     height: auto;
+    border-top: 1px solid var(--ifm-color-emphasis-300);
   }
   
   [data-theme='dark'] .editorSection {
     border-bottom-color: var(--ifm-color-emphasis-600);
   }
   
-  [data-theme='dark'] .editorSection:last-of-type {
-    border-bottom-color: var(--ifm-color-emphasis-600);
+  [data-theme='dark'] .previewSection {
+    border-top-color: var(--ifm-color-emphasis-600);
   }
 }
 

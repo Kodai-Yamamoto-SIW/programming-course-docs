@@ -91,7 +91,7 @@ export default function CodePreview({
     }
   };
 
-  // エディタセクションの最適な幅を計算する関数（プレビューは残り幅を使用）
+  // エディタセクションの最適な幅を計算する関数（プレビューは下段に配置）
   const calculateOptimalWidths = (): { html: number; css: number } => {
     const container = containerRef.current;
     if (!container) {
@@ -100,52 +100,33 @@ export default function CodePreview({
         : { html: 100, css: 0 };
     }
 
-    const containerWidth = container.offsetWidth;
-    const minEditorWidth = 200;
-    const previewMinWidth = 300;
-    
-    // 各エディタの実際の必要幅を取得
-    const htmlNeededWidth = Math.max(getEditorScrollWidth(htmlEditorRef), minEditorWidth);
-    const cssNeededWidth = showCSSEditor ? Math.max(getEditorScrollWidth(cssEditorRef), minEditorWidth) : 0;
-    
-    const totalEditorNeededWidth = htmlNeededWidth + cssNeededWidth;
-    const availableWidth = containerWidth - previewMinWidth; // プレビューの最小幅を確保
-    
-    console.log("totalEditorNeededWidth", totalEditorNeededWidth);
-    console.log("availableWidth", availableWidth);
-    console.log("containerWidth", containerWidth);
-    console.log("htmlNeededWidth", htmlNeededWidth);
-    console.log("cssNeededWidth", cssNeededWidth);
-
     if (!showCSSEditor) {
-      // CSSエディタがない場合
-      const htmlWidth = Math.min(htmlNeededWidth, availableWidth);
+      // CSSエディタがない場合はHTMLエディタが全幅を使用
       return { 
-        html: (htmlWidth / containerWidth) * 100, 
+        html: 100, 
         css: 0 
       };
     }
 
-    // CSSエディタがある場合
-    if (totalEditorNeededWidth <= availableWidth) {
-      // エディタの必要幅がすべて収まる場合、コンテンツ幅ぴったりに
-      return {
-        html: (htmlNeededWidth / containerWidth) * 100,
-        css: (cssNeededWidth / containerWidth) * 100
-      };
-    } else {
-      // エディタの必要幅が多い場合は比例配分
-      const htmlRatio = htmlNeededWidth / totalEditorNeededWidth;
-      const cssRatio = cssNeededWidth / totalEditorNeededWidth;
-      
-      const htmlWidth = availableWidth * htmlRatio;
-      const cssWidth = availableWidth * cssRatio;
-      
-      return {
-        html: (htmlWidth / containerWidth) * 100,
-        css: (cssWidth / containerWidth) * 100
-      };
-    }
+    // CSSエディタがある場合は、実際の必要幅に基づいて配分
+    const minEditorWidth = 200;
+    const htmlNeededWidth = Math.max(getEditorScrollWidth(htmlEditorRef), minEditorWidth);
+    const cssNeededWidth = Math.max(getEditorScrollWidth(cssEditorRef), minEditorWidth);
+    
+    const totalNeededWidth = htmlNeededWidth + cssNeededWidth;
+    
+    console.log("htmlNeededWidth", htmlNeededWidth);
+    console.log("cssNeededWidth", cssNeededWidth);
+    console.log("totalNeededWidth", totalNeededWidth);
+
+    // 各エディタの比率を計算（常に合計が100%になる）
+    const htmlRatio = htmlNeededWidth / totalNeededWidth;
+    const cssRatio = cssNeededWidth / totalNeededWidth;
+    
+    return {
+      html: htmlRatio * 100,
+      css: cssRatio * 100
+    };
   };
 
   // 幅を再計算して更新する関数
@@ -431,72 +412,73 @@ export default function CodePreview({
       )}
       
       <div className={styles.splitLayout} ref={containerRef}>
-        {/* HTMLエディタセクション */}
-        <div 
-          className={styles.editorSection}
-          style={{ width: `${sectionWidths.html}%` }}
-        >
-          <div className={styles.sectionHeader}>HTML</div>
-          <div className={styles.editorContainer}>
-            <Editor
-              height={unifiedHeight}
-              defaultLanguage="html"
-              value={htmlCode}
-              onChange={handleHtmlChange}
-              onMount={handleHtmlEditorDidMount}
-              theme={colorMode === 'dark' ? 'vs-dark' : 'light'}
-              options={{
-                minimap: { enabled: false },
-                fontSize: 14,
-                lineNumbers: 'off',
-                folding: false,
-                padding: { top: 5, bottom: 5 },
-                roundedSelection: false,
-                wordWrap: 'off',
-                tabSize: 2,
-                insertSpaces: true,
-                scrollBeyondLastLine: false,
-              }}
-            />
-          </div>
-        </div>
-
-        {/* CSSエディタセクション（CSSが定義されている場合のみ表示） */}
-        {showCSSEditor && (
+        {/* エディタセクション（上段） */}
+        <div className={styles.editorsRow}>
+          {/* HTMLエディタセクション */}
           <div 
             className={styles.editorSection}
-            style={{ width: `${sectionWidths.css}%` }}
+            style={{ width: `${sectionWidths.html}%` }}
           >
-            <div className={styles.sectionHeader}>CSS</div>
+            <div className={styles.sectionHeader}>HTML</div>
             <div className={styles.editorContainer}>
               <Editor
                 height={unifiedHeight}
-                defaultLanguage="css"
-                value={cssCode}
-                onChange={handleCssChange}
-                onMount={handleCssEditorDidMount}
+                defaultLanguage="html"
+                value={htmlCode}
+                onChange={handleHtmlChange}
+                onMount={handleHtmlEditorDidMount}
                 theme={colorMode === 'dark' ? 'vs-dark' : 'light'}
                 options={{
-                   minimap: { enabled: false },
-                   fontSize: 14,
-                   lineNumbers: 'off',
-                   folding: false,
-                   padding: { top: 5, bottom: 5 },
-                   roundedSelection: false,
-                   wordWrap: 'off',
-                   tabSize: 2,
-                   insertSpaces: true,
-                   scrollBeyondLastLine: false,
-                 }}
+                  minimap: { enabled: false },
+                  fontSize: 14,
+                  lineNumbers: 'off',
+                  folding: false,
+                  padding: { top: 5, bottom: 5 },
+                  roundedSelection: false,
+                  wordWrap: 'off',
+                  tabSize: 2,
+                  insertSpaces: true,
+                  scrollBeyondLastLine: false,
+                }}
               />
             </div>
           </div>
-        )}
+
+          {/* CSSエディタセクション（CSSが定義されている場合のみ表示） */}
+          {showCSSEditor && (
+            <div 
+              className={styles.editorSection}
+              style={{ width: `${sectionWidths.css}%` }}
+            >
+              <div className={styles.sectionHeader}>CSS</div>
+              <div className={styles.editorContainer}>
+                <Editor
+                  height={unifiedHeight}
+                  defaultLanguage="css"
+                  value={cssCode}
+                  onChange={handleCssChange}
+                  onMount={handleCssEditorDidMount}
+                  theme={colorMode === 'dark' ? 'vs-dark' : 'light'}
+                  options={{
+                     minimap: { enabled: false },
+                     fontSize: 14,
+                     lineNumbers: 'off',
+                     folding: false,
+                     padding: { top: 5, bottom: 5 },
+                     roundedSelection: false,
+                     wordWrap: 'off',
+                     tabSize: 2,
+                     insertSpaces: true,
+                     scrollBeyondLastLine: false,
+                   }}
+                />
+              </div>
+            </div>
+          )}
+        </div>
         
-        {/* プレビューセクション */}
-        <div 
-          className={styles.previewSection}
-        >
+        {/* プレビューセクション（下段） */}
+        <div className={styles.previewSection}>
           <div className={styles.sectionHeader}>プレビュー</div>
           <div 
             className={styles.previewContainer}
