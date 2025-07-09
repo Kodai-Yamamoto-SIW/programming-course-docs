@@ -479,22 +479,22 @@ h1 {
 ### heightの動作例
 
 <CodePreview 
-  initialCode={`<div class="tall">高さ150pxの箱</div>
-<div class="short">高さ50pxの箱</div>
-<div class="auto-height">高さautoの箱（中身に合わせて自動調整）</div>`}
-  initialCSS={`.tall {
+  initialCode={`<div class="takaku">高さ150pxの箱</div>
+<div class="hikuku">高さ50pxの箱</div>
+<div class="jidou">高さautoの箱（中身に合わせて自動調整）</div>`}
+  initialCSS={`.takaku {
     height: 150px;
     width: 200px;
     background-color: lightcoral;
 }
 
-.short {
+.hikuku {
     height: 50px;
     width: 200px;
     background-color: lightblue;
 }
 
-.auto-height {
+.jidou {
     height: auto;
     width: 200px;
     background-color: lightgreen;
@@ -648,32 +648,32 @@ h1 {
 ### borderの動作例
 
 <CodePreview 
-  initialCode={`<div class="solid-border">実線の境界線</div>
-<div class="dashed-border">破線の境界線</div>
-<div class="thick-border">太い境界線</div>
-<div class="colored-border">色付きの境界線</div>`}
-  initialCSS={`.solid-border {
+  initialCode={`<div class="waku1">実線の境界線</div>
+<div class="waku2">破線の境界線</div>
+<div class="waku3">太い境界線</div>
+<div class="waku4">色付きの境界線</div>`}
+  initialCSS={`.waku1 {
     border: 1px solid black;
     width: 200px;
     height: 50px;
     margin: 10px;
 }
 
-.dashed-border {
+.waku2 {
     border: 2px dashed blue;
     width: 200px;
     height: 50px;
     margin: 10px;
 }
 
-.thick-border {
+.waku3 {
     border: 5px solid red;
     width: 200px;
     height: 50px;
     margin: 10px;
 }
 
-.colored-border {
+.waku4 {
     border: 3px solid green;
     width: 200px;
     height: 50px;
@@ -832,11 +832,11 @@ paddingは、スペース区切りで値を書くことで、様々な指定方�
 ### paddingの動作例
 
 <CodePreview 
-  initialCode={`<div class="no-padding">余白なし</div>
-<div class="small-padding">小さな余白</div>
-<div class="large-padding">大きな余白</div>
-<div class="custom-padding">カスタム余白</div>`}
-  initialCSS={`.no-padding {
+  initialCode={`<div class="pad1">余白なし</div>
+<div class="pad2">小さな余白</div>
+<div class="pad3">大きな余白</div>
+<div class="pad4">カスタム余白</div>`}
+  initialCSS={`.pad1 {
     padding: 0;
     border: 2px solid black;
     background-color: lightblue;
@@ -844,7 +844,7 @@ paddingは、スペース区切りで値を書くことで、様々な指定方�
     margin: 10px;
 }
 
-.small-padding {
+.pad2 {
     padding: 10px;
     border: 2px solid black;
     background-color: lightgreen;
@@ -852,7 +852,7 @@ paddingは、スペース区切りで値を書くことで、様々な指定方�
     margin: 10px;
 }
 
-.large-padding {
+.pad3 {
     padding: 30px;
     border: 2px solid black;
     background-color: lightpink;
@@ -860,7 +860,7 @@ paddingは、スペース区切りで値を書くことで、様々な指定方�
     margin: 10px;
 }
 
-.custom-padding {
+.pad4 {
     padding: 20px 40px;  /* 上下20px、左右40px */
     border: 2px solid black;
     background-color: lightcoral;
@@ -1019,11 +1019,11 @@ marginは、スペース区切りで値を書くことで、様々な指定方�
 ### marginの動作例
 
 <CodePreview 
-  initialCode={`<div class="no-margin">余白なし</div>
-<div class="small-margin">小さな余白</div>
-<div class="large-margin">大きな余白</div>
-<div class="custom-margin">カスタム余白</div>`}
-  initialCSS={`.no-margin {
+  initialCode={`<div class="mar1">余白なし</div>
+<div class="mar2">小さな余白</div>
+<div class="mar3">大きな余白</div>
+<div class="mar4">カスタム余白</div>`}
+  initialCSS={`.mar1 {
     margin: 0;
     padding: 10px;
     border: 2px solid black;
@@ -1031,7 +1031,7 @@ marginは、スペース区切りで値を書くことで、様々な指定方�
     width: 200px;
 }
 
-.small-margin {
+.mar2 {
     margin: 10px;
     padding: 10px;
     border: 2px solid black;
@@ -1039,7 +1039,7 @@ marginは、スペース区切りで値を書くことで、様々な指定方�
     width: 200px;
 }
 
-.large-margin {
+.mar3 {
     margin: 30px;
     padding: 10px;
     border: 2px solid black;
@@ -1047,7 +1047,7 @@ marginは、スペース区切りで値を書くことで、様々な指定方�
     width: 200px;
 }
 
-.custom-margin {
+.mar4 {
     margin: 20px 40px;  /* 上下20px、左右40px */
     padding: 10px;
     border: 2px solid black;
@@ -1206,10 +1206,10 @@ marginは、スペース区切りで値を書くことで、様々な指定方�
 ### 中央揃えの動作例
 
 <CodePreview 
-  initialCode={`<div class="left-align">左寄せ（デフォルト）</div>
-<div class="center-align">中央揃え</div>
-<div class="center-with-margin">中央揃え（上下margin付き）</div>`}
-  initialCSS={`.left-align {
+  initialCode={`<div class="hidari">左寄せ（デフォルト）</div>
+<div class="center">中央揃え</div>
+<div class="center2">中央揃え（上下margin付き）</div>`}
+  initialCSS={`.hidari {
     width: 150px;
     height: 60px;
     background-color: lightblue;
@@ -1217,7 +1217,7 @@ marginは、スペース区切りで値を書くことで、様々な指定方�
     padding: 10px;
 }
 
-.center-align {
+.center {
     width: 150px;
     height: 60px;
     background-color: lightgreen;
@@ -1226,7 +1226,7 @@ marginは、スペース区切りで値を書くことで、様々な指定方�
     margin: 0 auto;        /* 左右中央揃え */
 }
 
-.center-with-margin {
+.center2 {
     width: 150px;
     height: 60px;
     background-color: lightpink;
