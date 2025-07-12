@@ -4,7 +4,7 @@ sidebar_position: 3
 
 import CodePreview from '@site/src/components/CodePreview';
 
-# CSSでスタイリングしよう！
+# スタイリング
 
 ## CSSスタイリング
 

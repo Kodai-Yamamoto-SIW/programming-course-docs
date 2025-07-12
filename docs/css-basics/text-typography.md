@@ -5,7 +5,7 @@ sidebar_position: 5
 import CodePreview from '@site/src/components/CodePreview';
 import Exercise, { Solution } from '@site/src/components/Exercise';
 
-# テキストの装飾 - フォントサイズ・配置・行間
+# テキスト装飾
 
 ## 今回学習する内容
 

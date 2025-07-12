@@ -5,7 +5,7 @@ sidebar_position: 1
 import Exercise, { Solution } from '@site/src/components/Exercise';
 import CodePreview from '@site/src/components/CodePreview';
 
-# CSSの基本を学ぼう！
+# 導入
 
 ## CSSとは
 

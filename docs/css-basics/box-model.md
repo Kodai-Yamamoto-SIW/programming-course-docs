@@ -5,7 +5,7 @@ sidebar_position: 4
 import CodePreview from '@site/src/components/CodePreview';
 import Exercise, { Solution } from '@site/src/components/Exercise';
 
-# ボックスモデル - サイズと余白の設定
+# ボックスモデル
 
 ## 今回学習する内容
 
@@ -696,9 +696,9 @@ h1 {
 ```
 
 **要求**:
-1. `box1`クラス：2px の黒い実線の境界線、内側余白15px、背景色を`lightblue`
-2. `box2`クラス：3px の青い破線の境界線、内側余白15px、背景色を`lightgreen`
-3. `box3`クラス：5px の赤い実線の境界線、内側余白15px、背景色を`lightpink`
+1. `box1`クラス：2px の黒い実線の境界線、内側余白 上下左右15px、背景色を`lightblue`
+2. `box2`クラス：3px の青い破線の境界線、内側余白 上下左右15px、背景色を`lightgreen`
+3. `box3`クラス：5px の赤い実線の境界線、内側余白 上下左右15px、背景色を`lightpink`
 
 **ヒント**:
 - borderは「太さ スタイル 色」の3つの要素をきちんと読み取りましょう
@@ -976,7 +976,6 @@ paddingは、スペース区切りで値を書くことで、様々な指定方�
 - `padding`で内側の余白を調整
 - `border`で境界線の太さ、スタイル、色を指定
 - `background-color`で背景色を設定
-- **重要**：実際の要素のサイズは「width + padding + border」で計算される
 
 </Solution>
 
@@ -1070,9 +1069,9 @@ marginは、スペース区切りで値を書くことで、様々な指定方�
 ```
 
 **要求**:
-1. `box1`クラス：margin 上下左右20px、背景色を`lightcoral`、内側余白15px、境界線 1px solid black
-2. `box2`クラス：margin 上下30px・左右0、背景色を`#FFE4B5`、内側余白15px、境界線 1px solid black
-3. `box3`クラス：margin 上10px・右20px・下30px・左40px、背景色を`rgb(144, 238, 144)`、内側余白15px、境界線 1px solid black
+1. `box1`クラス：margin 上下左右20px、背景色を`lightcoral`、内側余白 上下左右15px、境界線 1px solid black
+2. `box2`クラス：margin 上下30px・左右0、背景色を`#FFE4B5`、内側余白 上下左右15px、境界線 1px solid black
+3. `box3`クラス：margin 上10px・右20px・下30px・左40px、背景色を`rgb(144, 238, 144)`、内側余白 上下左右15px、境界線 1px solid black
 
 <Solution>
 
@@ -1247,8 +1246,8 @@ marginは、スペース区切りで値を書くことで、様々な指定方�
 ```
 
 **要求**:
-1. `box1`クラス：幅300px、左右中央揃え、境界線 1px solid black、内側余白10px、背景色 lightblue
-2. `box2`クラス：幅500px、左右中央揃え、境界線 1px solid black、内側余白10px、背景色 lightgreen
+1. `box1`クラス：幅300px、左右中央揃え、境界線 1px solid black、内側余白 上下左右10px、背景色 lightblue
+2. `box2`クラス：幅500px、左右中央揃え、境界線 1px solid black、内側余白 上下左右10px、背景色 lightgreen
 
 <Solution>
 
@@ -1274,7 +1273,7 @@ marginは、スペース区切りで値を書くことで、様々な指定方�
 
 **解説**:
 - **左右中央揃えの仕組み**：`margin: 0 auto`を使用
-  - `0`：上下のmarginは0
+  - `0`：上下のmarginは0（上下の余白は指定していないので、0に設定。他の値でも問題ないが、シンプルにするため0にした）
   - `auto`：左右のmarginを自動調整（等しい値になり、中央配置される）
 - **必要な条件**：
   - 要素に明確な`width`が設定されている

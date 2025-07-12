@@ -5,7 +5,7 @@ sidebar_position: 2
 import Exercise, { Solution } from '@site/src/components/Exercise';
 import CodePreview from '@site/src/components/CodePreview';
 
-# CSSの単位を学ぼう！
+# 単位
 
 ## 単位とは
 
