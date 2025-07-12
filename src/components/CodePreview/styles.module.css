@@ -61,6 +61,7 @@
   min-width: 200px;
   overflow: hidden;
   height: 100%;
+  flex-shrink: 0;
 }
 
 .editorSection:last-child {
@@ -146,6 +147,7 @@
     border-bottom: 1px solid var(--ifm-color-emphasis-300);
     height: auto;
     width: 100% !important; /* 小さい画面では全幅を使用 */
+    flex-shrink: 1;
   }
   
   .editorSection:last-child {

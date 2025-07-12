@@ -45,6 +45,7 @@ const sidebars: SidebarsConfig = {
         'css-basics/css-units',
         'css-basics/css-styling-basics',
         'css-basics/box-model',
+        'css-basics/text-typography',
       ],
     },
   ],

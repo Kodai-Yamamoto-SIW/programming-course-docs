@@ -108,6 +108,9 @@ export default function CodePreview({
       };
     }
 
+    // コンテナの実際の幅を取得
+    const containerWidth = container.offsetWidth || 800; // フォールバック値
+    
     // CSSエディタがある場合は、実際の必要幅に基づいて配分
     const minEditorWidth = 200;
     const htmlNeededWidth = Math.max(getEditorScrollWidth(htmlEditorRef), minEditorWidth);
@@ -115,18 +118,42 @@ export default function CodePreview({
     
     const totalNeededWidth = htmlNeededWidth + cssNeededWidth;
     
+    console.log("containerWidth", containerWidth);
     console.log("htmlNeededWidth", htmlNeededWidth);
     console.log("cssNeededWidth", cssNeededWidth);
     console.log("totalNeededWidth", totalNeededWidth);
 
-    // 各エディタの比率を計算（常に合計が100%になる）
-    const htmlRatio = htmlNeededWidth / totalNeededWidth;
-    const cssRatio = cssNeededWidth / totalNeededWidth;
-    
-    return {
-      html: htmlRatio * 100,
-      css: cssRatio * 100
-    };
+    // コンテナ幅を超える場合は、最小幅を保証しながら配分
+    if (totalNeededWidth > containerWidth) {
+      // 最小幅を保証しつつ、残りの幅を配分
+      const remainingWidth = containerWidth - (minEditorWidth * 2);
+      
+      if (remainingWidth <= 0) {
+        // コンテナが最小幅×2より小さい場合は50%ずつ
+        return { html: 50, css: 50 };
+      }
+      
+      // 残りの幅を必要幅の比率で配分
+      const htmlRatio = htmlNeededWidth / totalNeededWidth;
+      const cssRatio = cssNeededWidth / totalNeededWidth;
+      
+      const htmlWidth = minEditorWidth + (remainingWidth * htmlRatio);
+      const cssWidth = minEditorWidth + (remainingWidth * cssRatio);
+      
+      return {
+        html: (htmlWidth / containerWidth) * 100,
+        css: (cssWidth / containerWidth) * 100
+      };
+    } else {
+      // コンテナ幅内に収まる場合は、実際の必要幅で配分
+      const htmlRatio = htmlNeededWidth / totalNeededWidth;
+      const cssRatio = cssNeededWidth / totalNeededWidth;
+      
+      return {
+        html: htmlRatio * 100,
+        css: cssRatio * 100
+      };
+    }
   };
 
   // 幅を再計算して更新する関数
