@@ -4,9 +4,9 @@ sidebar_position: 3
 
 import CodePreview from '@site/src/components/CodePreview';
 
-# HTMLで文章をマークアップしよう！
+# 要素
 
-## HTMLマークアップ
+## 要素
 
 ### マークアップとは
 

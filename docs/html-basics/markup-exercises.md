@@ -4,7 +4,7 @@ sidebar_position: 6
 
 import CodePreview from '@site/src/components/CodePreview';
 
-# HTMLマークアップ演習
+# 演習
 
 ## HTMLマークアップ演習
 

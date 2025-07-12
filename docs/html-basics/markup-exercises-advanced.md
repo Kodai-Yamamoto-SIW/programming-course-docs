@@ -2,7 +2,7 @@
 sidebar_position: 7
 ---
 
-# HTMLマークアップ演習（続き）
+# 演習-発展
 
 import CodePreview from '@site/src/components/CodePreview';
 

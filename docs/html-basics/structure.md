@@ -1,6 +1,6 @@
 import Exercise, { Solution } from '@site/src/components/Exercise';
 
-# HTMLの基本構造を学ぼう！
+# 構造
 
 ## HTMLの基本構造
 

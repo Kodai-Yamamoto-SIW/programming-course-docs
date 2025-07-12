@@ -4,7 +4,7 @@ sidebar_position: 4
 
 import CodePreview from '@site/src/components/CodePreview';
 
-# テキスト装飾と画像をマークアップしよう！
+# テキスト
 
 ## HTMLマークアップ
 

@@ -4,7 +4,7 @@ sidebar_position: 5
 
 import CodePreview from '@site/src/components/CodePreview';
 
-# リンクとHTML文法チェック
+# 画像・リンク
 
 ## HTMLマークアップ
 
