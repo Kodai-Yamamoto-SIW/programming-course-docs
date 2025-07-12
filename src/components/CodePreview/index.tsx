@@ -29,7 +29,8 @@ export default function CodePreview({
 
   const [htmlCode, setHtmlCode] = useState(ensureTrailingNewline(initialCode));
   const [cssCode, setCssCode] = useState(ensureTrailingNewline(initialCSS || ''));
-  const [unifiedHeight, setUnifiedHeight] = useState(minHeight);
+  const [editorHeight, setEditorHeight] = useState(minHeight);
+  const [previewHeight, setPreviewHeight] = useState(minHeight);
   
   // 各セクションの幅を管理するstate
   const [sectionWidths, setSectionWidths] = useState<{
@@ -162,32 +163,10 @@ export default function CodePreview({
     setSectionWidths(newWidths);
   };
 
-  // 統一された高さを計算する関数
-  const calculateUnifiedHeight = () => {
-    const iframe = iframeRef.current;
-    let maxHeight = parseInt(minHeight);
-
-    // プレビューの高さを取得
-    if (iframe) {
-      try {
-        const iframeDoc = iframe.contentDocument;
-        if (iframeDoc) {
-          const previewHeight = Math.max(
-            iframeDoc.body?.scrollHeight || 0,
-            iframeDoc.body?.offsetHeight || 0,
-            iframeDoc.documentElement?.clientHeight || 0,
-            iframeDoc.documentElement?.scrollHeight || 0,
-            iframeDoc.documentElement?.offsetHeight || 0
-          );
-          maxHeight = Math.max(maxHeight, previewHeight);
-        }
-      } catch (error) {
-        // エラー時は無言で終了
-      }
-    }
-
+  // エディタの高さを計算する関数
+  const calculateEditorHeight = () => {
     // エディタの最適な高さを計算（行数ベース）
-    const calculateEditorHeight = (code: string): number => {
+    const calculateEditorHeightByCode = (code: string): number => {
       if (!code) return parseInt(minHeight);
       const lines = code.split('\n').length;
       const lineHeight = 19; // Monaco editorの行の高さ
@@ -195,34 +174,65 @@ export default function CodePreview({
       return Math.max(lines * lineHeight + padding, parseInt(minHeight));
     };
 
-    const htmlEditorHeight = calculateEditorHeight(htmlCode);
-    const cssEditorHeight = showCSSEditor ? calculateEditorHeight(cssCode) : 0;
+    const htmlEditorHeight = calculateEditorHeightByCode(htmlCode);
+    const cssEditorHeight = showCSSEditor ? calculateEditorHeightByCode(cssCode) : 0;
 
-    // 最大高さを設定
-    maxHeight = Math.max(maxHeight, htmlEditorHeight, cssEditorHeight);
+    // エディタの最大高さを設定
+    const maxEditorHeight = Math.max(htmlEditorHeight, cssEditorHeight);
     
-    // .splitLayoutの最小高さ（300px）を考慮
-    // セクションヘッダーの高さを考慮して調整
-    const sectionHeaderHeight = 40; // 概算値
-    const splitLayoutMinHeight = 300;
-    const availableHeightForContent = splitLayoutMinHeight - sectionHeaderHeight;
+    // 最小高さを保証
+    const finalEditorHeight = Math.max(maxEditorHeight, parseInt(minHeight));
     
-    // 計算された高さが.splitLayoutの最小高さより小さい場合は、
-    // エディターの高さを調整して隙間を埋める
-    if (maxHeight < availableHeightForContent) {
-      maxHeight = availableHeightForContent;
-    }
-    
-    // 最大高さを600pxに制限（必要に応じて調整可能）
-    maxHeight = Math.min(maxHeight, 600);
+    // 最大高さを600pxに制限
+    const limitedEditorHeight = Math.min(finalEditorHeight, 600);
 
-    setUnifiedHeight(maxHeight + 'px');
+    setEditorHeight(limitedEditorHeight + 'px');
   };
 
-  // 統一高さの更新関数
-  const updateUnifiedHeight = () => {
+  // プレビューの高さを計算する関数
+  const calculatePreviewHeight = () => {
+    const iframe = iframeRef.current;
+    let previewHeight = parseInt(minHeight);
+
+    // プレビューの高さを取得
+    if (iframe) {
+      try {
+        const iframeDoc = iframe.contentDocument;
+        if (iframeDoc) {
+          const calculatedHeight = Math.max(
+            iframeDoc.body?.scrollHeight || 0,
+            iframeDoc.body?.offsetHeight || 0,
+            iframeDoc.documentElement?.clientHeight || 0,
+            iframeDoc.documentElement?.scrollHeight || 0,
+            iframeDoc.documentElement?.offsetHeight || 0
+          );
+          previewHeight = Math.max(previewHeight, calculatedHeight);
+        }
+      } catch (error) {
+        // エラー時は無言で終了
+      }
+    }
+
+    // 最小高さを保証
+    const finalPreviewHeight = Math.max(previewHeight, parseInt(minHeight));
+    
+    // 最大高さを800pxに制限
+    const limitedPreviewHeight = Math.min(finalPreviewHeight, 800);
+
+    setPreviewHeight(limitedPreviewHeight + 'px');
+  };
+
+  // エディタ高さの更新関数
+  const updateEditorHeight = () => {
     setTimeout(() => {
-      calculateUnifiedHeight();
+      calculateEditorHeight();
+    }, 100);
+  };
+
+  // プレビュー高さの更新関数
+  const updatePreviewHeight = () => {
+    setTimeout(() => {
+      calculatePreviewHeight();
     }, 100);
   };
 
@@ -231,7 +241,8 @@ export default function CodePreview({
     const handleResize = () => {
       console.log("リサイズ時の幅調整");
       updateSectionWidths();
-      updateUnifiedHeight();
+      updateEditorHeight();
+      updatePreviewHeight();
     };
 
     window.addEventListener('resize', handleResize);
@@ -244,10 +255,10 @@ export default function CodePreview({
     if (iframe) {
       // iframeの読み込み完了後に高さと幅を調整
       const handleLoad = () => {
-        updateUnifiedHeight();
+        updatePreviewHeight();
         // 少し遅延させて再度実行（画像などの読み込み待ち）
-        setTimeout(updateUnifiedHeight, 100);
-        setTimeout(updateUnifiedHeight, 500);
+        setTimeout(updatePreviewHeight, 100);
+        setTimeout(updatePreviewHeight, 500);
       };
 
       iframe.addEventListener('load', handleLoad);
@@ -265,7 +276,8 @@ export default function CodePreview({
 
   // コード変更時の高さ調整
   useEffect(() => {
-    updateUnifiedHeight();
+    updateEditorHeight();
+    updatePreviewHeight();
   }, [htmlCode, cssCode, minHeight]);
 
   // HTMLコードの末尾改行チェック
@@ -449,7 +461,7 @@ export default function CodePreview({
             <div className={styles.sectionHeader}>HTML</div>
             <div className={styles.editorContainer}>
               <Editor
-                height={unifiedHeight}
+                height={editorHeight}
                 defaultLanguage="html"
                 value={htmlCode}
                 onChange={handleHtmlChange}
@@ -480,7 +492,7 @@ export default function CodePreview({
               <div className={styles.sectionHeader}>CSS</div>
               <div className={styles.editorContainer}>
                 <Editor
-                  height={unifiedHeight}
+                  height={editorHeight}
                   defaultLanguage="css"
                   value={cssCode}
                   onChange={handleCssChange}
@@ -518,7 +530,7 @@ export default function CodePreview({
               title="HTML+CSS Preview"
               sandbox="allow-scripts allow-same-origin"
               style={{ 
-                height: unifiedHeight,
+                height: previewHeight,
                 '--min-height': minHeight 
               } as React.CSSProperties}
             />
