@@ -1,0 +1,114 @@
+/* 基本設定 */
+body {
+    color: rgb(51, 51, 51);
+    background-color: #f0fff0;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ヘッダー */
+header {
+    background-color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #2e8b57;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+    color: #2e8b57;
+}
+
+header nav {
+    margin-top: 15px;
+}
+
+header nav ul {
+    padding: 0;
+    margin: 0;
+}
+
+header nav li {
+    margin: 0 15px;
+}
+
+header nav li a {
+    color: #2e8b57;
+}
+
+/* メインコンテンツ */
+main {
+    padding: 20px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 30px;
+    padding: 25px;
+    background-color: #ffffff;
+    border: 1px solid #2e8b57;
+}
+
+section h2 {
+    font-size: 1.5em;
+    border-bottom: 2px solid #2e8b57;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: #2e8b57;
+}
+
+section h3 {
+    font-size: 1.2em;
+    margin-top: 0;
+    color: #2e8b57;
+}
+
+section p {
+    line-height: 1.6;
+    margin: 15px 0;
+}
+
+section ul,
+section ol {
+    margin-left: 20px;
+    padding-left: 20px;
+}
+
+section li {
+    margin-bottom: 8px;
+}
+
+/* 画像 */
+img {
+    height: auto;
+    margin: 15px auto;
+    border: 2px solid #2e8b57;
+}
+
+#about img {
+    width: 300px;
+}
+
+#info img {
+    width: 500px;
+}
+
+/* リンク */
+a {
+    color: #2e8b57;
+}
+
+/* フッター */
+footer {
+    background-color: #2e8b57;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    font-size: 0.9em;
+    margin-top: 30px;
+} 
+
+footer p {
+    margin: 0;
+}
