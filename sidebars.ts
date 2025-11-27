@@ -61,6 +61,7 @@ const sidebars: SidebarsConfig = {
         'css-basics/layout-summary-exercises',
       ],
     },
+    'reference',
   ],
 };
 
