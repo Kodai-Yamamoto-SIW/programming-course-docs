@@ -13,14 +13,14 @@ interface StudentWorksData {
 export default function Submissions(): React.ReactElement {
     const { siteConfig } = useDocusaurusContext();
     const baseUrl = siteConfig.baseUrl;
-    
+
     // プラグインからデータを取得
     const pluginData = usePluginData('student-works-plugin') as StudentWorksData;
     const studentWorksData = pluginData?.years || {};
 
     // 利用可能な年度リスト（降順）
     const availableYears = Object.keys(studentWorksData).sort().reverse();
-    
+
     // 最新年度を取得
     const getLatestYear = (): string | null => {
         return availableYears.length > 0 ? availableYears[0] : null;
@@ -109,22 +109,12 @@ export default function Submissions(): React.ReactElement {
                                             <div key={studentId} className={styles.card}>
                                                 <div className={styles.cardHeader}>
                                                     <h3 className={styles.studentId}>{studentId}</h3>
-                                                    <a
-                                                        href={workUrl}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className={styles.openLink}
-                                                        title="新しいタブで開く">
-                                                        <svg
-                                                            width="16"
-                                                            height="16"
-                                                            viewBox="0 0 16 16"
-                                                            fill="currentColor">
-                                                            <path d="M14 2H10V0h6v6h-2V2.707L8.354 8.354 6.94 6.94 12.586 2H14zM2 0h6v2H2v12h12V8h2v8H0V0h2z" />
-                                                        </svg>
-                                                    </a>
                                                 </div>
-                                                <div className={styles.iframeWrapper}>
+                                                <div
+                                                    className={styles.iframeWrapper}
+                                                    onClick={() => window.open(workUrl, '_blank')}
+                                                    style={{ cursor: 'pointer' }}
+                                                    title="クリックして新しいタブで開く">
                                                     <iframe
                                                         src={workUrl}
                                                         className={styles.iframe}

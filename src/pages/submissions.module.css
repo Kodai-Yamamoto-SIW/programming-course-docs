@@ -1,17 +1,17 @@
 .submissionsMain {
-    padding: 2rem 0;
+    padding: 1rem 0;
     min-height: calc(100vh - 60px);
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
 }
 
 .title {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+    font-size: 2rem;
+    margin-bottom: 1rem;
     text-align: center;
     color: var(--ifm-heading-color);
 }
@@ -20,9 +20,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    padding: 1rem;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
     background-color: var(--ifm-background-surface-color);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -72,65 +72,53 @@
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.75rem;
+    margin-top: 1rem;
 }
 
 .card {
     background-color: var(--ifm-background-surface-color);
     border: 1px solid var(--ifm-color-emphasis-200);
-    border-radius: 8px;
+    border-radius: 4px;
     overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
 .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 .cardHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 0.75rem;
     background-color: var(--ifm-color-emphasis-100);
     border-bottom: 1px solid var(--ifm-color-emphasis-200);
 }
 
 .studentId {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: var(--ifm-font-color-base);
-}
-
-.openLink {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 4px;
-    color: var(--ifm-color-primary);
-    transition: background-color 0.2s, color 0.2s;
-    text-decoration: none;
-}
-
-.openLink:hover {
-    background-color: var(--ifm-color-primary);
-    color: white;
 }
 
 .iframeWrapper {
     position: relative;
     width: 100%;
-    padding-bottom: 75%;
-    /* 4:3 aspect ratio */
+    padding-bottom: 66.67%;
+    /* 3:2 aspect ratio */
     background-color: white;
     overflow: hidden;
+    transition: opacity 0.2s;
+}
+
+.iframeWrapper:hover {
+    opacity: 0.9;
 }
 
 .iframe {
@@ -150,12 +138,12 @@
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
     .grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 1rem;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 0.5rem;
     }
 
     .title {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     .controls {
@@ -166,7 +154,13 @@
 
 @media (min-width: 1200px) {
     .grid {
-        grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+}
+
+@media (min-width: 1600px) {
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     }
 }
 
