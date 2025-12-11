@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from '@theme/Layout';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import styles from './submissions.module.css';
@@ -28,7 +28,6 @@ export default function Submissions(): React.ReactElement {
 
     // URLクエリパラメータから年度を取得、なければ最新年度を使用
     const [selectedYear, setSelectedYear] = useState<string>('');
-    const [cacheTimestamp, setCacheTimestamp] = useState<number>(Date.now());
 
     useEffect(() => {
         // クライアントサイドでのみ実行
@@ -51,7 +50,6 @@ export default function Submissions(): React.ReactElement {
     const handleYearChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
         const year = event.target.value;
         setSelectedYear(year);
-        setCacheTimestamp(Date.now()); // 年度変更時にタイムスタンプを更新してキャッシュをクリア
 
         // URLクエリパラメータを更新
         if (typeof window !== 'undefined') {
@@ -103,10 +101,10 @@ export default function Submissions(): React.ReactElement {
                                     <p>{selectedYear}年度の提出作品がありません。</p>
                                 </div>
                             ) : (
-                                <div className={styles.grid} key={cacheTimestamp}>
+                                <div className={styles.grid}>
                                     {studentIds.map(studentId => {
                                         // キャッシュを回避するためにタイムスタンプを追加
-                                        const workUrl = `${baseUrl}student-works/${selectedYear}/${studentId}/index.html?t=${cacheTimestamp}`;
+                                        const workUrl = `${baseUrl}student-works/${selectedYear}/${studentId}/index.html`;
 
                                         return (
                                             <div key={studentId} className={styles.card}>
