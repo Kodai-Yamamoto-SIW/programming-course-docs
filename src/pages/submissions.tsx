@@ -103,7 +103,8 @@ export default function Submissions(): React.ReactElement {
                             ) : (
                                 <div className={styles.grid}>
                                     {studentIds.map(studentId => {
-                                        const workUrl = `${baseUrl}student-works/${selectedYear}/${studentId}/index.html`;
+                                        // キャッシュを回避するためにタイムスタンプを追加
+                                        const workUrl = `${baseUrl}student-works/${selectedYear}/${studentId}/index.html?t=${Date.now()}`;
 
                                         return (
                                             <div key={studentId} className={styles.card}>
