@@ -1,5 +1,5 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
@@ -82,6 +82,11 @@ const config: Config = {
           label: '学習内容',
         },
         {
+          to: '/submissions',
+          position: 'left',
+          label: '提出作品',
+        },
+        {
           href: 'https://github.com/Kodai-Yamamoto-SIW/programming-course-docs',
           label: 'GitHub',
           position: 'right',
@@ -125,7 +130,8 @@ const config: Config = {
       {
         headingLevel: 3
       }
-    ]
+    ],
+    './src/plugins/student-works-plugin.js'
   ]
 };
 
