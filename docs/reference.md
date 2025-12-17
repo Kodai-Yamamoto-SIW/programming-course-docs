@@ -18,15 +18,15 @@ sidebar_position: 100
 | `<html>` | HTML文書のルート要素（`lang`属性で言語指定） | [構造](\./html-basics/structure#html要素) |
 | `<head>` | メタ情報を記述（タイトル、CSS、文字コードなど） | [構造](\./html-basics/structure#head要素) |
 | `<body>` | ページに表示される内容を記述 | [構造](\./html-basics/structure#body要素) |
-| `<title>` | ページのタイトル（ブラウザのタブに表示） | [導入](\./html-basics/introduction#htmlの基本要素) |
+| `<title>` | ページのタイトル（ブラウザのタブに表示） | [導入](\./html-basics/introduction#-htmlの基本要素) |
 | `<meta charset="UTF-8">` | 文字コードの指定 | [構造](\./html-basics/structure#head要素) |
 
 ### テキストマークアップ
 
 | タグ | 用途 | 詳細ページ |
 |------|------|-----------|
-| `<h1>`～`<h6>` | 見出し（h1が最大、h6が最小） | [導入](\./html-basics/introduction#htmlで文字を表示する) |
-| `<p>` | 段落 | [導入](\./html-basics/introduction#htmlで文字を表示する) |
+| `<h1>`～`<h6>` | 見出し（h1が最大、h6が最小） | [導入](\./html-basics/introduction#-htmlで文字を表示する) |
+| `<p>` | 段落 | [導入](\./html-basics/introduction#-htmlで文字を表示する) |
 | `<br>` | 改行 | [テキスト](\./html-basics/text-markup) |
 | `<strong>` | 重要なテキスト | [テキスト](./html-basics/text-markup) |
 | `<small>` | 補足説明（小さい文字） | [テキスト](./html-basics/text-markup) |
@@ -95,10 +95,10 @@ sidebar_position: 100
 
 | 疑似クラス | 説明 | 詳細ページ |
 |-----------|------|-----------|
-| `:hover` | マウスを重ねたとき | [セレクタ](\./css-basics/css-selectors#擬似クラスhover-など) |
-| `:first-child` | 最初の子要素 | [セレクタ](\./css-basics/css-selectors#擬似クラスhover-など) |
-| `:last-child` | 最後の子要素 | [セレクタ](\./css-basics/css-selectors#擬似クラスhover-など) |
-| `:not()` | 指定したセレクタ以外 | [セレクタ](\./css-basics/css-selectors#擬似クラスhover-など) |
+| `:hover` | マウスを重ねたとき | [セレクタ](\./css-basics/css-selectors#擬似クラス-など) |
+| `:first-child` | 最初の子要素 | [セレクタ](\./css-basics/css-selectors#擬似クラス-など) |
+| `:last-child` | 最後の子要素 | [セレクタ](\./css-basics/css-selectors#擬似クラス-など) |
+| `:not()` | 指定したセレクタ以外 | [セレクタ](\./css-basics/css-selectors#擬似クラス-など) |
 
 ### 色指定
 
@@ -123,11 +123,11 @@ sidebar_position: 100
 
 | プロパティ | 説明 | 値の例 | 詳細ページ |
 |-----------|------|--------|-----------|
-| `width` | 幅 | `100px`, `50%`, `auto` | [ボックスモデル](\./css-basics/box-model#widthを学習しよう) |
-| `height` | 高さ | `200px`, `50vh`, `auto` | [ボックスモデル](\./css-basics/box-model#heightを学習しよう) |
-| `padding` | 内側の余白 | `10px`, `20px 10px` | [ボックスモデル](\./css-basics/box-model#paddingを学習しよう) |
-| `margin` | 外側の余白 | `10px`, `0 auto` | [ボックスモデル](\./css-basics/box-model#marginを学習しよう) |
-| `border` | 境界線 | `1px solid black` | [ボックスモデル](./css-basics/box-model#borderを学習しよう) |
+| `width` | 幅 | `100px`, `50%`, `auto` | [ボックスモデル](\./css-basics/box-model#2-width幅を学習しよう) |
+| `height` | 高さ | `200px`, `50vh`, `auto` | [ボックスモデル](\./css-basics/box-model#3-height高さを学習しよう) |
+| `padding` | 内側の余白 | `10px`, `20px 10px` | [ボックスモデル](\./css-basics/box-model#5-padding内側の余白を学習しよう) |
+| `margin` | 外側の余白 | `10px`, `0 auto` | [ボックスモデル](\./css-basics/box-model#6-margin外側の余白を学習しよう) |
+| `border` | 境界線 | `1px solid black` | [ボックスモデル](./css-basics/box-model#4-border境界線を学習しよう) |
 | `margin` (負) | 負のマージン | `-20px` | [負のマージン](./css-basics/negative-margin) |
 
 ### 背景
@@ -146,9 +146,9 @@ sidebar_position: 100
 
 | 値 | 説明 | 特徴 | 詳細ページ |
 |----|------|------|-----------|
-| `block` | ブロック表示 | 縦に並ぶ、width/height指定可、デフォルトで幅100% | [display](\./css-basics/display#display-blockを学習しよう) |
-| `inline` | インライン表示 | 横に並ぶ、width/height指定不可、ベースライン揃い | [display](\./css-basics/display#display-inlineを学習しよう) |
-| `inline-block` | インラインブロック | 横に並ぶ、width/height指定可 | [display](\./css-basics/display#display-inline-blockを学習しよう) |
+| `block` | ブロック表示 | 縦に並ぶ、width/height指定可、デフォルトで幅100% | [display](\./css-basics/display#1-display-blockブロック表示を学習しよう) |
+| `inline` | インライン表示 | 横に並ぶ、width/height指定不可、ベースライン揃い | [display](\./css-basics/display#2-display-inlineインライン表示を学習しよう) |
+| `inline-block` | インラインブロック | 横に並ぶ、width/height指定可 | [display](\./css-basics/display#3-display-inline-blockインラインブロック表示を学習しよう) |
 | `flex` | フレックスボックス | 柔軟なレイアウト | [Flexbox](\./css-basics/flexbox) |
 | `none` | 非表示 | 要素を非表示にする | [display](\./css-basics/display) |
 
@@ -168,7 +168,7 @@ sidebar_position: 100
 
 | プロパティ | 説明 | 値の例 | 詳細ページ |
 |-----------|------|--------|-----------|
-| `display: flex` | フレックスコンテナ | 子要素を横並びに | [Flexbox](\./css-basics/flexbox#display-flex) |
+| `display: flex` | フレックスコンテナ | 子要素を横並びに | [Flexbox](\./css-basics/flexbox#display-flexフレックスコンテナ) |
 | `justify-content` | 主軸方向の配置 | `flex-start`, `center`, `space-between` | [Flexbox](\./css-basics/flexbox#justify-content主軸方向の配置) |
 | `align-items` | 交差軸方向の配置 | `stretch`, `center`, `flex-start` | [Flexbox 応用](\./css-basics/flexbox-advanced) |
 | `flex-direction` | 並び方向 | `row`, `column` | [Flexbox 応用](\./css-basics/flexbox-advanced) |
