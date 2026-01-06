@@ -16,7 +16,9 @@ import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
 ### 演習用原稿のダウンロード
 
 演習用の原稿ファイルをダウンロードしてください：
-[演習用原稿.txtをダウンロード](@site/static/files/演習用原稿.txt)
+<a href={require("./files/演習用原稿.txt")} download>
+  演習用原稿.txtをダウンロード
+</a>
 
 ### 演習の流れ
 
@@ -242,7 +244,9 @@ import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
 
 授業終了時点での完成形ファイルをダウンロードできます：
 
-[markup-exercises-complete.html](@site/static/files/markup-exercises-complete.html)
+<a href={require("./files/markup-exercises-complete.html")} download>
+  markup-exercises-complete.html
+</a>
 
 ---
 

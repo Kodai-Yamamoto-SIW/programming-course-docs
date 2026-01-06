@@ -109,7 +109,9 @@ import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
 **適用箇所① (ピクニック画像)**:
 
 <CodePreview 
-  imageBasePath="@site/static/files/text-markup-complete/"
+  images={{
+    "images/picnic.jpg": require("./img/picnic.jpg"),
+  }}
   initialHTML={`<!-- 修正前 -->
 <section>
     [ピクニックのイメージ画像]
@@ -126,7 +128,9 @@ import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
 **適用箇所② (地図画像)**:
 
 <CodePreview 
-  imageBasePath="@site/static/files/text-markup-complete/"
+  images={{
+    "images/park_map.jpg": require("./img/park_map.jpg"),
+  }}
   initialHTML={`<!-- 修正前 -->
 [公園の地図画像]
 
@@ -140,7 +144,9 @@ import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
 
 授業終了時点での完成形ファイルをダウンロードできます：
 
-[text-markup-complete.zip](@site/static/files/text-markup-complete.zip)
+<a href={require("./files/text-markup-complete.zip")} download>
+  text-markup-complete.zip
+</a>
 
 ---
 

@@ -54,6 +54,8 @@ import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
 
 授業終了時点での完成例ファイルをダウンロードできます：
 
-[advanced-styling-complete.zip](@site/static/files/advanced-styling-complete.zip)
+<a href={require("./files/advanced-styling-complete.zip")} download>
+  advanced-styling-complete.zip
+</a>
 
 ---

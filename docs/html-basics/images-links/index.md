@@ -144,7 +144,9 @@ import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
 
 授業終了時点での完成形ファイルをダウンロードできます：
 
-[images-links-complete.zip](@site/static/files/images-links-complete.zip)
+<a href={require("./files/images-links-complete.zip")} download>
+  images-links-complete.zip
+</a>
 
 ---
 

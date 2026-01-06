@@ -92,7 +92,10 @@ import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
 **使用例（images フォルダの中に画像がある場合）：**
 
 <CodePreview 
-  imageBasePath="@site/static/files/markup-exercises-advanced-complete"
+  images={{
+    "images/main.png": require("./img/main.png"),
+    "images/map.png": require("./img/map.png"),
+  }}
   initialHTML={`<img src="images/main.png" alt="学校祭メインビジュアル">
 <img src="images/map.png" alt="会場マップ画像">`}
 />
@@ -221,7 +224,9 @@ import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
 
 授業終了時点での完成形ファイルをダウンロードできます：
 
-[markup-exercises-advanced-complete.zip](@site/static/files/markup-exercises-advanced-complete.zip)
+<a href={require("./files/markup-exercises-advanced-complete.zip")} download>
+  markup-exercises-advanced-complete.zip
+</a>
 
 ---
 
