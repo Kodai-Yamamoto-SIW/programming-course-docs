@@ -19,8 +19,8 @@ import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
 
 演習で使用する画像ファイルをダウンロードしてください：
 
-- <a href={require("./files/picnic.jpg")} download="picnic.jpg">picnic.jpgをダウンロード</a>
-- <a href={require("./files/park_map.jpg")} download="park_map.jpg">park_map.jpgをダウンロード</a>
+- <a href={require("./assets/picnic.jpg")} download="picnic.jpg">picnic.jpgをダウンロード</a>
+- <a href={require("./assets/park_map.jpg")} download="park_map.jpg">park_map.jpgをダウンロード</a>
 
 **重要**: ダウンロードした画像ファイルは、HTMLファイルと同じフォルダ内に`images`フォルダを作成し、その中に保存してください。
 
@@ -110,7 +110,7 @@ import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
 
 <CodePreview 
   images={{
-    "images/picnic.jpg": require("./img/picnic.jpg"),
+    "images/picnic.jpg": require("./assets/picnic.jpg"),
   }}
   initialHTML={`<!-- 修正前 -->
 <section>
@@ -129,7 +129,7 @@ import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
 
 <CodePreview 
   images={{
-    "images/park_map.jpg": require("./img/park_map.jpg"),
+    "images/park_map.jpg": require("./assets/park_map.jpg"),
   }}
   initialHTML={`<!-- 修正前 -->
 [公園の地図画像]
@@ -145,7 +145,7 @@ import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
 授業終了時点での完成形ファイルをダウンロードできます：
 
 <a
-  href={require("./files/text-markup-complete.zip")}
+  href={require("./assets/text-markup-complete.zip")}
   download="text-markup-complete.zip"
 >
   text-markup-complete.zip
@@ -154,4 +154,5 @@ import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
 ---
 
 👋 おつかれさまでした！ 
+
 
