@@ -29,7 +29,7 @@ HTMLのタグを使って、文章の各部分に意味を与えることです�
 1. **まずは原稿.txtの内容をbodyにそのまま貼り付ける**
 
    演習用の原稿ファイルをダウンロードしてください：
-   <a href={require("./files/原稿.txt")} download>
+   <a href={require("./files/原稿.txt")} download="原稿.txt">
      原稿.txtをダウンロード
    </a>
 
@@ -187,7 +187,10 @@ HTMLのタグを使って、文章の各部分に意味を与えることです�
 
 授業終了時点での完成形ファイルをダウンロードできます：
 
-<a href={require("./files/elements-complete.html")} download>
+<a
+  href={require("./files/elements-complete.html")}
+  download="elements-complete.html"
+>
   elements-complete.html
 </a>
 

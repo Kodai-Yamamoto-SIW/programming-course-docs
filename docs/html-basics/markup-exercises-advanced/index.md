@@ -224,7 +224,10 @@ import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
 
 授業終了時点での完成形ファイルをダウンロードできます：
 
-<a href={require("./files/markup-exercises-advanced-complete.zip")} download>
+<a
+  href={require("./files/markup-exercises-advanced-complete.zip")}
+  download="markup-exercises-advanced-complete.zip"
+>
   markup-exercises-advanced-complete.zip
 </a>
 

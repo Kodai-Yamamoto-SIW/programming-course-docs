@@ -366,7 +366,10 @@ footer {
 
 授業終了時点での完成形ファイルをダウンロードできます：
 
-<a href={require("./files/css-styling-basics-complete.zip")} download>
+<a
+  href={require("./files/css-styling-basics-complete.zip")}
+  download="css-styling-basics-complete.zip"
+>
   css-styling-basics-complete.zip
 </a>
 
