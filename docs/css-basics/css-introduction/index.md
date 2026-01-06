@@ -2,8 +2,8 @@
 sidebar_position: 1
 ---
 
-import Exercise, { Solution } from '@kodai-yamamoto-siw/exercise/client';
-import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
+import Exercise, { Solution } from '@metyatech/exercise/client';
+import { CodePreview } from '@metyatech/code-preview';
 
 # 導入
 

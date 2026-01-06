@@ -2,7 +2,7 @@
 sidebar_position: 5
 ---
 
-import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
+import { CodePreview } from '@metyatech/code-preview';
 
 # 画像・リンク
 

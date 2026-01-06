@@ -2,9 +2,9 @@
 sidebar_position: 4
 ---
 
-import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
+import { CodePreview } from '@metyatech/code-preview';
 
-import Exercise, { Solution } from '@kodai-yamamoto-siw/exercise/client';
+import Exercise, { Solution } from '@metyatech/exercise/client';
 
 # ボックスモデル
 

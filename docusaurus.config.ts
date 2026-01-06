@@ -15,14 +15,14 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://kodai-yamamoto-siw.github.io',
+  url: 'https://metyatech.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/programming-course-docs/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'Kodai-Yamamoto-SIW', // Usually your GitHub org/user name.
+  organizationName: 'metyatech', // Usually your GitHub org/user name.
   projectName: 'programming-course-docs', // Usually your repo name.
   deploymentBranch: 'gh-pages',
   trailingSlash: false,
@@ -87,7 +87,7 @@ const config: Config = {
           label: '提出作品',
         },
         {
-          href: 'https://github.com/Kodai-Yamamoto-SIW/programming-course-docs',
+          href: 'https://github.com/metyatech/programming-course-docs',
           label: 'GitHub',
           position: 'right',
         },
@@ -126,7 +126,7 @@ const config: Config = {
   } satisfies Preset.ThemeConfig,
   plugins: [
     [
-      '@kodai-yamamoto-siw/exercise',
+      '@metyatech/exercise',
       {
         headingLevel: 3
       }

@@ -3,8 +3,8 @@ sidebar_position: 12
 title: 装飾エフェクト
 ---
 
-import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
-import Exercise, { Solution } from '@kodai-yamamoto-siw/exercise/client';
+import { CodePreview } from '@metyatech/code-preview';
+import Exercise, { Solution } from '@metyatech/exercise/client';
 
 ## 今日の学習はこんなところで使うよ
 

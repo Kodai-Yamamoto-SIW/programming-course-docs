@@ -2,8 +2,8 @@
 sidebar_position: 4.5
 ---
 
-import Exercise, { Solution } from '@kodai-yamamoto-siw/exercise/client';
-import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
+import Exercise, { Solution } from '@metyatech/exercise/client';
+import { CodePreview } from '@metyatech/code-preview';
 
 # 位置指定（position）
 
