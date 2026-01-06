@@ -19,8 +19,8 @@ import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
 
 演習で使用する画像ファイルをダウンロードしてください：
 
-- [picnic.jpgをダウンロード](@site/static/files/picnic.jpg)
-- [park_map.jpgをダウンロード](@site/static/files/park_map.jpg)
+- [picnic.jpgをダウンロード](./img/picnic.jpg)
+- [park_map.jpgをダウンロード](./img/park_map.jpg)
 
 **重要**: ダウンロードした画像ファイルは、HTMLファイルと同じフォルダ内に`images`フォルダを作成し、その中に保存してください。
 

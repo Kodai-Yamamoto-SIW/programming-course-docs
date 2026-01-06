@@ -360,12 +360,12 @@ background: <image> <repeat> <position> / <size> <attachment> <color>;
   
   /* 一括指定 */
   .box1 {
-    background: url("/programming-course-docs/files/background-sample.png") no-repeat center lightblue;
+    background: url("./img/background-sample.png") no-repeat center lightblue;
   }
 
   /* 個別指定 */
   .box2 {
-    background-image: url("/programming-course-docs/files/background-sample.png");
+    background-image: url("./img/background-sample.png");
     background-repeat: no-repeat;
     background-position: center;
     background-color: lightblue;
@@ -389,12 +389,12 @@ background: <image> <repeat> <position> / <size> <attachment> <color>;
 
   /* 画像のみ */
   .pattern2 {
-    background: url("/programming-course-docs/files/background-sample.png") no-repeat center;
+    background: url("./img/background-sample.png") no-repeat center;
   }
 
   /* 色と画像の組み合わせ */
   .pattern3 {
-    background: url("/programming-course-docs/files/background-sample.png") no-repeat right lightgreen;
+    background: url("./img/background-sample.png") no-repeat right lightgreen;
   }`}/>
 
 <Exercise title="演習3">
@@ -405,7 +405,9 @@ background: <image> <repeat> <position> / <size> <attachment> <color>;
   sourceId="background-exercise-3"
   fileStructureVisible={true}
   cssVisible={false}
-  images={{ "img/fence.png": "/programming-course-docs/files/background-sample.png" }}
+  images={{
+ "img/fence.png": require("./img/fence.png") 
+  }}
   cssPath="css/style.css"
   initialHTML={`<!-- いずれも、横幅350px、高さ200px -->
   
@@ -445,7 +447,9 @@ background: <image> <repeat> <position> / <size> <attachment> <color>;
   sourceId="background-exercise-3-advanced"
   fileStructureVisible={true}
   cssVisible={false}
-  images={{ "img/fence.png": "/programming-course-docs/files/background-sample.png" }}
+  images={{
+ "img/fence.png": require("./img/fence.png") 
+  }}
   cssPath="css/style.css"
   initialHTML={`<!-- いずれも、横幅800px、高さ250px -->
   
@@ -503,8 +507,9 @@ background: <image> <repeat> <position> / <size> <attachment> <color>;
 具体例：
 
 <CodePreview
-  initialHTML={`<img src="/programming-course-docs/files/red_tapes.png" alt="赤いテープ" />
-  <img src="/programming-course-docs/files/trains.png" alt="電車" />
+  images={{ "img/red_tapes.png": require("./img/red_tapes.png"), "img/trains.png": require("./img/trains.png") }}
+  initialHTML={`<img src="./img/red_tapes.png" alt="赤いテープ" />
+  <img src="./img/trains.png" alt="電車" />
   <div class="kasanari"></div>`}
   initialCSS={`.kasanari {
     width: 350px;
@@ -512,8 +517,8 @@ background: <image> <repeat> <position> / <size> <attachment> <color>;
 
     /* 先頭が上に表示される（上：赤いテープ、下：電車） */
     background:
-      url("/programming-course-docs/files/red_tapes.png") repeat-x center 20px,
-      url("/programming-course-docs/files/trains.png") repeat-x center top #fdf;
+      url("./img/red_tapes.png") repeat-x center 20px,
+      url("./img/trains.png") repeat-x center top #fdf;
   }`}
 />
 
@@ -525,7 +530,9 @@ background: <image> <repeat> <position> / <size> <attachment> <color>;
   sourceId="background-multi-1"
   fileStructureVisible={true}
   cssVisible={false}
-  images={{ "img/dinosaur.png": "/programming-course-docs/img/docusaurus.png", "img/fence.png": "/programming-course-docs/files/fence.png" }}
+  images={{
+ "img/dinosaur.png": require("./img/docusaurus.png"), "img/fence.png": require("./img/fence.png") 
+  }}
   cssPath="css/style.css"
   initialHTML={`<!-- 要素は横幅350px、高さ300px -->
 
@@ -561,9 +568,11 @@ background: <image> <repeat> <position> / <size> <attachment> <color>;
   fileStructureVisible={true}
   cssVisible={false}
   images={{
-    "img/badge.png": "/programming-course-docs/files/badge.png",
-    "img/ribbon.png": "/programming-course-docs/files/ribbon.png",
-    "img/pattern.jpg": "/programming-course-docs/files/pattern.jpg"
+
+    "img/badge.png": require("./img/badge.png"),
+    "img/ribbon.png": require("./img/ribbon.png"),
+    "img/pattern.jpg": require("./img/pattern.jpg")
+  
   }}
   cssPath="css/style.css"
   initialHTML={`<!-- 要素は、横幅350px、高さ200px -->

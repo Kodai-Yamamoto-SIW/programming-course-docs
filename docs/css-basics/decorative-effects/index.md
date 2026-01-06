@@ -121,7 +121,7 @@ border-radius: 値;
   }`}
 />
 
-![border-radiusのイメージ](/files/border-radius.png)
+![border-radiusのイメージ](./img/border-radius.png)
 
 ### 個別の角を指定
 
@@ -460,7 +460,7 @@ background: linear-gradient(方向, 開始色, 終了色);
   }`}
 />
 
-![linear-gradientの角度指定の意味](/files/linear-gradient.png)
+![linear-gradientの角度指定の意味](./img/linear-gradient.png)
 
 <Exercise title="演習5（グラデーションバナーを作る）">
 

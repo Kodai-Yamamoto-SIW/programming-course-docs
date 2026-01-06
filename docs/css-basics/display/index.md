@@ -1,0 +1,490 @@
+---
+sidebar_position: 6
+---
+
+import Exercise, { Solution } from '@kodai-yamamoto-siw/exercise/client';
+import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
+
+# display（表示形式）
+
+## 今回学習する内容
+
+- **displayプロパティ**：要素の表示形式を制御するプロパティ
+- **display: block**：ブロック表示
+- **display: inline**：インライン表示
+- **display: inline-block**：インラインブロック表示
+
+---
+
+## displayとは？
+
+### 🎯 displayプロパティとは
+
+**説明**: `display`プロパティは、要素をどのように表示するかを制御する重要なプロパティです。要素の配置方法や、他の要素との関係を決めます。
+
+**基本的な書き方**:
+```css
+セレクタ {
+    display: 値;
+}
+```
+
+### 📦 HTML要素のデフォルトのdisplay
+
+HTMLの各要素には、デフォルトで`display`の値が決まっています：
+
+- **ブロック**（`display: block`）：`<div>`, `<p>`, `<h1>`～`<h6>`, `<section>`, `<header>` など
+- **インライン**（`display: inline`）：`<span>`, `<a>`, `<strong>`, `<em>` など
+
+---
+
+## 1. display: block（ブロック表示）を学習しよう
+
+### 📦 display: block とは
+
+**説明**: 要素をブロックとして表示します。ブロック表示は以下の特徴があります：
+
+- **意味合い**: 独立したブロック
+- **幅**: デフォルトで親要素の幅いっぱいに広がる（デフォルトで`width: 100%`のような動作）
+- **配置**: 縦に並ぶ（要素の前後で改行される）
+- **サイズ指定**: `width`や`height`を自由に設定できる
+- **余白**: `margin`や`padding`を上下左右すべてに設定できる
+
+### blockの動作例
+
+<CodePreview 
+  initialHTML={`<div class="box1">箱1</div> <div class="box2">箱2</div>
+<div class="box3">箱3</div>`}
+  initialCSS={`.box1 {
+    display: block;
+    height: 60px;
+    background-color: lightblue;
+    margin: 10px 0;
+  }
+
+.box2 {
+    display: block;
+    width: 300px;
+    height: 60px;
+    background-color: lightgreen;
+    margin: 10px 0;
+}
+
+.box3 {
+    display: block;
+    width: 150px;
+    height: 60px;
+    background-color: lightpink;
+    margin: 10px 0;
+}`}
+/>
+
+**確認ポイント**:
+- 3つの箱が**縦に並んで**表示される
+- `width`や`height`を自由に設定できる
+
+:::info デフォルトでブロック表示の要素
+
+`<div>`要素は元々`display: block`がデフォルトなので、`display: block`を指定しなくても同じ動作をします。ただし、他の要素（例えば`<span>`）をブロック表示に変更したい場合に`display: block`を使用します。
+
+:::
+
+<Exercise title="演習1">
+
+以下のHTMLに対して、コメントの指示の通りのCSSを書いてください：
+
+<CodePreview 
+  sourceId="ex-1"
+  cssVisible={false}
+  initialHTML={`<!-- display: block、高さ50px、背景色blue、上下左右外余白10px -->
+  <span class="item1">項目1</span>
+  <!-- display: block、幅250px、高さ50px、背景色green、上下左右内余白20px -->
+  <span class="item2">項目2</span>`}
+  initialCSS={`.item1 {
+    display: block;
+    height: 50px;
+    background-color: blue;
+    margin: 10px;
+  }
+
+  .item2 {
+    display: block;
+    width: 250px;
+    height: 50px;
+    background-color: green;
+    padding: 20px;
+  }`}/>
+
+<Solution>
+
+<CodePreview sourceId="ex-1"/>
+
+**解説**:
+- `<span>`は通常`display: inline`で横に並びますが、`display: block`を指定することでブロック表示に変更できます
+- ブロック表示になると、要素が縦に並び、`width`と`height`を自由に設定できるようになります
+- ブロック表示では、`width`を指定しなかった場合、横幅は親要素の幅いっぱいに広がります。
+
+</Solution>
+
+</Exercise>
+
+<Exercise title="演習1-発展">
+
+以下のHTMLに対して、コメントの指示の通りのCSSを書いてください：
+
+<CodePreview 
+  sourceId="ex-1-adv"
+  cssVisible={false}
+  initialHTML={`<!-- display: block、幅400px、背景色blue、内側余白20px -->
+  <div class="box">左に寄ったブロック</div>
+  <!-- display: block、幅250px、背景色green、要素を左右中央揃え、内側余白15px -->
+  <div class="box2">中央に配置されたブロック</div>`}
+  initialCSS={`.box {
+    display: block;
+    width: 400px;
+    background-color: blue;
+    padding: 20px;
+  }
+
+  .box2 {
+    display: block;
+    width: 250px;
+    background-color: green;
+    margin: 0 auto;
+    padding: 15px;
+  }`}
+/>
+
+<Solution>
+
+<CodePreview sourceId="ex-1-adv"/>
+
+**解説**:
+- ブロック表示の要素は`margin: 0 auto`で左右中央揃えにできます
+- `0`は上下のマージン、`auto`は左右のマージンを均等に調整します
+
+</Solution>
+
+</Exercise>
+
+---
+
+## 2. display: inline（インライン表示）を学習しよう
+
+### 📝 display: inline とは
+
+**説明**: 要素をインラインとして表示します。インライン表示は以下の特徴があります：
+
+- **意味合い**: 文章の一文に「インライン」的に埋め込む。「**中の文章の流れを重視する表示方法**」
+- **幅と高さ**: `width`や`height`を指定できない（内容に応じて自動で決まる）
+- **配置**: テキストの一部かのように横に並ぶ（改行されずに右に続く）
+- **テキスト位置**: **文字のベースライン（文字の下端の基準線）が揃う**ように配置される
+- **余白**: 左右の`margin`と`padding`は設定できるが、上下の`margin`は効果がない
+
+### inlineの動作例
+
+<CodePreview 
+  initialHTML={`<div class="pad"></div>
+  <span class="tag1">タグ1</span>
+  <span class="tag2">タグ2</span>
+  <span class="tag3">タグ3</span>
+  <p>これは通常の段落です。</p>`}
+  initialCSS={`.pad {
+    margin-bottom: 50px;
+  }
+
+  .tag1 {
+    display: inline;
+    background-color: lightblue;
+    padding-top: 30px;
+    margin: 0 5px;
+  }
+
+  .tag2 {
+    display: inline;
+    background-color: lightgreen;
+    padding: 30px;
+    margin: 0 5px;
+  }
+
+  .tag3 {
+    display: inline;
+    background-color: lightpink;
+    padding-bottom: 30px;
+    margin: 10px;
+  }`}/>
+
+**確認ポイント**:
+- 3つのタグが**横に並んで**表示される
+- `width`や`height`を指定しても効果がない
+- 左右の`padding`と`margin`は有効だが、上下の`margin`は効果がない
+- **テキストのベースライン（文字の下端の基準線）が揃って**表示される
+
+:::tip インライン表示の重要な特徴
+
+インライン表示では、異なるサイズの要素を横に並べても、**文字のベースライン（文字の下端の基準線）が自動的に揃います**。これにより、文章の一部として自然に読めるレイアウトが作れます。
+
+例えば、通常のテキストの中に背景色を付けた`<span>`を入れても、文字の位置が揃うため読みやすくなります。
+
+:::
+
+:::info デフォルトのインライン表示
+
+`<span>`要素は元々`display: inline`がデフォルトなので、`display: inline`を指定しなくても同じ動作をします。ただし、デフォルトでブロック表示（例えば`<div>`）の要素をインライン表示に変更したい場合に`display: inline`を使用します。
+
+:::
+
+<Exercise title="演習2">
+
+以下のHTMLに対して、コメントの指示の通りのCSSを書いてください：
+
+<CodePreview 
+  sourceId="ex-2"
+  cssVisible={false}
+  initialHTML={`<p>おすすめの<!-- display: inline、背景色yellow、左右パディング4px 8px --><span class="highlight">商品</span>をご紹介します。</p>
+  <!-- display: inline、背景色lightblue、左右パディング8px 16px、左右マージン0 10px -->
+  <div class="menu1">メニュー1</div>
+  <!-- display: inline、背景色lightgreen、左右パディング8px 16px、左右マージン0 10px -->
+  <div class="menu2">メニュー2</div>`}
+  initialCSS={`.highlight {
+    display: inline;
+    background-color: yellow;
+    padding: 4px 8px;
+  }
+
+  .menu1 {
+    display: inline;
+    background-color: lightblue;
+    padding: 8px 16px;
+    margin: 0 10px;
+  }
+
+  .menu2 {
+    display: inline;
+    background-color: lightgreen;
+    padding: 8px 16px;
+    margin: 0 10px;
+  }`}
+/>
+
+<Solution>
+
+<CodePreview sourceId="ex-2"/>
+
+**解説**:
+- `<div>`は通常ブロック表示で縦に並びますが、`display: inline`を指定することでインライン表示に変更できます
+- インライン表示になると、要素が横に並び、`width`や`height`は指定できません
+- 左右の`padding`と`margin`は有効ですが、上下の`margin`は効果がありません
+
+</Solution>
+
+</Exercise>
+
+<Exercise title="演習2-発展">
+
+以下のHTMLに対して、コメントの指示の通りのCSSを書いてください。インライン表示では、テキストのベースラインが揃うことを確認します：
+
+<CodePreview 
+  sourceId="ex-2-adv"
+  cssVisible={false}
+  initialHTML={`<p>これは<span class="small">小さい文字</span>と<span class="large">大きい文字</span>が混在する文章です。インライン表示では、文字のベースラインが揃います。</p>
+  <!-- class="small" の要素に display: inline、背景色yellow、文字サイズ12px -->
+  <span class="small">小さいタグ</span>
+  <!-- class="large" の要素に display: inline、背景色lightblue、文字サイズ20px -->
+  <span class="large">普通のタグ</span>
+  <!-- class="huge" の要素に display: inline、背景色lightgreen、文字サイズ28px -->
+  <span class="huge">大きいタグ</span>`}
+  initialCSS={`.small {
+    display: inline;
+    background-color: yellow;
+    font-size: 12px;
+  }
+
+  .large {
+    display: inline;
+    background-color: lightblue;
+    font-size: 20px;
+  }
+
+  .huge {
+    display: inline;
+    background-color: lightgreen;
+    font-size: 28px;
+  }`}
+/>
+
+<Solution>
+
+<CodePreview sourceId="ex-2-adv"/>
+
+**解説**:
+- インライン表示の要素は、文字サイズが異なっても**文字のベースライン（下端の基準線）が揃います**
+- これにより、文章の流れが自然になり、読みやすいレイアウトが作れます
+- ブロック表示で要素を横並びにする方法がある（未学習）のですが、それで横並びにした場合は文字サイズが異なると位置がバラバラになりますが、インライン表示では自動的に揃います
+
+</Solution>
+
+</Exercise>
+
+---
+
+## 3. display: inline-block（インラインブロック表示）を学習しよう
+
+### 🔄 display: inline-block とは
+
+**説明**: 要素をインラインブロックとして表示します。インラインブロック表示は以下の特徴があります：
+
+- **意味合い**: 文章の一文に「インライン」的に埋め込みつつ、ブロックのように要素の領域をしっかり確保したい。「**`inline`のようにテキストの位置が揃い、`block`のようにサイズを指定できる表示方法**」
+- **配置**: テキストの一部かのように横に並ぶ（インライン表示のように）
+- **サイズ指定**: `width`や`height`を自由に設定できる（ブロック表示のように）
+- **余白**: `margin`や`padding`を上下左右すべてに設定できる（ブロック表示のように）
+- **`inline`との違い**: テキスト中に改行した場合の表示のされ方が異なる
+
+**つまり**: インライン表示とブロック表示の**良いところを組み合わせた**表示形式です！
+
+### inline-blockの動作例
+
+<CodePreview 
+  initialHTML={`<div class="box1">箱1</div>
+<div class="box2">箱2</div>
+<div class="box3">箱3</div>
+<p>適当な文章</p>`}
+  initialCSS={`.box1 {
+    display: inline-block;
+    width: 120px;
+    height: 80px;
+    background-color: lightblue;
+    margin: 10px;
+    padding: 10px;
+}
+
+.box2 {
+    display: inline-block;
+    background-color: lightgreen;
+    margin-top: 50px;
+    padding-top: 50px;
+}
+
+.box3 {
+    display: inline-block;
+    background-color: lightpink;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+}`}
+/>
+
+**確認ポイント**:
+- 3つの箱が**横に並んで**表示される（インライン表示のように）
+- `width`や`height`を**自由に設定できる**（ブロック表示のように）
+- 上下左右の`margin`や`padding`が**すべて有効**（ブロック表示のように）
+
+:::info inline-blockの実用例
+
+`display: inline-block`は、ナビゲーションボタンやカードを横に並べる時によく使われます。`display: block`では縦に並んでしまいますし、`display: inline`では`width`や`height`が指定できません。`inline-block`なら、横に並べつつ、サイズも自由に設定できます。
+
+:::
+
+<Exercise title="演習3">
+
+以下のHTMLに対して、コメントの指示の通りのCSSを書いてください：
+
+<CodePreview 
+  sourceId="ex-3"
+  cssVisible={false}
+  initialHTML={`<!-- display: inline-block、幅100px、高さ50px、背景色blue、上下左右マージン5px、内側余白10px -->
+  <button class="button1">ボタン1</button>
+  <!-- display: inline-block、幅150px、高さ50px、背景色green、上下左右マージン5px、内側余白30px -->
+  <button class="button2">ボタン2</button>`}
+  initialCSS={`.button1 {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    background-color: blue;
+    margin: 5px;
+    padding: 10px;
+  }
+
+  .button2 {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    background-color: green;
+    margin: 5px;
+    padding: 30px;
+  }`}
+/>
+
+<Solution>
+
+<CodePreview sourceId="ex-3"/>
+
+**解説**:
+- `display: inline-block`を使うことで、ボタンを横に並べることができます
+- `width`や`height`、`padding`を個別に指定できるため、各ボタンのサイズを自由に調整できます
+
+</Solution>
+
+</Exercise>
+
+<Exercise title="演習3-発展">
+
+インラインブロックを使って、カードを横に並べるレイアウトを作りましょう。コメントの指示の通りのCSSを書いてください：
+
+<CodePreview 
+  sourceId="ex-3-adv"
+  cssVisible={false}
+  initialHTML={`<!-- 親: 背景色lightgray、内側余白16px、アイテムの横並びは中央揃え（inlineの要素はテキスト扱いのため、text-alignで左右方向の位置を揃えることができる） -->
+  <div class="cards">
+    <!-- 各カード: display: inline-block、幅220px、背景色white、マージン8px、パディング12px、テキストは左揃え -->
+    <div class="card">
+      <h4>カードA</h4>
+      <p>短い説明文。</p>
+    </div>
+    <div class="card">
+      <h4>カードB</h4>
+      <p>少し長い説明文が入ります。折り返しに注意。</p>
+    </div>
+    <div class="card">
+      <h4>カードC</h4>
+      <p>とても長い説明文が入る場合もあります。このようにテキストが長く改行が必要な場合は、デフォルトでテキストの下端の位置で揃えられます。</p>
+    </div>
+  </div>`}
+  initialCSS={`.cards {
+    background-color: lightgray;
+    padding: 16px;
+    /* インラインブロック要素を中央揃えにする */
+    text-align: center;
+  }
+
+  .card {
+    display: inline-block;
+    width: 220px;
+    background-color: white;
+    margin: 8px;
+    padding: 12px;
+    /* text-align は継承されるプロパティなので、親の text-align: center は引き継がれる */
+    /* そのため、左に揃えるには別途 text-align: left; を指定する */
+    text-align: left;
+  }`}/>
+
+<Solution>
+
+<CodePreview sourceId="ex-3-adv"/>
+
+**解説**:
+- 親に`text-align: center;`を指定すると、インラインブロック要素（カード）を簡単に中央寄せできます（インライン要素はテキスト扱いのため）
+- カード自身は`display: inline-block`によりテキストの一部かのような扱いになります。`width`や`padding`、`margin`、`border`を自由に指定できます
+- カード内のテキストは`text-align: left;`で左寄せに戻しています（親の中央揃えの影響を受けないように）
+
+</Solution>
+
+</Exercise>
+
+## 練習: デザインに合わせて作る
+
+最後に、練習として次のデザイン通りのサイトを作ってみましょう。
+
+デザインへのリンク: https://www.figma.com/design/htidPJWOXpwICYsTWvBbD2/eCommerce-Website-%7C-Web-Page-Design-%7C-UI-KIT-%7C-Interior-Landing-Page--Community-?node-id=0-1&t=A6hbE2M4a5DDy0Jk-1
+
+### 著作権元
+<p style={{"font-size":"0.8em"}}><a href="https://www.figma.com/community/file/1252561852327562039/ecommerce-website-web-page-design-ui-kit-interior-landing-page" target="_blank" rel="noopener noreferrer">上述のデザインの元デザイン</a></p>

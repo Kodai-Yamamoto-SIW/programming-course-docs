@@ -18,7 +18,7 @@ import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
 
 ### 前提
 
-[リンクとHTML文法チェック](../html-basics/images-links.md)で完成したマークアップに対してスタイリングしていきましょう。
+[リンクとHTML文法チェック](../../html-basics/images-links/index.md)で完成したマークアップに対してスタイリングしていきましょう。
 HTMLファイルには、ピクニックのお知らせのマークアップが完成している状態から始めます。
 
 ---
