@@ -19,8 +19,8 @@ import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
 
 演習で使用する画像ファイルをダウンロードしてください：
 
-- [picnic.jpgをダウンロード](./img/picnic.jpg)
-- [park_map.jpgをダウンロード](./img/park_map.jpg)
+- <a href={require("./files/picnic.jpg")} download="picnic.jpg">picnic.jpgをダウンロード</a>
+- <a href={require("./files/park_map.jpg")} download="park_map.jpg">park_map.jpgをダウンロード</a>
 
 **重要**: ダウンロードした画像ファイルは、HTMLファイルと同じフォルダ内に`images`フォルダを作成し、その中に保存してください。
 
@@ -154,3 +154,4 @@ import { CodePreview } from '@kodai-yamamoto-siw/code-preview';
 ---
 
 👋 おつかれさまでした！ 
+
