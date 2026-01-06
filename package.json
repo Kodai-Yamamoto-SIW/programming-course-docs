@@ -17,6 +17,7 @@
   "dependencies": {
     "@docusaurus/core": "^3.9.1",
     "@docusaurus/preset-classic": "^3.9.1",
+    "@metyatech/docusaurus-download-assets": "github:metyatech/docusaurus-download-assets",
     "@kodai-yamamoto-siw/code-preview": "github:Kodai-Yamamoto-SIW/code-preview",
     "@kodai-yamamoto-siw/exercise": "github:Kodai-Yamamoto-SIW/exercise-module",
     "@mdx-js/react": "^3.1.1",

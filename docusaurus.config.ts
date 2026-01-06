@@ -131,7 +131,7 @@ const config: Config = {
         headingLevel: 3
       }
     ],
-    './src/plugins/asset-resource-plugin.js',
+    '@metyatech/docusaurus-download-assets',
     './src/plugins/student-works-plugin.js'
   ]
 };
