@@ -1,55 +1,60 @@
-# Website
+# programming-course-docs
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Course site built with [Docusaurus](https://docusaurus.io/) (TypeScript).
+
+## Requirements
+
+- Node.js: see `engines.node` in `package.json` (currently `>=20`)
+- Package manager: npm
 
 ## Setup
 
-### Installation
-
 ```bash
-yarn
+npm install
 ```
 
-## Development Commands
+## Development commands
 
-### Local Development
+### Local development
 
 ```bash
-yarn start
+npm run start
 ```
-
-This starts a local development server and opens a browser window. Most changes are reflected live without restarting the server.
 
 ### Build
 
 ```bash
-yarn build
+npm run build
 ```
 
-This generates static content into the `build` directory and can be served using any static contents hosting service.
+Outputs static files to `build/`.
 
-### Deployment
-
-Using SSH:
+### Preview production build
 
 ```bash
-USE_SSH=true yarn deploy
+npm run serve
 ```
-
-Not using SSH:
-
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command builds the website and pushes to the `gh-pages` branch.
 
 ### Typecheck
 
 ```bash
-yarn typecheck
+npm run typecheck
 ```
 
-## Environment Variables/Settings
+## Assets / course components
+
+This site uses shared modules from the workspace:
+
+- `@metyatech/code-preview` (interactive HTML/CSS/JS previews)
+- `@metyatech/exercise` (exercise/solution blocks)
+- `@metyatech/docusaurus-download-assets` (import/require for `docs/**/assets/`)
+
+## Deploy
+
+GitHub Pages deployment is handled by GitHub Actions: `.github/workflows/deploy.yml`.
+
+`npm run deploy` (Docusaurus deploy script) still exists, but the default deployment flow is the Actions workflow.
+
+## Environment variables
 
 None.
