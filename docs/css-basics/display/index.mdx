@@ -52,10 +52,15 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
 
 ### blockの動作例
 
-<CodePreview 
-  initialHTML={`<div class="box1">箱1</div> <div class="box2">箱2</div>
-<div class="box3">箱3</div>`}
-  initialCSS={`.box1 {
+<CodePreview
+>
+```html
+<div class="box1">箱1</div> <div class="box2">箱2</div>
+<div class="box3">箱3</div>
+```
+
+```css
+.box1 {
     display: block;
     height: 60px;
     background-color: lightblue;
@@ -76,8 +81,9 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
     height: 60px;
     background-color: lightpink;
     margin: 10px 0;
-}`}
-/>
+}
+```
+</CodePreview>
 
 **確認ポイント**:
 - 3つの箱が**縦に並んで**表示される
@@ -95,12 +101,16 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
 
 <CodePreview 
   sourceId="ex-1"
-  cssVisible={false}
-  initialHTML={`<!-- display: block、高さ50px、背景色blue、上下左右外余白10px -->
+  cssVisible={false}>
+```html
+<!-- display: block、高さ50px、背景色blue、上下左右外余白10px -->
   <span class="item1">項目1</span>
   <!-- display: block、幅250px、高さ50px、背景色green、上下左右内余白20px -->
-  <span class="item2">項目2</span>`}
-  initialCSS={`.item1 {
+  <span class="item2">項目2</span>
+```
+
+```css
+.item1 {
     display: block;
     height: 50px;
     background-color: blue;
@@ -113,7 +123,9 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
     height: 50px;
     background-color: green;
     padding: 20px;
-  }`}/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -135,11 +147,16 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
 <CodePreview 
   sourceId="ex-1-adv"
   cssVisible={false}
-  initialHTML={`<!-- display: block、幅400px、背景色blue、内側余白20px -->
+>
+```html
+<!-- display: block、幅400px、背景色blue、内側余白20px -->
   <div class="box">左に寄ったブロック</div>
   <!-- display: block、幅250px、背景色green、要素を左右中央揃え、内側余白15px -->
-  <div class="box2">中央に配置されたブロック</div>`}
-  initialCSS={`.box {
+  <div class="box2">中央に配置されたブロック</div>
+```
+
+```css
+.box {
     display: block;
     width: 400px;
     background-color: blue;
@@ -152,8 +169,9 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
     background-color: green;
     margin: 0 auto;
     padding: 15px;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -183,13 +201,17 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
 
 ### inlineの動作例
 
-<CodePreview 
-  initialHTML={`<div class="pad"></div>
+<CodePreview>
+```html
+<div class="pad"></div>
   <span class="tag1">タグ1</span>
   <span class="tag2">タグ2</span>
   <span class="tag3">タグ3</span>
-  <p>これは通常の段落です。</p>`}
-  initialCSS={`.pad {
+  <p>これは通常の段落です。</p>
+```
+
+```css
+.pad {
     margin-bottom: 50px;
   }
 
@@ -212,7 +234,9 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
     background-color: lightpink;
     padding-bottom: 30px;
     margin: 10px;
-  }`}/>
+  }
+```
+</CodePreview>
 
 **確認ポイント**:
 - 3つのタグが**横に並んで**表示される
@@ -241,12 +265,17 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
 <CodePreview 
   sourceId="ex-2"
   cssVisible={false}
-  initialHTML={`<p>おすすめの<!-- display: inline、背景色yellow、左右パディング4px 8px --><span class="highlight">商品</span>をご紹介します。</p>
+>
+```html
+<p>おすすめの<!-- display: inline、背景色yellow、左右パディング4px 8px --><span class="highlight">商品</span>をご紹介します。</p>
   <!-- display: inline、背景色lightblue、左右パディング8px 16px、左右マージン0 10px -->
   <div class="menu1">メニュー1</div>
   <!-- display: inline、背景色lightgreen、左右パディング8px 16px、左右マージン0 10px -->
-  <div class="menu2">メニュー2</div>`}
-  initialCSS={`.highlight {
+  <div class="menu2">メニュー2</div>
+```
+
+```css
+.highlight {
     display: inline;
     background-color: yellow;
     padding: 4px 8px;
@@ -264,8 +293,9 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
     background-color: lightgreen;
     padding: 8px 16px;
     margin: 0 10px;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -287,14 +317,19 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
 <CodePreview 
   sourceId="ex-2-adv"
   cssVisible={false}
-  initialHTML={`<p>これは<span class="small">小さい文字</span>と<span class="large">大きい文字</span>が混在する文章です。インライン表示では、文字のベースラインが揃います。</p>
+>
+```html
+<p>これは<span class="small">小さい文字</span>と<span class="large">大きい文字</span>が混在する文章です。インライン表示では、文字のベースラインが揃います。</p>
   <!-- class="small" の要素に display: inline、背景色yellow、文字サイズ12px -->
   <span class="small">小さいタグ</span>
   <!-- class="large" の要素に display: inline、背景色lightblue、文字サイズ20px -->
   <span class="large">普通のタグ</span>
   <!-- class="huge" の要素に display: inline、背景色lightgreen、文字サイズ28px -->
-  <span class="huge">大きいタグ</span>`}
-  initialCSS={`.small {
+  <span class="huge">大きいタグ</span>
+```
+
+```css
+.small {
     display: inline;
     background-color: yellow;
     font-size: 12px;
@@ -310,8 +345,9 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
     display: inline;
     background-color: lightgreen;
     font-size: 28px;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -344,12 +380,17 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
 
 ### inline-blockの動作例
 
-<CodePreview 
-  initialHTML={`<div class="box1">箱1</div>
+<CodePreview
+>
+```html
+<div class="box1">箱1</div>
 <div class="box2">箱2</div>
 <div class="box3">箱3</div>
-<p>適当な文章</p>`}
-  initialCSS={`.box1 {
+<p>適当な文章</p>
+```
+
+```css
+.box1 {
     display: inline-block;
     width: 120px;
     height: 80px;
@@ -370,8 +411,9 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
     background-color: lightpink;
     margin-bottom: 50px;
     padding-bottom: 50px;
-}`}
-/>
+}
+```
+</CodePreview>
 
 **確認ポイント**:
 - 3つの箱が**横に並んで**表示される（インライン表示のように）
@@ -391,11 +433,16 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
 <CodePreview 
   sourceId="ex-3"
   cssVisible={false}
-  initialHTML={`<!-- display: inline-block、幅100px、高さ50px、背景色blue、上下左右マージン5px、内側余白10px -->
+>
+```html
+<!-- display: inline-block、幅100px、高さ50px、背景色blue、上下左右マージン5px、内側余白10px -->
   <button class="button1">ボタン1</button>
   <!-- display: inline-block、幅150px、高さ50px、背景色green、上下左右マージン5px、内側余白30px -->
-  <button class="button2">ボタン2</button>`}
-  initialCSS={`.button1 {
+  <button class="button2">ボタン2</button>
+```
+
+```css
+.button1 {
     display: inline-block;
     width: 100px;
     height: 50px;
@@ -411,8 +458,9 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
     background-color: green;
     margin: 5px;
     padding: 30px;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -432,8 +480,9 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
 
 <CodePreview 
   sourceId="ex-3-adv"
-  cssVisible={false}
-  initialHTML={`<!-- 親: 背景色lightgray、内側余白16px、アイテムの横並びは中央揃え（inlineの要素はテキスト扱いのため、text-alignで左右方向の位置を揃えることができる） -->
+  cssVisible={false}>
+```html
+<!-- 親: 背景色lightgray、内側余白16px、アイテムの横並びは中央揃え（inlineの要素はテキスト扱いのため、text-alignで左右方向の位置を揃えることができる） -->
   <div class="cards">
     <!-- 各カード: display: inline-block、幅220px、背景色white、マージン8px、パディング12px、テキストは左揃え -->
     <div class="card">
@@ -448,8 +497,11 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
       <h4>カードC</h4>
       <p>とても長い説明文が入る場合もあります。このようにテキストが長く改行が必要な場合は、デフォルトでテキストの下端の位置で揃えられます。</p>
     </div>
-  </div>`}
-  initialCSS={`.cards {
+  </div>
+```
+
+```css
+.cards {
     background-color: lightgray;
     padding: 16px;
     /* インラインブロック要素を中央揃えにする */
@@ -465,7 +517,9 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
     /* text-align は継承されるプロパティなので、親の text-align: center は引き継がれる */
     /* そのため、左に揃えるには別途 text-align: left; を指定する */
     text-align: left;
-  }`}/>
+  }
+```
+</CodePreview>
 
 <Solution>
 

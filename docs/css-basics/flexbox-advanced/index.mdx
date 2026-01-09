@@ -49,7 +49,9 @@ Flexbox の基本（`display: flex` / `gap` / `justify-content` / `flex-wrap`）
 ### 動作イメージ
 
 <CodePreview
-  initialHTML={`<h4>align-items: stretch（初期値）</h4>
+>
+```html
+<h4>align-items: stretch（初期値）</h4>
   <div class="oya s1">
     <div class="hako tall">A<br>高さ高め</div>
     <div class="hako">B</div>
@@ -61,8 +63,11 @@ Flexbox の基本（`display: flex` / `gap` / `justify-content` / `flex-wrap`）
     <div class="hako tall">A<br>高さ高め</div>
     <div class="hako">B</div>
     <div class="hako">C</div>
-  </div>`}
-  initialCSS={`.oya {
+  </div>
+```
+
+```css
+.oya {
     display: flex;
     border: 2px dashed #999;
     padding: 8px;
@@ -86,8 +91,9 @@ Flexbox の基本（`display: flex` / `gap` / `justify-content` / `flex-wrap`）
 
   .tall {
     height: 90px;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 `align-items` の値を変えると、縦方向のそろえ方だけが変わることに注目してください（上の 2 つの例を見比べてみましょう）。
 
@@ -103,14 +109,19 @@ Flexbox の基本（`display: flex` / `gap` / `justify-content` / `flex-wrap`）
 <CodePreview
   sourceId="flex-adv-ex1"
   cssVisible={false}
-  initialHTML={`<header class="head">
+>
+```html
+<header class="head">
     <div class="logo">🏠 サイト名</div>
     <nav class="menu">
       <a href="#">メニュー1</a>
       <a href="#">メニュー2</a>
     </nav>
-  </header>`}
-  initialCSS={`.head {
+  </header>
+```
+
+```css
+.head {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -132,8 +143,9 @@ Flexbox の基本（`display: flex` / `gap` / `justify-content` / `flex-wrap`）
   .menu a {
     color: #fff;
     text-decoration: none;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ヒント: `align-items` で縦方向のそろえ方を指定します。
 
@@ -163,7 +175,9 @@ Flexbox の基本（`display: flex` / `gap` / `justify-content` / `flex-wrap`）
 <CodePreview
   sourceId="flex-adv-ex1-adv"
   cssVisible={false}
-  initialHTML={`<div class="cardlist">
+>
+```html
+<div class="cardlist">
     <div class="card tall">
       <h3>カード1</h3>
       <p>少し長めの説明。</p>
@@ -176,8 +190,11 @@ Flexbox の基本（`display: flex` / `gap` / `justify-content` / `flex-wrap`）
       <h3>カード3</h3>
       <p>説明。</p>
     </div>
-  </div>`}
-  initialCSS={`.cardlist {
+  </div>
+```
+
+```css
+.cardlist {
     display: flex;
     align-items: flex-end;
     gap: 12px;
@@ -192,8 +209,9 @@ Flexbox の基本（`display: flex` / `gap` / `justify-content` / `flex-wrap`）
 
   .tall {
     height: 140px;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ヒント: 親要素に `align-items` を指定して、下そろえになる値を選びます。
 
@@ -234,12 +252,17 @@ Flexbox の基本（`display: flex` / `gap` / `justify-content` / `flex-wrap`）
 ### 基本イメージ
 
 <CodePreview
-  initialHTML={`<div class="demo">
+>
+```html
+<div class="demo">
     <div class="box a">A</div>
     <div class="box b">B</div>
     <div class="box c">C</div>
-  </div>`}
-  initialCSS={`.demo {
+  </div>
+```
+
+```css
+.demo {
     display: flex;
     border: 2px dashed #999;
     padding: 8px;
@@ -264,8 +287,9 @@ Flexbox の基本（`display: flex` / `gap` / `justify-content` / `flex-wrap`）
   .c {
     background: #66bb6a;
     flex: 1;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 B が A・C の 2 倍の幅になっていることを確認してください。
 
@@ -281,11 +305,16 @@ B が A・C の 2 倍の幅になっていることを確認してください�
 <CodePreview
   sourceId="flex-adv-ex2"
   cssVisible={false}
-  initialHTML={`<div class="layout">
+>
+```html
+<div class="layout">
     <div class="main">メインコンテンツ</div>
     <div class="side">サイドバー</div>
-  </div>`}
-  initialCSS={`.layout {
+  </div>
+```
+
+```css
+.layout {
     display: flex;
     gap: 16px;
   }
@@ -300,8 +329,9 @@ B が A・C の 2 倍の幅になっていることを確認してください�
     flex: 1;
     background: #fff3e0;
     padding: 8px;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ヒント: `.main` と `.side` に、それぞれ違う `flex` の値を指定します。
 
@@ -331,12 +361,17 @@ B が A・C の 2 倍の幅になっていることを確認してください�
 <CodePreview
   sourceId="flex-adv-ex2-adv1"
   cssVisible={false}
-  initialHTML={`<div class="btns2">
+>
+```html
+<div class="btns2">
     <button>OK</button>
     <button>キャンセル</button>
     <button>適用</button>
-  </div>`}
-  initialCSS={`.btns2 {
+  </div>
+```
+
+```css
+.btns2 {
     display: flex;
     gap: 12px;
   }
@@ -344,8 +379,9 @@ B が A・C の 2 倍の幅になっていることを確認してください�
   button {
     flex: 1;
     padding: 8px 0;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ヒント: ボタンに `flex` を指定し、`gap` でボタン間の余白を作ります。
 
@@ -373,12 +409,17 @@ B が A・C の 2 倍の幅になっていることを確認してください�
 <CodePreview
   sourceId="flex-adv-ex2-adv2"
   cssVisible={false}
-  initialHTML={`<div class="cards2">
+>
+```html
+<div class="cards2">
     <div class="card">プランA</div>
     <div class="card main">おすすめプラン</div>
     <div class="card">プランC</div>
-  </div>`}
-  initialCSS={`.cards2 {
+  </div>
+```
+
+```css
+.cards2 {
     display: flex;
     gap: 12px;
   }
@@ -393,8 +434,9 @@ B が A・C の 2 倍の幅になっていることを確認してください�
   .main {
     flex: 1.5;
     background: #fff8e1;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ヒント: 両端のカードと真ん中のカードで、`flex` の値を変えます。
 
@@ -436,7 +478,9 @@ B が A・C の 2 倍の幅になっていることを確認してください�
 ### 動作イメージ
 
 <CodePreview
-  initialHTML={`<h4>flex-direction: row（初期値）</h4>
+>
+```html
+<h4>flex-direction: row（初期値）</h4>
   <div class="dir yoko">
     <div class="item">1</div>
     <div class="item">2</div>
@@ -462,8 +506,11 @@ B が A・C の 2 倍の幅になっていることを確認してください�
     <div class="item">1</div>
     <div class="item">2</div>
     <div class="item">3</div>
-  </div>`}
-  initialCSS={`.dir {
+  </div>
+```
+
+```css
+.dir {
     display: flex;
     gap: 8px;
     border: 2px dashed #999;
@@ -493,8 +540,9 @@ B が A・C の 2 倍の幅になっていることを確認してください�
     background: #ab47bc;
     color: #fff;
     text-align: center;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 それぞれの `flex-direction` の値によって、要素の並び順と向きが変わることを確認してください。`row-reverse` は右から左へ、`column-reverse` は下から上へ並びます。
 
@@ -510,12 +558,17 @@ B が A・C の 2 倍の幅になっていることを確認してください�
 <CodePreview
   sourceId="flex-adv-ex3"
   cssVisible={false}
-  initialHTML={`<nav class="menu">
+>
+```html
+<nav class="menu">
     <a href="#">ホーム</a>
     <a href="#">商品一覧</a>
     <a href="#">お問い合わせ</a>
-  </nav>`}
-  initialCSS={`.menu {
+  </nav>
+```
+
+```css
+.menu {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -526,8 +579,9 @@ B が A・C の 2 倍の幅になっていることを確認してください�
     padding: 8px;
     border: 1px solid #ccc;
     text-decoration: none;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ヒント: `flex-direction` に縦方向の値を指定します。余白は `gap` を使うと簡単です。
 
@@ -556,7 +610,9 @@ B が A・C の 2 倍の幅になっていることを確認してください�
 <CodePreview
   sourceId="flex-adv-ex3-adv1"
   cssVisible={false}
-  initialHTML={`<h4>PC レイアウト（横並び）</h4>
+>
+```html
+<h4>PC レイアウト（横並び）</h4>
   <div class="cards3 pc">
     <div class="card">カード1</div>
     <div class="card">カード2</div>
@@ -568,8 +624,11 @@ B が A・C の 2 倍の幅になっていることを確認してください�
     <div class="card">カード1</div>
     <div class="card">カード2</div>
     <div class="card">カード3</div>
-  </div>`}
-  initialCSS={`.cards3 {
+  </div>
+```
+
+```css
+.cards3 {
     display: flex;
     gap: 12px;
     margin-bottom: 12px;
@@ -588,8 +647,9 @@ B が A・C の 2 倍の幅になっていることを確認してください�
 
   .sp {
     flex-direction: column;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ヒント: `.pc` と `.sp` で `flex-direction` の値を変えます。
 
@@ -617,7 +677,9 @@ B が A・C の 2 倍の幅になっていることを確認してください�
 <CodePreview
   sourceId="flex-adv-ex3-adv2"
   cssVisible={false}
-  initialHTML={`<div class="nav">
+>
+```html
+<div class="nav">
     <div class="item">
       <span class="icon">🏠</span>
       <span class="label">ホーム</span>
@@ -630,8 +692,11 @@ B が A・C の 2 倍の幅になっていることを確認してください�
       <span class="icon">⚙️</span>
       <span class="label">設定</span>
     </div>
-  </div>`}
-  initialCSS={`.nav {
+  </div>
+```
+
+```css
+.nav {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -643,8 +708,9 @@ B が A・C の 2 倍の幅になっていることを確認してください�
     gap: 8px;
     border: 1px solid #ccc;
     padding: 8px;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ヒント:
 - `.nav` では `flex-direction` を縦にします。

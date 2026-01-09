@@ -122,11 +122,16 @@ footer {
 - 16進数カラーコード：`#ff0000`（赤）, `#0000ff`（青）など
 - RGB値：`rgb(255, 0, 0)`（赤）, `rgb(0, 0, 255)`（青）など
 
-<CodePreview 
-  initialHTML={`<h1>見出しの背景色</h1>
+<CodePreview
+>
+```html
+<h1>見出しの背景色</h1>
 <p>段落の背景色</p>
-<div>div要素の背景色</div>`}
-  initialCSS={`h1 {
+<div>div要素の背景色</div>
+```
+
+```css
+h1 {
     background-color: red;        /* カラーネーム */
 }
 p {
@@ -134,8 +139,9 @@ p {
 }
 div {
     background-color: rgb(0, 255, 0); /* RGB値 */
-}`}
-/>
+}
+```
+</CodePreview>
 
 ### 手順: 背景色を段階的に追加
 
@@ -188,8 +194,10 @@ footer {
 
 ### 子孫セレクタの例
 
-<CodePreview 
-  initialHTML={`<header>
+<CodePreview
+>
+```html
+<header>
     <h1>サイトタイトル</h1>
 </header>
 <main>
@@ -198,8 +206,11 @@ footer {
         <h2>セクション見出し</h2>
         <p>段落テキスト</p>
     </section>
-</main>`}
-  initialCSS={`/* headerの中にあるh1だけを赤色にする */
+</main>
+```
+
+```css
+/* headerの中にあるh1だけを赤色にする */
 header h1 {
     color: red;
 }
@@ -212,8 +223,9 @@ section h2 {
 /* sectionの中にあるpだけを緑色にする */
 section p {
     color: green;
-}`}
-/>
+}
+```
+</CodePreview>
 
 **結果**:
 - 「サイトタイトル」→ 赤色（`header h1`が適用）

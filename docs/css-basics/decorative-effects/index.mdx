@@ -12,13 +12,20 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
 
 ### 例: プロモーションカードのデザイン
 <CodePreview
-  initialHTML={`<div class="promo-card">
+  htmlVisible={false}
+  cssVisible={false}
+  previewVisible={true}>
+```html
+<div class="promo-card">
     <div class="promo-badge">NEW</div>
     <h2 class="promo-title">秋のスペシャルセール</h2>
     <p class="promo-desc">今だけ全品20%OFF。期間限定オファーをお見逃しなく！</p>
     <button class="promo-cta">今すぐ見る</button>
-  </div>`}
-  initialCSS={`.promo-card {
+  </div>
+```
+
+```css
+.promo-card {
     width: 320px;
     padding: 24px;
     border-radius: 16px;
@@ -71,10 +78,9 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
   }
   .promo-cta:active {
     transform: translateY(-2px);
-  }`}
-  htmlVisible={false}
-  cssVisible={false}
-  previewVisible={true}/>
+  }
+```
+</CodePreview>
 
 ## border-radius（角の丸み）
 
@@ -91,10 +97,15 @@ border-radius: 値;
 **例:**
 
 <CodePreview
-  initialHTML={`<div class="box1">角丸（小）</div>
+>
+```html
+<div class="box1">角丸（小）</div>
   <div class="box2">角丸（大）</div>
-  <div class="box3">円形</div>`}
-  initialCSS={`.box1 {
+  <div class="box3">円形</div>
+```
+
+```css
+.box1 {
     border-radius: 8px;
 
     width: 150px;
@@ -118,8 +129,9 @@ border-radius: 値;
     margin: 10px 0;
     background: #ddddff;
     text-align: center;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ![border-radiusのイメージ](./img/border-radius.png)
 
@@ -135,15 +147,21 @@ border-radius: 左上 右上 右下 左下;
 **例:**
 
 <CodePreview
-  initialHTML={`<div class="box">左上だけ丸い</div>`}
-  initialCSS={`.box {
+>
+```html
+<div class="box">左上だけ丸い</div>
+```
+
+```css
+.box {
     border-radius: 20px 0 0 0;
 
     width: 150px;
     padding: 20px;
     background: #ffe5cc;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Exercise title="演習1（角丸ボタンを作る）">
 
@@ -151,23 +169,29 @@ border-radius: 左上 右上 右下 左下;
 
 <CodePreview
   sourceId="exercise1"
-  initialHTML={`<!-- 幅: 200px -->
+  cssVisible={false}
+>
+```html
+<!-- 幅: 200px -->
 <!-- パディング: 上下12px、左右24px -->
 <!-- 背景色: #4a90e2 -->
 <!-- 文字色: white -->
 <!-- 角丸: 8px -->
 <!-- 中央揃え（text-align: center） -->
-<div class="btn">クリック</div>`}
-  initialCSS={`.btn {
+<div class="btn">クリック</div>
+```
+
+```css
+.btn {
     width: 200px;
     padding: 12px 24px;
     background: #4a90e2;
     color: white;
     border-radius: 8px;
     text-align: center;
-  }`}
-  cssVisible={false}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -186,23 +210,29 @@ border-radius: 左上 右上 右下 左下;
 
 <CodePreview
   sourceId="exercise2"
-  initialHTML={`<!-- 幅: 80px -->
+  cssVisible={false}
+>
+```html
+<!-- 幅: 80px -->
 <!-- 高さ: 80px -->
 <!-- 背景色: #ff6b6b -->
 <!-- 文字色: white -->
 <!-- 完全な円形にする -->
 <!-- テキストを左右中央に配置（text-align: center を使用） -->
-<div class="icon">A</div>`}
-  initialCSS={`.icon {
+<div class="icon">A</div>
+```
+
+```css
+.icon {
     width: 80px;
     height: 80px;
     background: #ff6b6b;
     color: white;
     border-radius: 50%;
     text-align: center;
-  }`}
-  cssVisible={false}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -221,21 +251,27 @@ border-radius: 左上 右上 右下 左下;
 
 <CodePreview
   sourceId="exercise2-advanced"
-  initialHTML={`<!-- 幅: 220px -->
+  cssVisible={false}
+>
+```html
+<!-- 幅: 220px -->
 <!-- パディング: 20px -->
 <!-- 背景色: #ffeaa7 -->
 <!-- 文字色: #2d3436 -->
 <!-- 角丸（個別指定）: 左上20px、右上20px、右下20px、左下0 -->
-<div class="speech">こんにちは！</div>`}
-  initialCSS={`.speech {
+<div class="speech">こんにちは！</div>
+```
+
+```css
+.speech {
     width: 220px;
     padding: 20px;
     background: #ffeaa7;
     color: #2d3436;
     border-radius: 20px 20px 20px 0;
-  }`}
-  cssVisible={false}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -264,9 +300,14 @@ text-shadow: 横方向 縦方向 ぼかし 色;
 **例:**
 
 <CodePreview
-  initialHTML={`<h2 class="title1">影付きタイトル</h2>
-  <h2 class="title2">強い影</h2>`}
-  initialCSS={`.title1 {
+>
+```html
+<h2 class="title1">影付きタイトル</h2>
+  <h2 class="title2">強い影</h2>
+```
+
+```css
+.title1 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
     font-size: 32px;
@@ -277,8 +318,9 @@ text-shadow: 横方向 縦方向 ぼかし 色;
 
     font-size: 32px;
     color: #ff6b6b;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Exercise title="演習3（影付き見出しを作る）">
 
@@ -286,17 +328,23 @@ text-shadow: 横方向 縦方向 ぼかし 色;
 
 <CodePreview
   sourceId="exercise3"
-  initialHTML={`<!-- フォントサイズ: 36px -->
+  cssVisible={false}
+>
+```html
+<!-- フォントサイズ: 36px -->
 <!-- 文字色: #2c3e50 -->
 <!-- 影: 横3px、縦3px、ぼかし6px、色は rgba(0, 0, 0, 0.4) -->
-<h1 class="heading">重要なお知らせ</h1>`}
-  initialCSS={`.heading {
+<h1 class="heading">重要なお知らせ</h1>
+```
+
+```css
+.heading {
     font-size: 36px;
     color: #2c3e50;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
-  }`}
-  cssVisible={false}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -328,9 +376,14 @@ box-shadow: 横方向 縦方向 ぼかし 色;
 **例:**
 
 <CodePreview
-  initialHTML={`<div class="card1">カード1</div>
-  <div class="card2">カード2（浮いた感じ）</div>`}
-  initialCSS={`.card1 {
+>
+```html
+<div class="card1">カード1</div>
+  <div class="card2">カード2（浮いた感じ）</div>
+```
+
+```css
+.card1 {
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 
     width: 200px;
@@ -347,8 +400,9 @@ box-shadow: 横方向 縦方向 ぼかし 色;
     margin: 20px 0;
     background: white;
     border-radius: 8px;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Exercise title="演習4（影付きカードを作る）">
 
@@ -356,21 +410,27 @@ box-shadow: 横方向 縦方向 ぼかし 色;
 
 <CodePreview
   sourceId="exercise4"
-  initialHTML={`<!-- 幅: 250px -->
+  cssVisible={false}
+>
+```html
+<!-- 幅: 250px -->
 <!-- パディング: 24px -->
 <!-- 背景色: white -->
 <!-- 角丸: 12px -->
 <!-- 影: 横0、縦6px、ぼかし16px、色は rgba(0,0,0,0.25) -->
-<div class="card">商品カード</div>`}
-  initialCSS={`.card {
+<div class="card">商品カード</div>
+```
+
+```css
+.card {
     width: 250px;
     padding: 24px;
     background: white;
     border-radius: 12px;
     box-shadow: 0 6px 16px rgba(0,0,0,0.25);
-  }`}
-  cssVisible={false}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -388,14 +448,20 @@ box-shadow: 横方向 縦方向 ぼかし 色;
 
 <CodePreview
   sourceId="exercise4-advanced"
-  initialHTML={`<!-- 幅: 250px -->
+  cssVisible={false}
+>
+```html
+<!-- 幅: 250px -->
 <!-- パディング: 24px -->
 <!-- 背景色: white -->
 <!-- 角丸: 12px -->
 <!-- 通常時の影: 横0、縦4px、ぼかし8px、色は rgba(0,0,0,0.15) -->
 <!-- ホバー時の影: 横0、縦8px、ぼかし24px、色は rgba(0, 0, 0, 0.3) -->
-<div class="card">ホバーしてみて</div>`}
-  initialCSS={`.card {
+<div class="card">ホバーしてみて</div>
+```
+
+```css
+.card {
     width: 250px;
     padding: 24px;
     background: white;
@@ -404,9 +470,9 @@ box-shadow: 横方向 縦方向 ぼかし 色;
   }
   .card:hover {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  }`}
-  cssVisible={false}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -434,10 +500,15 @@ background: linear-gradient(方向, 開始色, 終了色);
 **例:**
 
 <CodePreview
-  initialHTML={`<div class="grad1">上から下へ</div>
+>
+```html
+<div class="grad1">上から下へ</div>
   <div class="grad2">左から右へ</div>
-  <div class="grad3">斜め</div>`}
-  initialCSS={`.grad1 {
+  <div class="grad3">斜め</div>
+```
+
+```css
+.grad1 {
     background: linear-gradient(to bottom, #ff6b6b, #ffd93d);
 
     width: 200px;
@@ -457,8 +528,9 @@ background: linear-gradient(方向, 開始色, 終了色);
     width: 200px;
     height: 100px;
     margin: 10px 0;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ![linear-gradientの角度指定の意味](./img/linear-gradient.png)
 
@@ -468,17 +540,23 @@ background: linear-gradient(方向, 開始色, 終了色);
 
 <CodePreview
   sourceId="exercise5"
-  initialHTML={`<!-- 幅: 400px -->
+  cssVisible={false}
+>
+```html
+<!-- 幅: 400px -->
 <!-- 高さ: 150px -->
 <!-- 背景: 左から右へのグラデーション（#ff6b6b から #4ecdc4） -->
-<div class="banner">キャンペーン実施中</div>`}
-  initialCSS={`.banner {
+<div class="banner">キャンペーン実施中</div>
+```
+
+```css
+.banner {
     width: 400px;
     height: 150px;
     background: linear-gradient(to right, #ff6b6b, #4ecdc4);
-  }`}
-  cssVisible={false}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -506,9 +584,14 @@ background: radial-gradient(形状, 開始色, 終了色);
 **例:**
 
 <CodePreview
-  initialHTML={`<div class="radial1">円形グラデーション</div>
-  <div class="radial2">楕円グラデーション</div>`}
-  initialCSS={`.radial1 {
+>
+```html
+<div class="radial1">円形グラデーション</div>
+  <div class="radial2">楕円グラデーション</div>
+```
+
+```css
+.radial1 {
     background: radial-gradient(circle, #ffd93d, #ff6b6b);
 
     width: 200px;
@@ -523,8 +606,9 @@ background: radial-gradient(形状, 開始色, 終了色);
     height: 150px;
     margin: 10px 0;
     text-align: center;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Exercise title="演習6（円形グラデーションボタンを作る）">
 
@@ -532,15 +616,21 @@ background: radial-gradient(形状, 開始色, 終了色);
 
 <CodePreview
   sourceId="exercise6"
-  initialHTML={`<!-- 幅: 180px -->
+  cssVisible={false}
+>
+```html
+<!-- 幅: 180px -->
 <!-- 高さ: 180px -->
 <!-- 背景: 円形グラデーション（#6bcf7f から #4a90e2） -->
 <!-- 文字色: white -->
 <!-- 完全な円形（border-radius: 50%） -->
 <!-- テキストを左右中央に配置（text-align: center を使用） -->
 <!-- フォントサイズ: 20px -->
-<div class="circle-btn">START</div>`}
-  initialCSS={`.circle-btn {
+<div class="circle-btn">START</div>
+```
+
+```css
+.circle-btn {
     width: 180px;
     height: 180px;
     background: radial-gradient(circle, #6bcf7f, #4a90e2);
@@ -548,9 +638,9 @@ background: radial-gradient(形状, 開始色, 終了色);
     border-radius: 50%;
     text-align: center;
     font-size: 20px;
-  }`}
-  cssVisible={false}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -569,7 +659,10 @@ background: radial-gradient(形状, 開始色, 終了色);
 
 <CodePreview
   sourceId="exercise6-advanced"
-  initialHTML={`<!-- 幅: 280px -->
+  cssVisible={false}
+>
+```html
+<!-- 幅: 280px -->
 <!-- パディング: 32px -->
 <!-- 背景: 斜め45度のグラデーション（#f093fb から #f5576c） -->
 <!-- 文字色: white -->
@@ -577,8 +670,11 @@ background: radial-gradient(形状, 開始色, 終了色);
 <!-- 要素に影: 横0、縦8px、ぼかし20px、色は rgba(0, 0, 0, 0.3) -->
 <!-- フォントサイズ: 24px -->
 <!-- テキストに影: 横2px、縦2px、ぼかし4px、色は rgba(0, 0, 0, 0.4) -->
-<div class="special-card">特別オファー</div>`}
-  initialCSS={`.special-card {
+<div class="special-card">特別オファー</div>
+```
+
+```css
+.special-card {
     width: 280px;
     padding: 32px;
     background: linear-gradient(45deg, #f093fb, #f5576c);
@@ -587,9 +683,9 @@ background: radial-gradient(形状, 開始色, 終了色);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     font-size: 24px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-  }`}
-  cssVisible={false}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 

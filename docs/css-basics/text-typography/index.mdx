@@ -36,12 +36,17 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
 
 ### font-sizeの動作例
 
-<CodePreview 
-  initialHTML={`<p class="title">大見出し（24px）</p>
+<CodePreview
+>
+```html
+<p class="title">大見出し（24px）</p>
 <p class="subtitle">小見出し（20px）</p>
 <p class="text">普通の段落（16px）</p>
-<p class="small">小さなテキスト（12px）</p>`}
-  initialCSS={`.title {
+<p class="small">小さなテキスト（12px）</p>
+```
+
+```css
+.title {
     font-size: 24px;
 }
 
@@ -55,8 +60,9 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
 
 .small {
     font-size: 12px;
-}`}
-/>
+}
+```
+</CodePreview>
 
 ---
 
@@ -80,11 +86,16 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
 
 ### text-alignの動作例
 
-<CodePreview 
-  initialHTML={`<div class="hidari">左揃えのテキスト</div>
+<CodePreview
+>
+```html
+<div class="hidari">左揃えのテキスト</div>
 <div class="naka">中央揃えのテキスト</div>
-<div class="migi">右揃えのテキスト</div>`}
-  initialCSS={`.hidari {
+<div class="migi">右揃えのテキスト</div>
+```
+
+```css
+.hidari {
     text-align: left;
     background-color: #add8e6;
 }
@@ -97,8 +108,9 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
 .migi {
     text-align: right;
     background-color: #ffc0cb;
-}`}
-/>
+}
+```
+</CodePreview>
 
 <Exercise title="演習1">
 
@@ -117,10 +129,15 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<h1 class="title">タイトル</h1>
-<p class="text">テキスト</p>`}
-  initialCSS={`.title {
+<CodePreview
+>
+```html
+<h1 class="title">タイトル</h1>
+<p class="text">テキスト</p>
+```
+
+```css
+.title {
     text-align: right;
     font-size: 20px;
     background-color: lightblue;
@@ -131,8 +148,9 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
     text-align: center;
     font-size: 16px;
     background-color: lightgreen;
-}`}
-/>
+}
+```
+</CodePreview>
 
 **解説**:
 - **text-alignの理解**：要素内でのテキストの左右方向の配置を制御
@@ -163,15 +181,20 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<div class="card">
+<CodePreview
+>
+```html
+<div class="card">
     <h1 class="name">山田太郎</h1>
     <p class="info">年齢：25歳</p>
     <p class="info">職業：エンジニア</p>
     <p class="info">趣味：読書</p>
     <p class="contact">連絡先：yamada@example.com</p>
-</div>`}
-  initialCSS={`.name {
+</div>
+```
+
+```css
+.name {
     text-align: center;
     font-size: 24px;
     background-color: lightblue;
@@ -187,8 +210,9 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
     text-align: right;
     font-size: 14px;
     background-color: lightyellow;
-}`}
-/>
+}
+```
+</CodePreview>
 
 </Solution>
 
@@ -234,8 +258,10 @@ line-height: 1.5;  /* フォントサイズの1.5倍 */
 
 ### line-heightの動作例
 
-<CodePreview 
-  initialHTML={`<div class="narrow">
+<CodePreview
+>
+```html
+<div class="narrow">
 行間が狭いテキスト（line-height: 0.5）<br>
 複数行になったときの<br>
 読みやすさを確認してください。
@@ -251,8 +277,11 @@ line-height: 1.5;  /* フォントサイズの1.5倍 */
 行間が広いテキスト（line-height: 1.5）<br>
 複数行になったときの<br>
 読みやすさを確認してください。
-</div>`}
-  initialCSS={`div {
+</div>
+```
+
+```css
+div {
     margin: 10px 0;
 }
 
@@ -269,8 +298,9 @@ line-height: 1.5;  /* フォントサイズの1.5倍 */
 .wide {
     line-height: 1.5;
     background-color: #ffc0cb;
-}`}
-/>
+}
+```
+</CodePreview>
 
 <Exercise title="演習2">
 
@@ -288,10 +318,15 @@ line-height: 1.5;  /* フォントサイズの1.5倍 */
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<p class="a">フォントサイズ16px、行間1.5（単位なし）のテキストです。この文章は複数行にわたって表示され、行間の違いを確認できるようになっています。単位なしのline-heightは、フォントサイズに対する相対値として機能します。CSSでは通常、長さを表す値には必ず単位（px、em、remなど）が必要ですが、line-heightは単位なしの数値で指定することができます。これは「フォントサイズに対する相対的な行間」という特殊な概念を表現するためです。例えば、フォントサイズが16pxでline-heightが1.5の場合、実際の行間は16px × 1.5 = 24pxになります。</p>
-<p class="b">フォントサイズ16px、行間24px（単位あり）のテキストです。この文章は複数行にわたって表示され、行間の違いを確認できるようになっています。単位ありのline-heightは、固定の行間として機能します。ピクセル値で指定した場合、フォントサイズが変わっても行間は固定されたままです。これは「絶対的な行間」を表現する方法です。例えば、line-heightが24pxの場合、フォントサイズが16pxでも32pxでも、行間は常に24pxのままです。このように、同じ見た目になる場合でも、指定方法によって意味が異なります。</p>`}
-  initialCSS={`.a {
+<CodePreview
+>
+```html
+<p class="a">フォントサイズ16px、行間1.5（単位なし）のテキストです。この文章は複数行にわたって表示され、行間の違いを確認できるようになっています。単位なしのline-heightは、フォントサイズに対する相対値として機能します。CSSでは通常、長さを表す値には必ず単位（px、em、remなど）が必要ですが、line-heightは単位なしの数値で指定することができます。これは「フォントサイズに対する相対的な行間」という特殊な概念を表現するためです。例えば、フォントサイズが16pxでline-heightが1.5の場合、実際の行間は16px × 1.5 = 24pxになります。</p>
+<p class="b">フォントサイズ16px、行間24px（単位あり）のテキストです。この文章は複数行にわたって表示され、行間の違いを確認できるようになっています。単位ありのline-heightは、固定の行間として機能します。ピクセル値で指定した場合、フォントサイズが変わっても行間は固定されたままです。これは「絶対的な行間」を表現する方法です。例えば、line-heightが24pxの場合、フォントサイズが16pxでも32pxでも、行間は常に24pxのままです。このように、同じ見た目になる場合でも、指定方法によって意味が異なります。</p>
+```
+
+```css
+.a {
     font-size: 16px;
     line-height: 1.5;
     background-color: #add8e6;
@@ -301,8 +336,9 @@ line-height: 1.5;  /* フォントサイズの1.5倍 */
     font-size: 16px;
     line-height: 24px;
     background-color: #90ee90;
-}`}
-/>
+}
+```
+</CodePreview>
 
 **解説**:
 - **line-heightの単位の違い**：
@@ -321,18 +357,24 @@ line-height: 1.5;  /* フォントサイズの1.5倍 */
 
 通常は次のように同じになります：
 
-<CodePreview 
-  initialHTML={`<p class="a">フォントサイズ16px、行間1.5（単位なし）のテキストです。この文章は複数行にわたって表示され、行間の違いを確認できるようになっています。</p>
-<p class="b">フォントサイズ16px、行間1.5emのテキストです。この文章は複数行にわたって表示され、行間の違いを確認できるようになっています。</p>`}
-  initialCSS={`.a {
+<CodePreview
+>
+```html
+<p class="a">フォントサイズ16px、行間1.5（単位なし）のテキストです。この文章は複数行にわたって表示され、行間の違いを確認できるようになっています。</p>
+<p class="b">フォントサイズ16px、行間1.5emのテキストです。この文章は複数行にわたって表示され、行間の違いを確認できるようになっています。</p>
+```
+
+```css
+.a {
     font-size: 16px;
     line-height: 1.5;
 }
 .b {
     font-size: 16px;
     line-height: 1.5em;
-}`}
-/>
+}
+```
+</CodePreview>
 
 実は、単位なしとemを使った場合では、設定される行間が異なる場合があります。line-heightを継承した場合に、それが発生します。
 
@@ -340,31 +382,43 @@ line-height: 1.5;  /* フォントサイズの1.5倍 */
 
 **パターンA**:
 
-<CodePreview 
-  initialHTML={`<div class="oya">
+<CodePreview
+>
+```html
+<div class="oya">
     <p class="ko">親要素がline-height: 2（単位なし）の場合のテキストです。この文章は複数行にわたって表示され、行間の違いを確認できるようになっています。単位なしのline-heightは、継承された要素（.ko）のフォントサイズに対する相対値として機能します。子要素のフォントサイズが34pxの場合、実際の行間は34px × 2 = 68pxになります。このように、継承された要素のフォントサイズに応じて行間が変化するのが単位なし指定の特徴です。</p>
-</div>`}
-  initialCSS={`.oya {
+</div>
+```
+
+```css
+.oya {
     line-height: 2;
 }
 .ko {
     font-size: 34px;
-}`}
-/>
+}
+```
+</CodePreview>
 
 **パターンB**:
 
-<CodePreview 
-  initialHTML={`<div class="oya">
+<CodePreview
+>
+```html
+<div class="oya">
     <p class="ko">親要素がline-height: 2emの場合のテキストです。この文章は複数行にわたって表示され、行間の違いを確認できるようになっています。em単位のline-heightは、継承元の要素（.oya）のフォントサイズに対する相対値として機能します。親要素のフォントサイズが16pxの場合、親要素の行間は16px × 2 = 32pxになります。子要素にはそのまま32pxの行間で継承されるため、子要素のフォントサイズが34pxでも行間は32pxのままです。このように、継承元の要素のフォントサイズに基づいて行間が決まるのがem単位指定の特徴です。</p>
-</div>`}
-  initialCSS={`.oya {
+</div>
+```
+
+```css
+.oya {
     line-height: 2em;
 }
 .ko {
     font-size: 34px;
-}`}
-/>
+}
+```
+</CodePreview>
 
 **TO DO**:
 1. パターンAとパターンBで、子要素のテキストの行間は同じですか？

@@ -32,17 +32,23 @@ HTMLのタグ名を書くだけで、そのタグすべてに当たります。
 }
 ```
 
-<CodePreview 
-  initialHTML={`<h2>見出しの色</h2>
+<CodePreview
+>
+```html
+<h2>見出しの色</h2>
   <p>これは 1つ目の段落です。</p>
-  <p>これは 2つ目の段落です。</p>`}
-  initialCSS={`h2 {
+  <p>これは 2つ目の段落です。</p>
+```
+
+```css
+h2 {
     color: #1565FF;
   }
   p {
     color: #E53935;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ポイント：特定のタグに一括で同じ見た目を当てたいときに便利です。
 
@@ -60,14 +66,20 @@ HTMLのタグ名を書くだけで、そのタグすべてに当たります。
 }
 ```
 
-<CodePreview 
-  initialHTML={`<p class="aka">赤い文字（aka）</p>
+<CodePreview
+>
+```html
+<p class="aka">赤い文字（aka）</p>
   <p>ふつうの文字</p>
-  <p class="aka">これも赤い（aka）</p>`}
-  initialCSS={`.aka {
+  <p class="aka">これも赤い（aka）</p>
+```
+
+```css
+.aka {
     color: #E53935;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ポイント：同じ役割の見た目をまとめて当てたいときに使います。
 
@@ -87,13 +99,19 @@ HTMLのタグ名を書くだけで、そのタグすべてに当たります。
 }
 ```
 
-<CodePreview 
-  initialHTML={`<p id="ichiban">ここだけ特別（id: ichiban）</p>
-  <p>ふつうの段落</p>`}
-  initialCSS={`#ichiban {
+<CodePreview
+>
+```html
+<p id="ichiban">ここだけ特別（id: ichiban）</p>
+  <p>ふつうの段落</p>
+```
+
+```css
+#ichiban {
     color: #6200EA;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ポイント：ページ内で「一つだけ特別にしたい」ときに使います。
 
@@ -111,18 +129,24 @@ HTMLのタグ名を書くだけで、そのタグすべてに当たります。
 }
 ```
 
-<CodePreview 
-  initialHTML={`<div class="oya">
+<CodePreview
+>
+```html
+<div class="oya">
     <p>親の中の段落A</p>
     <div>
       <p>孫の段落B</p>
     </div>
   </div>
-  <p>これは外の段落</p>`}
-  initialCSS={`.oya p {
+  <p>これは外の段落</p>
+```
+
+```css
+.oya p {
     color: #00A152;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ポイント：`.oya p` は「class が oya の中にある p だけ」で、
 直接の子だけでなく、孫（入れ子のさらに中）にも当たります。
@@ -142,13 +166,19 @@ HTMLのタグ名を書くだけで、そのタグすべてに当たります。
 }
 ```
 
-<CodePreview 
-  initialHTML={`<h3>全体の色を少し落ち着かせる</h3>
-  <p>本文の色が少し濃い灰色に。</p>`}
-  initialCSS={`* {
+<CodePreview
+>
+```html
+<h3>全体の色を少し落ち着かせる</h3>
+  <p>本文の色が少し濃い灰色に。</p>
+```
+
+```css
+* {
     color: #1E88E5;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 :::danger
 `*`（全称セレクタ）は、すべての要素に当たるので**使いすぎ注意**！
@@ -170,14 +200,20 @@ HTMLのタグ名を書くだけで、そのタグすべてに当たります。
 }
 ```
 
-<CodePreview 
-  initialHTML={`<h2>見出し2</h2>
+<CodePreview
+>
+```html
+<h2>見出し2</h2>
   <h3>見出し3</h3>
-  <p class="danraku">段落</p>`}
-  initialCSS={`h2, h3, .danraku {
+  <p class="danraku">段落</p>
+```
+
+```css
+h2, h3, .danraku {
     color: #6200EA;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ---
 
@@ -221,17 +257,23 @@ h1, .ookii {
 }
 ```
 
-<CodePreview 
-  initialHTML={`<div class="oya">
+<CodePreview
+>
+```html
+<div class="oya">
     <p>子A（直下）</p>
     <div class="naka">
       <p>孫B（入れ子）</p>
     </div>
-  </div>`}
-  initialCSS={`.oya > p {
+  </div>
+```
+
+```css
+.oya > p {
     color: #00A152;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ポイント：`.oya > p` は「.oya のすぐ下にある p だけ」。入れ子のさらに中の p には当たりません。
 
@@ -250,30 +292,42 @@ h1, .ookii {
 :not(セレクタ) { /* 指定したセレクタにあてはまらないもの */ }
 ```
 
-<CodePreview 
-  initialHTML={`<div class="menu">
+<CodePreview
+>
+```html
+<div class="menu">
     <a href="#">ホーム</a>
     <a href="#">お知らせ</a>
   </div>
-  <a href="#">外のリンク</a>`}
-  initialCSS={`/* .menu の中の hover中のa */
+  <a href="#">外のリンク</a>
+```
+
+```css
+/* .menu の中の hover中のa */
 .menu a:hover {
     color: #00A152;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 例：現在ページ以外だけ反応させる（:not）
 
-<CodePreview 
-  initialHTML={`<div class="menu">
+<CodePreview
+>
+```html
+<div class="menu">
     <a href="#" class="genzai">ホーム</a>
     <a href="#">お知らせ</a>
-  </div>`}
-  initialCSS={`/* .menu の中の a のうち、.genzai ではないものに hover したとき */
+  </div>
+```
+
+```css
+/* .menu の中の a のうち、.genzai ではないものに hover したとき */
 .menu a:not(.genzai):hover {
     color: #E91E63;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ---
 
@@ -301,35 +355,53 @@ h2.midashi:hover {
 }
 ```
 
-<CodePreview 
-  initialHTML={`<p class="aka">マウスを重ねると色が変わる（aka）</p>
-  <p>ふつうの段落</p>`}
-  initialCSS={`.aka:hover {
+<CodePreview
+>
+```html
+<p class="aka">マウスを重ねると色が変わる（aka）</p>
+  <p>ふつうの段落</p>
+```
+
+```css
+.aka:hover {
     color: #E91E63;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 例2：範囲 + :first-child（最初の1つだけ）
 
-<CodePreview 
-  initialHTML={`<div class="honbun">
+<CodePreview
+>
+```html
+<div class="honbun">
     <p>最初の段落</p>
     <p>2つ目の段落</p>
-  </div>`}
-  initialCSS={`.honbun p:first-child {
+  </div>
+```
+
+```css
+.honbun p:first-child {
     color: #1565FF;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 例3：タグ + クラス + :hover（複数条件）
 
-<CodePreview 
-  initialHTML={`<h2 class="midashi">見出し（midashi）</h2>
-  <h2>ふつうの見出し</h2>`}
-  initialCSS={`h2.midashi:hover {
+<CodePreview
+>
+```html
+<h2 class="midashi">見出し（midashi）</h2>
+  <h2>ふつうの見出し</h2>
+```
+
+```css
+h2.midashi:hover {
     color: #6200EA;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ---
 
@@ -452,18 +524,24 @@ HTML：
 やること：上のHTMLで、.oya の中にある p すべてを `#00A152` にしてください。外の p は変えない。
 
 <Solution>
-<CodePreview 
-  initialHTML={`<div class="oya">
+<CodePreview
+>
+```html
+<div class="oya">
     <p>A（親の中）</p>
     <div>
       <p>B（孫の中）</p>
     </div>
   </div>
-  <p>C（外）</p>`}
-  initialCSS={`.oya p {
+  <p>C（外）</p>
+```
+
+```css
+.oya p {
     color: #00A152;
-  }`}
-/>
+  }
+```
+</CodePreview>
 </Solution>
 </Exercise>
 
@@ -487,18 +565,24 @@ HTML：
 やること：上のHTMLで、直下の p だけ `#00A152` にしてください（孫は変えない）。
 
 <Solution>
-<CodePreview 
-  initialHTML={`<div class="oya">
+<CodePreview
+>
+```html
+<div class="oya">
     <p>子A（直下）</p>
     <div>
       <p>孫B（入れ子）</p>
     </div>
     <p>子C（直下）</p>
-  </div>`}
-  initialCSS={`.oya > p {
+  </div>
+```
+
+```css
+.oya > p {
     color: #00A152;
-  }`}
-/>
+  }
+```
+</CodePreview>
 </Solution>
 </Exercise>
 
@@ -520,16 +604,22 @@ HTML：
 やること：上のHTMLで、.menu の中の a にマウスを重ねたときの色を `#E91E63` にしてください。外の a の色は変えないでください。
 
 <Solution>
-<CodePreview 
-  initialHTML={`<div class="menu">
+<CodePreview
+>
+```html
+<div class="menu">
     <a href="#">ホーム</a>
     <a href="#">お知らせ</a>
   </div>
-  <a href="#">外のリンク</a>`}
-  initialCSS={`.menu a:hover {
+  <a href="#">外のリンク</a>
+```
+
+```css
+.menu a:hover {
     color: #E91E63;
-  }`}
-/>
+  }
+```
+</CodePreview>
 </Solution>
 </Exercise>
 
@@ -561,13 +651,19 @@ HTML：
 やること：aka クラスにマウスを重ねたときだけ `#E91E63` にしてください。
 
 <Solution>
-<CodePreview 
-  initialHTML={`<p class="aka">重ねると色が変わる</p>
-  <p>ふつう</p>`}
-  initialCSS={`.aka:hover {
+<CodePreview
+>
+```html
+<p class="aka">重ねると色が変わる</p>
+  <p>ふつう</p>
+```
+
+```css
+.aka:hover {
     color: #E91E63;
-  }`}
-/>
+  }
+```
+</CodePreview>
 </Solution>
 </Exercise>
 
@@ -589,19 +685,25 @@ HTML：
 やること：最初の li を `#1565FF`、最後の li を `#E91E63` にしてください。
 
 <Solution>
-<CodePreview 
-  initialHTML={`<ul class="ichiran">
+<CodePreview
+>
+```html
+<ul class="ichiran">
     <li>りんご</li>
     <li>みかん</li>
     <li>バナナ</li>
-  </ul>`}
-  initialCSS={`.ichiran li:first-child {
+  </ul>
+```
+
+```css
+.ichiran li:first-child {
     color: #1565FF;
   }
   .ichiran li:last-child {
     color: #E91E63;
-  }`}
-/>
+  }
+```
+</CodePreview>
 </Solution>
 </Exercise>
 
@@ -623,16 +725,22 @@ HTML：
 やること：.honbun の中で、aka ではない p だけ `#00A152` にしてください。
 
 <Solution>
-<CodePreview 
-  initialHTML={`<div class="honbun">
+<CodePreview
+>
+```html
+<div class="honbun">
     <p>本文A</p>
     <p class="aka">本文B（aka）</p>
     <p>本文C</p>
-  </div>`}
-  initialCSS={`.honbun p:not(.aka) {
+  </div>
+```
+
+```css
+.honbun p:not(.aka) {
     color: #00A152;
-  }`}
-/>
+  }
+```
+</CodePreview>
 </Solution>
 </Exercise>
 
@@ -769,8 +877,10 @@ HTML：
 - id="tokubetsu" は `#E91E63`
 
 <Solution>
-<CodePreview 
-  initialHTML={`<h2 class=\"midashi\">タイトル</h2>
+<CodePreview
+>
+```html
+<h2 class=\"midashi\">タイトル</h2>
   <div class=\"oya\">
     <p>本文A</p>
     <div>
@@ -781,8 +891,11 @@ HTML：
     <a href=\"#\">リンク1</a>
     <a href=\"#\" class=\"genzai\">リンク2（現在）</a>
   </div>
-  <p id=\"tokubetsu\">特別</p>`}
-  initialCSS={`* {
+  <p id=\"tokubetsu\">特別</p>
+```
+
+```css
+* {
     color: #1565FF;
   }
   h2 {
@@ -796,7 +909,8 @@ HTML：
   }
   #tokubetsu {
     color: #E91E63;
-  }`}
-/>
+  }
+```
+</CodePreview>
 </Solution>
 </Exercise>

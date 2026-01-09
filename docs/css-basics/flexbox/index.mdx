@@ -29,7 +29,9 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
   cssVisible={false}
   consoleVisible={false}
   previewVisible={true}
-  initialHTML={`<header class="head">
+>
+```html
+<header class="head">
     <div class="rogo">🛒 SHOP</div>
     <nav class="navi">
       <a href="#">ホーム</a>
@@ -71,8 +73,11 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
         <p>¥1,580</p>
       </div>
     </div>
-  </main>`}
-  initialCSS={`body {
+  </main>
+```
+
+```css
+body {
     margin: 0;
     font-family: sans-serif;
   }
@@ -149,8 +154,9 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
     margin: 0;
     font-weight: bold;
     color: #1976d2;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ---
 
@@ -169,13 +175,18 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
 
 ### 基本的な動作例
 
-<CodePreview 
-  initialHTML={`<div class="oya">
+<CodePreview
+>
+```html
+<div class="oya">
     <div class="hako">A</div>
     <div class="hako">B</div>
     <div class="hako">C</div>
-  </div>`}
-  initialCSS={`/* フレックスコンテナ */
+  </div>
+```
+
+```css
+/* フレックスコンテナ */
   .oya {
     display: flex;
     border: 2px dashed #999;
@@ -189,8 +200,9 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
     background: #2196f3;
     color: #fff;
     border: 2px solid #1976d2;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 親の `.oya` に `display: flex;` を指定すると、子要素の `.hako` が横並びになります。
 
@@ -207,19 +219,25 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
 <CodePreview 
   sourceId="flex-ex1"
   cssVisible={false}
-  initialHTML={`<div class="btngroup">
+>
+```html
+<div class="btngroup">
     <div class="btn">保存</div>
     <div class="btn">キャンセル</div>
     <div class="btn">削除</div>
-  </div>`}
-  initialCSS={`.btngroup {
+  </div>
+```
+
+```css
+.btngroup {
     display: flex;
   }
   
   .btn {
     border: 2px solid #1565c0;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -251,8 +269,10 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
 
 ### 基本的な動作例
 
-<CodePreview 
-  initialHTML={`<h4>gap なし</h4>
+<CodePreview
+>
+```html
+<h4>gap なし</h4>
   <div class="oya nashi">
     <div class="hako">A</div>
     <div class="hako">B</div>
@@ -264,8 +284,11 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
     <div class="hako">A</div>
     <div class="hako">B</div>
     <div class="hako">C</div>
-  </div>`}
-  initialCSS={`.oya {
+  </div>
+```
+
+```css
+.oya {
     display: flex;
     border: 2px dashed #999;
     padding: 8px;
@@ -287,8 +310,9 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
     height: 80px;
     background: #4caf50;
     color: #fff;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 `gap: 16px;` を指定すると、要素間に16pxの余白が自動的に入ります。
 
@@ -299,12 +323,17 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
 <CodePreview 
   sourceId="flex-ex2"
   cssVisible={false}
-  initialHTML={`<div class="cardlist">
+>
+```html
+<div class="cardlist">
     <div class="card">カードA</div>
     <div class="card">カードB</div>
     <div class="card">カードC</div>
-  </div>`}
-  initialCSS={`.cardlist {
+  </div>
+```
+
+```css
+.cardlist {
     display: flex;
     gap: 12px;
   }
@@ -313,8 +342,9 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
     width: 120px;
     height: 100px;
     border: 1px solid #ddd;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -335,17 +365,23 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
 <CodePreview 
   sourceId="flex-ex2-adv"
   cssVisible={false}
-  initialHTML={`<nav class="navi">
+>
+```html
+<nav class="navi">
     <a href="#">ホーム</a>
     <a href="#">商品</a>
     <a href="#">会社情報</a>
     <a href="#">お問い合わせ</a>
-  </nav>`}
-  initialCSS={`.navi {
+  </nav>
+```
+
+```css
+.navi {
     display: flex;
     gap: 20px;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -385,8 +421,10 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
 
 ### 動作例
 
-<CodePreview 
-  initialHTML={`<h4>flex-start（初期値）</h4>
+<CodePreview
+>
+```html
+<h4>flex-start（初期値）</h4>
   <div class="oya rei1">
     <div class="hako">A</div>
     <div class="hako">B</div>
@@ -426,8 +464,11 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
     <div class="hako">A</div>
     <div class="hako">B</div>
     <div class="hako">C</div>
-  </div>`}
-  initialCSS={`.oya {
+  </div>
+```
+
+```css
+.oya {
     display: flex;
     border: 2px dashed #999;
     padding: 8px;
@@ -463,8 +504,9 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
     height: 60px;
     background: #ff9800;
     color: #fff;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 それぞれの `justify-content` の値によって、要素の配置が変わることを確認してください。
 
@@ -475,11 +517,16 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
 <CodePreview 
   sourceId="flex-ex3"
   cssVisible={false}
-  initialHTML={`<div class="btns">
+>
+```html
+<div class="btns">
     <button>戻る</button>
     <button>次へ</button>
-  </div>`}
-  initialCSS={`.btns {
+  </div>
+```
+
+```css
+.btns {
     display: flex;
     justify-content: center;
     gap: 12px;
@@ -487,8 +534,9 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
   
   button {
     border: 2px solid #388e3c;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -509,15 +557,20 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
 <CodePreview 
   sourceId="flex-ex3-adv"
   cssVisible={false}
-  initialHTML={`<header class="head">
+>
+```html
+<header class="head">
     <div class="rogo">🏠 ロゴ</div>
     <nav class="navi">
       <a href="#">メニュー1</a>
       <a href="#">メニュー2</a>
       <a href="#">メニュー3</a>
     </nav>
-  </header>`}
-  initialCSS={`.head {
+  </header>
+```
+
+```css
+.head {
     display: flex;
     justify-content: space-between;
   }
@@ -525,8 +578,9 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
   .navi {
     display: flex;
     gap: 16px;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -547,17 +601,23 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
 <CodePreview 
   sourceId="flex-ex3-adv2"
   cssVisible={false}
-  initialHTML={`<div class="iconlist">
+>
+```html
+<div class="iconlist">
     <div class="icon">🏠</div>
     <div class="icon">🔍</div>
     <div class="icon">❤️</div>
     <div class="icon">👤</div>
-  </div>`}
-  initialCSS={`.iconlist {
+  </div>
+```
+
+```css
+.iconlist {
     display: flex;
     justify-content: space-evenly;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -593,8 +653,10 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
 
 ### 動作例
 
-<CodePreview 
-  initialHTML={`<h4>flex-wrap: nowrap（初期値）</h4>
+<CodePreview
+>
+```html
+<h4>flex-wrap: nowrap（初期値）</h4>
   <div class="oya nashi">
     <div class="hako">1</div>
     <div class="hako">2</div>
@@ -612,8 +674,11 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
     <div class="hako">4</div>
     <div class="hako">5</div>
     <div class="hako">6</div>
-  </div>`}
-  initialCSS={`.oya {
+  </div>
+```
+
+```css
+.oya {
     display: flex;
     gap: 8px;
     border: 2px dashed #999;
@@ -634,8 +699,9 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
     height: 60px;
     background: #9c27b0;
     color: #fff;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 `flex-wrap: nowrap;` では要素が1行に収まるように縮小されますが、`flex-wrap: wrap;` では折り返して複数行になります。
 
@@ -646,15 +712,20 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
 <CodePreview 
   sourceId="flex-ex4"
   cssVisible={false}
-  initialHTML={`<div class="shohin">
+>
+```html
+<div class="shohin">
     <div class="card">商品1</div>
     <div class="card">商品2</div>
     <div class="card">商品3</div>
     <div class="card">商品4</div>
     <div class="card">商品5</div>
     <div class="card">商品6</div>
-  </div>`}
-  initialCSS={`.shohin {
+  </div>
+```
+
+```css
+.shohin {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
@@ -664,8 +735,9 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
     width: 140px;
     height: 100px;
     border: 1px solid #90caf9;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -686,7 +758,9 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
 <CodePreview 
   sourceId="flex-ex4-adv"
   cssVisible={false}
-  initialHTML={`<div class="taglist">
+>
+```html
+<div class="taglist">
     <span class="tag">HTML</span>
     <span class="tag">CSS</span>
     <span class="tag">JavaScript</span>
@@ -695,8 +769,11 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
     <span class="tag">TypeScript</span>
     <span class="tag">Node.js</span>
     <span class="tag">Python</span>
-  </div>`}
-  initialCSS={`.taglist {
+  </div>
+```
+
+```css
+.taglist {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
@@ -705,8 +782,9 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
   
   .tag {
     border: 1px solid #2196f3;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -727,7 +805,9 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
 <CodePreview 
   sourceId="flex-ex4-adv2"
   cssVisible={false}
-  initialHTML={`<div class="gazou">
+>
+```html
+<div class="gazou">
     <div class="photo">📷</div>
     <div class="photo">📷</div>
     <div class="photo">📷</div>
@@ -736,8 +816,11 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
     <div class="photo">📷</div>
     <div class="photo">📷</div>
     <div class="photo">📷</div>
-  </div>`}
-  initialCSS={`.gazou {
+  </div>
+```
+
+```css
+.gazou {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
@@ -747,8 +830,9 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
     width: 120px;
     height: 120px;
     border: 1px solid #999;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -769,7 +853,9 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
 <CodePreview 
   sourceId="flex-ex4-adv3"
   cssVisible={false}
-  initialHTML={`<div class="cardoya">
+>
+```html
+<div class="cardoya">
     <div class="card">
       <h3>カード1</h3>
       <p>短い説明文。</p>
@@ -786,8 +872,11 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
       <h3>カード4</h3>
       <p>4枚目のカード。</p>
     </div>
-  </div>`}
-  initialCSS={`.cardoya {
+  </div>
+```
+
+```css
+.cardoya {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
@@ -797,8 +886,9 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
   .card {
     width: 240px;
     border: 1px solid #e0e0e0;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 

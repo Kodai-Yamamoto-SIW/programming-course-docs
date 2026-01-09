@@ -18,7 +18,9 @@ CSSの`margin`プロパティには、正の値だけでなく**負の値**も�
   cssVisible={false}
   consoleVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="product-showcase">
+>
+```html
+<div class="product-showcase">
     <h2 class="showcase-title">おすすめ商品</h2>
     <div class="products">
       <div class="product">
@@ -35,8 +37,11 @@ CSSの`margin`プロパティには、正の値だけでなく**負の値**も�
         <p>¥1,280</p>
       </div>
     </div>
-  </div>`}
-  initialCSS={`body {
+  </div>
+```
+
+```css
+body {
     margin: 0;
     font-family: sans-serif;
     padding: 20px;
@@ -96,8 +101,9 @@ CSSの`margin`プロパティには、正の値だけでなく**負の値**も�
     margin: 8px 0 0;
     font-weight: bold;
     color: #333;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ---
 
@@ -123,11 +129,16 @@ CSSの`margin`プロパティには、正の値だけでなく**負の値**も�
 }
 ```
 
-<CodePreview 
-  initialHTML={`<div class="normal">通常のマージン（20px）</div>
+<CodePreview
+>
+```html
+<div class="normal">通常のマージン（20px）</div>
   <div class="negative">負のマージン（-20px）</div>
-  <div class="last">最後の要素</div>`}
-  initialCSS={`body {
+  <div class="last">最後の要素</div>
+```
+
+```css
+body {
     margin: 0;
     padding: 20px;
   }
@@ -147,8 +158,9 @@ CSSの`margin`プロパティには、正の値だけでなく**負の値**も�
   .last {
     padding: 20px;
     background: #ddffdd;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 上の例で、真ん中の青いボックスは`margin: -20px;`が指定されており、上下左右に負のマージンが適用されています。その結果、上下の要素と重なって表示されています。
 
@@ -160,10 +172,15 @@ CSSの`margin`プロパティには、正の値だけでなく**負の値**も�
 <CodePreview
   sourceId="ex1"
   cssVisible={false}
-  initialHTML={`<div class="A">A</div>
+>
+```html
+<div class="A">A</div>
   <div class="B">B</div>
-  <p>ダミーテキスト。そこは十一月ことにその意味らについて事の以上がよしますう。同時に今日を卒業者もついにその病気たいたまでをいうてみるうをは安心思わでんから、いろいろには待っありででた。個人に生きましのはけっしてほかにけっしてありですです。同時に嘉納さんを採用人ずいぶん中止が煮えだ例外このただ誰か品評がというご尊重たたなですて。</p>`}
-  initialCSS={`.A, .B {
+  <p>ダミーテキスト。そこは十一月ことにその意味らについて事の以上がよしますう。同時に今日を卒業者もついにその病気たいたまでをいうてみるうをは安心思わでんから、いろいろには待っありででた。個人に生きましのはけっしてほかにけっしてありですです。同時に嘉納さんを採用人ずいぶん中止が煮えだ例外このただ誰か品評がというご尊重たたなですて。</p>
+```
+
+```css
+.A, .B {
     text-align: center;
     color: #fff;
     width: 100px;
@@ -178,8 +195,9 @@ CSSの`margin`プロパティには、正の値だけでなく**負の値**も�
 
     margin-left: 50px;
     margin-top: -50px;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 

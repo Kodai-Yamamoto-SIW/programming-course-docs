@@ -51,22 +51,28 @@ Google Chromeの開発者ツールを使うと、実際にボックスモデル�
 
 以下のサンプルをChromeのインスペクターで確認してみましょう：
 
-<CodePreview 
-  initialHTML={`<div>
+<CodePreview
+>
+```html
+<div>
   このテキストがcontent（内容）です
 </div>
 <div>
   もう一つのボックス
-</div>`}
-  initialCSS={`div {
+</div>
+```
+
+```css
+div {
     width: 200px;
     height: 80px;
     padding: 20px;
     border: 3px solid blue;
     margin: 15px;
     background-color: lightblue;
-}`}
-/>
+}
+```
+</CodePreview>
 
 **確認手順**:
 1. 上のプレビューで右クリック → 「検証」
@@ -110,13 +116,18 @@ Google Chromeの開発者ツールを使うと、実際にボックスモデル�
 
 ### クラスセレクタの基本例
 
-<CodePreview 
-  initialHTML={`<h1>普通の見出し</h1>
+<CodePreview
+>
+```html
+<h1>普通の見出し</h1>
 <h1 class="mark">特別な見出し</h1>
 <h1>普通の見出し</h1>
 <p class="mark">特別な段落</p>
-<p>普通の段落</p>`}
-  initialCSS={`/* 全ての h1 要素 */
+<p>普通の段落</p>
+```
+
+```css
+/* 全ての h1 要素 */
 h1 {
     color: blue;
 }
@@ -125,8 +136,9 @@ h1 {
 .mark {
     background-color: yellow;
     color: red;
-}`}
-/>
+}
+```
+</CodePreview>
 
 **重要なポイント**:
 - クラス名の前に `.`（ドット）を付ける
@@ -155,16 +167,22 @@ h1 {
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<h1>サイトタイトル</h1>
+<CodePreview
+>
+```html
+<h1>サイトタイトル</h1>
 <p class="mark">重要なお知らせ</p>
 <p>通常の段落</p>
-<p class="mark">もう一つの重要な情報</p>`}
-  initialCSS={`.mark {
+<p class="mark">もう一つの重要な情報</p>
+```
+
+```css
+.mark {
     background-color: yellow;
     color: red;
-}`}
-/>
+}
+```
+</CodePreview>
 
 **解説**:
 - `.mark`はクラスセレクタで、`class="mark"`が指定された要素にスタイルが適用される
@@ -198,21 +216,27 @@ h1 {
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<h1>ニュースサイト</h1>
+<CodePreview
+>
+```html
+<h1>ニュースサイト</h1>
 <h2 class="urgent">速報：台風が接近中</h2>
 <p class="info">最新の気象情報をお届けします。</p>
 <div class="urgent">緊急避難情報が発表されました。</div>
-<p class="info">通常のニュース記事です。</p>`}
-  initialCSS={`.urgent {
+<p class="info">通常のニュース記事です。</p>
+```
+
+```css
+.urgent {
     background-color: red;
     color: white;
 }
 
 .info {
     background-color: lightblue;
-}`}
-/>
+}
+```
+</CodePreview>
 
 **解説**:
 - 内容に応じて分かりやすいクラス名を付ける（`urgent`：緊急、`info`：情報）
@@ -254,14 +278,19 @@ h1 {
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<div class="container">
+<CodePreview
+>
+```html
+<div class="container">
     <h1 class="title">サイトタイトル</h1>
     <p class="highlight">重要なお知らせ</p>
     <p class="normal">通常の段落</p>
     <p class="highlight warning">警告メッセージ</p>
-</div>`}
-  initialCSS={`.highlight {
+</div>
+```
+
+```css
+.highlight {
     background-color: yellow;
     color: red;
 }
@@ -276,8 +305,9 @@ h1 {
 
 .normal {
     color: gray;
-}`}
-/>
+}
+```
+</CodePreview>
 
 **解説**:
 - 複数クラス指定：`class="highlight warning"`では、`highlight`と`warning`の両方のスタイルが適用される
@@ -313,11 +343,16 @@ h1 {
 
 ### widthの動作例
 
-<CodePreview 
-  initialHTML={`<div class="box1">幅100pxの箱</div>
+<CodePreview
+>
+```html
+<div class="box1">幅100pxの箱</div>
 <div class="box2">幅50%の箱</div>
-<div class="box3">幅autoの箱（デフォルト）</div>`}
-  initialCSS={`.box1 {
+<div class="box3">幅autoの箱（デフォルト）</div>
+```
+
+```css
+.box1 {
     width: 100px;
     background-color: lightblue;
 }
@@ -330,8 +365,9 @@ h1 {
 .box3 {
     width: auto;
     background-color: lightcoral;
-}`}
-/>
+}
+```
+</CodePreview>
 
 :::info width: auto の重要な特性
 
@@ -363,11 +399,16 @@ h1 {
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<div class="box1">狭い箱</div>
+<CodePreview
+>
+```html
+<div class="box1">狭い箱</div>
 <div class="box2">中くらいの箱</div>
-<div class="box3">広い箱</div>`}
-  initialCSS={`.box1 {
+<div class="box3">広い箱</div>
+```
+
+```css
+.box1 {
     width: 200px;
     background-color: lightblue;
 }
@@ -380,8 +421,9 @@ h1 {
 .box3 {
     width: 80%;
     background-color: lightcoral;
-}`}
-/>
+}
+```
+</CodePreview>
 
 **解説**:
 - `width`プロパティで要素の幅を指定
@@ -418,14 +460,19 @@ h1 {
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<div class="box">
+<CodePreview
+>
+```html
+<div class="box">
     <div class="box1">狭い箱</div>
     <div class="box2">中くらいの箱</div>
     <div class="box3">広い箱</div>
     <div class="box4">画面幅の箱</div>
-</div>`}
-  initialCSS={`.box1 {
+</div>
+```
+
+```css
+.box1 {
     width: 15rem;
     background-color: lightblue;
 }
@@ -443,8 +490,9 @@ h1 {
 .box4 {
     width: 50vw;
     background-color: lightgray;
-}`}
-/>
+}
+```
+</CodePreview>
 
 **解説**:
 - `rem`：ルート要素（html）のフォントサイズを基準とした単位
@@ -479,11 +527,16 @@ h1 {
 
 ### heightの動作例
 
-<CodePreview 
-  initialHTML={`<div class="takaku">高さ150pxの箱</div>
+<CodePreview
+>
+```html
+<div class="takaku">高さ150pxの箱</div>
 <div class="hikuku">高さ50pxの箱</div>
-<div class="jidou">高さautoの箱（中身に合わせて自動調整）</div>`}
-  initialCSS={`.takaku {
+<div class="jidou">高さautoの箱（中身に合わせて自動調整）</div>
+```
+
+```css
+.takaku {
     height: 150px;
     width: 200px;
     background-color: lightcoral;
@@ -499,8 +552,9 @@ h1 {
     height: auto;
     width: 200px;
     background-color: lightgreen;
-}`}
-/>
+}
+```
+</CodePreview>
 
 :::tip heightプロパティのポイント
 
@@ -528,11 +582,16 @@ h1 {
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<div class="box1">正方形の箱</div>
+<CodePreview
+>
+```html
+<div class="box1">正方形の箱</div>
 <div class="box2">長方形の箱</div>
-<div class="box3">小さな箱</div>`}
-  initialCSS={`.box1 {
+<div class="box3">小さな箱</div>
+```
+
+```css
+.box1 {
     width: 200px;
     height: 200px;
     background-color: lightblue;
@@ -548,8 +607,9 @@ h1 {
     width: 100px;
     height: 80px;
     background-color: lightpink;
-}`}
-/>
+}
+```
+</CodePreview>
 
 **解説**:
 - `width`と`height`を組み合わせて要素のサイズを制御
@@ -583,11 +643,16 @@ h1 {
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<div class="box1">ヒーローセクション</div>
+<CodePreview
+>
+```html
+<div class="box1">ヒーローセクション</div>
 <div class="box2">カードセクション</div>
-<div class="box3">サイドバー</div>`}
-  initialCSS={`.box1 {
+<div class="box3">サイドバー</div>
+```
+
+```css
+.box1 {
     width: 50vw;
     height: 30vh;
     background-color: #FF6B35;
@@ -606,8 +671,9 @@ h1 {
     height: 80%;
     background-color: rgba(63, 81, 181, 0.8);
     color: white;
-}`}
-/>
+}
+```
+</CodePreview>
 
 **解説**:
 - **単位の使い分け**：
@@ -648,12 +714,17 @@ h1 {
 
 ### borderの動作例
 
-<CodePreview 
-  initialHTML={`<div class="waku1">実線の境界線</div>
+<CodePreview
+>
+```html
+<div class="waku1">実線の境界線</div>
 <div class="waku2">破線の境界線</div>
 <div class="waku3">太い境界線</div>
-<div class="waku4">色付きの境界線</div>`}
-  initialCSS={`.waku1 {
+<div class="waku4">色付きの境界線</div>
+```
+
+```css
+.waku1 {
     border: 1px solid black;
     width: 200px;
     height: 50px;
@@ -680,8 +751,9 @@ h1 {
     height: 50px;
     margin: 10px;
     background-color: lightpink;
-}`}
-/>
+}
+```
+</CodePreview>
 
 
 
@@ -706,11 +778,16 @@ h1 {
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<div class="box1">額縁風の箱1</div>
+<CodePreview
+>
+```html
+<div class="box1">額縁風の箱1</div>
 <div class="box2">額縁風の箱2</div>
-<div class="box3">額縁風の箱3</div>`}
-  initialCSS={`.box1 {
+<div class="box3">額縁風の箱3</div>
+```
+
+```css
+.box1 {
     border: 2px solid black;
     padding: 15px;
     background-color: lightblue;
@@ -726,8 +803,9 @@ h1 {
     border: 5px solid red;
     padding: 15px;
     background-color: lightpink;
-}`}
-/>
+}
+```
+</CodePreview>
 
 </Solution>
 
@@ -755,11 +833,16 @@ h1 {
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<div class="alert">緊急通知</div>
+<CodePreview
+>
+```html
+<div class="alert">緊急通知</div>
 <div class="info">お知らせ</div>
-<div class="success">完了メッセージ</div>`}
-  initialCSS={`.alert {
+<div class="success">完了メッセージ</div>
+```
+
+```css
+.alert {
     width: 20rem;
     height: 8vh;
     border: 4px solid #FF0000;
@@ -778,8 +861,9 @@ h1 {
     height: 80px;
     border: 3px double green;
     background-color: rgb(90%, 100%, 90%);
-}`}
-/>
+}
+```
+</CodePreview>
 
 **解説**:
 - **様々な単位の活用**：
@@ -832,12 +916,17 @@ paddingは、スペース区切りで値を書くことで、様々な指定方�
 
 ### paddingの動作例
 
-<CodePreview 
-  initialHTML={`<div class="pad1">余白なし</div>
+<CodePreview
+>
+```html
+<div class="pad1">余白なし</div>
 <div class="pad2">小さな余白</div>
 <div class="pad3">大きな余白</div>
-<div class="pad4">カスタム余白</div>`}
-  initialCSS={`.pad1 {
+<div class="pad4">カスタム余白</div>
+```
+
+```css
+.pad1 {
     padding: 0;
     border: 2px solid black;
     background-color: lightblue;
@@ -867,8 +956,9 @@ paddingは、スペース区切りで値を書くことで、様々な指定方�
     background-color: lightcoral;
     width: 200px;
     margin: 10px;
-}`}
-/>
+}
+```
+</CodePreview>
 
 
 
@@ -890,11 +980,16 @@ paddingは、スペース区切りで値を書くことで、様々な指定方�
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<div class="box1">箱1</div>
+<CodePreview
+>
+```html
+<div class="box1">箱1</div>
 <div class="box2">箱2</div>
-<div class="box3">箱3</div>`}
-  initialCSS={`.box1 {
+<div class="box3">箱3</div>
+```
+
+```css
+.box1 {
     padding: 15px;
     background-color: lightblue;
     border: 1px solid gray;
@@ -910,8 +1005,9 @@ paddingは、スペース区切りで値を書くことで、様々な指定方�
     padding: 20px 10px 15px 25px;
     background-color: lightpink;
     border: 1px solid gray;
-}`}
-/>
+}
+```
+</CodePreview>
 
 **解説**:
 - **paddingの指定方法**：
@@ -943,11 +1039,16 @@ paddingは、スペース区切りで値を書くことで、様々な指定方�
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<div class="box1">カード1</div>
+<CodePreview
+>
+```html
+<div class="box1">カード1</div>
 <div class="box2">カード2</div>
-<div class="box3">カード3</div>`}
-  initialCSS={`.box1 {
+<div class="box3">カード3</div>
+```
+
+```css
+.box1 {
     width: 200px;
     height: 100px;
     padding: 15px;
@@ -969,8 +1070,9 @@ paddingは、スペース区切りで値を書くことで、様々な指定方�
     padding: 20px 10px 15px 25px;
     border: 1px solid red;
     background-color: lightpink;
-}`}
-/>
+}
+```
+</CodePreview>
 
 **解説**:
 - `width`と`height`で基本サイズを設定
@@ -1018,12 +1120,17 @@ marginは、スペース区切りで値を書くことで、様々な指定方�
 
 ### marginの動作例
 
-<CodePreview 
-  initialHTML={`<div class="mar1">余白なし</div>
+<CodePreview
+>
+```html
+<div class="mar1">余白なし</div>
 <div class="mar2">小さな余白</div>
 <div class="mar3">大きな余白</div>
-<div class="mar4">カスタム余白</div>`}
-  initialCSS={`.mar1 {
+<div class="mar4">カスタム余白</div>
+```
+
+```css
+.mar1 {
     margin: 0;
     padding: 10px;
     border: 2px solid black;
@@ -1053,8 +1160,9 @@ marginは、スペース区切りで値を書くことで、様々な指定方�
     border: 2px solid black;
     background-color: lightcoral;
     width: 200px;
-}`}
-/>
+}
+```
+</CodePreview>
 
 
 
@@ -1076,11 +1184,16 @@ marginは、スペース区切りで値を書くことで、様々な指定方�
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<div class="box1">セクション1</div>
+<CodePreview
+>
+```html
+<div class="box1">セクション1</div>
 <div class="box2">セクション2</div>
-<div class="box3">セクション3</div>`}
-  initialCSS={`.box1 {
+<div class="box3">セクション3</div>
+```
+
+```css
+.box1 {
     margin: 20px;
     background-color: lightcoral;
     padding: 15px;
@@ -1099,8 +1212,9 @@ marginは、スペース区切りで値を書くことで、様々な指定方�
     background-color: rgb(144, 238, 144);
     padding: 15px;
     border: 1px solid black;
-}`}
-/>
+}
+```
+</CodePreview>
 
 **解説**:
 - **marginの指定方法**：
@@ -1132,11 +1246,16 @@ marginは、スペース区切りで値を書くことで、様々な指定方�
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<div class="section1">セクション1</div>
+<CodePreview
+>
+```html
+<div class="section1">セクション1</div>
 <div class="section2">セクション2</div>
-<div class="section3">セクション3</div>`}
-  initialCSS={`.section1 {
+<div class="section3">セクション3</div>
+```
+
+```css
+.section1 {
     width: 300px;
     height: 80px;
     margin: 20px;
@@ -1161,8 +1280,9 @@ marginは、スペース区切りで値を書くことで、様々な指定方�
     padding: 15px;
     border: 1px solid black;
     background-color: lightpink;
-}`}
-/>
+}
+```
+</CodePreview>
 
 **解説**:
 - **ボックスモデルの組み合わせ**：
@@ -1205,11 +1325,16 @@ marginは、スペース区切りで値を書くことで、様々な指定方�
 
 ### 中央揃えの動作例
 
-<CodePreview 
-  initialHTML={`<div class="hidari">左寄せ（デフォルト）</div>
+<CodePreview
+>
+```html
+<div class="hidari">左寄せ（デフォルト）</div>
 <div class="center">中央揃え</div>
-<div class="center2">中央揃え（上下margin付き）</div>`}
-  initialCSS={`.hidari {
+<div class="center2">中央揃え（上下margin付き）</div>
+```
+
+```css
+.hidari {
     width: 150px;
     height: 60px;
     background-color: lightblue;
@@ -1233,8 +1358,9 @@ marginは、スペース区切りで値を書くことで、様々な指定方�
     border: 1px solid black;
     padding: 10px;
     margin: 20px auto;     /* 上下20px、左右auto */
-}`}
-/>
+}
+```
+</CodePreview>
 
 <Exercise title="演習7">
 
@@ -1252,10 +1378,15 @@ marginは、スペース区切りで値を書くことで、様々な指定方�
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<div class="box1">ヘッダー</div>
-<div class="box2">メインコンテンツ</div>`}
-  initialCSS={`.box1 {
+<CodePreview
+>
+```html
+<div class="box1">ヘッダー</div>
+<div class="box2">メインコンテンツ</div>
+```
+
+```css
+.box1 {
     width: 300px;
     margin: 0 auto;
     border: 1px solid black;
@@ -1269,8 +1400,9 @@ marginは、スペース区切りで値を書くことで、様々な指定方�
     border: 1px solid black;
     padding: 10px;
     background-color: lightgreen;
-}`}
-/>
+}
+```
+</CodePreview>
 
 **解説**:
 - **左右中央揃えの仕組み**：`margin: 0 auto`を使用
@@ -1309,13 +1441,18 @@ marginは、スペース区切りで値を書くことで、様々な指定方�
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<div class="title">CAFE MENU</div>
+<CodePreview
+>
+```html
+<div class="title">CAFE MENU</div>
 <div class="menu1">ホットコーヒー ¥300</div>
 <div class="menu2">アイスラテ ¥400</div>
 <div class="menu3">チーズケーキ ¥500</div>
-<div class="special">本日のスペシャル：限定パンケーキ ¥800</div>`}
-  initialCSS={`.title {
+<div class="special">本日のスペシャル：限定パンケーキ ¥800</div>
+```
+
+```css
+.title {
     width: 500px;
     height: 80px;
     padding: 25px;
@@ -1354,8 +1491,9 @@ marginは、スペース区切りで値を書くことで、様々な指定方�
     margin: 15px auto;
     background-color: #FFF3CD;
     border: 3px solid #FFC107;
-}`}
-/>
+}
+```
+</CodePreview>
 
 </Solution>
 

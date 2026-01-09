@@ -30,7 +30,9 @@ CSSの`position`は、要素を「通常の文書の流れ」からどのよう�
   cssVisible={false}
   consoleVisible={false}
   previewVisible={true}
-  initialHTML={`<header class="header">
+>
+```html
+<header class="header">
     <span class="logo">📰 NEWS SITE</span>
   </header>
   
@@ -68,8 +70,11 @@ CSSの`position`は、要素を「通常の文書の流れ」からどのよう�
     </section>
   </main>
   
-  <button class="scroll-top">TOP</button>`}
-  initialCSS={`body {
+  <button class="scroll-top">TOP</button>
+```
+
+```css
+body {
     margin: 0;
     font-family: sans-serif;
   }
@@ -228,8 +233,9 @@ CSSの`position`は、要素を「通常の文書の流れ」からどのよう�
   
   .scroll-top:hover {
     background: #1565c0;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ---
 
@@ -243,8 +249,10 @@ CSSの`position`は、要素を「通常の文書の流れ」からどのよう�
 
 以下の例で、真ん中のB（青）にそれぞれ異なる`position`を指定した場合の動作を確認してください。
 
-<CodePreview 
-  initialHTML={`<h4>static（初期値）</h4>
+<CodePreview
+>
+```html
+<h4>static（初期値）</h4>
   <div class="wrap">
     <div class="box a">A</div>
     <div class="box b static">B<br><small>static</small></div>
@@ -279,8 +287,11 @@ CSSの`position`は、要素を「通常の文書の流れ」からどのよう�
     <div class="box b sticky">B<br><small>sticky</small></div>
     <div class="box c">C</div>
     <p style="height: 400px; background: #f7f7f7;">（長い内容2）</p>
-  </div>`}
-  initialCSS={`.wrap {
+  </div>
+```
+
+```css
+.wrap {
     height: 80px;
     border: 2px dashed #999;
     margin-bottom: 20px;
@@ -343,8 +354,9 @@ CSSの`position`は、要素を「通常の文書の流れ」からどのよう�
   .sticky {
     position: sticky;
     top: 0;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ---
 
@@ -352,13 +364,18 @@ CSSの`position`は、要素を「通常の文書の流れ」からどのよう�
 
 - 要素は「元の位置」を基準に少しだけ動かせます。
 
-<CodePreview 
-  initialHTML={`<div class="wrap">
+<CodePreview
+>
+```html
+<div class="wrap">
     <div class="box a">A</div>
     <div class="box b">B</div>
     <div class="box c">C</div>
-  </div>`}
-  initialCSS={`.wrap {
+  </div>
+```
+
+```css
+.wrap {
     border: 2px dashed #999;
   }
   
@@ -382,8 +399,9 @@ CSSの`position`は、要素を「通常の文書の流れ」からどのよう�
   
   .c {
     background: #f44336;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 真ん中のB（青）に`position: relative; left: 20px; top: 10px;`を指定しています。元の位置から右に20px、下に10pxずれますが、A・Cの配置には影響しません。
 
@@ -401,16 +419,21 @@ CSSの`position`は、要素を「通常の文書の流れ」からどのよう�
 - スクロールしても動きません。
 - ナビゲーションバー、フッターバー、戻るボタンなどで活躍します。
 
-<CodePreview 
-  initialHTML={`<div class="wrap">
+<CodePreview
+>
+```html
+<div class="wrap">
     <div class="box a">A</div>
     <div class="box b">B</div>
     <div class="box c">C</div>
   </div>
   <p>スクロールしてみてください。</p>
   <p style="height: 4000px; background: #f7f7f7;">（長い空白）</p>
-  <p>おわり</p>`}
-  initialCSS={`.wrap {
+  <p>おわり</p>
+```
+
+```css
+.wrap {
     border: 2px dashed #999;
   }
   
@@ -434,8 +457,9 @@ CSSの`position`は、要素を「通常の文書の流れ」からどのよう�
   
   .c {
     background: #f44336;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 真ん中のB（青）に`position: fixed; right: 20px; bottom: 20px;`を指定しています。画面の右下に固定され、スクロールしても常に同じ位置に表示されます。A・CはBが無かったかのように詰まって表示されます。
 
@@ -448,10 +472,15 @@ class="top" のついたボタンが、下のプレビューのような見た�
   htmlVisible={true}
   cssVisible={false}
   previewVisible={true}
-  initialHTML={`<div style="height: 4000px; background: #f7f7f7; padding: 8px;">長いページ（スクロール）</div>
+>
+```html
+<div style="height: 4000px; background: #f7f7f7; padding: 8px;">長いページ（スクロール）</div>
   <!-- ↓この要素にCSSを適用 -->
-  <button class="top">TOP</button>`}
-  initialCSS={`.top {
+  <button class="top">TOP</button>
+```
+
+```css
+.top {
     position: fixed;
     right: 16px;
     bottom: 16px;
@@ -463,8 +492,9 @@ class="top" のついたボタンが、下のプレビューのような見た�
     color: #fff;
     font-weight: bold;
     box-shadow: 0 2px 6px rgba(0,0,0,.2);
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -484,7 +514,9 @@ class="top" のついたボタンが、下のプレビューのような見た�
   htmlVisible={true}
   cssVisible={false}
   previewVisible={true}
-  initialHTML={`<div style="height: 4000px; background: #f7f7f7; padding: 16px;">
+>
+```html
+<div style="height: 4000px; background: #f7f7f7; padding: 16px;">
     <p>ページの内容（スクロールしてもモーダルは画面中央に固定されます）</p>
   </div>
   <!-- ↓この要素にCSSを適用 -->
@@ -493,8 +525,11 @@ class="top" のついたボタンが、下のプレビューのような見た�
   <div class="modal">
     <h3 style="margin: 0 0 12px;">お知らせ</h3>
     <p style="margin: 0;">新機能が追加されました。</p>
-  </div>`}
-  initialCSS={`.overlay {
+  </div>
+```
+
+```css
+.overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -513,8 +548,9 @@ class="top" のついたボタンが、下のプレビューのような見た�
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 :::tip ヒント
 モーダルを画面中央に配置するには、`top`、`left` を `50%` に設定し、`transform: translate(-50%, -50%);` で要素の中心を基準点に合わせる方法を考えてみましょう。
@@ -542,14 +578,19 @@ class="top" のついたボタンが、下のプレビューのような見た�
 
 - ふだんは`relative`のように流れの中にいますが、指定した位置（例：`top: 0`）までスクロールされると、その位置で「固定」されます。
 
-<CodePreview 
-  initialHTML={`<div class="wrap">
+<CodePreview
+>
+```html
+<div class="wrap">
     <div class="box a">A</div>
     <div class="box b">B</div>
     <div class="box c">C</div>
     <p style="height: 4000px; background: #f7f7f7;">（長い内容）</p>
-  </div>`}
-  initialCSS={`.wrap {
+  </div>
+```
+
+```css
+.wrap {
     border: 2px dashed #999;
   }
   
@@ -572,8 +613,9 @@ class="top" のついたボタンが、下のプレビューのような見た�
   
   .c {
     background: #f44336;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 真ん中のB（青）に`position: sticky; top: 0;`を指定しています。最初は通常の流れで配置されますが、スクロールすると上端（`top: 0`）に貼り付きます。
 
@@ -591,15 +633,20 @@ h4.pin が、下のプレビューのようにスクロール時に上部へ貼�
   htmlVisible={true}
   cssVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="hero" style="padding: 40px 16px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; text-align: center;">
+>
+```html
+<div class="hero" style="padding: 40px 16px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; text-align: center;">
     <h2 style="margin: 0 0 8px;">ページタイトル</h2>
     <p style="margin: 0;">サブタイトル</p>
   </div>
   <!-- ↓この要素にCSSを適用 -->
   <h4 class="pin">メニュー1 | メニュー2 | メニュー3</h4>
   <p>内容A-1</p>
-  <p style="height: 4000px; background:#f7f7f7;">（長文）</p>`}
-  initialCSS={`.pin {
+  <p style="height: 4000px; background:#f7f7f7;">（長文）</p>
+```
+
+```css
+.pin {
     margin: 0;
     padding: 8px 12px;
 
@@ -607,8 +654,9 @@ h4.pin が、下のプレビューのようにスクロール時に上部へ貼�
     top: 0;
     background: #fff;
     border-bottom: 1px solid #eee;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -627,13 +675,18 @@ h4.pin が、下のプレビューのようにスクロール時に上部へ貼�
   htmlVisible={true}
   cssVisible={false}
   previewVisible={true}
-  initialHTML={`
+>
+```html
+
   <body style="display: flex; gap: 16px;">
     <!-- ↓この要素にCSSを適用 -->
     <aside class="sidebar">メニュー1<br>メニュー2<br>メニュー3</aside>
     <section style="flex: 1; border: 1px solid #ddd; padding: 8px;">本文…<div style="height: 4000px;"></div>おわり</section>
-  </body>`}
-  initialCSS={`.sidebar {
+  </body>
+```
+
+```css
+.sidebar {
     width: 160px;
     height: fit-content;
     padding: 8px;
@@ -641,8 +694,9 @@ h4.pin が、下のプレビューのようにスクロール時に上部へ貼�
 
     position: sticky;
     top: 10px;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -661,23 +715,29 @@ header.head が、下のプレビューのようになるように CSS を書い
   htmlVisible={true}
   cssVisible={false}
   previewVisible={true}
-  initialHTML={`<body style="margin: 0;">
+>
+```html
+<body style="margin: 0;">
     <!-- ↓この要素にCSSを適用 -->
     <header class="head">Site Title</header>
     <main class="page">
       <p>本文の先頭</p>
       <p style="height: 4000px; background:#f7f7f7;">（長文）</p>
     </main>
-  </body>`}
-  initialCSS={`.head {
+  </body>
+```
+
+```css
+.head {
     height: 56px;
     background: #333;
     color: #fff;
 
     position: sticky;
     top: 0;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -696,12 +756,17 @@ h3.lv3 と h4.lv4 の見出しが、下のプレビューのように上下に�
   htmlVisible={true}
   cssVisible={false}
   previewVisible={true}
-  initialHTML={`<p style="height: 50px; background:#fafafa;">（ちょっとした文章）</p>
+>
+```html
+<p style="height: 50px; background:#fafafa;">（ちょっとした文章）</p>
   <!-- ↓この2つの要素にCSSを適用 -->
   <h3 class="lv3">章タイトル</h3>
   <h4 class="lv4">節タイトル</h4>
-  <p style="height: 4000px; background:#fafafa;">（本文）</p>`}
-  initialCSS={`.lv3 {
+  <p style="height: 4000px; background:#fafafa;">（本文）</p>
+```
+
+```css
+.lv3 {
     height: 40px;
 
     position: sticky;
@@ -717,8 +782,9 @@ h3.lv3 と h4.lv4 の見出しが、下のプレビューのように上下に�
     top: 41px; /* lv3の高さ(40px) + 境界線(1px) */
     border-bottom: 1px solid #eee;
     background: #fff;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -736,13 +802,18 @@ h3.lv3 と h4.lv4 の見出しが、下のプレビューのように上下に�
 - 文書の流れから外れる（その場のスペースを占有しない）。
 - 基準となる親がいない場合は、ページ全体を基準に配置されます。
 
-<CodePreview 
-  initialHTML={`<div class="wrap">
+<CodePreview
+>
+```html
+<div class="wrap">
     <div class="box a">A</div>
     <div class="box b">B</div>
     <div class="box c">C</div>
-  </div>`}
-  initialCSS={`.wrap {
+  </div>
+```
+
+```css
+.wrap {
     position: relative;
     border: 2px dashed #999;
   }
@@ -767,8 +838,9 @@ h3.lv3 と h4.lv4 の見出しが、下のプレビューのように上下に�
   
   .c {
     background: #f44336;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 真ん中のB（青）に`position: absolute; right: 0; top: 20px;`を指定しています。`position: relative` な親の`.wrap`を基準に右上に配置されます。文書の流れから外れるためA・Cが詰まって表示されます。
 
@@ -785,13 +857,18 @@ span.tag のラベルが、下のプレビューのようにカード右上へ�
   htmlVisible={true}
   cssVisible={false}
   previewVisible={true}
-  initialHTML={`<div class="card">
+>
+```html
+<div class="card">
     <h3>お知らせ</h3>
     <p>新機能をリリースしました。</p>
     <!-- ↓主にこの要素にCSSを適用 -->
     <span class="tag">NEW</span>
-  </div>`}
-  initialCSS={`.card {
+  </div>
+```
+
+```css
+.card {
     width: 300px;
     padding: 16px;
     border: 1px solid #ccc;
@@ -809,8 +886,9 @@ span.tag のラベルが、下のプレビューのようにカード右上へ�
     position: absolute;
     right: 8px;
     top: 8px;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 <Solution>
 
@@ -829,14 +907,19 @@ btn クラスのついたボタンにカーソルを載せると、下のプレ�
   htmlVisible={true}
   cssVisible={false}
   previewVisible={true}
-  initialHTML={`<div style="padding: 60px; text-align: center;">
+>
+```html
+<div style="padding: 60px; text-align: center;">
     <button class="btn">
       ヘルプ
       <!-- ↓主にこの要素にCSSを適用 -->
       <span class="tooltip">クリックすると詳細が表示されます</span>
     </button>
-  </div>`}
-  initialCSS={`.btn {
+  </div>
+```
+
+```css
+.btn {
     padding: 8px 16px;
     background-color: #1976d2;
     color: #fff;
@@ -865,8 +948,9 @@ btn クラスのついたボタンにカーソルを載せると、下のプレ�
   
   .btn:hover .tooltip {
     visibility: visible;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 
 :::tip ヒント①「ボタンの上に配置するには？」

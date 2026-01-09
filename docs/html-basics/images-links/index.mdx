@@ -21,22 +21,28 @@ import { CodePreview } from '@metyatech/code-preview';
 
 **説明**: `<a>`タグの`href`属性に絶対URLを指定すると外部サイトへのリンクになる。`target="_blank"`属性を指定すると、新しいタブ（または新しいウィンドウ）でリンクを開くことができる。
 
-<CodePreview 
-  initialHTML={`<!-- 修正前 -->
+<CodePreview
+>
+```html
+<!-- 修正前 -->
 <p>JR東日本の路線をご利用ください。</p>
 
 <!-- 修正後 -->
-<p><a href="https://www.jreast.co.jp/" target="_blank">JR東日本</a>の路線をご利用ください。</p>`}
-/>
+<p><a href="https://www.jreast.co.jp/" target="_blank">JR東日本</a>の路線をご利用ください。</p>
+```
+</CodePreview>
 
 #### 2. 内部サイトへのリンク
 
 **説明**: 相対パスを指定すると内部サイトへのリンクになる。  
 
-<CodePreview 
-  initialHTML={`<p><a href="about.html">会社概要</a></p>
-<p><a href="contact/index.html">お問い合わせ</a></p>`}
-/>
+<CodePreview
+>
+```html
+<p><a href="about.html">会社概要</a></p>
+<p><a href="contact/index.html">お問い合わせ</a></p>
+```
+</CodePreview>
 
 #### 3. ページ内へのアンカーリンクと `id` 属性
 
@@ -107,8 +113,10 @@ import { CodePreview } from '@metyatech/code-preview';
 </section>
 ```
 
-<CodePreview 
-  initialHTML={`<!-- 修正前 -->
+<CodePreview
+>
+```html
+<!-- 修正前 -->
 <ul>
     <li>概要</li>
     <li>内容</li>
@@ -126,8 +134,9 @@ import { CodePreview } from '@metyatech/code-preview';
     <li><a href="#access">アクセス</a></li>
     <li><a href="#contact">お問い合わせ</a></li>
     <li><a href="#info">周辺情報</a></li>
-</ul>`}
-/>
+</ul>
+```
+</CodePreview>
 
 #### 4. HTML文法チェック
 

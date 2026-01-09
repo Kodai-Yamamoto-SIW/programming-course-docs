@@ -38,31 +38,39 @@ CSSはWebページの見た目を整えるための言語です。
 - `<body>` に直接文字を書くと、Webページに文字が表示されます。
 - 単に文字をずらずら書くだけでは、改行を入れても表示上、改行されません。
 
-<CodePreview 
-  initialHTML={`<body>
+<CodePreview
+>
+```html
+<body>
     はじめてのHTML
     はじめてのWebページです。
-  </body>`}
-/>
+  </body>
+```
+</CodePreview>
 
 - HTMLはタグを使って文書の各部分に意味を与える（**マークアップ** する）言語です。
 - `<h1>` ～ `<h6>` は見出しを表すタグです。`<h1>` が一番大きな見出し、`<h6>` が一番小さな見出しです。
 - `<p>` は段落を表すタグです。
 
-<CodePreview 
-  initialHTML={`<body>
+<CodePreview
+>
+```html
+<body>
     <h1>はじめてのHTML</h1>
     <p>はじめてのWebページです。</p>
-  </body>`}
-/>
+  </body>
+```
+</CodePreview>
 
 ### 🎨 CSSで色を変える
 
 - `<style>` タグを `<head>` 内に記述し、CSSを書くことができます。
 - `color` プロパティで文字の色を指定できます。
 
-<CodePreview 
-  initialHTML={`<!DOCTYPE html>
+<CodePreview
+>
+```html
+<!DOCTYPE html>
   <html>
   <head>
     <style>
@@ -75,8 +83,9 @@ CSSはWebページの見た目を整えるための言語です。
     <h1>はじめてのHTML</h1>
     <p>はじめてのWebページです。</p>
   </body>
-  </html>`}
-/>
+  </html>
+```
+</CodePreview>
 
 <Exercise title="演習1">
 

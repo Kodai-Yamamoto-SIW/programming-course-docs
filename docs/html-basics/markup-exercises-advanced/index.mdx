@@ -29,10 +29,13 @@ import { CodePreview } from '@metyatech/code-preview';
 
 **使用例：**
 
-<CodePreview 
-  initialHTML={`<p>開催日時: 2025年10月15日（土）～ 10月16日（日）<br>
-両日とも 9:00 ～ 17:00</p>`}
-/>
+<CodePreview
+>
+```html
+<p>開催日時: 2025年10月15日（土）～ 10月16日（日）<br>
+両日とも 9:00 ～ 17:00</p>
+```
+</CodePreview>
 
 #### 2. `<strong>`要素のマークアップ
 
@@ -48,10 +51,13 @@ import { CodePreview } from '@metyatech/code-preview';
 
 **使用例：**
 
-<CodePreview 
-  initialHTML={`<p>入場料は<strong>無料</strong>です</p>
-<p>事前申込は<strong>不要</strong>です</p>`}
-/>
+<CodePreview
+>
+```html
+<p>入場料は<strong>無料</strong>です</p>
+<p>事前申込は<strong>不要</strong>です</p>
+```
+</CodePreview>
 
 #### 3. `<small>`要素のマークアップ
 
@@ -67,10 +73,13 @@ import { CodePreview } from '@metyatech/code-preview';
 
 **使用例：**
 
-<CodePreview 
-  initialHTML={`<p><small>※ 雨天の場合は一部内容を変更して実施いたします</small></p>
-<p><small>© 2025 学校祭実行委員会 All Rights Reserved.</small></p>`}
-/>
+<CodePreview
+>
+```html
+<p><small>※ 雨天の場合は一部内容を変更して実施いたします</small></p>
+<p><small>© 2025 学校祭実行委員会 All Rights Reserved.</small></p>
+```
+</CodePreview>
 
 #### 4. `<img>`要素のマークアップ
 
@@ -96,9 +105,12 @@ import { CodePreview } from '@metyatech/code-preview';
     "images/main.png": require("./img/main.png"),
     "images/map.png": require("./img/map.png"),
   }}
-  initialHTML={`<img src="images/main.png" alt="学校祭メインビジュアル">
-<img src="images/map.png" alt="会場マップ画像">`}
-/>
+>
+```html
+<img src="images/main.png" alt="学校祭メインビジュアル">
+<img src="images/map.png" alt="会場マップ画像">
+```
+</CodePreview>
 
 #### 5. `<a>`要素とページ内リンクのマークアップ
 
@@ -120,23 +132,29 @@ import { CodePreview } from '@metyatech/code-preview';
 
 **手順1: 各セクションに`id`属性を追加**
 
-<CodePreview 
-  initialHTML={`<section id="overview">
+<CodePreview
+>
+```html
+<section id="overview">
     <h2>開催概要</h2>
     ...
-</section>`}
-/>
+</section>
+```
+</CodePreview>
 
 **手順2: ナビゲーションにリンクを追加**
 
-<CodePreview 
-  initialHTML={`<nav>
+<CodePreview
+>
+```html
+<nav>
     <ul>
         <li><a href="#overview">開催概要</a></li>
         <li><a href="#events">イベント内容</a></li>
     </ul>
-</nav>`}
-/>
+</nav>
+```
+</CodePreview>
 
 #### 6. 外部サイトへのリンクのマークアップ
 
@@ -151,9 +169,12 @@ import { CodePreview } from '@metyatech/code-preview';
 
 **使用例：**
 
-<CodePreview 
-  initialHTML={`<p>詳しいアクセス方法は<a href="https://www.siw.ac.jp/" target="_blank">学校公式サイト</a>をご確認ください。</p>`}
-/>
+<CodePreview
+>
+```html
+<p>詳しいアクセス方法は<a href="https://www.siw.ac.jp/" target="_blank">学校公式サイト</a>をご確認ください。</p>
+```
+</CodePreview>
 
 #### 7. HTML文法チェック
 

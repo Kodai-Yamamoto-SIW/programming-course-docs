@@ -20,10 +20,15 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
 
 要素の上にマウスカーソルが乗った時にスタイルが適用されます。
 
-<CodePreview 
-  initialHTML={`<p class="text1">マウスを乗せてみてください</p>
-<button class="btn1">ボタン</button>`}
-  initialCSS={`.text1 {
+<CodePreview
+>
+```html
+<p class="text1">マウスを乗せてみてください</p>
+<button class="btn1">ボタン</button>
+```
+
+```css
+.text1 {
     color: #333;
     font-size: 18px;
     padding: 10px;
@@ -45,8 +50,9 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
 
 .btn1:hover {
     background-color: #2980b9;
-}`}
-/>
+}
+```
+</CodePreview>
 
 <Exercise title="演習1">
 
@@ -63,9 +69,14 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
 - パディングは`20px`、角の丸みは`8px`にする
 
 <Solution>
-<CodePreview 
-  initialHTML={`<div class="box1">この四角にマウスを乗せてください</div>`}
-  initialCSS={`.box1 {
+<CodePreview
+>
+```html
+<div class="box1">この四角にマウスを乗せてください</div>
+```
+
+```css
+.box1 {
     background-color: #f0f0f0;
     color: #333;
     padding: 20px;
@@ -75,8 +86,9 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
 .box1:hover {
     background-color: #3498db;
     color: white;
-}`}
-/>
+}
+```
+</CodePreview>
 </Solution>
 
 </Exercise>
@@ -85,9 +97,14 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
 
 要素がクリックされている間（マウスボタンが押されている間）にスタイルが適用されます。
 
-<CodePreview 
-  initialHTML={`<button class="btn2">クリックしてみてください</button>`}
-  initialCSS={`.btn2 {
+<CodePreview
+>
+```html
+<button class="btn2">クリックしてみてください</button>
+```
+
+```css
+.btn2 {
     background-color: #27ae60;
     color: white;
     padding: 12px 24px;
@@ -103,8 +120,9 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
 .btn2:active {
     background-color: #1e8449;
     transform: scale(0.98);
-}`}
-/>
+}
+```
+</CodePreview>
 
 <Exercise title="演習2">
 
@@ -124,9 +142,14 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
 - カーソルをポインターに（`cursor: pointer`）
 
 <Solution>
-<CodePreview 
-  initialHTML={`<button class="btn3">押してみて</button>`}
-  initialCSS={`.btn3 {
+<CodePreview
+>
+```html
+<button class="btn3">押してみて</button>
+```
+
+```css
+.btn3 {
     background-color: #e74c3c;
     color: white;
     padding: 15px 30px;
@@ -142,8 +165,9 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
 .btn3:active {
     background-color: #a93226;
     transform: scale(0.95);
-}`}
-/>
+}
+```
+</CodePreview>
 </Solution>
 
 </Exercise>
@@ -152,9 +176,14 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
 
 入力欄やボタンなどがフォーカスされた時（キーボードのTabキーで選択された時など）にスタイルが適用されます。
 
-<CodePreview 
-  initialHTML={`<input type="text" class="input1" placeholder="ここをクリックで選択">`}
-  initialCSS={`.input1 {
+<CodePreview
+>
+```html
+<input type="text" class="input1" placeholder="ここをクリックで選択">
+```
+
+```css
+.input1 {
     border: 2px solid #ddd;
     border-radius: 4px;
 }
@@ -162,8 +191,9 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
 .input1:focus {
     border-color: #3498db;
     outline: none;
-}`}
-/>
+}
+```
+</CodePreview>
 
 <Exercise title="演習3">
 
@@ -180,9 +210,14 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
 - 角の丸み：`4px`、フォントサイズ：`16px`、幅：`250px`
 
 <Solution>
-<CodePreview 
-  initialHTML={`<input type="text" class="input2" placeholder="お名前を入力してください">`}
-  initialCSS={`.input2 {
+<CodePreview
+>
+```html
+<input type="text" class="input2" placeholder="お名前を入力してください">
+```
+
+```css
+.input2 {
     padding: 12px;
     border: 2px solid #ccc;
     border-radius: 4px;
@@ -193,8 +228,9 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
 .input2:focus {
     border-color: #27ae60;
     outline: none;
-}`}
-/>
+}
+```
+</CodePreview>
 </Solution>
 
 </Exercise>

@@ -42,10 +42,15 @@ transition: プロパティ名 時間;
 
 ボタンにマウスを乗せた時の色や位置の変化をアニメーション化します。
 
-<CodePreview 
-  initialHTML={`<h2>ボタンアニメーションの例</h2>
-<button class="btn1">マウスを乗せてみてください</button>`}
-  initialCSS={`.btn1 {
+<CodePreview
+>
+```html
+<h2>ボタンアニメーションの例</h2>
+<button class="btn1">マウスを乗せてみてください</button>
+```
+
+```css
+.btn1 {
     background-color: #3498db;
     color: white;
     padding: 12px 24px;
@@ -64,8 +69,9 @@ transition: プロパティ名 時間;
 
 .btn1:active {
     transform: translateY(0px);
-}`}
-/>
+}
+```
+</CodePreview>
 
 <Exercise title="演習1">
 
@@ -82,9 +88,14 @@ transition: プロパティ名 時間;
 - アニメーション：背景色の変化を0.25秒で滑らかに
 
 <Solution>
-<CodePreview 
-  initialHTML={`<button class="btn2">クリックしてね</button>`}
-  initialCSS={`.btn2 {
+<CodePreview
+>
+```html
+<button class="btn2">クリックしてね</button>
+```
+
+```css
+.btn2 {
     background-color: #27ae60;
     color: white;
     padding: 10px 20px;
@@ -96,8 +107,9 @@ transition: プロパティ名 時間;
 
 .btn2:hover {
     background-color: #229954;
-}`}
-/>
+}
+```
+</CodePreview>
 </Solution>
 
 </Exercise>
@@ -118,9 +130,14 @@ transition: プロパティ名 時間;
 - アニメーション：位置と色の変化を0.2秒で
 
 <Solution>
-<CodePreview 
-  initialHTML={`<button class="btn3">上下に動くボタン</button>`}
-  initialCSS={`.btn3 {
+<CodePreview
+>
+```html
+<button class="btn3">上下に動くボタン</button>
+```
+
+```css
+.btn3 {
     background-color: #e74c3c;
     color: white;
     padding: 15px 25px;
@@ -137,8 +154,9 @@ transition: プロパティ名 時間;
 
 .btn3:active {
     transform: translateY(0px);
-}`}
-/>
+}
+```
+</CodePreview>
 </Solution>
 
 </Exercise>

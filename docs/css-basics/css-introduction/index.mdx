@@ -30,15 +30,20 @@ CSSをHTMLに適用する方法は主に3つあります：
 
 ### 1. 直接HTML要素に書く（インラインスタイル）
 
-<CodePreview 
-  initialHTML={`<h1 style="color: red;">赤い見出し</h1>
-<p style="color: blue; font-size: 18px;">青い段落</p>`}
-/>
+<CodePreview
+>
+```html
+<h1 style="color: red;">赤い見出し</h1>
+<p style="color: blue; font-size: 18px;">青い段落</p>
+```
+</CodePreview>
 
 ### 2. `<head>`内に`<style>`タグで書く（内部スタイルシート）
 
-<CodePreview 
-  initialHTML={`<!DOCTYPE html>
+<CodePreview
+>
+```html
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -57,13 +62,16 @@ CSSをHTMLに適用する方法は主に3つあります：
     <h1>赤い見出し</h1>
     <p>青い段落</p>
 </body>
-</html>`}
-/>
+</html>
+```
+</CodePreview>
 
 ### 3. 外部ファイルを参照（外部スタイルシート）
 
-<CodePreview 
-  initialHTML={`<!DOCTYPE html>
+<CodePreview
+>
+```html
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -74,15 +82,19 @@ CSSをHTMLに適用する方法は主に3つあります：
     <h1>赤い見出し</h1>
     <p>青い段落</p>
 </body>
-</html>`}
-  initialCSS={`h1 {
+</html>
+```
+
+```css
+h1 {
     color: red;
 }
 p {
     color: blue;
     font-size: 18px;
-}`}
-/>
+}
+```
+</CodePreview>
 
 ---
 
@@ -127,11 +139,16 @@ CSSの基本的な書き方は以下の通りです：
 
 ### 例
 
-<CodePreview 
-  initialHTML={`<h1>見出しテキスト</h1>
+<CodePreview
+>
+```html
+<h1>見出しテキスト</h1>
 <p>段落のテキストです。</p>
-<p>もう一つの段落です。</p>`}
-  initialCSS={`h1 {
+<p>もう一つの段落です。</p>
+```
+
+```css
+h1 {
     color: red;           /* 文字色を赤にする */
     font-size: 24px;      /* 文字サイズを24pxにする */
     background-color: yellow; /* 背景色を黄色にする */
@@ -140,8 +157,9 @@ CSSの基本的な書き方は以下の通りです：
 p {
     color: blue;
     font-size: 16px;
-}`}
-/>
+}
+```
+</CodePreview>
 
 <Exercise title="演習1">
 
@@ -173,8 +191,10 @@ p {
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<!DOCTYPE html>
+<CodePreview
+>
+```html
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -186,14 +206,18 @@ p {
     <p>こんにちは、山田太郎です。</p>
     <p>趣味はプログラミングです。</p>
 </body>
-</html>`}
-  initialCSS={`h1 {
+</html>
+```
+
+```css
+h1 {
     color: blue;
 }
 p {
     color: green;
-}`}
-/>
+}
+```
+</CodePreview>
 
 **フォルダ構成**:
 ```
@@ -217,8 +241,10 @@ p {
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<!DOCTYPE html>
+<CodePreview
+>
+```html
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -236,8 +262,11 @@ p {
         <li>JavaScript</li>
     </ul>
 </body>
-</html>`}
-  initialCSS={`body {
+</html>
+```
+
+```css
+body {
     background-color: lightgray;
 }
 h1 {
@@ -251,8 +280,9 @@ p {
 }
 li {
     color: purple;
-}`}
-/>
+}
+```
+</CodePreview>
 
 </Solution>
 
@@ -324,14 +354,19 @@ p { color: rgba(0, 0, 255, 0.8); }    /* 少し透明な青 */
 
 ### 色指定を試してみよう！
 
-<CodePreview 
-  initialHTML={`<h1>カラーネーム</h1>
+<CodePreview
+>
+```html
+<h1>カラーネーム</h1>
 <h2>16進数カラーコード</h2>
 <h3>RGB数値</h3>
 <h4>RGBパーセント</h4>
 <h5>RGBA（透明度付き）</h5>
-<p>いろいろな色を試してみてください！</p>`}
-  initialCSS={`h1 {
+<p>いろいろな色を試してみてください！</p>
+```
+
+```css
+h1 {
     color: red; /* カラーネーム */
 }
 
@@ -355,8 +390,9 @@ h5 {
 p {
     background-color: rgba(0, 0, 255, 0.1);
     padding: 10px;
-}`}
-/>
+}
+```
+</CodePreview>
 
 <Exercise title="演習2">
 
@@ -387,8 +423,10 @@ p {
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<!DOCTYPE html>
+<CodePreview
+>
+```html
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -401,8 +439,11 @@ p {
     <p>はじめまして、田中花子です。趣味は読書と映画鑑賞です。</p>
     <small>よろしくお願いします。</small>
 </body>
-</html>`}
-  initialCSS={`h1 {
+</html>
+```
+
+```css
+h1 {
     color: #800080; /* 16進数カラーコードで紫色 */
 }
 h2 {
@@ -413,8 +454,9 @@ p {
 }
 small {
     color: rgba(128, 128, 128, 0.7); /* RGBAで半透明の灰色 */
-}`}
-/>
+}
+```
+</CodePreview>
 
 </Solution>
 
@@ -457,8 +499,10 @@ small {
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<!DOCTYPE html>
+<CodePreview
+>
+```html
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -472,8 +516,11 @@ small {
     <h2>制作実績</h2>
     <p>これまでに100以上のプロジェクトを手がけてきました。</p>
 </body>
-</html>`}
-  initialCSS={`body {
+</html>
+```
+
+```css
+body {
     background-color: rgba(63, 81, 181, 0.6); /* 半透明の青 */
 }
 h1 {
@@ -485,8 +532,9 @@ h2 {
 }
 p {
     color: rgb(46, 125, 50); /* 緑 */
-}`}
-/>
+}
+```
+</CodePreview>
 
 </Solution>
 
@@ -502,17 +550,23 @@ CSSでは、親要素のスタイルが子要素に自動的に受け継がれ�
 
 ### 継承の例を試してみよう！
 
-<CodePreview 
-  initialHTML={`<body>
+<CodePreview
+>
+```html
+<body>
     <h1>この見出しも青色・18px・中央揃えになる</h1>
     <p>この段落も青色・18px・中央揃えになる</p>
-</body>`}
-  initialCSS={`body {
+</body>
+```
+
+```css
+body {
     color: blue;      /* bodyの文字色を青に */
     font-size: 18px;  /* 文字サイズを18pxに */
     text-align: center; /* 文字を中央揃えに */
-}`}
-/>
+}
+```
+</CodePreview>
 
 ### 継承されるプロパティと継承されないプロパティ
 
@@ -539,16 +593,22 @@ CSSでは、親要素のスタイルが子要素に自動的に受け継がれ�
 
 ### 上書きの例を試してみよう！
 
-<CodePreview 
-  initialHTML={`<body>
+<CodePreview
+>
+```html
+<body>
     <h1>この見出しは緑色になる</h1>
-</body>`}
-  initialCSS={`h1 {
+</body>
+```
+
+```css
+h1 {
     color: red;   /* 最初に赤色を指定 */
     color: blue;  /* 後で青色を指定（こちらが適用される） */
     color: green; /* 最後に緑色を指定（最終的にこれが適用される） */
-}`}
-/>
+}
+```
+</CodePreview>
 
 <Exercise title="演習3">
 

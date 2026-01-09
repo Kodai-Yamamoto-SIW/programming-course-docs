@@ -33,12 +33,18 @@ import { CodePreview } from '@metyatech/code-preview';
 }
 ```
 
-<CodePreview 
-  initialHTML={`<div>背景色のサンプル</div>`}
-  initialCSS={`div {
+<CodePreview
+>
+```html
+<div>背景色のサンプル</div>
+```
+
+```css
+div {
     background-color: #ffdddd;
-  }`}
-/> 
+  }
+```
+</CodePreview> 
 
 ---
 
@@ -55,13 +61,19 @@ import { CodePreview } from '@metyatech/code-preview';
 
 <CodePreview 
   images={{ "img/background-sample.png": require("./img/background-sample.png") }}
-  initialHTML={`<div>背景画像のサンプル</div>`}
-  initialCSS={`div {
+>
+```html
+<div>背景画像のサンプル</div>
+```
+
+```css
+div {
     height: 500px;
     background-color: #d9e5ff;
     background-image: url("./img/background-sample.png");
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 注意：見やすくするために、あとで「大きさ」「くり返し」「置き場所」を合わせて使うことが多いです。
 
@@ -106,13 +118,19 @@ img/
 <Solution>
 
 <CodePreview
-  initialHTML={`<div>この div の背景に画像をつける</div>`}
-  initialCSS={`div {
+>
+```html
+<div>この div の背景に画像をつける</div>
+```
+
+```css
+div {
     height: 600px;
     background-color: #d9e5ff;
     background-image: url("../img/image1.png");
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 </Solution>
 
@@ -138,13 +156,19 @@ css/
 <Solution>
 
 <CodePreview
-  initialHTML={`<div>この div の背景に画像をつける</div>`}
-  initialCSS={`div {
+>
+```html
+<div>この div の背景に画像をつける</div>
+```
+
+```css
+div {
     height: 600px;
     background-color: #d9e5ff;
     background-image: url("image2.png");
-  }`}
-/> 
+  }
+```
+</CodePreview> 
 
 </Solution>
 
@@ -166,12 +190,17 @@ css/
 
 <CodePreview 
   images={{ "img/background-sample.png": require("./img/background-sample.png") }}
-  initialHTML={`<div class="rep">repeat</div>
+>
+```html
+<div class="rep">repeat</div>
   <div class="norep">no-repeat</div>
   <div class="rx">repeat-x</div>
   <div class="ry">repeat-y</div>
-  <div class="sp">space</div>`}
-  initialCSS={`div {
+  <div class="sp">space</div>
+```
+
+```css
+div {
     height: 250px;
     margin: 10px;
     background-color: #d9e5ff;
@@ -197,8 +226,9 @@ css/
   /* space の例: 画像を小さくして要素内に並べ、間に余白が入る様子を見せる */
   .sp {
     background-repeat: space;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 補足: `space` は、画像を要素の中にぴったり並べるのではなく、はみ出さない範囲でできるだけ多く並べ、画像同士の間に等しい余白を入れます。
 
@@ -210,11 +240,16 @@ css/
 
 <CodePreview 
   images={{ "img/background-sample.png": require("./img/background-sample.png") }}
-  initialHTML={`<div class="p1">left top</div>
+>
+```html
+<div class="p1">left top</div>
   <div class="p2">center center</div>
   <div class="p3">right bottom</div>
-  <div class="p4"></div>`}
-  initialCSS={`div {
+  <div class="p4"></div>
+```
+
+```css
+div {
     height: 300px;
     margin: 10px;
     background-color: #d9e5ff;
@@ -239,8 +274,9 @@ css/
   .p4 {
     background-repeat: repeat-x;
     background-position: 100px 100px;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ---
 
@@ -267,15 +303,21 @@ img/
 <Solution>
 
 <CodePreview
-  initialHTML={`<div>高さ300px,右上に画像</div>`}
-  initialCSS={`div {
+>
+```html
+<div>高さ300px,右上に画像</div>
+```
+
+```css
+div {
     height: 300px;
     background-color: #d9e5ff;
     background-image: url("../img/image1.png");
     background-repeat: no-repeat;
     background-position: right top;
-  }`}
-/> 
+  }
+```
+</CodePreview> 
 
 </Solution>
 
@@ -304,15 +346,21 @@ img/
 <Solution>
 
 <CodePreview
-  initialHTML={`<div>高さ300px, 横にだけくり返し</div>`}
-  initialCSS={`div {
+>
+```html
+<div>高さ300px, 横にだけくり返し</div>
+```
+
+```css
+div {
     height: 300px;
     background-color: #fff2d9;
     background-image: url("../img/image1.png");
     background-repeat: repeat-x;
     background-position: 80px bottom;
-  }`}
-/> 
+  }
+```
+</CodePreview> 
 
 </Solution>
 
@@ -341,15 +389,21 @@ img/
 <Solution>
 
 <CodePreview
-  initialHTML={`<div>高さ300px, 上下左右中央に画像が1枚</div>`}
-  initialCSS={`div {
+>
+```html
+<div>高さ300px, 上下左右中央に画像が1枚</div>
+```
+
+```css
+div {
     height: 300px;
     background-color: #f0f0f0;
     background-image: url("../img/image1.png");
     background-repeat: no-repeat;
     background-position: center center;
-  }`}
-/> 
+  }
+```
+</CodePreview> 
 
 </Solution>
 
@@ -371,12 +425,17 @@ img/
 
 <CodePreview 
   images={{ "img/background-sample.png": require("./img/background-sample.png") }}
-  initialHTML={`<div class="parent">
+  >
+```html
+<div class="parent">
     <div class="loc">local（要素の内容と一緒に動く）<br>行1<br>行2<br>行3<br>行4<br>行5<br>行6<br>行7<br>行8<br>行9<br>行10</div>
     <div class="scr">scroll（初期。要素とは一緒に動くが、内容とは一緒に動かない）<br>行1<br>行2<br>行3<br>行4<br>行5<br>行6<br>行7<br>行8<br>行9<br>行10</div>
     <div class="fix">fixed（画面に固定）<br>行1<br>行2<br>行3<br>行4<br>行5<br>行6<br>行7<br>行8<br>行9<br>行10</div>
-  </div>`}
-  initialCSS={`.parent {
+  </div>
+```
+
+```css
+.parent {
     height: 400px;
     overflow: auto; /* 親をスクロールさせる */
   }
@@ -401,8 +460,9 @@ img/
   /* fixed: 背景は画面に固定され、親をスクロールしても背景は動かない */
   .fix {
     background-attachment: fixed;
-  }`}
-  />
+  }
+```
+</CodePreview>
 
 ---
 
@@ -416,9 +476,14 @@ img/
 
 <CodePreview 
   images={{ "img/background-sample.png": require("./img/background-sample.png") }}
-  initialHTML={`<div class="s1">cover</div>
-  <div class="s2">contain</div>`}
-  initialCSS={`div {
+>
+```html
+<div class="s1">cover</div>
+  <div class="s2">contain</div>
+```
+
+```css
+div {
     height: 130px;
     margin: 10px;
     background-image: url("./img/background-sample.png");
@@ -431,8 +496,9 @@ img/
 
   .s2 {
     background-size: contain;
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ---
 
@@ -448,7 +514,9 @@ img/
 
 <CodePreview 
   images={{ "img/parallax1.jpg": require("./img/parallax1.jpg"), "img/parallax2.jpg": require("./img/parallax2.jpg"), "img/parallax3.jpg": require("./img/parallax3.jpg") }}
-  initialHTML={`<div class="scrollarea">
+>
+```html
+<div class="scrollarea">
     <div class="content">
       <p>最初のコンテンツ領域です。</p>
       <p>色々文章を</p>
@@ -462,8 +530,11 @@ img/
       <p>これがパララックス効果です。</p>
     </div>
     <div class="parallax3">背景が固定されている領域3</div>
-  </div>`}
-  initialCSS={`.scrollarea {
+  </div>
+```
+
+```css
+.scrollarea {
     height: 400px;
     overflow: auto;
   }
@@ -488,8 +559,9 @@ img/
 
   .parallax3 {
     background-image: url("./img/parallax3.jpg");
-  }`}
-/>
+  }
+```
+</CodePreview>
 
 ---
 

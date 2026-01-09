@@ -79,12 +79,17 @@ html {
 
 **ピクセル（px）** は、画面の最小単位である「点」の数を表します。
 
-<CodePreview 
-  initialHTML={`<h1>24pxの見出し</h1>
+<CodePreview
+>
+```html
+<h1>24pxの見出し</h1>
 <h2>20pxの小見出し</h2>
 <p>16pxの段落テキスト</p>
-<small>12pxの小さなテキスト</small>`}
-  initialCSS={`h1 {
+<small>12pxの小さなテキスト</small>
+```
+
+```css
+h1 {
     font-size: 24px; /* 24ピクセルのフォントサイズ */
 }
 
@@ -98,8 +103,9 @@ p {
 
 small {
     font-size: 12px; /* 12ピクセルのフォントサイズ */
-}`}
-/>
+}
+```
+</CodePreview>
 
 ### 🔍 ピクセルを実際に見てみよう
 
@@ -156,11 +162,16 @@ p {
 
 ### 💡 emの相対的な性質を理解しよう
 
-<CodePreview 
-  initialHTML={`<h1>大きな見出し（24px）<span>子要素は1em</span></h1>
+<CodePreview
+>
+```html
+<h1>大きな見出し（24px）<span>子要素は1em</span></h1>
 
-<h2>普通の見出し（16px）<span>子要素は1em</span></h2>`}
-  initialCSS={`/* emは親要素のフォントサイズに依存する */
+<h2>普通の見出し（16px）<span>子要素は1em</span></h2>
+```
+
+```css
+/* emは親要素のフォントサイズに依存する */
 h1 {
     font-size: 24px; /* 見出しを24pxに設定 */
 }
@@ -171,8 +182,9 @@ h2 {
 
 span {
     font-size: 1em; /* 親要素のフォントサイズの1倍 */
-}`}
-/>
+}
+```
+</CodePreview>
 
 ---
 
@@ -190,11 +202,16 @@ span {
 
 ### remの絶対的な性質を理解しよう
 
-<CodePreview 
-  initialHTML={`<h1>大きな見出し（24px）<span>子要素は1rem</span></h1>
+<CodePreview
+>
+```html
+<h1>大きな見出し（24px）<span>子要素は1rem</span></h1>
 
-<h2>小さな見出し（12px）<span>子要素は1rem</span></h2>`}
-  initialCSS={`/* remは常にhtml要素のフォントサイズ（16px）に依存 */
+<h2>小さな見出し（12px）<span>子要素は1rem</span></h2>
+```
+
+```css
+/* remは常にhtml要素のフォントサイズ（16px）に依存 */
 h1 {
     font-size: 24px; /* 見出しを24pxに設定 */
 }
@@ -205,8 +222,9 @@ h2 {
 
 span {
     font-size: 1rem; /* html（16px）の1倍 = 16px（親に影響されない） */
-}`}
-/>
+}
+```
+</CodePreview>
 
 ---
 
@@ -223,11 +241,16 @@ span {
 
 ### vw・vhの使用例
 
-<CodePreview 
-  initialHTML={`<header>ヘッダー（画面幅100%、高さ10%）</header>
+<CodePreview
+>
+```html
+<header>ヘッダー（画面幅100%、高さ10%）</header>
 <main>メインコンテンツ（画面幅80%、高さ60%）</main>
-<footer>フッター（画面幅100%、高さ15%）</footer>`}
-  initialCSS={`header {
+<footer>フッター（画面幅100%、高さ15%）</footer>
+```
+
+```css
+header {
     width: 100vw;  /* 画面幅の100% */
     height: 10vh;  /* 画面高さの10% */
     background-color: blue;
@@ -243,8 +266,9 @@ footer {
     width: 100vw;  /* 画面幅の100% */
     height: 15vh;  /* 画面高さの15% */
     background-color: darkgray;
-}`}
-/>
+}
+```
+</CodePreview>
 
 ### vw・vhの特徴
 
@@ -282,8 +306,10 @@ footer {
 
 <Solution>
 
-<CodePreview 
-  initialHTML={`<!DOCTYPE html>
+<CodePreview
+>
+```html
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -295,8 +321,11 @@ footer {
     <h2>サブタイトル</h2>
     <p>本文のテキストです。<small>注釈テキスト</small></p>
 </body>
-</html>`}
-  initialCSS={`h1 {
+</html>
+```
+
+```css
+h1 {
     font-size: 32px;        /* 32px */
     width: 100vw;           /* 画面幅の100% */
     background-color: blue; /* 青色の背景 */
@@ -312,8 +341,9 @@ p {
 
 small {
     font-size: 0.8em; /* 親要素のフォントサイズ（p：14.4px）の0.8倍 = 11.52px */
-}`}
-/>
+}
+```
+</CodePreview>
 
 </Solution>
 
