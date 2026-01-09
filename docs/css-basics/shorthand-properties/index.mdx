@@ -50,28 +50,28 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
 >
 ```html
 <span class="box1">一括指定</span>
-  <span class="box2">個別指定</span>
+<span class="box2">個別指定</span>
 ```
 
 ```css
 div {
-    width: 200px;
-  }
-  
-  /* 一括指定（今まで学習してきた方法） */
-  .box1 {
-    padding: 20px;
-    background-color: lightblue;
-  }
+  width: 200px;
+}
 
-  /* 個別指定 */
-  .box2 {
-    padding-top: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    background-color: lightgreen;
-  }
+/* 一括指定（今まで学習してきた方法） */
+.box1 {
+  padding: 20px;
+  background-color: lightblue;
+}
+
+/* 個別指定 */
+.box2 {
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  background-color: lightgreen;
+}
 ```
 </CodePreview>
 
@@ -83,26 +83,26 @@ div {
 >
 ```html
 <span class="box1">上だけ余白</span>
-  <span class="box2">左右だけ余白</span>
-  <span class="box3">下だけ余白</span>
+<span class="box2">左右だけ余白</span>
+<span class="box3">下だけ余白</span>
 ```
 
 ```css
 .box1 {
-    padding-top: 30px;
-    background-color: lightblue;
-  }
+  padding-top: 30px;
+  background-color: lightblue;
+}
 
-  .box2 {
-    padding-left: 40px;
-    padding-right: 40px;
-    background-color: lightgreen;
-  }
+.box2 {
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: lightgreen;
+}
 
-  .box3 {
-    padding-bottom: 25px;
-    background-color: lightcoral;
-  }
+.box3 {
+  padding-bottom: 25px;
+  background-color: lightcoral;
+}
 ```
 </CodePreview>
 
@@ -135,21 +135,21 @@ border: 太さ スタイル 色;
 >
 ```html
 <div class="box1">一括指定</div>
-  <div class="box2">個別指定</div>
+<div class="box2">個別指定</div>
 ```
 
 ```css
 /* 一括指定（今まで学習してきた方法） */
-  .box1 {
-    border: 2px solid red;
-  }
+.box1 {
+  border: 2px solid red;
+}
 
-  /* 個別指定 */
-  .box2 {
-    border-width: 2px;
-    border-style: solid;
-    border-color: red;
-  }
+/* 個別指定 */
+.box2 {
+  border-width: 2px;
+  border-style: solid;
+  border-color: red;
+}
 ```
 </CodePreview>
 
@@ -165,9 +165,9 @@ borderも方向別に個別指定することができます：
 
 ```css
 .box {
-    border-top: 3px solid red;
-    border-bottom: 3px solid blue;
-  }
+  border-top: 3px solid red;
+  border-bottom: 3px solid blue;
+}
 ```
 </CodePreview>
 
@@ -187,31 +187,31 @@ borderも方向別に個別指定することができます：
 >
 ```html
 <!-- 下側だけに2px の実線、色は青 -->
-  <div class="atama">ヘッダー部分</div>
-  <!-- 上下に1px の実線、色はグレー -->
-  <div class="naka">コンテンツ部分</div>
-  <!-- 上側だけに3px の二重線（double）、色は赤 -->
-  <div class="sita">フッター部分</div>
-  <!-- 見やすさのために、全ての要素の上下に適当に余白を入れてください -->
+<div class="atama">ヘッダー部分</div>
+<!-- 上下に1px の実線、色はグレー -->
+<div class="naka">コンテンツ部分</div>
+<!-- 上側だけに3px の二重線（double）、色は赤 -->
+<div class="sita">フッター部分</div>
+<!-- 見やすさのために、全ての要素の上下に適当に余白を入れてください -->
 ```
 
 ```css
 div {
-    margin: 50px 0;
-  }
-  
-  .atama {
-    border-bottom: 2px solid blue;
-  }
+  margin: 50px 0;
+}
 
-  .naka {
-    border-top: 1px solid gray;
-    border-bottom: 1px solid gray;
-  }
+.atama {
+  border-bottom: 2px solid blue;
+}
 
-  .sita {
-    border-top: 3px double red;
-  }
+.naka {
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+
+.sita {
+  border-top: 3px double red;
+}
 ```
 </CodePreview>
 
@@ -253,22 +253,22 @@ font: スタイル 太さ サイズ フォントファミリー;
 >
 ```html
 <p class="moji1">一括指定のテキスト</p>
-  <p class="moji2">個別指定のテキスト</p>
+<p class="moji2">個別指定のテキスト</p>
 ```
 
 ```css
 /* 一括指定 */
-  .moji1 {
-    /* 太さ サイズ フォントファミリー */
-    font: bold 18px "Yu Gothic", sans-serif;
-  }
+.moji1 {
+  /* 太さ サイズ フォントファミリー */
+  font: bold 18px "Yu Gothic", sans-serif;
+}
 
-  /* 個別指定 */
-  .moji2 {
-    font-weight: bold;
-    font-size: 18px;
-    font-family: "Yu Gothic", sans-serif;
-  }
+/* 個別指定 */
+.moji2 {
+  font-weight: bold;
+  font-size: 18px;
+  font-family: "Yu Gothic", sans-serif;
+}
 ```
 </CodePreview>
 
@@ -296,28 +296,28 @@ font-family: "Yu Mincho", "Hiragino Mincho ProN", "Meiryo", serif;
 >
 ```html
 <!-- 一括指定で、太字、28px、Yu Gothic -->
-  <h1 class="midashi1">メインタイトル</h1> 
+<h1 class="midashi1">メインタイトル</h1> 
 
-  <!-- 個別指定で、斜体、16px、Yu Gothic -->
-  <p class="honbun">本文のテキストです。</p>
+<!-- 個別指定で、斜体、16px、Yu Gothic -->
+<p class="honbun">本文のテキストです。</p>
 ```
 
 ```css
 .midashi1 {
-    font: bold 28px "Yu Gothic", sans-serif;
+  font: bold 28px "Yu Gothic", sans-serif;
 
-    /* Yu Gothic はゴシック体なので、
-     * この解答のように、
-     * "Yu Gothic" の後に、このフォントが
-     * 無かった場合に備えて、sans-serif
-     * を指定するとより良いです */
-  }
+  /* Yu Gothic はゴシック体なので、
+   * この解答のように、
+   * "Yu Gothic" の後に、このフォントが
+   * 無かった場合に備えて、sans-serif
+   * を指定するとより良いです */
+}
 
-  .honbun {
-    font-style: oblique;
-    font-size: 16px;
-    font-family: "Yu Gothic", sans-serif;
-  }
+.honbun {
+  font-style: oblique;
+  font-size: 16px;
+  font-family: "Yu Gothic", sans-serif;
+}
 ```
 </CodePreview> 
 
@@ -339,33 +339,33 @@ font-family: "Yu Mincho", "Hiragino Mincho ProN", "Meiryo", serif;
 >
 ```html
 <!-- 太字、24px、Yu Mincho -->
-  <div class="meigen">"成功は99%の努力と1%の才能である"</div>
+<div class="meigen">"成功は99%の努力と1%の才能である"</div>
 
-  <!-- 筆記体、18px、Yu Mincho -->
-  <div class="sakusha">- トーマス・エジソン</div>
+<!-- 筆記体、18px、Yu Mincho -->
+<div class="sakusha">- トーマス・エジソン</div>
 
-  <!-- 14px、Yu Gothic -->
-  <div class="setsumei">この名言は努力の重要性を表している。</div>
+<!-- 14px、Yu Gothic -->
+<div class="setsumei">この名言は努力の重要性を表している。</div>
 ```
 
 ```css
 .meigen {
-    font: bold 24px "Yu Mincho", serif;
+  font: bold 24px "Yu Mincho", serif;
 
-    /* Yu Mincho は明朝体なので、
-     * この解答のように、
-     * "Yu Mincho" の後に、このフォントが
-     * 無かった場合に備えて、serif
-     * を指定するとより良いです */
-  }
+  /* Yu Mincho は明朝体なので、
+   * この解答のように、
+   * "Yu Mincho" の後に、このフォントが
+   * 無かった場合に備えて、serif
+   * を指定するとより良いです */
+}
 
-  .sakusha {
-    font: italic 18px "Yu Mincho", serif;
-  }
+.sakusha {
+  font: italic 18px "Yu Mincho", serif;
+}
 
-  .setsumei {
-    font: 14px "Yu Gothic", sans-serif;
-  }
+.setsumei {
+  font: 14px "Yu Gothic", sans-serif;
+}
 ```
 </CodePreview> 
 
@@ -406,22 +406,22 @@ background: <image> <repeat> <position> / <size> <attachment> <color>;
 
 ```css
 div {
-    width: 300px;
-    height: 200px;
-  }
-  
-  /* 一括指定 */
-  .box1 {
-    background: url("./img/background-sample.png") no-repeat center lightblue;
-  }
+  width: 300px;
+  height: 200px;
+}
 
-  /* 個別指定 */
-  .box2 {
-    background-image: url("./img/background-sample.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: lightblue;
-  }
+/* 一括指定 */
+.box1 {
+  background: url("./img/background-sample.png") no-repeat center lightblue;
+}
+
+/* 個別指定 */
+.box2 {
+  background-image: url("./img/background-sample.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: lightblue;
+}
 ```
 </CodePreview>
 
@@ -436,24 +436,24 @@ div {
 
 ```css
 div {
-    width: 280px;
-    height: 100px;
-  }
-  
-  /* 背景色のみ */
-  .pattern1 {
-    background: #ff6b6b;
-  }
+  width: 280px;
+  height: 100px;
+}
 
-  /* 画像のみ */
-  .pattern2 {
-    background: url("./img/background-sample.png") no-repeat center;
-  }
+/* 背景色のみ */
+.pattern1 {
+  background: #ff6b6b;
+}
 
-  /* 色と画像の組み合わせ */
-  .pattern3 {
-    background: url("./img/background-sample.png") no-repeat right lightgreen;
-  }
+/* 画像のみ */
+.pattern2 {
+  background: url("./img/background-sample.png") no-repeat center;
+}
+
+/* 色と画像の組み合わせ */
+.pattern3 {
+  background: url("./img/background-sample.png") no-repeat right lightgreen;
+}
 ```
 </CodePreview>
 
@@ -472,28 +472,28 @@ div {
 >
 ```html
 <!-- いずれも、横幅350px、高さ200px -->
-  
-  <!-- 一括指定で、背景色は明るい水色（#f0f8ff）
-       画像はフェンス、繰り返しなし、位置は中央 -->
-  <div class="ookii">ヒーローセクション</div>
 
-  <!-- 個別指定で、背景色は青めのグレー（#839fbb）のみ -->
-  <div class="kaado">カード要素</div>
+<!-- 一括指定で、背景色は明るい水色（#f0f8ff）
+     画像はフェンス、繰り返しなし、位置は中央 -->
+<div class="ookii">ヒーローセクション</div>
+
+<!-- 個別指定で、背景色は青めのグレー（#839fbb）のみ -->
+<div class="kaado">カード要素</div>
 ```
 
 ```css
 div {
-    width: 350px;
-    height: 200px;
-  }
-  
-  .ookii {
-    background: #f0f8ff url("../img/fence.png") no-repeat center;
-  }
+  width: 350px;
+  height: 200px;
+}
 
-  .kaado {
-    background-color: #839fbb;
-  }
+.ookii {
+  background: #f0f8ff url("../img/fence.png") no-repeat center;
+}
+
+.kaado {
+  background-color: #839fbb;
+}
 ```
 </CodePreview>
 
@@ -520,18 +520,18 @@ div {
 >
 ```html
 <!-- いずれも、横幅800px、高さ250px -->
-  
-  <!-- 一括指定で、背景色は、薄い青（#e3f2fd）
-       画像はフェンス（幅120px・高さ自動）、横方向に繰り返し、左下が初期位置 -->
-  <div class="koe">お客様の声</div>
+
+<!-- 一括指定で、背景色は、薄い青（#e3f2fd）
+     画像はフェンス（幅120px・高さ自動）、横方向に繰り返し、左下が初期位置 -->
+<div class="koe">お客様の声</div>
 ```
 
 ```css
 .koe {
-    background: url("../img/fence.png") repeat-x left bottom / 120px auto #e3f2fd;
-    width: 800px;
-    height: 250px;
-  }
+  background: url("../img/fence.png") repeat-x left bottom / 120px auto #e3f2fd;
+  width: 800px;
+  height: 250px;
+}
 ```
 </CodePreview>
 
@@ -583,20 +583,20 @@ background: <image> <repeat> <position> / <size> <attachment> <color>;
 >
 ```html
 <img src="./img/red_tapes.png" alt="赤いテープ" />
-  <img src="./img/trains.png" alt="電車" />
-  <div class="kasanari"></div>
+<img src="./img/trains.png" alt="電車" />
+<div class="kasanari"></div>
 ```
 
 ```css
 .kasanari {
-    width: 350px;
-    height: 200px;
+  width: 350px;
+  height: 200px;
 
-    /* 先頭が上に表示される（上：赤いテープ、下：電車） */
-    background:
-      url("./img/red_tapes.png") repeat-x center 20px,
-      url("./img/trains.png") repeat-x center top #fdf;
-  }
+  /* 先頭が上に表示される（上：赤いテープ、下：電車） */
+  background:
+    url("./img/red_tapes.png") repeat-x center 20px,
+    url("./img/trains.png") repeat-x center top #fdf;
+}
 ```
 </CodePreview>
 
@@ -616,22 +616,22 @@ background: <image> <repeat> <position> / <size> <attachment> <color>;
 ```html
 <!-- 要素は横幅350px、高さ300px -->
 
-  <!-- プレビューのように、
-       フェンスを手前下部で中央から横方向に繰り返し、
-       恐竜をフェンスの奥で下部の中央に1匹。
-       背景色は薄い水色。 -->
-  <div class="kasane1">重ねた背景の例</div>
+<!-- プレビューのように、
+     フェンスを手前下部で中央から横方向に繰り返し、
+     恐竜をフェンスの奥で下部の中央に1匹。
+     背景色は薄い水色。 -->
+<div class="kasane1">重ねた背景の例</div>
 ```
 
 ```css
 .kasane1 {
-    width: 350px;
-    height: 300px;
+  width: 350px;
+  height: 300px;
 
-    background:
-      url("../img/fence.png") repeat-x center bottom,
-      url("../img/dinosaur.png") no-repeat center bottom #f0f8ff;
-  }
+  background:
+    url("../img/fence.png") repeat-x center bottom,
+    url("../img/dinosaur.png") no-repeat center bottom #f0f8ff;
+}
 ```
 </CodePreview>
 
@@ -663,20 +663,20 @@ background: <image> <repeat> <position> / <size> <attachment> <color>;
 ```html
 <!-- 要素は、横幅350px、高さ200px -->
 
-  <!-- 右上にバッジ（badge.png, 幅60px、高さauto）、左下にリボン（ribbon.png, 幅140px、高さauto）、全体にパターンタイル（pattern.jpg, 幅100px、高さauto）を敷き詰める -->
-  <div class="campaign">キャンペーンカード</div>
+<!-- 右上にバッジ（badge.png, 幅60px、高さauto）、左下にリボン（ribbon.png, 幅140px、高さauto）、全体にパターンタイル（pattern.jpg, 幅100px、高さauto）を敷き詰める -->
+<div class="campaign">キャンペーンカード</div>
 ```
 
 ```css
 .campaign {
-    width: 350px;
-    height: 200px;
+  width: 350px;
+  height: 200px;
 
-    background:
-      url("../img/badge.png") no-repeat right top / 60px auto,
-      url("../img/ribbon.png") no-repeat left bottom / 140px auto,
-      url("../img/pattern.jpg") repeat center center / 100px auto;
-  }
+  background:
+    url("../img/badge.png") no-repeat right top / 60px auto,
+    url("../img/ribbon.png") no-repeat left bottom / 140px auto,
+    url("../img/pattern.jpg") repeat center center / 100px auto;
+}
 ```
 </CodePreview>
 

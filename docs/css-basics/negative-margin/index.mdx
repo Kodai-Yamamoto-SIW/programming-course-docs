@@ -21,87 +21,87 @@ CSSの`margin`プロパティには、正の値だけでなく**負の値**も�
 >
 ```html
 <div class="product-showcase">
-    <h2 class="showcase-title">おすすめ商品</h2>
-    <div class="products">
-      <div class="product">
-        <div class="product-badge">NEW</div>
-        <div class="product-image">商品A</div>
-        <p>¥1,980</p>
-      </div>
-      <div class="product">
-        <div class="product-image">商品B</div>
-        <p>¥2,480</p>
-      </div>
-      <div class="product">
-        <div class="product-image">商品C</div>
-        <p>¥1,280</p>
-      </div>
+  <h2 class="showcase-title">おすすめ商品</h2>
+  <div class="products">
+    <div class="product">
+      <div class="product-badge">NEW</div>
+      <div class="product-image">商品A</div>
+      <p>¥1,980</p>
+    </div>
+    <div class="product">
+      <div class="product-image">商品B</div>
+      <p>¥2,480</p>
+    </div>
+    <div class="product">
+      <div class="product-image">商品C</div>
+      <p>¥1,280</p>
     </div>
   </div>
+</div>
 ```
 
 ```css
 body {
-    margin: 0;
-    font-family: sans-serif;
-    padding: 20px;
-  }
+  margin: 0;
+  font-family: sans-serif;
+  padding: 20px;
+}
 
-  .product-showcase {
-    max-width: 600px;
-    margin: 0 auto;
-  }
+.product-showcase {
+  max-width: 600px;
+  margin: 0 auto;
+}
 
-  .showcase-title {
-    position: relative;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 60px 20px 40px;
-    margin: 0 -10px;
-    border-radius: 8px;
-    text-align: center;
-  }
+.showcase-title {
+  position: relative;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 60px 20px 40px;
+  margin: 0 -10px;
+  border-radius: 8px;
+  text-align: center;
+}
 
-  .products {
-    display: flex;
-    gap: 16px;
-    margin-top: -30px;
-  }
+.products {
+  display: flex;
+  gap: 16px;
+  margin-top: -30px;
+}
 
-  .product {
-    flex: 1;
-    position: relative;
-    text-align: center;
-  }
+.product {
+  flex: 1;
+  position: relative;
+  text-align: center;
+}
 
-  .product-badge {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background: #ff5722;
-    color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: bold;
-    z-index: 1;
-  }
+.product-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff5722;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 1;
+}
 
-  .product-image {
-    height: 160px;
-    background: #f0f0f0;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-  }
+.product-image {
+  height: 160px;
+  background: #f0f0f0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+}
 
-  .product p {
-    margin: 8px 0 0;
-    font-weight: bold;
-    color: #333;
-  }
+.product p {
+  margin: 8px 0 0;
+  font-weight: bold;
+  color: #333;
+}
 ```
 </CodePreview>
 
@@ -133,32 +133,32 @@ body {
 >
 ```html
 <div class="normal">通常のマージン（20px）</div>
-  <div class="negative">負のマージン（-20px）</div>
-  <div class="last">最後の要素</div>
+<div class="negative">負のマージン（-20px）</div>
+<div class="last">最後の要素</div>
 ```
 
 ```css
 body {
-    margin: 0;
-    padding: 20px;
-  }
+  margin: 0;
+  padding: 20px;
+}
 
-  .normal {
-    padding: 20px;
-    margin: 20px;
-    background: #ffdddd;
-  }
+.normal {
+  padding: 20px;
+  margin: 20px;
+  background: #ffdddd;
+}
 
-  .negative {
-    padding: 20px;
-    margin: -20px;
-    background: #ddddff;
-  }
+.negative {
+  padding: 20px;
+  margin: -20px;
+  background: #ddddff;
+}
 
-  .last {
-    padding: 20px;
-    background: #ddffdd;
-  }
+.last {
+  padding: 20px;
+  background: #ddffdd;
+}
 ```
 </CodePreview>
 
@@ -175,27 +175,27 @@ body {
 >
 ```html
 <div class="A">A</div>
-  <div class="B">B</div>
-  <p>ダミーテキスト。そこは十一月ことにその意味らについて事の以上がよしますう。同時に今日を卒業者もついにその病気たいたまでをいうてみるうをは安心思わでんから、いろいろには待っありででた。個人に生きましのはけっしてほかにけっしてありですです。同時に嘉納さんを採用人ずいぶん中止が煮えだ例外このただ誰か品評がというご尊重たたなですて。</p>
+<div class="B">B</div>
+<p>ダミーテキスト。そこは十一月ことにその意味らについて事の以上がよしますう。同時に今日を卒業者もついにその病気たいたまでをいうてみるうをは安心思わでんから、いろいろには待っありででた。個人に生きましのはけっしてほかにけっしてありですです。同時に嘉納さんを採用人ずいぶん中止が煮えだ例外このただ誰か品評がというご尊重たたなですて。</p>
 ```
 
 ```css
 .A, .B {
-    text-align: center;
-    color: #fff;
-    width: 100px;
-    height: 100px;
-  }
-  .A {
-    background-color: blue;
-  }
+  text-align: center;
+  color: #fff;
+  width: 100px;
+  height: 100px;
+}
+.A {
+  background-color: blue;
+}
 
-  .B {
-    background-color: green;
+.B {
+  background-color: green;
 
-    margin-left: 50px;
-    margin-top: -50px;
-  }
+  margin-left: 50px;
+  margin-top: -50px;
+}
 ```
 </CodePreview>
 

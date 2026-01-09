@@ -33,207 +33,207 @@ CSSの`position`は、要素を「通常の文書の流れ」からどのよう�
 >
 ```html
 <header class="header">
-    <span class="logo">📰 NEWS SITE</span>
-  </header>
-  
-  <div class="hero">
-    <h1>最新ニュースをチェック</h1>
-    <p>毎日更新される最新情報をお届けします</p>
-  </div>
-  
-  <nav class="category-tabs">
-    <span class="tab active">すべて</span>
-    <span class="tab">テクノロジー</span>
-    <span class="tab">ビジネス</span>
-  </nav>
-  
-  <main class="content">
-    <section class="article">
-      <h2 class="section-title">今日のニュース</h2>
-      
-      <article class="news-card">
-        <div class="news-image"></div>
-        <span class="badge">NEW</span>
-        <h3>新製品が発表されました <span class="icon">🔥</span></h3>
-        <p>本日、最新のスマートフォンが発表され...</p>
-      </article>
-      
-      <article class="news-card">
-        <div class="news-image"></div>
-        <h3>セール開催中 <span class="icon">🎉</span></h3>
-        <p>期間限定で最大50%オフのセールを...</p>
-      </article>
-      
-      <div style="height: 400px; padding: 20px; background: #f9f9f9; border: 1px dashed #ddd; display: flex; align-items: center; justify-content: center; color: #999;">
-        （さらに記事が続く...スクロールしてみてください）
-      </div>
-    </section>
-  </main>
-  
-  <button class="scroll-top">TOP</button>
+  <span class="logo">📰 NEWS SITE</span>
+</header>
+
+<div class="hero">
+  <h1>最新ニュースをチェック</h1>
+  <p>毎日更新される最新情報をお届けします</p>
+</div>
+
+<nav class="category-tabs">
+  <span class="tab active">すべて</span>
+  <span class="tab">テクノロジー</span>
+  <span class="tab">ビジネス</span>
+</nav>
+
+<main class="content">
+  <section class="article">
+    <h2 class="section-title">今日のニュース</h2>
+    
+    <article class="news-card">
+      <div class="news-image"></div>
+      <span class="badge">NEW</span>
+      <h3>新製品が発表されました <span class="icon">🔥</span></h3>
+      <p>本日、最新のスマートフォンが発表され...</p>
+    </article>
+    
+    <article class="news-card">
+      <div class="news-image"></div>
+      <h3>セール開催中 <span class="icon">🎉</span></h3>
+      <p>期間限定で最大50%オフのセールを...</p>
+    </article>
+    
+    <div style="height: 400px; padding: 20px; background: #f9f9f9; border: 1px dashed #ddd; display: flex; align-items: center; justify-content: center; color: #999;">
+      （さらに記事が続く...スクロールしてみてください）
+    </div>
+  </section>
+</main>
+
+<button class="scroll-top">TOP</button>
 ```
 
 ```css
 body {
-    margin: 0;
-    font-family: sans-serif;
-  }
-  
-  /* fixed: 画面上部に固定されるヘッダー */
-  .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 56px;
-    background: #1976d2;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-    box-shadow: 0 2px 4px rgba(0,0,0,.1);
-    z-index: 100;
-  }
-  
-  .logo {
-    font-size: 18px;
-    font-weight: bold;
-  }
-  
-  /* ヒーローエリア: stickyタブの前にスペースを作る */
-  .hero {
-    margin-top: 56px;
-    padding: 40px 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #fff;
-    text-align: center;
-  }
-  
-  .hero h1 {
-    margin: 0 0 12px;
-    font-size: 24px;
-  }
-  
-  .hero p {
-    margin: 0;
-    opacity: 0.9;
-  }
-  
-  /* sticky: スクロール時に上部に貼り付くカテゴリータブ */
-  .category-tabs {
-    position: sticky;
-    top: 56px;
-    background: #fff;
-    border-bottom: 1px solid #e0e0e0;
-    padding: 12px 16px;
-    display: flex;
-    gap: 16px;
-    z-index: 50;
-    box-shadow: 0 2px 4px rgba(0,0,0,.05);
-  }
-  
-  .tab {
-    padding: 6px 12px;
-    border-radius: 16px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background .2s;
-  }
-  
-  .tab.active {
-    background: #e3f2fd;
-    color: #1976d2;
-    font-weight: 600;
-  }
-  
-  .content {
-    padding-top: 20px;
-    padding-bottom: 40px;
-  }
-  
-  .article {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 0 16px;
-  }
-  
-  .section-title {
-    padding: 12px 0;
-    margin: 0 0 16px;
-    border-bottom: 2px solid #1976d2;
-  }
-  
-  /* relative: バッジ配置の基準 & アイコン位置調整 */
-  .news-card {
-    position: relative;
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 16px;
-    box-shadow: 0 1px 3px rgba(0,0,0,.1);
-  }
-  
-  .news-image {
-    height: 160px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 4px;
-    margin-bottom: 12px;
-  }
-  
-  /* absolute: カード右上に重ねるバッジ */
-  .badge {
-    position: absolute;
-    right: 12px;
-    top: 12px;
-    background: #ff5722;
-    color: #fff;
-    padding: 4px 8px;
-    font-size: 11px;
-    font-weight: bold;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0,0,0,.2);
-  }
-  
-  .news-card h3 {
-    margin: 0 0 8px;
-    font-size: 18px;
-  }
-  
-  .news-card p {
-    margin: 0;
-    color: #666;
-    line-height: 1.6;
-  }
-  
-  /* relative: アイコンを少し上に調整 */
-  .icon {
-    position: relative;
-    top: -1px;
-    font-size: 16px;
-  }
-  
-  /* fixed: 画面右下に固定されるボタン */
-  .scroll-top {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: none;
-    background: #1976d2;
-    color: #fff;
-    font-size: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,0,0,.3);
-    z-index: 50;
-  }
-  
-  .scroll-top:hover {
-    background: #1565c0;
-  }
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* fixed: 画面上部に固定されるヘッダー */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: #1976d2;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  z-index: 100;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* ヒーローエリア: stickyタブの前にスペースを作る */
+.hero {
+  margin-top: 56px;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0 0 12px;
+  font-size: 24px;
+}
+
+.hero p {
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* sticky: スクロール時に上部に貼り付くカテゴリータブ */
+.category-tabs {
+  position: sticky;
+  top: 56px;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 12px 16px;
+  display: flex;
+  gap: 16px;
+  z-index: 50;
+  box-shadow: 0 2px 4px rgba(0,0,0,.05);
+}
+
+.tab {
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.tab.active {
+  background: #e3f2fd;
+  color: #1976d2;
+  font-weight: 600;
+}
+
+.content {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.article {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.section-title {
+  padding: 12px 0;
+  margin: 0 0 16px;
+  border-bottom: 2px solid #1976d2;
+}
+
+/* relative: バッジ配置の基準 & アイコン位置調整 */
+.news-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.1);
+}
+
+.news-image {
+  height: 160px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+
+/* absolute: カード右上に重ねるバッジ */
+.badge {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: #ff5722;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+}
+
+.news-card h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.news-card p {
+  margin: 0;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* relative: アイコンを少し上に調整 */
+.icon {
+  position: relative;
+  top: -1px;
+  font-size: 16px;
+}
+
+/* fixed: 画面右下に固定されるボタン */
+.scroll-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #1976d2;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  z-index: 50;
+}
+
+.scroll-top:hover {
+  background: #1565c0;
+}
 ```
 </CodePreview>
 
@@ -253,108 +253,108 @@ body {
 >
 ```html
 <h4>static（初期値）</h4>
-  <div class="wrap">
-    <div class="box a">A</div>
-    <div class="box b static">B<br><small>static</small></div>
-    <div class="box c">C</div>
-  </div>
-  
-  <h4>relative</h4>
-  <div class="wrap">
-    <div class="box a">A</div>
-    <div class="box b relative">B<br><small>relative</small></div>
-    <div class="box c">C</div>
-  </div>
-  
-  <h4>absolute</h4>
-  <div class="wrap" style="position: relative;">
-    <div class="box a">A</div>
-    <div class="box b absolute">B<br><small>absolute</small></div>
-    <div class="box c">C</div>
-  </div>
-  
-  <h4>fixed</h4>
-  <div class="wrap">
-    <div class="box a">A</div>
-    <div class="box b fixed">B<br><small>fixed</small></div>
-    <div class="box c">C</div>
-  </div>
-  
-  <h4>sticky（スクロールしてみてください）</h4>
-  <div class="wrap scroll">
-    <p style="height: 50px; background: #f7f7f7;">（長い内容1）</p>
-    <div class="box a">A</div>
-    <div class="box b sticky">B<br><small>sticky</small></div>
-    <div class="box c">C</div>
-    <p style="height: 400px; background: #f7f7f7;">（長い内容2）</p>
-  </div>
+<div class="wrap">
+  <div class="box a">A</div>
+  <div class="box b static">B<br><small>static</small></div>
+  <div class="box c">C</div>
+</div>
+
+<h4>relative</h4>
+<div class="wrap">
+  <div class="box a">A</div>
+  <div class="box b relative">B<br><small>relative</small></div>
+  <div class="box c">C</div>
+</div>
+
+<h4>absolute</h4>
+<div class="wrap" style="position: relative;">
+  <div class="box a">A</div>
+  <div class="box b absolute">B<br><small>absolute</small></div>
+  <div class="box c">C</div>
+</div>
+
+<h4>fixed</h4>
+<div class="wrap">
+  <div class="box a">A</div>
+  <div class="box b fixed">B<br><small>fixed</small></div>
+  <div class="box c">C</div>
+</div>
+
+<h4>sticky（スクロールしてみてください）</h4>
+<div class="wrap scroll">
+  <p style="height: 50px; background: #f7f7f7;">（長い内容1）</p>
+  <div class="box a">A</div>
+  <div class="box b sticky">B<br><small>sticky</small></div>
+  <div class="box c">C</div>
+  <p style="height: 400px; background: #f7f7f7;">（長い内容2）</p>
+</div>
 ```
 
 ```css
 .wrap {
-    height: 80px;
-    border: 2px dashed #999;
-    margin-bottom: 20px;
-  }
-  
-  .wrap.scroll {
-    height: 200px;
-    overflow: auto;
-  }
-  
-  .box {
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    color: #fff;
-    display: inline-block;
-    padding-top: 8px;
-    vertical-align: top;
-  }
-  
-  .box small {
-    font-size: 9px;
-    opacity: 0.8;
-  }
-  
-  .a {
-    background: #4caf50;
-  }
-  
-  .b {
-    background: #2196f3;
-  }
-  
-  .c {
-    background: #f44336;
-  }
-  
-  .static {
-    /* position: static; は初期値なので指定不要 */
-  }
-  
-  .relative {
-    position: relative;
-    left: 20px;
-    top: 10px;
-  }
-  
-  .absolute {
-    position: absolute;
-    right: 20px;
-    top: 10px;
-  }
-  
-  .fixed {
-    position: fixed;
-    right: 80px;
-    top: 60px;
-  }
-  
-  .sticky {
-    position: sticky;
-    top: 0;
-  }
+  height: 80px;
+  border: 2px dashed #999;
+  margin-bottom: 20px;
+}
+
+.wrap.scroll {
+  height: 200px;
+  overflow: auto;
+}
+
+.box {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  color: #fff;
+  display: inline-block;
+  padding-top: 8px;
+  vertical-align: top;
+}
+
+.box small {
+  font-size: 9px;
+  opacity: 0.8;
+}
+
+.a {
+  background: #4caf50;
+}
+
+.b {
+  background: #2196f3;
+}
+
+.c {
+  background: #f44336;
+}
+
+.static {
+  /* position: static; は初期値なので指定不要 */
+}
+
+.relative {
+  position: relative;
+  left: 20px;
+  top: 10px;
+}
+
+.absolute {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+
+.fixed {
+  position: fixed;
+  right: 80px;
+  top: 60px;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}
 ```
 </CodePreview>
 
@@ -368,38 +368,38 @@ body {
 >
 ```html
 <div class="wrap">
-    <div class="box a">A</div>
-    <div class="box b">B</div>
-    <div class="box c">C</div>
-  </div>
+  <div class="box a">A</div>
+  <div class="box b">B</div>
+  <div class="box c">C</div>
+</div>
 ```
 
 ```css
 .wrap {
-    border: 2px dashed #999;
-  }
-  
-  .box {
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    color: #fff;
-  }
-  
-  .a {
-    background: #4caf50;
-  }
-  
-  .b {
-    background: #2196f3;
-    position: relative;
-    left: 20px;
-    top: 10px;
-  }
-  
-  .c {
-    background: #f44336;
-  }
+  border: 2px dashed #999;
+}
+
+.box {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  color: #fff;
+}
+
+.a {
+  background: #4caf50;
+}
+
+.b {
+  background: #2196f3;
+  position: relative;
+  left: 20px;
+  top: 10px;
+}
+
+.c {
+  background: #f44336;
+}
 ```
 </CodePreview>
 
@@ -423,41 +423,41 @@ body {
 >
 ```html
 <div class="wrap">
-    <div class="box a">A</div>
-    <div class="box b">B</div>
-    <div class="box c">C</div>
-  </div>
-  <p>スクロールしてみてください。</p>
-  <p style="height: 4000px; background: #f7f7f7;">（長い空白）</p>
-  <p>おわり</p>
+  <div class="box a">A</div>
+  <div class="box b">B</div>
+  <div class="box c">C</div>
+</div>
+<p>スクロールしてみてください。</p>
+<p style="height: 4000px; background: #f7f7f7;">（長い空白）</p>
+<p>おわり</p>
 ```
 
 ```css
 .wrap {
-    border: 2px dashed #999;
-  }
-  
-  .box {
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    color: #fff;
-  }
-  
-  .a {
-    background: #4caf50;
-  }
-  
-  .b {
-    background: #2196f3;
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-  }
-  
-  .c {
-    background: #f44336;
-  }
+  border: 2px dashed #999;
+}
+
+.box {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  color: #fff;
+}
+
+.a {
+  background: #4caf50;
+}
+
+.b {
+  background: #2196f3;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+.c {
+  background: #f44336;
+}
 ```
 </CodePreview>
 
@@ -475,24 +475,24 @@ class="top" のついたボタンが、下のプレビューのような見た�
 >
 ```html
 <div style="height: 4000px; background: #f7f7f7; padding: 8px;">長いページ（スクロール）</div>
-  <!-- ↓この要素にCSSを適用 -->
-  <button class="top">TOP</button>
+<!-- ↓この要素にCSSを適用 -->
+<button class="top">TOP</button>
 ```
 
 ```css
 .top {
-    position: fixed;
-    right: 16px;
-    bottom: 16px;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: none;
-    background: #1976d2;
-    color: #fff;
-    font-weight: bold;
-    box-shadow: 0 2px 6px rgba(0,0,0,.2);
-  }
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #1976d2;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,.2);
+}
 ```
 </CodePreview>
 
@@ -517,38 +517,38 @@ class="top" のついたボタンが、下のプレビューのような見た�
 >
 ```html
 <div style="height: 4000px; background: #f7f7f7; padding: 16px;">
-    <p>ページの内容（スクロールしてもモーダルは画面中央に固定されます）</p>
-  </div>
-  <!-- ↓この要素にCSSを適用 -->
-  <div class="overlay"></div>
-  <!-- ↓この要素にCSSを適用 -->
-  <div class="modal">
-    <h3 style="margin: 0 0 12px;">お知らせ</h3>
-    <p style="margin: 0;">新機能が追加されました。</p>
-  </div>
+  <p>ページの内容（スクロールしてもモーダルは画面中央に固定されます）</p>
+</div>
+<!-- ↓この要素にCSSを適用 -->
+<div class="overlay"></div>
+<!-- ↓この要素にCSSを適用 -->
+<div class="modal">
+  <h3 style="margin: 0 0 12px;">お知らせ</h3>
+  <p style="margin: 0;">新機能が追加されました。</p>
+</div>
 ```
 
 ```css
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-  }
-  
-  .modal {
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
 
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+.modal {
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 ```
 </CodePreview>
 
@@ -582,38 +582,38 @@ class="top" のついたボタンが、下のプレビューのような見た�
 >
 ```html
 <div class="wrap">
-    <div class="box a">A</div>
-    <div class="box b">B</div>
-    <div class="box c">C</div>
-    <p style="height: 4000px; background: #f7f7f7;">（長い内容）</p>
-  </div>
+  <div class="box a">A</div>
+  <div class="box b">B</div>
+  <div class="box c">C</div>
+  <p style="height: 4000px; background: #f7f7f7;">（長い内容）</p>
+</div>
 ```
 
 ```css
 .wrap {
-    border: 2px dashed #999;
-  }
-  
-  .box {
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    color: #fff;
-  }
-  
-  .a {
-    background: #4caf50;
-  }
-  
-  .b {
-    background: #2196f3;
-    position: sticky;
-    top: 0;
-  }
-  
-  .c {
-    background: #f44336;
-  }
+  border: 2px dashed #999;
+}
+
+.box {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  color: #fff;
+}
+
+.a {
+  background: #4caf50;
+}
+
+.b {
+  background: #2196f3;
+  position: sticky;
+  top: 0;
+}
+
+.c {
+  background: #f44336;
+}
 ```
 </CodePreview>
 
@@ -636,25 +636,25 @@ h4.pin が、下のプレビューのようにスクロール時に上部へ貼�
 >
 ```html
 <div class="hero" style="padding: 40px 16px; background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; text-align: center;">
-    <h2 style="margin: 0 0 8px;">ページタイトル</h2>
-    <p style="margin: 0;">サブタイトル</p>
-  </div>
-  <!-- ↓この要素にCSSを適用 -->
-  <h4 class="pin">メニュー1 | メニュー2 | メニュー3</h4>
-  <p>内容A-1</p>
-  <p style="height: 4000px; background:#f7f7f7;">（長文）</p>
+  <h2 style="margin: 0 0 8px;">ページタイトル</h2>
+  <p style="margin: 0;">サブタイトル</p>
+</div>
+<!-- ↓この要素にCSSを適用 -->
+<h4 class="pin">メニュー1 | メニュー2 | メニュー3</h4>
+<p>内容A-1</p>
+<p style="height: 4000px; background:#f7f7f7;">（長文）</p>
 ```
 
 ```css
 .pin {
-    margin: 0;
-    padding: 8px 12px;
+  margin: 0;
+  padding: 8px 12px;
 
-    position: sticky;
-    top: 0;
-    background: #fff;
-    border-bottom: 1px solid #eee;
-  }
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
 ```
 </CodePreview>
 
@@ -678,23 +678,23 @@ h4.pin が、下のプレビューのようにスクロール時に上部へ貼�
 >
 ```html
 
-  <body style="display: flex; gap: 16px;">
-    <!-- ↓この要素にCSSを適用 -->
-    <aside class="sidebar">メニュー1<br>メニュー2<br>メニュー3</aside>
-    <section style="flex: 1; border: 1px solid #ddd; padding: 8px;">本文…<div style="height: 4000px;"></div>おわり</section>
-  </body>
+<body style="display: flex; gap: 16px;">
+  <!-- ↓この要素にCSSを適用 -->
+  <aside class="sidebar">メニュー1<br>メニュー2<br>メニュー3</aside>
+  <section style="flex: 1; border: 1px solid #ddd; padding: 8px;">本文…<div style="height: 4000px;"></div>おわり</section>
+</body>
 ```
 
 ```css
 .sidebar {
-    width: 160px;
-    height: fit-content;
-    padding: 8px;
-    border: 1px solid #ccc;
+  width: 160px;
+  height: fit-content;
+  padding: 8px;
+  border: 1px solid #ccc;
 
-    position: sticky;
-    top: 10px;
-  }
+  position: sticky;
+  top: 10px;
+}
 ```
 </CodePreview>
 
@@ -718,24 +718,24 @@ header.head が、下のプレビューのようになるように CSS を書い
 >
 ```html
 <body style="margin: 0;">
-    <!-- ↓この要素にCSSを適用 -->
-    <header class="head">Site Title</header>
-    <main class="page">
-      <p>本文の先頭</p>
-      <p style="height: 4000px; background:#f7f7f7;">（長文）</p>
-    </main>
-  </body>
+  <!-- ↓この要素にCSSを適用 -->
+  <header class="head">Site Title</header>
+  <main class="page">
+    <p>本文の先頭</p>
+    <p style="height: 4000px; background:#f7f7f7;">（長文）</p>
+  </main>
+</body>
 ```
 
 ```css
 .head {
-    height: 56px;
-    background: #333;
-    color: #fff;
+  height: 56px;
+  background: #333;
+  color: #fff;
 
-    position: sticky;
-    top: 0;
-  }
+  position: sticky;
+  top: 0;
+}
 ```
 </CodePreview>
 
@@ -759,30 +759,30 @@ h3.lv3 と h4.lv4 の見出しが、下のプレビューのように上下に�
 >
 ```html
 <p style="height: 50px; background:#fafafa;">（ちょっとした文章）</p>
-  <!-- ↓この2つの要素にCSSを適用 -->
-  <h3 class="lv3">章タイトル</h3>
-  <h4 class="lv4">節タイトル</h4>
-  <p style="height: 4000px; background:#fafafa;">（本文）</p>
+<!-- ↓この2つの要素にCSSを適用 -->
+<h3 class="lv3">章タイトル</h3>
+<h4 class="lv4">節タイトル</h4>
+<p style="height: 4000px; background:#fafafa;">（本文）</p>
 ```
 
 ```css
 .lv3 {
-    height: 40px;
+  height: 40px;
 
-    position: sticky;
-    top: 0;
-    border-bottom: 1px solid #eee;
-    background: #fff;
-  }
-  
-  .lv4 {
-    height: 35px;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+}
 
-    position: sticky;
-    top: 41px; /* lv3の高さ(40px) + 境界線(1px) */
-    border-bottom: 1px solid #eee;
-    background: #fff;
-  }
+.lv4 {
+  height: 35px;
+
+  position: sticky;
+  top: 41px; /* lv3の高さ(40px) + 境界線(1px) */
+  border-bottom: 1px solid #eee;
+  background: #fff;
+}
 ```
 </CodePreview>
 
@@ -806,39 +806,39 @@ h3.lv3 と h4.lv4 の見出しが、下のプレビューのように上下に�
 >
 ```html
 <div class="wrap">
-    <div class="box a">A</div>
-    <div class="box b">B</div>
-    <div class="box c">C</div>
-  </div>
+  <div class="box a">A</div>
+  <div class="box b">B</div>
+  <div class="box c">C</div>
+</div>
 ```
 
 ```css
 .wrap {
-    position: relative;
-    border: 2px dashed #999;
-  }
-  
-  .box {
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    color: #fff;
-  }
-  
-  .a {
-    background: #4caf50;
-  }
-  
-  .b {
-    background: #2196f3;
-    position: absolute;
-    right: 0;
-    top: 20px;
-  }
-  
-  .c {
-    background: #f44336;
-  }
+  position: relative;
+  border: 2px dashed #999;
+}
+
+.box {
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  color: #fff;
+}
+
+.a {
+  background: #4caf50;
+}
+
+.b {
+  background: #2196f3;
+  position: absolute;
+  right: 0;
+  top: 20px;
+}
+
+.c {
+  background: #f44336;
+}
 ```
 </CodePreview>
 
@@ -860,33 +860,33 @@ span.tag のラベルが、下のプレビューのようにカード右上へ�
 >
 ```html
 <div class="card">
-    <h3>お知らせ</h3>
-    <p>新機能をリリースしました。</p>
-    <!-- ↓主にこの要素にCSSを適用 -->
-    <span class="tag">NEW</span>
-  </div>
+  <h3>お知らせ</h3>
+  <p>新機能をリリースしました。</p>
+  <!-- ↓主にこの要素にCSSを適用 -->
+  <span class="tag">NEW</span>
+</div>
 ```
 
 ```css
 .card {
-    width: 300px;
-    padding: 16px;
-    border: 1px solid #ccc;
+  width: 300px;
+  padding: 16px;
+  border: 1px solid #ccc;
 
-    position: relative;
-  }
-  
-  .tag {
-    background: rgba(0,0,0,.6);
-    color: #fff;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 12px;
+  position: relative;
+}
 
-    position: absolute;
-    right: 8px;
-    top: 8px;
-  }
+.tag {
+  background: rgba(0,0,0,.6);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
 ```
 </CodePreview>
 
@@ -910,45 +910,45 @@ btn クラスのついたボタンにカーソルを載せると、下のプレ�
 >
 ```html
 <div style="padding: 60px; text-align: center;">
-    <button class="btn">
-      ヘルプ
-      <!-- ↓主にこの要素にCSSを適用 -->
-      <span class="tooltip">クリックすると詳細が表示されます</span>
-    </button>
-  </div>
+  <button class="btn">
+    ヘルプ
+    <!-- ↓主にこの要素にCSSを適用 -->
+    <span class="tooltip">クリックすると詳細が表示されます</span>
+  </button>
+</div>
 ```
 
 ```css
 .btn {
-    padding: 8px 16px;
-    background-color: #1976d2;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  padding: 8px 16px;
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 
-    position: relative;
-  }
-  
-  .tooltip {
-    visibility: hidden;
-    background-color: rgba(0,0,0,.8);
-    color: #fff;
-    padding: 6px 10px;
-    border-radius: 4px;
-    font-size: 13px;
-    white-space: nowrap;
+  position: relative;
+}
 
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-bottom: 6px;
-  }
-  
-  .btn:hover .tooltip {
-    visibility: visible;
-  }
+.tooltip {
+  visibility: hidden;
+  background-color: rgba(0,0,0,.8);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  white-space: nowrap;
+
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 6px;
+}
+
+.btn:hover .tooltip {
+  visibility: visible;
+}
 ```
 </CodePreview>
 

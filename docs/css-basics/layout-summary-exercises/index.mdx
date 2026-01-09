@@ -32,21 +32,21 @@ HTMLは完成している前提で、**CSSだけで調整**してください。
 >
 ```html
 <div class="card">
-    <h2 class="card-title">自己紹介</h2>
-    <p class="card-text">Webデザインの勉強中です。</p>
-    <p class="card-text">レイアウトが少し苦手なので練習します。</p>
-  </div>
+  <h2 class="card-title">自己紹介</h2>
+  <p class="card-text">Webデザインの勉強中です。</p>
+  <p class="card-text">レイアウトが少し苦手なので練習します。</p>
+</div>
 ```
 
 ```css
 .card {
-    width: 320px;
-    margin: auto;
-  }
+  width: 320px;
+  margin: auto;
+}
 
-  .card-title {
-    text-align: center;
-  }
+.card-title {
+  text-align: center;
+}
 
 ```
 </CodePreview>
@@ -78,27 +78,27 @@ HTMLは完成している前提で、**CSSだけで調整**してください。
 >
 ```html
 <div class="actions">
-    <a href="#" class="btn">保存<span class="badge">NEW</span></a>
-    <a href="#" class="btn">下書き保存</a>
-    <a href="#" class="btn">キャンセル</a>
-  </div>
+  <a href="#" class="btn">保存<span class="badge">NEW</span></a>
+  <a href="#" class="btn">下書き保存</a>
+  <a href="#" class="btn">キャンセル</a>
+</div>
 ```
 
 ```css
 .actions {
-    display: flex;
-    gap: 10px;
-  }
+  display: flex;
+  gap: 10px;
+}
 
-  .btn {
-    position: relative;
-  }
+.btn {
+  position: relative;
+}
 
-  .badge {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-  }
+.badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+}
 
 ```
 </CodePreview>
@@ -129,43 +129,43 @@ HTMLは完成している前提で、**CSSだけで調整**してください。
 >
 ```html
 <div class="services">
-    <div class="service-card">
-      <h3>Webデザイン</h3>
-      <p>レイアウトと配色の基礎を学べます。</p>
-    </div>
-    <div class="service-card">
-      <h3>フロントエンド</h3>
-      <p>HTML / CSS / JavaScript を使います。</p>
-    </div>
-    <div class="service-card">
-      <h3>ポートフォリオ</h3>
-      <p>自分の作品ページを作成します。</p>
-    </div>
-    <div class="service-card">
-      <h3>就職サポート</h3>
-      <p>作品の見せ方を一緒に考えます。</p>
-    </div>
+  <div class="service-card">
+    <h3>Webデザイン</h3>
+    <p>レイアウトと配色の基礎を学べます。</p>
   </div>
+  <div class="service-card">
+    <h3>フロントエンド</h3>
+    <p>HTML / CSS / JavaScript を使います。</p>
+  </div>
+  <div class="service-card">
+    <h3>ポートフォリオ</h3>
+    <p>自分の作品ページを作成します。</p>
+  </div>
+  <div class="service-card">
+    <h3>就職サポート</h3>
+    <p>作品の見せ方を一緒に考えます。</p>
+  </div>
+</div>
 ```
 
 ```css
 .services {
-    display: flex;
-  }
+  display: flex;
+}
 
-  .service-card {
-    width: 200px;
-    padding: 20px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    background: white;
-    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
-    margin-left: -120px;
-  }
+.service-card {
+  width: 200px;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  margin-left: -120px;
+}
 
-  .service-card:first-child {
-    margin-left: 0;
-  }
+.service-card:first-child {
+  margin-left: 0;
+}
 
 ```
 </CodePreview>
@@ -197,49 +197,49 @@ HTMLは完成している前提で、**CSSだけで調整**してください。
 >
 ```html
 <header class="site-header">
-    <div class="site-logo">MySite</div>
-    <nav class="site-nav">
-      <a href="#">ホーム</a>
-      <a href="#">コース</a>
-      <a href="#">お問い合わせ</a>
-    </nav>
-    <div class="site-actions">
-      <div class="search-box">
-        <input type="text" placeholder="ここに検索したいワードを入力して色々検索します">
-        <span class="search-icon">🔍</span>
-      </div>
-      <a href="#" class="login-btn">ログイン</a>
+  <div class="site-logo">MySite</div>
+  <nav class="site-nav">
+    <a href="#">ホーム</a>
+    <a href="#">コース</a>
+    <a href="#">お問い合わせ</a>
+  </nav>
+  <div class="site-actions">
+    <div class="search-box">
+      <input type="text" placeholder="ここに検索したいワードを入力して色々検索します">
+      <span class="search-icon">🔍</span>
     </div>
-  </header>
+    <a href="#" class="login-btn">ログイン</a>
+  </div>
+</header>
 ```
 
 ```css
 .site-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .site-nav {
-    display: flex;
-    gap: 15px;
-  }
+.site-nav {
+  display: flex;
+  gap: 15px;
+}
 
-  .site-actions {
-    display: flex;
-    gap: 10px;
-  }
+.site-actions {
+  display: flex;
+  gap: 10px;
+}
 
-  .search-box {
-    position: relative;
-  }
+.search-box {
+  position: relative;
+}
 
-  .search-icon {
-    position: absolute;
-    right: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+.search-icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
 ```
 </CodePreview>
@@ -274,71 +274,71 @@ HTMLは完成している前提で、**CSSだけで調整**してください。
 >
 ```html
 <div class="layout">
-    <main class="main">
-      <article class="post">
-        <div class="post-thumbnail">🖼️</div>
-        <span class="post-badge">おすすめ</span>
-        <h2>レイアウト練習ブログ</h2>
-        <p>このページではCSSレイアウトの練習をしています。CSSのflexboxを使うと柔軟なレイアウトが実現できます。</p>
-      </article>
-      <article class="post">
-        <div class="post-thumbnail">📱</div>
-        <span class="post-badge">おすすめ</span>
-        <h2>Flexboxの使い方</h2>
-        <p>文章量が増えても、読みやすい幅に保つことが大切です。レスポンシブデザインにも対応できます。</p>
-      </article>
-    </main>
-    <aside class="sidebar">
-      <h2>メニュー</h2>
-      <ul>
-        <li>プロフィール</li>
-        <li>記事一覧</li>
-        <li>お問い合わせ</li>
-      </ul>
-    </aside>
-  </div>
+  <main class="main">
+    <article class="post">
+      <div class="post-thumbnail">🖼️</div>
+      <span class="post-badge">おすすめ</span>
+      <h2>レイアウト練習ブログ</h2>
+      <p>このページではCSSレイアウトの練習をしています。CSSのflexboxを使うと柔軟なレイアウトが実現できます。</p>
+    </article>
+    <article class="post">
+      <div class="post-thumbnail">📱</div>
+      <span class="post-badge">おすすめ</span>
+      <h2>Flexboxの使い方</h2>
+      <p>文章量が増えても、読みやすい幅に保つことが大切です。レスポンシブデザインにも対応できます。</p>
+    </article>
+  </main>
+  <aside class="sidebar">
+    <h2>メニュー</h2>
+    <ul>
+      <li>プロフィール</li>
+      <li>記事一覧</li>
+      <li>お問い合わせ</li>
+    </ul>
+  </aside>
+</div>
 ```
 
 ```css
 .layout {
-    display: flex;
-    gap: 30px;
-  }
+  display: flex;
+  gap: 30px;
+}
 
-  .main {
-    flex: 2;
-  }
+.main {
+  flex: 2;
+}
 
-  .sidebar {
-    flex: 1;
-    padding: 20px;
-    background: #f5f5f5;
-    border-radius: 8px;
-  }
+.sidebar {
+  flex: 1;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 8px;
+}
 
-  .post {
-    position: relative;
-    padding: 40px 20px 20px;
-    margin-bottom: 30px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background: white;
-  }
+.post {
+  position: relative;
+  padding: 40px 20px 20px;
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: white;
+}
 
-  .post-thumbnail {
-    font-size: 40px;
-    margin-top: -55px;
-  }
+.post-thumbnail {
+  font-size: 40px;
+  margin-top: -55px;
+}
 
-  .post-badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 4px 10px;
-    background: #ff6b6b;
-    color: white;
-    border-radius: 10px;
-  }
+.post-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 10px;
+  background: #ff6b6b;
+  color: white;
+  border-radius: 10px;
+}
 
 ```
 </CodePreview>

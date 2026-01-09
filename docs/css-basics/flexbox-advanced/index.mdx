@@ -52,46 +52,46 @@ Flexbox の基本（`display: flex` / `gap` / `justify-content` / `flex-wrap`）
 >
 ```html
 <h4>align-items: stretch（初期値）</h4>
-  <div class="oya s1">
-    <div class="hako tall">A<br>高さ高め</div>
-    <div class="hako">B</div>
-    <div class="hako">C</div>
-  </div>
+<div class="oya s1">
+  <div class="hako tall">A<br>高さ高め</div>
+  <div class="hako">B</div>
+  <div class="hako">C</div>
+</div>
 
-  <h4>align-items: center</h4>
-  <div class="oya s2">
-    <div class="hako tall">A<br>高さ高め</div>
-    <div class="hako">B</div>
-    <div class="hako">C</div>
-  </div>
+<h4>align-items: center</h4>
+<div class="oya s2">
+  <div class="hako tall">A<br>高さ高め</div>
+  <div class="hako">B</div>
+  <div class="hako">C</div>
+</div>
 ```
 
 ```css
 .oya {
-    display: flex;
-    border: 2px dashed #999;
-    padding: 8px;
-    margin-bottom: 8px;
-  }
+  display: flex;
+  border: 2px dashed #999;
+  padding: 8px;
+  margin-bottom: 8px;
+}
 
-  .s1 {
-    align-items: stretch;
-  }
+.s1 {
+  align-items: stretch;
+}
 
-  .s2 {
-    align-items: center;
-  }
+.s2 {
+  align-items: center;
+}
 
-  .hako {
-    width: 90px;
-    background: #29b6f6;
-    color: #fff;
-    padding: 8px;
-  }
+.hako {
+  width: 90px;
+  background: #29b6f6;
+  color: #fff;
+  padding: 8px;
+}
 
-  .tall {
-    height: 90px;
-  }
+.tall {
+  height: 90px;
+}
 ```
 </CodePreview>
 
@@ -112,38 +112,38 @@ Flexbox の基本（`display: flex` / `gap` / `justify-content` / `flex-wrap`）
 >
 ```html
 <header class="head">
-    <div class="logo">🏠 サイト名</div>
-    <nav class="menu">
-      <a href="#">メニュー1</a>
-      <a href="#">メニュー2</a>
-    </nav>
-  </header>
+  <div class="logo">🏠 サイト名</div>
+  <nav class="menu">
+    <a href="#">メニュー1</a>
+    <a href="#">メニュー2</a>
+  </nav>
+</header>
 ```
 
 ```css
 .head {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background: #1976d2;
-    color: #fff;
-    padding: 12px 16px;
-  }
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #1976d2;
+  color: #fff;
+  padding: 12px 16px;
+}
 
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
-  }
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
 
-  .menu {
-    display: flex;
-    gap: 12px;
-  }
+.menu {
+  display: flex;
+  gap: 12px;
+}
 
-  .menu a {
-    color: #fff;
-    text-decoration: none;
-  }
+.menu a {
+  color: #fff;
+  text-decoration: none;
+}
 ```
 </CodePreview>
 
@@ -178,38 +178,38 @@ Flexbox の基本（`display: flex` / `gap` / `justify-content` / `flex-wrap`）
 >
 ```html
 <div class="cardlist">
-    <div class="card tall">
-      <h3>カード1</h3>
-      <p>少し長めの説明。</p>
-    </div>
-    <div class="card">
-      <h3>カード2</h3>
-      <p>短い説明。</p>
-    </div>
-    <div class="card">
-      <h3>カード3</h3>
-      <p>説明。</p>
-    </div>
+  <div class="card tall">
+    <h3>カード1</h3>
+    <p>少し長めの説明。</p>
   </div>
+  <div class="card">
+    <h3>カード2</h3>
+    <p>短い説明。</p>
+  </div>
+  <div class="card">
+    <h3>カード3</h3>
+    <p>説明。</p>
+  </div>
+</div>
 ```
 
 ```css
 .cardlist {
-    display: flex;
-    align-items: flex-end;
-    gap: 12px;
-  }
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
 
-  .card {
-    width: 150px;
-    border: 1px solid #ccc;
-    padding: 8px;
-    background: #fffde7;
-  }
+.card {
+  width: 150px;
+  border: 1px solid #ccc;
+  padding: 8px;
+  background: #fffde7;
+}
 
-  .tall {
-    height: 140px;
-  }
+.tall {
+  height: 140px;
+}
 ```
 </CodePreview>
 
@@ -255,39 +255,39 @@ Flexbox の基本（`display: flex` / `gap` / `justify-content` / `flex-wrap`）
 >
 ```html
 <div class="demo">
-    <div class="box a">A</div>
-    <div class="box b">B</div>
-    <div class="box c">C</div>
-  </div>
+  <div class="box a">A</div>
+  <div class="box b">B</div>
+  <div class="box c">C</div>
+</div>
 ```
 
 ```css
 .demo {
-    display: flex;
-    border: 2px dashed #999;
-    padding: 8px;
-  }
+  display: flex;
+  border: 2px dashed #999;
+  padding: 8px;
+}
 
-  .box {
-    height: 60px;
-    color: #fff;
-    text-align: center;
-  }
+.box {
+  height: 60px;
+  color: #fff;
+  text-align: center;
+}
 
-  .a {
-    background: #ef5350;
-    flex: 1;
-  }
+.a {
+  background: #ef5350;
+  flex: 1;
+}
 
-  .b {
-    background: #42a5f5;
-    flex: 2; /* flex: 1 の要素の 2 倍の幅になる、ということ */
-  }
+.b {
+  background: #42a5f5;
+  flex: 2; /* flex: 1 の要素の 2 倍の幅になる、ということ */
+}
 
-  .c {
-    background: #66bb6a;
-    flex: 1;
-  }
+.c {
+  background: #66bb6a;
+  flex: 1;
+}
 ```
 </CodePreview>
 
@@ -308,28 +308,28 @@ B が A・C の 2 倍の幅になっていることを確認してください�
 >
 ```html
 <div class="layout">
-    <div class="main">メインコンテンツ</div>
-    <div class="side">サイドバー</div>
-  </div>
+  <div class="main">メインコンテンツ</div>
+  <div class="side">サイドバー</div>
+</div>
 ```
 
 ```css
 .layout {
-    display: flex;
-    gap: 16px;
-  }
+  display: flex;
+  gap: 16px;
+}
 
-  .main {
-    flex: 2;
-    background: #e3f2fd;
-    padding: 8px;
-  }
+.main {
+  flex: 2;
+  background: #e3f2fd;
+  padding: 8px;
+}
 
-  .side {
-    flex: 1;
-    background: #fff3e0;
-    padding: 8px;
-  }
+.side {
+  flex: 1;
+  background: #fff3e0;
+  padding: 8px;
+}
 ```
 </CodePreview>
 
@@ -364,22 +364,22 @@ B が A・C の 2 倍の幅になっていることを確認してください�
 >
 ```html
 <div class="btns2">
-    <button>OK</button>
-    <button>キャンセル</button>
-    <button>適用</button>
-  </div>
+  <button>OK</button>
+  <button>キャンセル</button>
+  <button>適用</button>
+</div>
 ```
 
 ```css
 .btns2 {
-    display: flex;
-    gap: 12px;
-  }
+  display: flex;
+  gap: 12px;
+}
 
-  button {
-    flex: 1;
-    padding: 8px 0;
-  }
+button {
+  flex: 1;
+  padding: 8px 0;
+}
 ```
 </CodePreview>
 
@@ -412,29 +412,29 @@ B が A・C の 2 倍の幅になっていることを確認してください�
 >
 ```html
 <div class="cards2">
-    <div class="card">プランA</div>
-    <div class="card main">おすすめプラン</div>
-    <div class="card">プランC</div>
-  </div>
+  <div class="card">プランA</div>
+  <div class="card main">おすすめプラン</div>
+  <div class="card">プランC</div>
+</div>
 ```
 
 ```css
 .cards2 {
-    display: flex;
-    gap: 12px;
-  }
+  display: flex;
+  gap: 12px;
+}
 
-  .card {
-    flex: 1;
-    border: 1px solid #ccc;
-    padding: 12px;
-    text-align: center;
-  }
+.card {
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: center;
+}
 
-  .main {
-    flex: 1.5;
-    background: #fff8e1;
-  }
+.main {
+  flex: 1.5;
+  background: #fff8e1;
+}
 ```
 </CodePreview>
 
@@ -481,66 +481,66 @@ B が A・C の 2 倍の幅になっていることを確認してください�
 >
 ```html
 <h4>flex-direction: row（初期値）</h4>
-  <div class="dir yoko">
-    <div class="item">1</div>
-    <div class="item">2</div>
-    <div class="item">3</div>
-  </div>
+<div class="dir yoko">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
 
-  <h4>flex-direction: row-reverse</h4>
-  <div class="dir gyaku-yoko">
-    <div class="item">1</div>
-    <div class="item">2</div>
-    <div class="item">3</div>
-  </div>
+<h4>flex-direction: row-reverse</h4>
+<div class="dir gyaku-yoko">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
 
-  <h4>flex-direction: column</h4>
-  <div class="dir tate">
-    <div class="item">1</div>
-    <div class="item">2</div>
-    <div class="item">3</div>
-  </div>
+<h4>flex-direction: column</h4>
+<div class="dir tate">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
 
-  <h4>flex-direction: column-reverse</h4>
-  <div class="dir gyaku-tate">
-    <div class="item">1</div>
-    <div class="item">2</div>
-    <div class="item">3</div>
-  </div>
+<h4>flex-direction: column-reverse</h4>
+<div class="dir gyaku-tate">
+  <div class="item">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>
 ```
 
 ```css
 .dir {
-    display: flex;
-    gap: 8px;
-    border: 2px dashed #999;
-    padding: 8px;
-    margin-bottom: 8px;
-  }
+  display: flex;
+  gap: 8px;
+  border: 2px dashed #999;
+  padding: 8px;
+  margin-bottom: 8px;
+}
 
-  .yoko {
-    flex-direction: row;
-  }
+.yoko {
+  flex-direction: row;
+}
 
-  .gyaku-yoko {
-    flex-direction: row-reverse;
-  }
+.gyaku-yoko {
+  flex-direction: row-reverse;
+}
 
-  .tate {
-    flex-direction: column;
-  }
+.tate {
+  flex-direction: column;
+}
 
-  .gyaku-tate {
-    flex-direction: column-reverse;
-  }
+.gyaku-tate {
+  flex-direction: column-reverse;
+}
 
-  .item {
-    width: 60px;
-    height: 40px;
-    background: #ab47bc;
-    color: #fff;
-    text-align: center;
-  }
+.item {
+  width: 60px;
+  height: 40px;
+  background: #ab47bc;
+  color: #fff;
+  text-align: center;
+}
 ```
 </CodePreview>
 
@@ -561,25 +561,25 @@ B が A・C の 2 倍の幅になっていることを確認してください�
 >
 ```html
 <nav class="menu">
-    <a href="#">ホーム</a>
-    <a href="#">商品一覧</a>
-    <a href="#">お問い合わせ</a>
-  </nav>
+  <a href="#">ホーム</a>
+  <a href="#">商品一覧</a>
+  <a href="#">お問い合わせ</a>
+</nav>
 ```
 
 ```css
 .menu {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
-  a {
-    display: block;
-    padding: 8px;
-    border: 1px solid #ccc;
-    text-decoration: none;
-  }
+a {
+  display: block;
+  padding: 8px;
+  border: 1px solid #ccc;
+  text-decoration: none;
+}
 ```
 </CodePreview>
 
@@ -613,41 +613,41 @@ B が A・C の 2 倍の幅になっていることを確認してください�
 >
 ```html
 <h4>PC レイアウト（横並び）</h4>
-  <div class="cards3 pc">
-    <div class="card">カード1</div>
-    <div class="card">カード2</div>
-    <div class="card">カード3</div>
-  </div>
+<div class="cards3 pc">
+  <div class="card">カード1</div>
+  <div class="card">カード2</div>
+  <div class="card">カード3</div>
+</div>
 
-  <h4>スマホレイアウト（縦並び）</h4>
-  <div class="cards3 sp">
-    <div class="card">カード1</div>
-    <div class="card">カード2</div>
-    <div class="card">カード3</div>
-  </div>
+<h4>スマホレイアウト（縦並び）</h4>
+<div class="cards3 sp">
+  <div class="card">カード1</div>
+  <div class="card">カード2</div>
+  <div class="card">カード3</div>
+</div>
 ```
 
 ```css
 .cards3 {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 12px;
-  }
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
 
-  .card {
-    flex: 1;
-    border: 1px solid #ccc;
-    padding: 8px;
-    margin: 0;
-  }
+.card {
+  flex: 1;
+  border: 1px solid #ccc;
+  padding: 8px;
+  margin: 0;
+}
 
-  .pc {
-    flex-direction: row;
-  }
+.pc {
+  flex-direction: row;
+}
 
-  .sp {
-    flex-direction: column;
-  }
+.sp {
+  flex-direction: column;
+}
 ```
 </CodePreview>
 
@@ -680,35 +680,35 @@ B が A・C の 2 倍の幅になっていることを確認してください�
 >
 ```html
 <div class="nav">
-    <div class="item">
-      <span class="icon">🏠</span>
-      <span class="label">ホーム</span>
-    </div>
-    <div class="item">
-      <span class="icon">⭐</span>
-      <span class="label">お気に入り</span>
-    </div>
-    <div class="item">
-      <span class="icon">⚙️</span>
-      <span class="label">設定</span>
-    </div>
+  <div class="item">
+    <span class="icon">🏠</span>
+    <span class="label">ホーム</span>
   </div>
+  <div class="item">
+    <span class="icon">⭐</span>
+    <span class="label">お気に入り</span>
+  </div>
+  <div class="item">
+    <span class="icon">⚙️</span>
+    <span class="label">設定</span>
+  </div>
+</div>
 ```
 
 ```css
 .nav {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
-  .item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border: 1px solid #ccc;
-    padding: 8px;
-  }
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #ccc;
+  padding: 8px;
+}
 ```
 </CodePreview>
 

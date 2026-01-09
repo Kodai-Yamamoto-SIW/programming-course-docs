@@ -36,17 +36,17 @@ HTMLのタグ名を書くだけで、そのタグすべてに当たります。
 >
 ```html
 <h2>見出しの色</h2>
-  <p>これは 1つ目の段落です。</p>
-  <p>これは 2つ目の段落です。</p>
+<p>これは 1つ目の段落です。</p>
+<p>これは 2つ目の段落です。</p>
 ```
 
 ```css
 h2 {
-    color: #1565FF;
-  }
-  p {
-    color: #E53935;
-  }
+  color: #1565FF;
+}
+p {
+  color: #E53935;
+}
 ```
 </CodePreview>
 
@@ -70,14 +70,14 @@ h2 {
 >
 ```html
 <p class="aka">赤い文字（aka）</p>
-  <p>ふつうの文字</p>
-  <p class="aka">これも赤い（aka）</p>
+<p>ふつうの文字</p>
+<p class="aka">これも赤い（aka）</p>
 ```
 
 ```css
 .aka {
-    color: #E53935;
-  }
+  color: #E53935;
+}
 ```
 </CodePreview>
 
@@ -103,13 +103,13 @@ h2 {
 >
 ```html
 <p id="ichiban">ここだけ特別（id: ichiban）</p>
-  <p>ふつうの段落</p>
+<p>ふつうの段落</p>
 ```
 
 ```css
 #ichiban {
-    color: #6200EA;
-  }
+  color: #6200EA;
+}
 ```
 </CodePreview>
 
@@ -133,18 +133,18 @@ h2 {
 >
 ```html
 <div class="oya">
-    <p>親の中の段落A</p>
-    <div>
-      <p>孫の段落B</p>
-    </div>
+  <p>親の中の段落A</p>
+  <div>
+    <p>孫の段落B</p>
   </div>
-  <p>これは外の段落</p>
+</div>
+<p>これは外の段落</p>
 ```
 
 ```css
 .oya p {
-    color: #00A152;
-  }
+  color: #00A152;
+}
 ```
 </CodePreview>
 
@@ -170,13 +170,13 @@ h2 {
 >
 ```html
 <h3>全体の色を少し落ち着かせる</h3>
-  <p>本文の色が少し濃い灰色に。</p>
+<p>本文の色が少し濃い灰色に。</p>
 ```
 
 ```css
 * {
-    color: #1E88E5;
-  }
+  color: #1E88E5;
+}
 ```
 </CodePreview>
 
@@ -204,14 +204,14 @@ h2 {
 >
 ```html
 <h2>見出し2</h2>
-  <h3>見出し3</h3>
-  <p class="danraku">段落</p>
+<h3>見出し3</h3>
+<p class="danraku">段落</p>
 ```
 
 ```css
 h2, h3, .danraku {
-    color: #6200EA;
-  }
+  color: #6200EA;
+}
 ```
 </CodePreview>
 
@@ -261,17 +261,17 @@ h1, .ookii {
 >
 ```html
 <div class="oya">
-    <p>子A（直下）</p>
-    <div class="naka">
-      <p>孫B（入れ子）</p>
-    </div>
+  <p>子A（直下）</p>
+  <div class="naka">
+    <p>孫B（入れ子）</p>
   </div>
+</div>
 ```
 
 ```css
 .oya > p {
-    color: #00A152;
-  }
+  color: #00A152;
+}
 ```
 </CodePreview>
 
@@ -296,10 +296,10 @@ h1, .ookii {
 >
 ```html
 <div class="menu">
-    <a href="#">ホーム</a>
-    <a href="#">お知らせ</a>
-  </div>
-  <a href="#">外のリンク</a>
+  <a href="#">ホーム</a>
+  <a href="#">お知らせ</a>
+</div>
+<a href="#">外のリンク</a>
 ```
 
 ```css
@@ -316,9 +316,9 @@ h1, .ookii {
 >
 ```html
 <div class="menu">
-    <a href="#" class="genzai">ホーム</a>
-    <a href="#">お知らせ</a>
-  </div>
+  <a href="#" class="genzai">ホーム</a>
+  <a href="#">お知らせ</a>
+</div>
 ```
 
 ```css
@@ -359,13 +359,13 @@ h2.midashi:hover {
 >
 ```html
 <p class="aka">マウスを重ねると色が変わる（aka）</p>
-  <p>ふつうの段落</p>
+<p>ふつうの段落</p>
 ```
 
 ```css
 .aka:hover {
-    color: #E91E63;
-  }
+  color: #E91E63;
+}
 ```
 </CodePreview>
 
@@ -375,15 +375,15 @@ h2.midashi:hover {
 >
 ```html
 <div class="honbun">
-    <p>最初の段落</p>
-    <p>2つ目の段落</p>
-  </div>
+  <p>最初の段落</p>
+  <p>2つ目の段落</p>
+</div>
 ```
 
 ```css
 .honbun p:first-child {
-    color: #1565FF;
-  }
+  color: #1565FF;
+}
 ```
 </CodePreview>
 
@@ -393,13 +393,13 @@ h2.midashi:hover {
 >
 ```html
 <h2 class="midashi">見出し（midashi）</h2>
-  <h2>ふつうの見出し</h2>
+<h2>ふつうの見出し</h2>
 ```
 
 ```css
 h2.midashi:hover {
-    color: #6200EA;
-  }
+  color: #6200EA;
+}
 ```
 </CodePreview>
 
@@ -528,18 +528,18 @@ HTML：
 >
 ```html
 <div class="oya">
-    <p>A（親の中）</p>
-    <div>
-      <p>B（孫の中）</p>
-    </div>
+  <p>A（親の中）</p>
+  <div>
+    <p>B（孫の中）</p>
   </div>
-  <p>C（外）</p>
+</div>
+<p>C（外）</p>
 ```
 
 ```css
 .oya p {
-    color: #00A152;
-  }
+  color: #00A152;
+}
 ```
 </CodePreview>
 </Solution>
@@ -569,18 +569,18 @@ HTML：
 >
 ```html
 <div class="oya">
-    <p>子A（直下）</p>
-    <div>
-      <p>孫B（入れ子）</p>
-    </div>
-    <p>子C（直下）</p>
+  <p>子A（直下）</p>
+  <div>
+    <p>孫B（入れ子）</p>
   </div>
+  <p>子C（直下）</p>
+</div>
 ```
 
 ```css
 .oya > p {
-    color: #00A152;
-  }
+  color: #00A152;
+}
 ```
 </CodePreview>
 </Solution>
@@ -608,16 +608,16 @@ HTML：
 >
 ```html
 <div class="menu">
-    <a href="#">ホーム</a>
-    <a href="#">お知らせ</a>
-  </div>
-  <a href="#">外のリンク</a>
+  <a href="#">ホーム</a>
+  <a href="#">お知らせ</a>
+</div>
+<a href="#">外のリンク</a>
 ```
 
 ```css
 .menu a:hover {
-    color: #E91E63;
-  }
+  color: #E91E63;
+}
 ```
 </CodePreview>
 </Solution>
@@ -655,13 +655,13 @@ HTML：
 >
 ```html
 <p class="aka">重ねると色が変わる</p>
-  <p>ふつう</p>
+<p>ふつう</p>
 ```
 
 ```css
 .aka:hover {
-    color: #E91E63;
-  }
+  color: #E91E63;
+}
 ```
 </CodePreview>
 </Solution>
@@ -689,19 +689,19 @@ HTML：
 >
 ```html
 <ul class="ichiran">
-    <li>りんご</li>
-    <li>みかん</li>
-    <li>バナナ</li>
-  </ul>
+  <li>りんご</li>
+  <li>みかん</li>
+  <li>バナナ</li>
+</ul>
 ```
 
 ```css
 .ichiran li:first-child {
-    color: #1565FF;
-  }
-  .ichiran li:last-child {
-    color: #E91E63;
-  }
+  color: #1565FF;
+}
+.ichiran li:last-child {
+  color: #E91E63;
+}
 ```
 </CodePreview>
 </Solution>
@@ -729,16 +729,16 @@ HTML：
 >
 ```html
 <div class="honbun">
-    <p>本文A</p>
-    <p class="aka">本文B（aka）</p>
-    <p>本文C</p>
-  </div>
+  <p>本文A</p>
+  <p class="aka">本文B（aka）</p>
+  <p>本文C</p>
+</div>
 ```
 
 ```css
 .honbun p:not(.aka) {
-    color: #00A152;
-  }
+  color: #00A152;
+}
 ```
 </CodePreview>
 </Solution>
@@ -881,35 +881,35 @@ HTML：
 >
 ```html
 <h2 class=\"midashi\">タイトル</h2>
-  <div class=\"oya\">
-    <p>本文A</p>
-    <div>
-      <p>本文B（孫）</p>
-    </div>
+<div class=\"oya\">
+  <p>本文A</p>
+  <div>
+    <p>本文B（孫）</p>
   </div>
-  <div class=\"menu\">
-    <a href=\"#\">リンク1</a>
-    <a href=\"#\" class=\"genzai\">リンク2（現在）</a>
-  </div>
-  <p id=\"tokubetsu\">特別</p>
+</div>
+<div class=\"menu\">
+  <a href=\"#\">リンク1</a>
+  <a href=\"#\" class=\"genzai\">リンク2（現在）</a>
+</div>
+<p id=\"tokubetsu\">特別</p>
 ```
 
 ```css
 * {
-    color: #1565FF;
-  }
-  h2 {
-    color: #6200EA;
-  }
-  .oya p {
-    color: #00A152;
-  }
-  .menu a:not(.genzai):hover {
-    color: #E91E63;
-  }
-  #tokubetsu {
-    color: #E91E63;
-  }
+  color: #1565FF;
+}
+h2 {
+  color: #6200EA;
+}
+.oya p {
+  color: #00A152;
+}
+.menu a:not(.genzai):hover {
+  color: #E91E63;
+}
+#tokubetsu {
+  color: #E91E63;
+}
 ```
 </CodePreview>
 </Solution>

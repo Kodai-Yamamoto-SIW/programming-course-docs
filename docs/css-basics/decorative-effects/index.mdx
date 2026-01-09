@@ -17,68 +17,68 @@ import Exercise, { Solution } from '@metyatech/exercise/client';
   previewVisible={true}>
 ```html
 <div class="promo-card">
-    <div class="promo-badge">NEW</div>
-    <h2 class="promo-title">秋のスペシャルセール</h2>
-    <p class="promo-desc">今だけ全品20%OFF。期間限定オファーをお見逃しなく！</p>
-    <button class="promo-cta">今すぐ見る</button>
-  </div>
+  <div class="promo-badge">NEW</div>
+  <h2 class="promo-title">秋のスペシャルセール</h2>
+  <p class="promo-desc">今だけ全品20%OFF。期間限定オファーをお見逃しなく！</p>
+  <button class="promo-cta">今すぐ見る</button>
+</div>
 ```
 
 ```css
 .promo-card {
-    width: 320px;
-    padding: 24px;
-    border-radius: 16px;
-    /* ダークなグラデーションにして文字の可読性を向上 */
-    background: linear-gradient(135deg, #2b0b3a 0%, #2a2b8d 70%);
-    color: #ffffff;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.36);
-    position: relative;
-    font-family: Arial, sans-serif;
-  }
-  .promo-badge {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    /* アクセントカラーで視認性を確保 */
-    background: #ff8a00;
-    color: #fff;
-    padding: 6px 10px;
-    border-radius: 12px;
-    font-weight: bold;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-  }
-  .promo-title {
-    margin: 8px 0 8px 0;
-    font-size: 20px;
-    text-shadow: 2px 2px 6px rgba(0,0,0,0.35);
-  }
-  .promo-desc {
-    margin: 0 0 18px 0;
-    font-size: 14px;
-    line-height: 1.4;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.25);
-  }
-  .promo-cta {
-    padding: 10px 18px;
-    background: #ffffff; /* 白背景で文字をはっきり */
-    color: #2a2b8d;     /* カードの濃い色と調和する濃色テキスト */
-    border: 0;
-    border-radius: 10px;
-    font-weight: bold;
-    text-align: center;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.18);
-    cursor: pointer;
-    transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
-  }
-  .promo-cta:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 14px 22px rgba(0,0,0,0.32);
-    background: #f2f2f2;
-  }
-  .promo-cta:active {
-    transform: translateY(-2px);
-  }
+  width: 320px;
+  padding: 24px;
+  border-radius: 16px;
+  /* ダークなグラデーションにして文字の可読性を向上 */
+  background: linear-gradient(135deg, #2b0b3a 0%, #2a2b8d 70%);
+  color: #ffffff;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.36);
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+.promo-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  /* アクセントカラーで視認性を確保 */
+  background: #ff8a00;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+.promo-title {
+  margin: 8px 0 8px 0;
+  font-size: 20px;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.35);
+}
+.promo-desc {
+  margin: 0 0 18px 0;
+  font-size: 14px;
+  line-height: 1.4;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.25);
+}
+.promo-cta {
+  padding: 10px 18px;
+  background: #ffffff; /* 白背景で文字をはっきり */
+  color: #2a2b8d;     /* カードの濃い色と調和する濃色テキスト */
+  border: 0;
+  border-radius: 10px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.18);
+  cursor: pointer;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+.promo-cta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 22px rgba(0,0,0,0.32);
+  background: #f2f2f2;
+}
+.promo-cta:active {
+  transform: translateY(-2px);
+}
 ```
 </CodePreview>
 
@@ -100,36 +100,36 @@ border-radius: 値;
 >
 ```html
 <div class="box1">角丸（小）</div>
-  <div class="box2">角丸（大）</div>
-  <div class="box3">円形</div>
+<div class="box2">角丸（大）</div>
+<div class="box3">円形</div>
 ```
 
 ```css
 .box1 {
-    border-radius: 8px;
+  border-radius: 8px;
 
-    width: 150px;
-    padding: 20px;
-    margin: 10px 0;
-    background: #ffdddd;
-  }
-  .box2 {
-    border-radius: 20px;
+  width: 150px;
+  padding: 20px;
+  margin: 10px 0;
+  background: #ffdddd;
+}
+.box2 {
+  border-radius: 20px;
 
-    width: 150px;
-    padding: 20px;
-    margin: 10px 0;
-    background: #ddffdd;
-  }
-  .box3 {
-    border-radius: 50%;
+  width: 150px;
+  padding: 20px;
+  margin: 10px 0;
+  background: #ddffdd;
+}
+.box3 {
+  border-radius: 50%;
 
-    width: 100px;
-    height: 100px;
-    margin: 10px 0;
-    background: #ddddff;
-    text-align: center;
-  }
+  width: 100px;
+  height: 100px;
+  margin: 10px 0;
+  background: #ddddff;
+  text-align: center;
+}
 ```
 </CodePreview>
 
@@ -154,12 +154,12 @@ border-radius: 左上 右上 右下 左下;
 
 ```css
 .box {
-    border-radius: 20px 0 0 0;
+  border-radius: 20px 0 0 0;
 
-    width: 150px;
-    padding: 20px;
-    background: #ffe5cc;
-  }
+  width: 150px;
+  padding: 20px;
+  background: #ffe5cc;
+}
 ```
 </CodePreview>
 
@@ -183,13 +183,13 @@ border-radius: 左上 右上 右下 左下;
 
 ```css
 .btn {
-    width: 200px;
-    padding: 12px 24px;
-    background: #4a90e2;
-    color: white;
-    border-radius: 8px;
-    text-align: center;
-  }
+  width: 200px;
+  padding: 12px 24px;
+  background: #4a90e2;
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+}
 ```
 </CodePreview>
 
@@ -224,13 +224,13 @@ border-radius: 左上 右上 右下 左下;
 
 ```css
 .icon {
-    width: 80px;
-    height: 80px;
-    background: #ff6b6b;
-    color: white;
-    border-radius: 50%;
-    text-align: center;
-  }
+  width: 80px;
+  height: 80px;
+  background: #ff6b6b;
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+}
 ```
 </CodePreview>
 
@@ -264,12 +264,12 @@ border-radius: 左上 右上 右下 左下;
 
 ```css
 .speech {
-    width: 220px;
-    padding: 20px;
-    background: #ffeaa7;
-    color: #2d3436;
-    border-radius: 20px 20px 20px 0;
-  }
+  width: 220px;
+  padding: 20px;
+  background: #ffeaa7;
+  color: #2d3436;
+  border-radius: 20px 20px 20px 0;
+}
 ```
 </CodePreview>
 
@@ -303,22 +303,22 @@ text-shadow: 横方向 縦方向 ぼかし 色;
 >
 ```html
 <h2 class="title1">影付きタイトル</h2>
-  <h2 class="title2">強い影</h2>
+<h2 class="title2">強い影</h2>
 ```
 
 ```css
 .title1 {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
-    font-size: 32px;
-    color: #333;
-  }
-  .title2 {
-    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  font-size: 32px;
+  color: #333;
+}
+.title2 {
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
 
-    font-size: 32px;
-    color: #ff6b6b;
-  }
+  font-size: 32px;
+  color: #ff6b6b;
+}
 ```
 </CodePreview>
 
@@ -339,10 +339,10 @@ text-shadow: 横方向 縦方向 ぼかし 色;
 
 ```css
 .heading {
-    font-size: 36px;
-    color: #2c3e50;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
-  }
+  font-size: 36px;
+  color: #2c3e50;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+}
 ```
 </CodePreview>
 
@@ -379,28 +379,28 @@ box-shadow: 横方向 縦方向 ぼかし 色;
 >
 ```html
 <div class="card1">カード1</div>
-  <div class="card2">カード2（浮いた感じ）</div>
+<div class="card2">カード2（浮いた感じ）</div>
 ```
 
 ```css
 .card1 {
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 
-    width: 200px;
-    padding: 20px;
-    margin: 20px 0;
-    background: white;
-    border-radius: 8px;
-  }
-  .card2 {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  width: 200px;
+  padding: 20px;
+  margin: 20px 0;
+  background: white;
+  border-radius: 8px;
+}
+.card2 {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 
-    width: 200px;
-    padding: 20px;
-    margin: 20px 0;
-    background: white;
-    border-radius: 8px;
-  }
+  width: 200px;
+  padding: 20px;
+  margin: 20px 0;
+  background: white;
+  border-radius: 8px;
+}
 ```
 </CodePreview>
 
@@ -423,12 +423,12 @@ box-shadow: 横方向 縦方向 ぼかし 色;
 
 ```css
 .card {
-    width: 250px;
-    padding: 24px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
-  }
+  width: 250px;
+  padding: 24px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
 ```
 </CodePreview>
 
@@ -462,15 +462,15 @@ box-shadow: 横方向 縦方向 ぼかし 色;
 
 ```css
 .card {
-    width: 250px;
-    padding: 24px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  }
-  .card:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  }
+  width: 250px;
+  padding: 24px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
 ```
 </CodePreview>
 
@@ -503,32 +503,32 @@ background: linear-gradient(方向, 開始色, 終了色);
 >
 ```html
 <div class="grad1">上から下へ</div>
-  <div class="grad2">左から右へ</div>
-  <div class="grad3">斜め</div>
+<div class="grad2">左から右へ</div>
+<div class="grad3">斜め</div>
 ```
 
 ```css
 .grad1 {
-    background: linear-gradient(to bottom, #ff6b6b, #ffd93d);
+  background: linear-gradient(to bottom, #ff6b6b, #ffd93d);
 
-    width: 200px;
-    height: 100px;
-    margin: 10px 0;
-  }
-  .grad2 {
-    background: linear-gradient(to right, #6bcf7f, #4a90e2);
+  width: 200px;
+  height: 100px;
+  margin: 10px 0;
+}
+.grad2 {
+  background: linear-gradient(to right, #6bcf7f, #4a90e2);
 
-    width: 200px;
-    height: 100px;
-    margin: 10px 0;
-  }
-  .grad3 {
-    background: linear-gradient(45deg, #fff, #fd79a8);
+  width: 200px;
+  height: 100px;
+  margin: 10px 0;
+}
+.grad3 {
+  background: linear-gradient(45deg, #fff, #fd79a8);
 
-    width: 200px;
-    height: 100px;
-    margin: 10px 0;
-  }
+  width: 200px;
+  height: 100px;
+  margin: 10px 0;
+}
 ```
 </CodePreview>
 
@@ -551,10 +551,10 @@ background: linear-gradient(方向, 開始色, 終了色);
 
 ```css
 .banner {
-    width: 400px;
-    height: 150px;
-    background: linear-gradient(to right, #ff6b6b, #4ecdc4);
-  }
+  width: 400px;
+  height: 150px;
+  background: linear-gradient(to right, #ff6b6b, #4ecdc4);
+}
 ```
 </CodePreview>
 
@@ -587,26 +587,26 @@ background: radial-gradient(形状, 開始色, 終了色);
 >
 ```html
 <div class="radial1">円形グラデーション</div>
-  <div class="radial2">楕円グラデーション</div>
+<div class="radial2">楕円グラデーション</div>
 ```
 
 ```css
 .radial1 {
-    background: radial-gradient(circle, #ffd93d, #ff6b6b);
+  background: radial-gradient(circle, #ffd93d, #ff6b6b);
 
-    width: 200px;
-    height: 200px;
-    margin: 10px 0;
-    text-align: center;
-  }
-  .radial2 {
-    background: radial-gradient(ellipse, #ffd93d, #6c5ce7);
+  width: 200px;
+  height: 200px;
+  margin: 10px 0;
+  text-align: center;
+}
+.radial2 {
+  background: radial-gradient(ellipse, #ffd93d, #6c5ce7);
 
-    width: 300px;
-    height: 150px;
-    margin: 10px 0;
-    text-align: center;
-  }
+  width: 300px;
+  height: 150px;
+  margin: 10px 0;
+  text-align: center;
+}
 ```
 </CodePreview>
 
@@ -631,14 +631,14 @@ background: radial-gradient(形状, 開始色, 終了色);
 
 ```css
 .circle-btn {
-    width: 180px;
-    height: 180px;
-    background: radial-gradient(circle, #6bcf7f, #4a90e2);
-    color: white;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 20px;
-  }
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, #6bcf7f, #4a90e2);
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 20px;
+}
 ```
 </CodePreview>
 
@@ -675,15 +675,15 @@ background: radial-gradient(形状, 開始色, 終了色);
 
 ```css
 .special-card {
-    width: 280px;
-    padding: 32px;
-    background: linear-gradient(45deg, #f093fb, #f5576c);
-    color: white;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    font-size: 24px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-  }
+  width: 280px;
+  padding: 32px;
+  background: linear-gradient(45deg, #f093fb, #f5576c);
+  color: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  font-size: 24px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
 ```
 </CodePreview>
 

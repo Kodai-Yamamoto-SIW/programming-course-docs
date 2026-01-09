@@ -104,26 +104,26 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
   cssVisible={false}>
 ```html
 <!-- display: block、高さ50px、背景色blue、上下左右外余白10px -->
-  <span class="item1">項目1</span>
-  <!-- display: block、幅250px、高さ50px、背景色green、上下左右内余白20px -->
-  <span class="item2">項目2</span>
+<span class="item1">項目1</span>
+<!-- display: block、幅250px、高さ50px、背景色green、上下左右内余白20px -->
+<span class="item2">項目2</span>
 ```
 
 ```css
 .item1 {
-    display: block;
-    height: 50px;
-    background-color: blue;
-    margin: 10px;
-  }
+  display: block;
+  height: 50px;
+  background-color: blue;
+  margin: 10px;
+}
 
-  .item2 {
-    display: block;
-    width: 250px;
-    height: 50px;
-    background-color: green;
-    padding: 20px;
-  }
+.item2 {
+  display: block;
+  width: 250px;
+  height: 50px;
+  background-color: green;
+  padding: 20px;
+}
 ```
 </CodePreview>
 
@@ -150,26 +150,26 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
 >
 ```html
 <!-- display: block、幅400px、背景色blue、内側余白20px -->
-  <div class="box">左に寄ったブロック</div>
-  <!-- display: block、幅250px、背景色green、要素を左右中央揃え、内側余白15px -->
-  <div class="box2">中央に配置されたブロック</div>
+<div class="box">左に寄ったブロック</div>
+<!-- display: block、幅250px、背景色green、要素を左右中央揃え、内側余白15px -->
+<div class="box2">中央に配置されたブロック</div>
 ```
 
 ```css
 .box {
-    display: block;
-    width: 400px;
-    background-color: blue;
-    padding: 20px;
-  }
+  display: block;
+  width: 400px;
+  background-color: blue;
+  padding: 20px;
+}
 
-  .box2 {
-    display: block;
-    width: 250px;
-    background-color: green;
-    margin: 0 auto;
-    padding: 15px;
-  }
+.box2 {
+  display: block;
+  width: 250px;
+  background-color: green;
+  margin: 0 auto;
+  padding: 15px;
+}
 ```
 </CodePreview>
 
@@ -204,37 +204,37 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
 <CodePreview>
 ```html
 <div class="pad"></div>
-  <span class="tag1">タグ1</span>
-  <span class="tag2">タグ2</span>
-  <span class="tag3">タグ3</span>
-  <p>これは通常の段落です。</p>
+<span class="tag1">タグ1</span>
+<span class="tag2">タグ2</span>
+<span class="tag3">タグ3</span>
+<p>これは通常の段落です。</p>
 ```
 
 ```css
 .pad {
-    margin-bottom: 50px;
-  }
+  margin-bottom: 50px;
+}
 
-  .tag1 {
-    display: inline;
-    background-color: lightblue;
-    padding-top: 30px;
-    margin: 0 5px;
-  }
+.tag1 {
+  display: inline;
+  background-color: lightblue;
+  padding-top: 30px;
+  margin: 0 5px;
+}
 
-  .tag2 {
-    display: inline;
-    background-color: lightgreen;
-    padding: 30px;
-    margin: 0 5px;
-  }
+.tag2 {
+  display: inline;
+  background-color: lightgreen;
+  padding: 30px;
+  margin: 0 5px;
+}
 
-  .tag3 {
-    display: inline;
-    background-color: lightpink;
-    padding-bottom: 30px;
-    margin: 10px;
-  }
+.tag3 {
+  display: inline;
+  background-color: lightpink;
+  padding-bottom: 30px;
+  margin: 10px;
+}
 ```
 </CodePreview>
 
@@ -268,32 +268,32 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
 >
 ```html
 <p>おすすめの<!-- display: inline、背景色yellow、左右パディング4px 8px --><span class="highlight">商品</span>をご紹介します。</p>
-  <!-- display: inline、背景色lightblue、左右パディング8px 16px、左右マージン0 10px -->
-  <div class="menu1">メニュー1</div>
-  <!-- display: inline、背景色lightgreen、左右パディング8px 16px、左右マージン0 10px -->
-  <div class="menu2">メニュー2</div>
+<!-- display: inline、背景色lightblue、左右パディング8px 16px、左右マージン0 10px -->
+<div class="menu1">メニュー1</div>
+<!-- display: inline、背景色lightgreen、左右パディング8px 16px、左右マージン0 10px -->
+<div class="menu2">メニュー2</div>
 ```
 
 ```css
 .highlight {
-    display: inline;
-    background-color: yellow;
-    padding: 4px 8px;
-  }
+  display: inline;
+  background-color: yellow;
+  padding: 4px 8px;
+}
 
-  .menu1 {
-    display: inline;
-    background-color: lightblue;
-    padding: 8px 16px;
-    margin: 0 10px;
-  }
+.menu1 {
+  display: inline;
+  background-color: lightblue;
+  padding: 8px 16px;
+  margin: 0 10px;
+}
 
-  .menu2 {
-    display: inline;
-    background-color: lightgreen;
-    padding: 8px 16px;
-    margin: 0 10px;
-  }
+.menu2 {
+  display: inline;
+  background-color: lightgreen;
+  padding: 8px 16px;
+  margin: 0 10px;
+}
 ```
 </CodePreview>
 
@@ -320,32 +320,32 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
 >
 ```html
 <p>これは<span class="small">小さい文字</span>と<span class="large">大きい文字</span>が混在する文章です。インライン表示では、文字のベースラインが揃います。</p>
-  <!-- class="small" の要素に display: inline、背景色yellow、文字サイズ12px -->
-  <span class="small">小さいタグ</span>
-  <!-- class="large" の要素に display: inline、背景色lightblue、文字サイズ20px -->
-  <span class="large">普通のタグ</span>
-  <!-- class="huge" の要素に display: inline、背景色lightgreen、文字サイズ28px -->
-  <span class="huge">大きいタグ</span>
+<!-- class="small" の要素に display: inline、背景色yellow、文字サイズ12px -->
+<span class="small">小さいタグ</span>
+<!-- class="large" の要素に display: inline、背景色lightblue、文字サイズ20px -->
+<span class="large">普通のタグ</span>
+<!-- class="huge" の要素に display: inline、背景色lightgreen、文字サイズ28px -->
+<span class="huge">大きいタグ</span>
 ```
 
 ```css
 .small {
-    display: inline;
-    background-color: yellow;
-    font-size: 12px;
-  }
+  display: inline;
+  background-color: yellow;
+  font-size: 12px;
+}
 
-  .large {
-    display: inline;
-    background-color: lightblue;
-    font-size: 20px;
-  }
+.large {
+  display: inline;
+  background-color: lightblue;
+  font-size: 20px;
+}
 
-  .huge {
-    display: inline;
-    background-color: lightgreen;
-    font-size: 28px;
-  }
+.huge {
+  display: inline;
+  background-color: lightgreen;
+  font-size: 28px;
+}
 ```
 </CodePreview>
 
@@ -436,29 +436,29 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
 >
 ```html
 <!-- display: inline-block、幅100px、高さ50px、背景色blue、上下左右マージン5px、内側余白10px -->
-  <button class="button1">ボタン1</button>
-  <!-- display: inline-block、幅150px、高さ50px、背景色green、上下左右マージン5px、内側余白30px -->
-  <button class="button2">ボタン2</button>
+<button class="button1">ボタン1</button>
+<!-- display: inline-block、幅150px、高さ50px、背景色green、上下左右マージン5px、内側余白30px -->
+<button class="button2">ボタン2</button>
 ```
 
 ```css
 .button1 {
-    display: inline-block;
-    width: 100px;
-    height: 50px;
-    background-color: blue;
-    margin: 5px;
-    padding: 10px;
-  }
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  background-color: blue;
+  margin: 5px;
+  padding: 10px;
+}
 
-  .button2 {
-    display: inline-block;
-    width: 150px;
-    height: 50px;
-    background-color: green;
-    margin: 5px;
-    padding: 30px;
-  }
+.button2 {
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  background-color: green;
+  margin: 5px;
+  padding: 30px;
+}
 ```
 </CodePreview>
 
@@ -483,41 +483,41 @@ HTMLの各要素には、デフォルトで`display`の値が決まっていま�
   cssVisible={false}>
 ```html
 <!-- 親: 背景色lightgray、内側余白16px、アイテムの横並びは中央揃え（inlineの要素はテキスト扱いのため、text-alignで左右方向の位置を揃えることができる） -->
-  <div class="cards">
-    <!-- 各カード: display: inline-block、幅220px、背景色white、マージン8px、パディング12px、テキストは左揃え -->
-    <div class="card">
-      <h4>カードA</h4>
-      <p>短い説明文。</p>
-    </div>
-    <div class="card">
-      <h4>カードB</h4>
-      <p>少し長い説明文が入ります。折り返しに注意。</p>
-    </div>
-    <div class="card">
-      <h4>カードC</h4>
-      <p>とても長い説明文が入る場合もあります。このようにテキストが長く改行が必要な場合は、デフォルトでテキストの下端の位置で揃えられます。</p>
-    </div>
+<div class="cards">
+  <!-- 各カード: display: inline-block、幅220px、背景色white、マージン8px、パディング12px、テキストは左揃え -->
+  <div class="card">
+    <h4>カードA</h4>
+    <p>短い説明文。</p>
   </div>
+  <div class="card">
+    <h4>カードB</h4>
+    <p>少し長い説明文が入ります。折り返しに注意。</p>
+  </div>
+  <div class="card">
+    <h4>カードC</h4>
+    <p>とても長い説明文が入る場合もあります。このようにテキストが長く改行が必要な場合は、デフォルトでテキストの下端の位置で揃えられます。</p>
+  </div>
+</div>
 ```
 
 ```css
 .cards {
-    background-color: lightgray;
-    padding: 16px;
-    /* インラインブロック要素を中央揃えにする */
-    text-align: center;
-  }
+  background-color: lightgray;
+  padding: 16px;
+  /* インラインブロック要素を中央揃えにする */
+  text-align: center;
+}
 
-  .card {
-    display: inline-block;
-    width: 220px;
-    background-color: white;
-    margin: 8px;
-    padding: 12px;
-    /* text-align は継承されるプロパティなので、親の text-align: center は引き継がれる */
-    /* そのため、左に揃えるには別途 text-align: left; を指定する */
-    text-align: left;
-  }
+.card {
+  display: inline-block;
+  width: 220px;
+  background-color: white;
+  margin: 8px;
+  padding: 12px;
+  /* text-align は継承されるプロパティなので、親の text-align: center は引き継がれる */
+  /* そのため、左に揃えるには別途 text-align: left; を指定する */
+  text-align: left;
+}
 ```
 </CodePreview>
 
