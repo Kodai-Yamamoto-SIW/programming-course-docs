@@ -41,9 +41,24 @@ npm run serve
 npm run typecheck
 ```
 
+## AGENTS.md
+
+This project uses `agent-rules`, `agent-rules-tools`, and `agent-rules-private` as git submodules.
+After cloning, initialize submodules:
+
+```bash
+git submodule update --init --recursive
+```
+
+Update `agent-ruleset.json` as needed and regenerate:
+
+```bash
+node agent-rules-tools/tools/compose-agents.cjs
+```
+
 ## Assets / course components
 
-This site uses shared modules from the workspace:
+This site uses shared modules from sibling repositories:
 
 - `@metyatech/code-preview` (interactive HTML/CSS/JS previews)
 - `@metyatech/exercise` (exercise/solution blocks)
