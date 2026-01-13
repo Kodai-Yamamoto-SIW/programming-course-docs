@@ -63,6 +63,57 @@ const sidebars: SidebarsConfig = {
     },
     'reference/index',
   ],
+  examSidebar: [
+    {
+      type: 'category',
+      label: '前期',
+      collapsed: true,
+      items: [
+        {
+          type: 'category',
+          label: '中間試験',
+          collapsed: true,
+          items: [
+            'exams/first-term/midterm-exam/overview/index',
+            'exams/first-term/midterm-exam/preparation/index',
+          ],
+        },
+        {
+          type: 'category',
+          label: '定期試験',
+          collapsed: true,
+          items: [
+            'exams/first-term/regular-exam/overview/index',
+            'exams/first-term/regular-exam/preparation/index',
+          ],
+        },
+      ],
+    },
+    {
+      type: 'category',
+      label: '後期',
+      collapsed: true,
+      items: [
+        {
+          type: 'category',
+          label: '中間試験',
+          collapsed: true,
+          items: [
+            'exams/second-term/midterm-exam/overview/index',
+            'exams/second-term/midterm-exam/preparation/index',
+          ],
+        },
+        {
+          type: 'category',
+          label: '定期試験',
+          collapsed: true,
+          items: [
+            'exams/second-term/regular-exam/overview/index',
+          ],
+        },
+      ],
+    },
+  ],
 };
 
 export default sidebars;
