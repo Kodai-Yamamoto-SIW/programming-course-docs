@@ -79,12 +79,18 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'mainSidebar',
           position: 'left',
-          label: '学習内容',
+          label: '学習',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'examSidebar',
+          position: 'left',
+          label: '試験',
         },
         {
           to: '/submissions',
           position: 'left',
-          label: '提出作品',
+          label: '作品',
         },
         {
           href: 'https://github.com/metyatech/programming-course-docs',
