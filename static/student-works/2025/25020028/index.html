@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Living Style - Unique furniture to create your ideal interior</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <div class="logo">Living Style</div>
@@ -63,9 +65,10 @@
 
     <section class="product-section" id="products">
         <h2 class="section-title">Productintroduction</h2>
-        <p class="section-description">A lineup of furniture focused on quality and comfort to enhance your daily relaxation.</p>
-        
-        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 50px;">
+        <p class="section-description">A lineup of furniture focused on quality and comfort to enhance your daily
+            relaxation.</p>
+
+        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 50px; align-items: start;">
             <ul class="product-categories">
                 <li>Sofa</li>
                 <li>Bed</li>
@@ -74,26 +77,54 @@
                 <li>Cabinet & Shelf</li>
                 <li>Lighting fixtures</li>
             </ul>
+
+            <div class="product-slider-container">
+                <div class="product-slider" id="productSlider">
+                    <!-- スライド1 -->
+                    <div class="product-slide">
+                        <div class="product-image" style="background: url(img/head.jpg);"></div>
+                        <div class="product-image" style="background: url(img/1759503591_c4796cc5-304x380.jpg);"></div>
+                        <div class="product-image" style="background: url(img/head.jpg);"></div>
+
+                    </div>
+                    <!-- スライド2 -->
+                    <div class="product-slide">
+                        <div class="product-image" style="background: url();"></div>
+                        <div class="product-image" style="background: url();"></div>
+                        <div class="product-image" style="background: url();"></div>
+                    </div>
+                </div>
+
+                <div class="slider-controls">
+                    <button class="slider-btn" id="prevBtn" onclick="changeSlide(-1)">‹</button>
+                    <button class="slider-btn" id="nextBtn" onclick="changeSlide(1)">›</button>
+                </div>
+
+                <div class="slider-dots" id="sliderDots"></div>
+            </div>
         </div>
-        <div style="text-align: center;">
+
+        <div style="text-align: center; margin-top: 50px;">
             <a href="#" class="see-more">see more</a>
         </div>
     </section>
 
     <section class="about-section">
-        <div class="about-image" style= height:400px; border-radius: 10px;></div>
+        <div class="about-image" style="background: #222; height: 400px; border-radius: 10px;"></div>
         <div>
             <h2 class="about-title">About us</h2>
             <p class="about-text">
-                This is a lifestyle-oriented interior shop that proposes a lifestyle where comfort and beauty coexist. Carefully selected natural materials, the warmth of handmade items, and quick designs that blend seamlessly into any space. A room that is decorated in a personal way, without being too influenced by trends, creates a sense of calm that makes you want to take a deep breath.
+                This is a lifestyle-oriented interior shop that proposes a lifestyle where comfort and beauty coexist.
+                Carefully selected natural materials, the warmth of handmade items, and quick designs that blend
+                seamlessly into any space. A room that is decorated in a personal way, without being too influenced by
+                trends, creates a sense of calm that makes you want to take a deep breath.
             </p>
         </div>
     </section>
 
     <section class="online-shop" id="shop">
         <h2>online shop</h2>
-        <div class="online-box
-" style=" height: 300px; border-radius: 10px; margin: 30px auto; max-width: 800px;"></div>
+        <div style="background: #222; height: 300px; border-radius: 10px; margin: 30px auto; max-width: 800px;"></div>
     </section>
 
     <section class="info-section" id="inquiry">
@@ -126,5 +157,8 @@
     <footer>
         <p>2025 © Living Style Inc. | terms of service | Privacy policy</p>
     </footer>
+
+    <script src="index.js"></script>
 </body>
+
 </html>

@@ -1,3 +1,4 @@
+// ※ここから先はAIさんとても助けていただいています。
 // DOMが読み込まれてから実行
 document.addEventListener('DOMContentLoaded', () => {
     const yodan = document.querySelector('.yodan');

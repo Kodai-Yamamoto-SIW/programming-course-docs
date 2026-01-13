@@ -13,9 +13,11 @@
 
 </head>
 <body>
-    <header>
-    <h1 class="font-ugoku">WEB SITE</h1>
 
+<header>
+
+    <h1 class="font-ugoku">WEB SITE</h1>
+        
     <div class="menu-top">
         <button class="menu-botan">ハンバーガーメニュー予定</button>
         <ul class="menu-book">
@@ -26,33 +28,48 @@
             <li class="menu-item">連絡先</li>
         </ul>
     </div>
-    </header>
+        
+</header>
 
-    <main>
-        <h2>Photo gallery</h2>
-    <div class="photo">
+<main>
+        <section class="gallery">
+    <h2>Photo gallery</h2>
+
+    <div>
     <ul class="jouhou">
         <li class="listitem">
-            <img src="img/hamabe.png" alt="浜辺の画像">
+            <img  class="photo"  src="img/hamabe.png" alt="浜辺の画像">
         </li>
         <li class="listitem">          
-            <img src="img/baburu.png" alt="泡の画像">
+            <img  class="photo"  src="img/baburu.png" alt="泡の画像">
         </li>
         <li class="listitem">
-            <img src="img/nithart.png" alt="ハートの画像">
+            <img  class="photo"  src="img/nithart.png" alt="ハートの画像">
         </li>
         <li class="listitem">
-            <img src="img/huriru.png" alt="フリルの画像">
+            <img  class="photo"  src="img/huriru.png" alt="フリルの画像">
         </li>
     </ul>
     </div>
-    <h3 class="botan">詳しく見る</h3>
 
-    予定：背景のアニメーション
-    </main>
+    <h3 class="botan">詳しく見る<i class="fa-solid fa-angle-right"></i></h3>
+    </section>
+
+    予定：写真を横にスクロール、時間経過で画像が変更、メニューバー作成、h1タグをセンターに調整、モーダルウィンドウ
+
+        <section class="image">
+    <div id="contena"> 
+            <img class="art" src="img/kirakira.avif" alt="">
+            <img class="art" src="img/kohakuto.avif" alt="">
+            <img class="art" src="img/keki.avif" alt="">
+    </div>   
+        </section>
+
+</main>
 
     <footer>
         <small>25020008　大野</small>
     </footer>
+    <script src="https://kit.fontawesome.com/b3e11c7785.js" crossorigin="anonymous"></script>
 </body>
 </html>

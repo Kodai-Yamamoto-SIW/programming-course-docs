@@ -10,6 +10,7 @@ body {
 
 }
 
+
 /* ファーストビューーーーーーーーーーーーーーーーーーーーーーーーーー */
 
 header {
@@ -21,7 +22,7 @@ header {
     padding: 15px 50px;
     box-sizing: border-box;
     z-index: 300;
-    background: linear-gradient(rgba(0,0,0,1),rgba(0,0,0,0));
+    background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 }
 
 .first-view {
@@ -74,6 +75,13 @@ h1 {
     color: #e3e3e3;
     text-align: center;
     margin-top: 204px;
+}
+
+.first-view p:hover {
+    background: linear-gradient(90deg, #a38131 0%, #e7c76d 33%, #ffe6c5 62%, #e3c05d 83%, #9d874e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
 }
 
 h2 {
@@ -141,6 +149,7 @@ h2 {
     position: relative;
     width: 1120px;
     margin: 0 auto 270px;
+    padding-top: 270px;
 }
 
 .guestroom-1 {
@@ -150,7 +159,7 @@ h2 {
 
 .btn1 {
     position: absolute;
-    top: 361px;
+    top: 631px;
     right: 0;
 }
 
@@ -172,6 +181,7 @@ h2 {
     position: relative;
     width: 1120px;
     margin: 0 auto 270px;
+    padding-top: 270px;
 }
 
 .restaurant-1 {
@@ -180,7 +190,7 @@ h2 {
 
 .btn2 {
     position: absolute;
-    top: 333px;
+    top: 603px;
     left: 0;
 }
 
@@ -206,12 +216,12 @@ h2 {
 
 .h2-spa {
     text-align: right;
-    }
+}
 
 .spa-1 {
     display: flex;
     flex-direction: row-reverse;
-} 
+}
 
 .btn3 {
     position: absolute;
@@ -229,4 +239,100 @@ h2 {
     top: 161px;
     right: 46px;
     z-index: 10;
+}
+
+
+/* -------------------------------------------------------- */
+
+ul li a {
+    display: block;
+    padding: 8px 12px;
+}
+
+ul li a:hover {
+    background: linear-gradient(90deg, #a38131 0%, #e7c76d 33%, #ffe6c5 62%, #e3c05d 83%, #9d874e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about-btn:hover {
+    color: linear-gradient(90deg, #a38131 0%, #e7c76d 33%, #ffe6c5 62%, #e3c05d 83%, #9d874e 100%);
+    background: #a38131;
+    transition: 1s;
+    transform: translateY(3px);
+}
+
+
+/* TOPへ戻るボタン */
+.back-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .08em;
+
+    background: linear-gradient(90deg,
+            #a38131 0%,
+            #e7c76d 33%,
+            #ffe6c5 62%,
+            #e3c05d 83%,
+            #9d874e 100%);
+
+    color: #1B222A;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .35);
+    z-index: 400;
+    transition: transform .25s ease, box-shadow .25s ease, opacity .25s ease;
+}
+
+.back-top:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, .45);
+}
+
+.hamberger-menu {
+    position: absolute;
+    top: 100%;
+    right: 50px;
+
+    width: min(320px, calc(100vw - 100px));
+    display: block;
+    /* ul全体はブロックでOK */
+    background: rgba(27, 34, 42, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    overflow: hidden;
+
+    max-height: 0;
+    /* 閉じてる状態 */
+    opacity: 0;
+    pointer-events: none;
+    transition: max-height .35s ease, opacity .25s ease;
+}
+
+.hamberger-menu.is-open {
+    max-height: 400px;
+    /* リンク数に合わせて十分大きく */
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.hamberger-menu li {
+    width: 100%;
+}
+
+.hamberger-menu a {
+    display: block;
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.hamberger-menu li:last-child a {
+    border-bottom: none;
 }

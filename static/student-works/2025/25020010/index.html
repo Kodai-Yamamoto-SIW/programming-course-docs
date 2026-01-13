@@ -14,7 +14,7 @@
     </h1>
     <nav class="nav">
         <ul class="menu">
-                <li><a href="#home">ホーム</a></li>
+            <li><a href="#home">ホーム</a></li>
             <li class="rule">
                <a href="#rule">ルール解説</a>
                 <ul class="rule">
@@ -45,77 +45,160 @@
             </li>
         </ul>
     </nav>
-<button class="menu-toggle" id="js-hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-</button>
-<nav class="drawer-nav" id="js-drawer">
-    <ul class="drawer-list">
-        <li><a href="#home">ホーム</a></li>
-        <li><a href="#rule">ルール解説</a></li>
-        <li><a href="#character">推しキャラクター紹介</a></li>
-        <li><a href="#map">マップ一覧</a></li>
-    </ul>
-</nav>
-<div class="drawer-overlay" id="js-overlay"></div>
+    <button class="menu-toggle" id="js-hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <nav class="drawer-nav" id="js-drawer">
+        <ul class="drawer-list">
+            <li><a href="#home">ホーム</a></li>
+            <li><a href="#rule">ルール解説</a></li>
+            <li><a href="#character">推しキャラクター紹介</a></li>
+            <li><a href="#map">マップ一覧</a></li>
+        </ul>
+    </nav>
+    <div class="drawer-overlay" id="js-overlay"></div>
 </header>
+
 <main> 
     <section id="home" class="hero-section">
         <div class="hero-image-container">
-            <img src="images/Mask group.png" alt="第五人格のメインビジュアル：サバイバーとハンター">
+            <img src="images/imaga-home.webp" alt="第五人格のメインビジュアル">
             <div class="hero-overlay"></div> 
         </div>
     </section>
    
-    <section  class="rule-section" id="rule">
-    <h2 class="section-title">ルール解説</h2>
-    <p class="section-description">
-        Identity V（第五人格）は、非対称対戦型のマルチプレイゲームです。<br>
-        プレイヤーは、サバイバー（逃げる側 4人）とハンター（追う側 1人）に分かれて、それぞれの勝利条件の達成を目指します。
-    </p>
+    <section class="rule-section" id="rule">
+        <h2 class="section-title">ルール解説</h2>
+        <p class="section-description">
+            Identity V（第五人格）は、非対称対戦型のマルチプレイゲームです。<br>
+            プレイヤーは、サバイバー（逃げる側 4人）とハンター（追う側 1人）に分かれて、それぞれの勝利条件の達成を目指します。
+        </p>
 
-    <div class="rule-box" id="survivor-role">
-        <div class="rule-text">
-            <h3>1. サバイバーの役割と勝利条件</h3>
-            <p>サバイバー（4人）の主な目的は、ハンターから逃げながらマップ内に設置された暗号機を修理することです。</p>
-            <ul>
-                <li><strong>暗号機：</strong>5台の暗号機を修理し、マップに現れる脱出ゲートの電源を開放します。</li>
-                <li><strong>脱出：</strong>2つの脱出ゲートのうち、いずれかを開放し、3人以上がゲートから脱出すると勝利です。</li>
-                <li><strong>救助：</strong>仲間がハンターに捕まってしまった場合、協力して救助することも重要な役割となります。</li>
-            </ul>
+        <div class="rule-box" id="survivor-role">
+            <div class="rule-text">
+                <h3>1. サバイバーの役割と勝利条件</h3>
+                <p>サバイバー（4人）の主な目的は、ハンターから逃げながらマップ内に設置された暗号機を修理することです。</p>
+                <ul>
+                    <li><strong>暗号機：</strong>5台の暗号機を修理し、マップに現れる脱出ゲートの電源を開放します。</li>
+                    <li><strong>脱出：</strong>2つの脱出ゲートのうち、いずれかを開放し、3人以上がゲートから脱出すると勝利です。</li>
+                    <li><strong>救助：</strong>仲間がハンターに捕まってしまった場合、協力して救助することも重要な役割となります。</li>
+                </ul>
+            </div>
+            <div class="rule-photo">
+                <img src="images/survivor-play.PNG" alt="サバイバーのプレイ画像">
+            </div>
         </div>
-        <div class="rule-photo">
-            <img src="images/survivor-play.png" alt="サバイバーのプレイ画像">
+
+        <div class="rule-box" id="hunter-role">
+            <div class="rule-text">
+                <h3>2. ハンターの役割と勝利条件</h3>
+                <p>ハンター（1人）の主な目的は、サバイバーが脱出するのを阻止することです。</p>
+                <ul>
+                    <li><strong>阻止：</strong>暗号機の修理を阻止し、サバイバーをロケットチェアで4人全員を排除するか、2人以下しか脱出できなければ勝利となります。</li>
+                    <li><strong>能力：</strong>ハンターはそれぞれ固有の強力なスキルを持ち、マップを巡回してサバイバーを追い詰めると勝利です。</li>
+                </ul>
+            </div>
+            <div class="rule-photo">
+                <img src="images/hunter-play.PNG" alt="ハンターのプレイ画像">
+            </div>
         </div>
+
+        <div class="rule-box" id="game-flow">
+            <div class="rule-text">
+                <h3>3. ゲームの基本的な流れ</h3>
+                <p>ゲームは、サバイバーとハンターがマップに配置された状態からスタートします。</p>
+                <ol>
+                    <li>暗号機が5台修理されると、脱出ゲートが開放可能になります。</li>
+                    <li>サバイバーは脱出ゲートを開放し、マップから脱出を目指します。</li>
+                    <li>ハンターはサバイバーが脱出する前に全員を捕獲することを目指します。</li>
+                </ol>
+            </div>
+            <div class="rule-photo">
+                <img src="images/assembly.jpg" alt="集合の画像">
+            </div>
+        </div>
+    </section>
+
+    <section id="character" class="character-section">
+    <h2 class="section-title">推しキャラクター紹介</h2>
+
+    <h3 class="sub-title" id="survivors">サバイバー</h3>
+    <div class="character-container">
+        
+        <div class="char-card" 
+             data-name="アンドルー・クレス" 
+             data-desc="アルビノであることから周囲に疎まれ、孤独の中で生きてきた青年。スコップで地面を掘り進む『土潜り』状態になれば、移動速度が上昇し、ハンターの攻撃を一度だけ防ぐことができます。仲間を安全に助け出す救援のスペシャリストです。">
+            <div class="char-img grave-keeper-adjust">
+                <img src="images/Grave keeper.webp" alt="墓守">
+            </div>
+            <div class="char-info">
+                <h4 class="job-title">墓守</h4>
+            </div>
+        </div>
+
+        <div class="char-card" 
+            data-name="ルカ・バルサー" 
+            data-desc="かつては将来を嘱望された天才発明家だったが、ある事故をきっかけに記憶の一部と地位を失った青年。マップ内の暗号機同士を『回路』で接続し、離れた場所から解読進捗を共有・転送することができます。解読効率を大幅に高める、解読型のスペシャリストです。">
+            <div class="char-img">
+                <img src="images/prisoner.jpg" alt="囚人">
+            </div>
+            <div class="char-info">
+                <h4 class="job-title">囚人</h4>
+            </div>
+        </div>
+
+        <div class="char-card" 
+             data-name="エドガー・ワルデン" 
+             data-desc="傲慢で芸術至上主義な貴族の跡取り息子。ハンターの顔をキャンバスに描き、完成した『絵画』を設置することで、それを見たハンターを一定時間見惚れさせ、行動を制限できます。独自の芸術でハンターを翻弄するトリッキーな牽制役です。">
+            <div class="char-img">
+                <img src="images/painter.webp" alt="画家">
+            </div>
+            <div class="char-info">
+                <h4 class="job-title">画家</h4>
+            </div>
+        </div>
+
     </div>
 
-    <div class="rule-box" id="hunter-role">
-        <div class="rule-text">
-            <h3>2. ハンターの役割と勝利条件</h3>
-            <p>ハンター（1人）の主な目的は、サバイバーが脱出するのを阻止することです。</p>
-            <ul>
-                <li><strong>阻止：</strong>暗号機の修理を阻止し、サバイバーをロケットチェアで4人全員を排除するか、2人以下しか脱出できなければ勝利となります。</li>
-                <li><strong>能力：</strong>ハンターはそれぞれ固有の強力なスキルを持ち、マップを巡回してサバイバーを追い詰めると勝利です。</li>
-            </ul>
+    <h3 class="sub-title" id="hunters">ハンター</h3>
+    <div class="character-container">
+        
+        <div class="char-card" 
+             data-name="ロビー・ホワイト" 
+             data-desc="自分の『家』と『安息』を求めて彷徨う少年のハンター。マップに『安息松』を植え、その周囲を漂う『怨霊』を操って攻撃します。怨霊を引き寄せての加速や、遠距離からの怨霊攻撃を得意とし、逃げるサバイバーを確実に追い詰めます。">
+            <div class="char-img">
+                <img src="images/crybaby.webp" alt="泣き虫">
+            </div>
+            <div class="char-info">
+                <h4 class="job-title">泣き虫</h4>
+            </div>
         </div>
-        <div class="rule-photo">
-            <img src="images/hunter-play.png" alt="ハンターのプレイ画像">
+
+        <div class="char-card" 
+             data-name="ジョゼフ・デソルニエーズ" 
+             data-desc="かつては名門貴族の若君だったが、失った兄弟を懐かしむあまり、写真の中に魂を留める方法を見出した老人。カメラで撮影した瞬間の世界を『写真世界』として固定し、そこでのダメージを現実に反映させる独特な能力を持ちます。時間の流れを操り、サバイバーを静かに追い詰めるハンターです。">
+            <div class="char-img">
+                <img src="images/photographer.webp" alt="写真家">
+            </div>
+            <div class="char-info">
+                <h4 class="job-title">写真家</h4>
+            </div>
         </div>
     </div>
-
-    <div class="rule-box" id="game-flow">
-        <div class="rule-text">
-            <h3>3. ゲームの基本的な流れ</h3>
-            <p>ゲームは、サバイバーとハンターがマップに配置された状態からスタートします。</p>
-            <ol>
-                <li>暗号機が5台修理されると、脱出ゲートが開放可能になります。</li>
-                <li>サバイバーは脱出ゲートを開放し、マップから脱出を目指します。</li>
-                <li>ハンターはサバイバーが脱出する前に全員を捕獲することを目指します。</li>
-            </ol>
-        </div>
-        </div>
 </section>
+
+    <div id="char-modal" class="modal">
+        <span class="modal-close" id="modal-close">&times;</span>
+        <div class="modal-content">
+            <img id="modal-img" src="" alt="">
+            <div class="modal-text">
+                <h2 id="modal-name"></h2>
+                <p id="modal-desc"></p>
+            </div>
+        </div>
+    </div>
 </main>
 </body>
 </html>

@@ -554,7 +554,7 @@ $(".tab-Day7").on("click", function () {
     });
 
     for (let i = 1; i <= 10; i++) {
-        if (i === 6) $(".tab-Day6").addClass("active");
+        if (i === 7) $(".tab-Day7").addClass("active");
         else $(".tab-Day" + i).removeClass("active");
     }
 

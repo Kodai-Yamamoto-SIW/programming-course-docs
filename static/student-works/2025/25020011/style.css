@@ -5,3 +5,27 @@ header{
 header p{
     margin: 10px;
 }
+
+main{
+    height: 800px;
+    font-size: 40px;
+    background-image: url(image.png);
+}
+h2 ,h3{
+    display: flex;
+    justify-content: center;
+}
+.moderu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.moderu p{
+    display: flex;
+    justify-content: center;
+    margin: 3px;
+}
+section{
+    margin-bottom: 25px;
+}

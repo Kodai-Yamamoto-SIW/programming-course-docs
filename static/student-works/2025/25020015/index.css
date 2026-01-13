@@ -116,7 +116,7 @@ div a:hover{
     border: none;
     background: transparent;
     cursor: pointer;
-    position: relative; 
+    position: fixed; 
     z-index: 3; 
 }
 .ham-icon{
@@ -184,26 +184,105 @@ div a:hover{
 ------------------- */
 
 .akiyama-h1{
+    width: 800px;
     padding: 10px;
     text-align: center;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+    margin: 30px auto;
 }
 .stage{
-    width: 100%;
-    height: 100vh;
+    width: 800px;
+    height: 600px;
     background-color: black;
     position: relative;
+    margin: 0 auto;
+    overflow: hidden;
 }
 .akiyama-animation {
     animation: spin 3s linear 0s infinite;
     position: absolute;
     transform-origin: 50% 50%;
-    top: 20px auto;
-    left:50% auto;
+    left: 250px;
+}
+.akiyama-animation img{
+    height:300px;
+    width: auto;
 }
 @keyframes spin {
-    0%{transform: rotate(0deg);}
-    50%{transform: rotate(-60deg);}
-    100%{transform: rotate(2160deg);}
+    0%{transform:translate(-300px,100px) rotate(0deg);}
+    25%{transform:translate(100px,300px) rotate(-60deg);}
+    50%{transform:translate(300px,0px) rotate(2160deg);}
+    75%{transform:translate(100px,300px) rotate(-12000deg);}
+    100%{transform:translate(-300px,100px) rotate(500deg);}
+}
+.anime1-1 {
+    position: absolute;
+    animation: trans1-4 2s linear .05s infinite alternate;
+    animation-fill-mode: both;
+    top: 280px;
+}
+.anime1-1-1 {
+    position: absolute;
+    animation: trans1-4 2s linear .25s infinite alternate;
+    animation-fill-mode: both;
+    top: 280px;
+}
+.anime1-1-2 {
+    position: absolute;
+    animation: trans1-4 2s linear .45s infinite alternate;
+    animation-fill-mode: both;
+    top: 280px;
+}
+.anime1-1-3 {
+    position: absolute;
+    animation: trans1-4 2s linear .65s infinite alternate;
+    animation-fill-mode: both;
+    top: 280px;
+}
+.anime1-1-4 {
+    position: absolute;
+    animation: trans1-4 2s linear .85s infinite alternate;
+    animation-fill-mode: both;
+    top: 280px;
+}
+.anime1-1-5 {
+    position: absolute;
+    animation: trans1-4 2s linear 1.05s infinite alternate;
+    animation-fill-mode: both;
+    top: 280px;
+}
+.anime1-1-6 {
+    position: absolute;
+    animation: trans1-4 2s linear 1.25s infinite alternate;
+    animation-fill-mode: both;
+    top: 280px;
+}
+.anime1-1-7 {
+    position: absolute;
+    animation: trans1-4 2s linear 1.45s infinite alternate;
+    animation-fill-mode: both;
+    top: 280px;
+}
+.anime1-1-8 {
+    position: absolute;
+    animation: trans1-4 2s linear 1.65s infinite alternate;
+    animation-fill-mode: both;
+    top: 280px;
+}
+.anime1-1-9{
+    position: absolute;
+    animation: trans1-4 2s linear 1.85s infinite alternate;
+    animation-fill-mode: both;
+    top: 280px;
+}
+.anime1-1-10{
+    position: absolute;
+    animation: trans1-4 2s linear 2.05s infinite alternate;
+    animation-fill-mode: both;
+    top: 280px;
+}
+@keyframes trans1-4 {
+    0%{transform: translateX(900px) scale(.5);}
+    100%{transform: translateX(100px) scale(.5);}
 }

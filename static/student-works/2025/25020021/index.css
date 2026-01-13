@@ -37,7 +37,35 @@ img {
     width: 100%;
     background-color: #fff;
     height: 70px;
+    display: flex;
+    font-size: 20px;
 }
+.box ul {
+    display: flex;
+    justify-content: center; /* 横方向の中央 */
+    align-items: center;     /* 縦方向の中央 */
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    margin: 0 auto;
+}
+.mise{
+    display: flex;
+}
+.name{
+    margin-left: 110px;
+}
+.box2{
+    margin-top: 10px;
+    margin-right: 30px;
+    height: 50px;
+    width: 170px;
+    background-color: black;
+}
+
+
 h2{
     margin-top: 90px;
     text-align: center;

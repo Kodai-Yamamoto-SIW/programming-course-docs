@@ -1,50 +1,137 @@
 body {
     margin: 0;
-    font-family: "yosugara ver12"; /* 商用利用可 */
+    padding: 0;
+    /* メインフォント */
+    font-family: "tsumugi", "yosugara ver12"; /* 商用利用可 */
     font-style: normal;
 }
-/* リンク ーーーーーーーーーー */
+
+/* 矢印アイコン */
+.bi--heart-arrow {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' d='M6.707 9h4.364c-.536 1.573 2.028 3.806 4.929-.5c-2.9-4.306-5.465-2.073-4.929-.5H6.707L4.854 6.146a.5.5 0 1 0-.708.708L5.293 8h-.586L2.854 6.146a.5.5 0 1 0-.708.708L3.293 8h-.586L.854 6.146a.5.5 0 1 0-.708.708L1.793 8.5L.146 10.146a.5.5 0 0 0 .708.708L2.707 9h.586l-1.147 1.146a.5.5 0 0 0 .708.708L4.707 9h.586l-1.147 1.146a.5.5 0 0 0 .708.708z'/%3E%3C/svg%3E");
+  background-color: currentColor;
+  -webkit-mask-image: var(--svg);
+  mask-image: var(--svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+
+/* リンク ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 a {
     color: #B39D5A;
     text-decoration: none;
 }
+/* 押したら色が変わる or 乗せたら色が変わる */
 a:hover {color: #E4C1B5;}
 /* a:valid {color: #E4C1B5;} */
-.view {
+
+/* ボタン ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+.view-btn {
     color: #000;
     padding: 3px 20px;
     border: 1px #B39D5A solid;
+    font-family: "Brittany Signature"; /* 商用利用可 */
+    font-style: normal;
 }
 
+/* ナビゲーション ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .nv {
     display: flex;
+    justify-content:center;
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 140px;
+    gap: 30px;
+    font-size: 20px;
 }
-
 .nv>li {
     padding: 20px;
     cursor: pointer;
 }
-
 .nv>li:hover {
     background-color: #B0D5C0;
 }
 
 
+
+/* ヘッダー ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 h1 {
-    font-family: "Yesteryear", cursive; /* 商用利用　不明 変更する */
-    font-weight: 400;
+    font-family: "Yesteryear", cursive; /* 商用利用可 */
     font-style: normal;
+    font-size: 70px;
+    margin-bottom: -20px;
+}
+
+.title1 {
+    color: #fff;
+    font-size: 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* 画像 */
+    background-image: url(image/header.png);
+    background-repeat: no-repeat;
+    width: 1190px;
+    height: 650px;
+    margin-left: 200px;
+}
+
+.title2 {
+    font-family: "Brittany Signature"; /* 商用利用可 */
+    font-style: normal;
+    color: #B39D5A;
+
+    /* 背景 */
+    background-color: #B0D5C0;
+    width: 400px;
+    height: 350px;
+    font-size: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 240px;
+    left: 50px;
 }
 
 
-
+/* CONCEOT ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 #CONCEPT {
     text-align: center;
     margin-bottom: -8px;
+    font-size: 30px;
 }
+.concept {
+    text-align: center;
+    font-size: 20px;
+    line-height: 50px;
+}
+.section-con {
+    background-image: url(image/Intersect.png);
+    height: 100%;
+    height: 725px;
+}
+
+
+/* CONTENTS ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
+.contents {
+    width: 500px;
+    height: 1040px;
+    margin: 0 60px;
+}
+
+
 
 
 .menu {

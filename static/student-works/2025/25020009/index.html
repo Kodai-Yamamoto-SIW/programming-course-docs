@@ -3,81 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="index.css">
-    <script src="index.js" defer></script>
+    <title>sisya site</title>
+    <meta name="description" content="シーシャバー">
+
+    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/index.js" defer></script>
+  
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <nav class="hotbar">
-            <div class="logo"><img src="images/ChatGPT Image 2025年12月4日 11_45_36.png" alt="logo">
-            </div>
-            <ul class="list">
-                <li class="title">
-                    <a href="#"><span>HOME</span></a>
-                </li>
-                <li class="title">
-                    <a href="#"><span>MENU</span></a>
-                </li>
-                <li class="title">
-                    <a href="#"><span>ACCESS</span></a>
-                </li>
-                <li class="title">
-                    <a href="#"><span>KODAWARI</span></a>
-                </li>
-                <li class="title">
-                    <a href="#"><span>NEWS</span></a>
-                </li>
-            </ul>
+    <header class="page-header">
+        <div class="site-logo"><img src="images/ChatGPT Image 2025年12月4日 11_45_36.png" alt="sisyabar"></div>
+        <nav class="site-nav">
+            <a href="#">HOME</a>
+            <a href="#">MENU</a>
+            <a href="#">ACCESS</a>
+            <a href="#"></a>
         </nav>
     </header>
-    <div class="info">
-        <h2>STORE INFO</h2>
-        <ul class="infolist">
-            <li class="joho">
-                <p>店名　The Buzz</p>
-            </li>
-            <li class="joho">
-                <p>住所　東京都豊島区池袋1-26-2近代ビル9F</p>
-            </li>
-            <li class="joho">
-                <p>アクセス　池袋 東口から徒歩1分</p>
-            </li>
-            <li class="joho">
-                <p>営業時間　12:00~24:00</p>
-            </li>
-            <li class="joho">
-                <p>定休日　不定休</p>
-            </li>
-            <li class="joho">
-                <p>支払方法　カード 可(VISA,マスター,アメックス,DINERS,JCB,Discover)電子マネー 可(PASMO,nanaco,ICOCA,QOICPay,ApplePay,PayPay)</p>
-            </li>
-            <li class="joho">
-                <p>個室　なし</p>
-            </li>
-            <li class="joho">
-                <p>座席数　15席(最大予約人数 40人)</p>
-            </li>
-            <li class="joho">
-                <p>駐車場　なし</p>
-            </li>
-            <li class="joho">
-                <p>タバコ　全面喫煙可</p>
-            </li>
-            <li class="joho">
-                <p>予算　昼2,000~2,999円 夜3,000~3,999円</p>
-            </li>
-        </ul>
-    
-    </div>
+    <main>
+        <section class="news">
+            <h3>NEWS</h3>
+            <small>2022.9.1♢ホームページ開設のお知らせ</small>
+        </section>
+        <section class="concept">
+            <h3>CONCEPT</h3>
+            <p>
+                池袋から徒歩1分。<br>
+                豊富なシーシャをラグジュアリー空間で。
+            </p>
+            <p>
+                大人気のフレーバーを豊富にご用意しております。<br>
+                初心者の方でも安心な価格設定と落ち着く空間をお楽しみください。
+            </p>
+        </section>
+        <section class="menu">
+            <h3>MENU</h3>
+            <p>おすすめ</p>
+            <p>
+                日本で大人気のDozajのフレーバーを使っています！<br>
+                鮮度と価格にもこだわり、初心者の方でも安心して楽しんでいただきます。
+            </p>
+        </section>
+        <section class="storeinfo">
+            <h3>STORE INFO</h3>
+            <table class="table-info">
+                <tr>
+                    <th>店名</th>
+                    <td>The Buzz</td>
+                </tr>
+                <tr>
+                    <th>住所</th>
+                    <td>東京都豊島区南池袋1-26-2近代ビル9F</td>
+                </tr>
+                <tr>
+                    <th>アクセス</th>
+                    <td>池袋　東口から徒歩1分</td>
+                </tr>
+                <tr>
+                    <th>営業時間</th>
+                    <td>12:00~24:00</td>
+                </tr>
+                <tr>
+                    <th>定休日</th>
+                    <td>不定休</td>
+                </tr>
+                <tr>
+                    <th>支払方法</th>
+                    <td>カード　可(VISA、マスター、アメックス、DINERS、JCB、Discover)電子マネー　可(PASMO、nanaco、ICOCA、QUICPay、ApplePay、PayPay)</td>
+                </tr>
+                <tr>
+                    <th>個室</th>
+                    <td>なし</td>
+                </tr>
+                <tr>
+                    <th>座席数</th>
+                    <td>15席(最大予約数　40人)</td>
+                </tr>
+                <tr>
+                    <th>駐車場</th>
+                    <td>なし</td>
+                </tr>
+                <tr>
+                    <th>タバコ</th>
+                    <td>全面喫煙可</td>
+                </tr>
+                <tr>
+                    <th>予算</th>
+                    <td>昼2,000~2,999円　夜3,000~3,999円</td>
+                </tr>
+            </table>
+        </section>
+    </main>
     <footer>
-        <img src="images/スクリーンショット 2025-10-29 2.24.06のコピー.png" alt="店舗情報">
-        <p>The Buzz</p>
-        <p>住所：東京都豊島区南池袋1-26-2 近代ビル9F</p>
-        <p>定休日：不定休</p>
-        <p>営業時間：12:00~24:00</p>
-        <p>電話番号：03-5843-3670</p>
-        <p>ⓒ2025 TALENT Inc.</p>
+        <div class="footer-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.89074529069!2d139.7136491!3d35.728905399999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d8195b1d49b%3A0x6fd056c83bbcc011!2sThe%20Buzz%20Shisha!5e0!3m2!1sja!2sjp!4v1766764876023!5m2!1sja!2sjp" width="1290" height="295" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="footer-info">
+            <p>
+                The Buzz <br>
+                住所：東京都豊島区南池袋1-26-2近代ビル9F <br>
+                定休日：不定休 <br>
+                営業時間：12:00~24:00 <br>
+            </p>
+            <p class="text-big">
+                電話番号：03-5843-3670
+            </p>
+                <div class="copywrite">
+                <small>&copy; 2025 TALENT Inc.</small>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

@@ -1,4 +1,4 @@
-* {
+     * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -32,6 +32,21 @@
             background-color: white;
             margin: 6px 0;
         }
+
+        /* メニューが開いているときのバツ印スタイル */
+        .menu-icon.active div:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 6px);
+        }
+
+        .menu-icon.active div:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .menu-icon.active div:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -6px);
+        }
+
 
         .logo {
             font-size: 25px;
@@ -163,4 +178,110 @@
             right: 10px;
         }
 
-       
+        .description-section {
+            text-align: center;
+            padding: 80px 40px;
+            background-color: #0033ff;
+        }
+
+        .description-section h2 {
+            font-size: 36px;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+        }
+
+        .description-text {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .more-button {
+            padding: 15px 80px;
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .more-button:hover {
+            background-color: #ffffff;
+            color: #0033ff;
+            transform: scale(1.05);
+        }
+
+        /* サイドメニューのスタイル */
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, .8);
+            z-index: 999;
+            transition: left 1s ease;
+            padding-top: 100px;
+        }
+
+        .side-menu.active {
+            left: 0;
+        }
+
+        .side-menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .side-menu-list li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .side-menu-list a {
+            display: block;
+            padding: 25px 40px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .side-menu-list a:hover {
+            background-color: rgba(0, 0, 0);
+            padding-left: 50px;
+        }
+
+
+
+
+ /* オーバーレイ */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        footer{
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            padding: 30px;
+        }

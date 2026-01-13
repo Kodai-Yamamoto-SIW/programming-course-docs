@@ -18,12 +18,17 @@ header {
     background-image: url(../img/hart.avif);
     background-size: cover;
     background-position: center center;
+    background-attachment: fixed;
     width: 100vw;
     height: 100vh;
     color: white;
+    margin: 0px 0px 100px;
 }
 .font-ugoku {
     text-align: center;
+    margin: 20px;
+    font-style: italic;
+    font-size: 3em;
 }
 /* ーーーーーーーヘッダーメニューーーーーーーー */
 .menu-book {
@@ -40,42 +45,43 @@ header {
 /* ーーーーーーーーーーーーーメインーーーーーーーーーーー */
 main {
     padding: 30px;
+    margin-bottom: 100px;
     text-align: center;
     color: #602d1d;
 }
 /* ーーーーーーーボタンーーーーーーー */
 .botan {
-    background-color: #fff0f5;
+    background-color: #602d1d;
+    color: #fff0f5;
     padding: 20px;
     width: 25%;
+    margin: 0 auto;
     border-radius: 10px;
     cursor: pointer;
     
 }
 .botan:hover {
-    background-color: #602d1d;
-    color: #fff0f5;
+    background-color: #fff0f5;
+    color:  #602d1d;
     transform: translateY(10px);
     transition: all 0.4s;
 }
 
-/* --------------画像---------------- */
-img {
+/* --------------photogalleryの画像---------------- */
+.photo {
     width: 300px;
     height: 300px;
     object-fit: cover;
     border-radius: 10%;
-    border: 3px dotted lightcoral;
+    border: 3px dotted palevioletred;
+    cursor:  pointer; 
+    transition: transform 0.4s ease-in-out;
+}
+.photo:hover {
+    transform: scale(1.1);
+
 }
 
-/* ------------フッターーーーーーーーーーーー */
-footer {
-    background-color: #602d1d;
-    color: white;
-    height: 100px;
-    width: 100%;
-    text-align: center;
-}
 
 /* ーーーーーーーーー写真ーーーーーーーーーーー */
 .jouhou {
@@ -85,4 +91,29 @@ footer {
     gap: 20px;
     list-style: none;
     margin: 20px;
+}
+
+/* ーーーーーーーーセンター写真ーーーーーーーーー */
+.image {
+    margin: 100px 0px 100px;
+}
+#contena {
+    position: relative;
+}
+.art {
+    width: 70%;
+    height: 80vh;
+    object-fit: cover;
+    border: 3px solid palevioletred;
+}
+
+
+/* ------------フッターーーーーーーーーーーー */
+footer {
+    background-color: #602d1d;
+    color: white;
+    height: 100px;
+    width: 100%;
+    text-align: center;
+    line-height: 5.5;
 }

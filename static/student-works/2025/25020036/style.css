@@ -94,3 +94,71 @@ img {
     margin: 0 auto;
     padding: 0 20px;
 }
+
+.animetati h3 {
+    font-size: 20px;
+}
+
+.animetati {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.photo-card {
+    width: calc((100% - 40px) / 3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.image-center-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.link-img {
+    max-width: 100%;
+    height: auto;
+    border: 3px solid #ddd;
+    border-radius: 20px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.information-center-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.link-img2 {
+    max-width: 100%;
+    height: auto;
+    border: 3px solid #ddd;
+    border-radius: 20px;
+}
+
+/*　動き　*/
+
+.link-img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.link-img2:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+    cursor: pointer;
+}
+

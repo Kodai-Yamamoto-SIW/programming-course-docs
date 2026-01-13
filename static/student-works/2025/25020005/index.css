@@ -13,6 +13,7 @@ h2 {
 
 body {
     background-color: #FEF4F4;
+    position: relative;
 }
 
 /* header------------------------------------ */
@@ -84,6 +85,9 @@ p>span {
 #intro img {
     width: 580px;
     margin: 20px auto;
+    position: absolute;
+    top: 63rem;
+    left: 8rem;
 }
 
 #intro h2,
@@ -103,5 +107,47 @@ p>span {
     font-size: 23px;
     text-align: start;
     padding: 0;
-    line-height: 2.2;
+    line-height: 2.4;
 }
+
+/* リスト-------------------- */
+#proud{
+    padding: 0 200px;
+}
+
+#proud>div{
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+#proud h2{
+    font-size: 36px;
+    padding: 50px;
+    text-align: center;
+}
+
+#proud h3{
+    font-size: 31px;
+}
+
+#proud ul{
+    display: flex;
+    justify-content: space-between;
+}
+
+#proud ul:nth-child(even){
+    flex-direction: row-reverse;
+}
+
+#proud>div>ul>div{
+    width: 493px;
+    display: grid;
+    place-content: center;
+}
+
+#proud div div div{
+    width: 330px;
+}
+/* 店舗ーーーーーーーーーーーーーーー */
+

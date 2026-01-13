@@ -6,7 +6,7 @@
 
 
 .main {
-    font-size: 1.2rem;
+    font-size: 5.2rem;
     width: 100vw;
     height: 100vh;
     background: linear-gradient(to right, );
@@ -21,4 +21,14 @@
 .h1 {
     position: center;
     right: 50rem;
+    font-size: large;
   }
+
+.h2 {
+  font-size: large;
+}
+
+.photo {
+  width: 300px;
+  height: auto;
+}

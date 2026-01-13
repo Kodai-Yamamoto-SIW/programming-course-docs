@@ -1,0 +1,104 @@
+/* responsive.css */
+
+/*============= ヒーロー ================*/
+@media (max-width: 560px){
+    .hero{
+      padding-left: 0;
+    }
+  
+    /*============= バッジ ================*/
+    .hero-badge{
+      --split: 52%;
+      --badgeW: clamp(110px, 34vw, 190px);
+      --badgeH: clamp(80px, 22vw, 130px);
+      --overlapL: clamp(6px, 1.6vw, 12px);
+      --overlapR: clamp(0px, 0.2vw, 1px);
+
+      top: auto;
+      bottom: 44px;
+      transform: translateX(-10%);
+    }
+  
+    .hero-badge__text{
+      left: 12px;
+      letter-spacing: .10em;
+    }
+  
+    .hero-badge__text::after{
+      -webkit-text-stroke: 0 transparent;
+    }
+  
+    /*============= ドット ================*/
+    .hero-dots{
+      bottom: 10px;
+    }
+  }
+  
+  /*============= 矢印ボタン ================*/
+  @media (max-width: 560px){
+    .hero-arrow{
+      width: 36px;
+      height: 36px;
+    }
+    .hero-arrow::before{
+      width: 9px;
+      height: 9px;
+      border-top-width: 2.5px;
+      border-right-width: 2.5px;
+    }
+    .hero-prev{ left: 8px; }
+    .hero-next{ right: 8px; }
+  }
+
+  /*============= NEWS ================*/
+@media (max-width: 900px){
+  .news-grid{
+    flex-direction: column;
+    gap: 18px;
+  }
+  .news-left{
+    min-width: 0;
+  }
+  .news-photo{
+    flex: none;
+    max-width: 100%;
+  }
+  .news-title{
+    font-size: 48px;
+  }
+  .news-photo img{
+    height: auto;
+  }
+}
+
+/*============= ABOUT ================*/
+
+@media (max-width:600px){
+  .about__title{ font-size:36px; }
+  .about{ padding:44px 16px; }
+}
+
+@media (max-width: 560px){
+  .btn--more{
+    min-width: 220px;
+    padding: 14px 34px;
+    font-size: 18px;
+  }
+}
+/*============= フッター ================*/
+@media (max-width: 560px){
+  .site-footer{
+    padding: 34px 0 26px;
+  }
+  .footer-logo__text{
+    font-size: 26px;
+  }
+  .footer-nav a,
+  .footer-subnav a{
+    font-size: 12px;
+  }
+  .footer-sns .icon img{
+    width: 30px;
+    height: 30px;
+  }
+}

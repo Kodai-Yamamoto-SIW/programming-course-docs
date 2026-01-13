@@ -1,3 +1,40 @@
+/* ===== 全体リセット ===== */
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* ===== hero（背景画像） ===== */
+.hero {
+  height: 100vh;
+  background-image: url(image/yuuki.jpeg);
+  background-size: cover;
+  background-position: top center;
+  position: relative;
+}
+
+/* ===== ナビゲーション ===== */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 20px 30px;
+  z-index: 10;
+}
+
+/* ロゴ */
+.logo {
+  height: 80px;
+  width: auto;
+}
+
+/* ===== ハンバーガー ===== */
 .hamburger {
   display: flex;
   gap: 6px;
@@ -11,42 +48,146 @@
   border-radius: 50%;
 }
 
-
+/* ===== ナビリンク ===== */
 .nav-links {
-  display: none;
-  position: absolute;
-  top: 65px;
-  right: 30px;
-  background: #a6ecff;
-  padding: 12px 18px;
-  border-radius: 999px;
   list-style: none;
   display: flex;
   gap: 20px;
+
+  position: absolute;
+  top: 70px;
+  right: 30px;
+
+  background: #a6ecff;
+  padding: 12px 18px;
+  border-radius: 999px;
 }
 
-.nav-links li a {
+.nav-links a {
   color: white;
   text-decoration: none;
   font-weight: bold;
   padding: 6px 12px;
   border-radius: 999px;
-  transition: background 0.2s;
 }
 
-.nav-links li a:hover {
+.nav-links a:hover {
   background: rgba(255, 255, 255, 0.25);
 }
 
-.hero {
-  height: 80vh; 
-  background-image: url(image/yuuki.jpeg); 
-  background-size: cover;
-  background-position: center;
+/* ===== プロフィール ===== */
+.profile {
+  padding: 80px 40px;
+  background: #fff;
+  text-align: center;
+  
+}
 
+.profile-text {
+  max-width: 600px;
 }
-.hero-text{
-    position: absolute;
-    top: 50%;
-    left: 50%; 
+
+.catch {
+  font-weight: bold;
+  margin-bottom: 20px;
 }
+
+.profile-list {
+  list-style: none;
+  padding: 0;
+}
+
+.profile-list li {
+  margin-bottom: 10px;
+}
+.design{
+  height: 100vh;
+  background-size: cover;
+  background-position: top center;
+  position: relative; 
+}
+
+
+/* ===フッター=== */
+.footer {
+  background: #a6ecff;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+/* ロゴ */
+.footer-logo {
+  height: 40px;   /* ← ロゴは少し大きめ */
+  width: auto;
+  margin-bottom: 15px;
+}
+
+/* SNSアイコン*/
+.footer-x,
+.footer-you {
+  height: 28px;   /* ← アイコンは小さめ */
+  width: auto;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+
+/* ===== Music ===== */
+.music {
+  padding: 80px 40px;
+  background: #f7fbff;
+  text-align: center;
+}
+
+.music h2 {
+  margin-bottom: 30px;
+}
+
+/* 横並び */
+.music-list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.music-item {
+  width: 200px;
+}
+
+.music-item img {
+  width: 100%;
+  border-radius: 16px;
+}
+
+.music-item p {
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+/* もっと見るボタン */
+.more-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: #a6ecff;
+  color: white;
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: bold;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.more-btn:hover {
+  transform: translateY(-3px);
+  opacity: 0.85;
+}
+
+/* hoverでちょい浮かせる */
+.footer-x:hover,
+.footer-you:hover {
+  transform: translateY(-3px);
+  opacity: 0.8;
+}
+
+

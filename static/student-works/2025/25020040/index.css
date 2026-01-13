@@ -20,8 +20,8 @@ body {
 }
 
 .top img {
-    width: 10vw;
-    height: 10vh;
+    background-size: cover;
+    object-fit: cover;
     justify-content: center;
     align-items: center;
 }
@@ -51,11 +51,12 @@ body {
 /* キービジュアル */
 
 .keyvisual {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-image: url(img/47311964e9d711b1cb396bc194587cbb.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
+    object-fit: cover;
     position: relative;
 }
 
@@ -103,7 +104,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 150px;
+    margin: 120px;
 }
 
 #joho h2 {
@@ -147,7 +148,9 @@ body {
 /* メンバー写真 */
 
 #member {
-    margin: 250px;
+    max-width: 1300px;
+    margin: 120px auto;
+
 }
 
 #member h2 {
@@ -155,7 +158,7 @@ body {
     font-size: 36px;
     color: #69E65B;
     text-align: center;
-    margin: 80px;
+    margin: 50px;
 }
 
 .mrs {
@@ -166,8 +169,8 @@ body {
 }
 
 .Fujisawa {
-    width: 500px;
-    height: 600px;
+    width: 600px;
+    height: 550px;
     border-radius: 15px;
     background-image: url(img/6c19ff5c11492380695db8529bdbe018.jpeg);
     background-size: cover;
@@ -182,12 +185,12 @@ body {
     font-size: 30px;
     position: absolute;
     bottom: 12px;
-    left: 115px;
+    left: 100px;
 }
 
 .omori {
-    width: 500px;
-    height: 600px;
+    width: 600px;
+    height: 550px;
     border-radius: 15px;
     background-image: url(img/8d7ffc89abe24ac41aeb55cba8e8eab8.jpeg);
     background-size: cover;
@@ -202,12 +205,12 @@ body {
     font-size: 30px;
     position: absolute;
     bottom: 12px;
-    left: 130px;
+    left: 120px;
 }
 
 .wakai {
-    width: 500px;
-    height: 600px;
+    width: 600px;
+    height: 550px;
     border-radius: 15px;
     background-image: url(img/c15133e74eecd7353a61418e608463a4.jpeg);
     background-size: cover;
@@ -222,15 +225,76 @@ body {
     font-size: 30px;
     position: absolute;
     bottom: 12px;
-    left: 145px;
+    left: 120px;
 }
 
 /* 動画紹介 */
+
+#video {
+    margin: 120px;
+}
 
 #Video h2 {
     font-family: "Inknut Antiqua", sans-serif;
     font-size: 36px;
     color: #69E65B;
     text-align: center;
+    margin: 50px;
+}
+
+.sns {
+    display: flex;
+    gap: 80px;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+
+}
+
+.sns-item {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    aspect-ratio: 16/9;
+    gap: 20px;
+}
+
+.sns-youtube iframe {
+    width: 560px;
+}
+
+/* 曲紹介 */
+
+#music {
+    max-width: 1400px;
+    margin: 120px auto;
+}
+
+#music h2 {
+    font-family: "Inknut Antiqua", sans-serif;
+    font-size: 36px;
+    color: #69E65B;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    gap: 70px 35px;
+    grid-template-columns: repeat(3, 1fr);
     margin: 80px;
+}
+
+.cd img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+/* フッター */
+footer {
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    height: 80px;
 }

@@ -1,0 +1,201 @@
+body{
+    margin: 0;
+    font-family: "Shippori Mincho", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+header{
+    background-image: url(./imeges/header.kusa.png);
+    height: 300px;
+    background-size: cover;
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
+
+/* ハンバーガーのボタンとアイコンの調整 */
+.ham-btn{
+    display: block;
+    padding: 20px;
+
+    border: none;
+    background: transparent;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 2; 
+}
+
+.ham-icon{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ham-icon .line{
+    border-radius: 50px;
+    width: calc(24px * sqrt(2));/*ここを24√２pxになるように調整*/
+    height: 4px;
+    display:block;
+    background-color:rgb(90, 89, 89);
+
+    transform-origin: left center;
+    transition: all 1s;
+}
+
+.ham-icon.open .line.top{
+    transform: rotate(45deg);
+}
+
+.ham-icon.open .line.middle{
+    opacity: 0;
+}
+
+.ham-icon.open .line.buttom{
+    transform: rotate(-45deg);
+}
+
+.drawer {
+    position: fixed; /* 画面内で、位置固定 */
+    top: 0; /* 要素の上端は画面の上端に合わせる */
+    bottom: 0; /* 要素の下端は画面の下端に合わせる(top:0, bottom:0 によって高さが画面いっぱいになる) */
+    left: 0; /* 画面の左端に配置 */
+    background-color: white; /* 背景をつけないと透明になるから */
+  
+    padding-top: 80px; /* 上に60pxの余白 */
+
+    transform: translateX(-100%);
+    transition: all 1s;
+    z-index: 1;
+  }
+
+.drawer ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.drawer a{
+    display: block;
+    padding: 12px 36px;
+    text-decoration: none;
+    color: black;
+    transition: bckground-color 0.3s;
+}
+.drawer a:hover {
+    background-color: #f0f0f0; /* ホバー時の背景色をライトグレーに */
+  }
+  
+.drawer.open {
+    transform: translateX(0);
+    box-shadow: 4px 0 6px rgba(0, 0, 0, 0.5); /* 右側に影をつける */
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 1s;
+    z-index: 0;
+  }
+  
+  .overlay.open {
+    opacity: 1;
+  }
+
+.mein-header{
+    background-repeat: no-repeat;
+    background-color:#98CFD7;
+    top: 200px;
+    width: 100%;
+    height: 100vh;
+}
+h1{
+    margin: 76px 0 0 0;
+    text-align: center;
+    font-size: 65px;
+    color: white;
+}
+.mein-visual{
+    display: flex;
+    justify-content:space-between;
+    flex-direction:row; 
+    padding: 80px 10%;
+}
+
+.btn {
+    display: inline-block;
+    background: #668F41;
+    color: #fff;
+    font-size: 30px;
+    border-radius: 50px;
+    padding: 10px 60px 10px 60px;
+    text-decoration: none;
+    margin-top: 80px;
+    margin-left: 109px;
+  }
+.mein-1{
+    margin: 0 auto;
+}
+
+/* about */
+.about{
+    background-image: url(./imeges/文章.png);
+    background-size: cover;
+    color: #7E7E7E;
+    text-align: center;
+    padding: 100px 20px;
+    font-size: 35px;
+    line-height: 1.6;
+}
+
+/* lineup */
+h2{
+    text-align: center;
+    font-size: 80px;
+    margin: 236px 0 0 0;
+}
+
+.lineup{
+    max-width: 1000px;
+  margin: 0 auto;
+  padding: 120px 20px;
+  position: relative;
+}
+
+.item right {
+    text-align: left;
+  }
+
+  .item.right img {
+    box-shadow: -12px 12px 12px rgba(0, 0, 0, 0.25);
+  }
+
+.item img {
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.25);
+}
+
+.detail {
+    margin-top: 36px;
+    color: black;
+    display: block;
+    text-decoration: none;
+    text-align: right;
+    width: 200px;
+    border-bottom: 1px solid black;
+  }
+
+
+.item{
+    display:block;
+    justify-content:space-between;
+    margin-bottom: 329px;
+    text-align: right;
+}
+  

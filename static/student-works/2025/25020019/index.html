@@ -1,13 +1,14 @@
 <!doctype html>
 <html lang="ja">
+<!-- 各種別ページ(例：オンラインショップ)などは未実装 -->
+<!-- SNSのみ実装してあります -->
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Living Style</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
   <script src="index.js" defer></script>
-</body>
-</html>
 </head>
 
 <body>
@@ -31,7 +32,7 @@
           <img src="image/YouTubeロゴ.png" alt="">
         </a>
 
-        <button class="ham-btn" type="button" aria-label="メニュー">
+        <button class="ham-btn" type="button" aria-label="メニュー" aria-expanded="false" aria-controls="drawer">
           <span class="ham-icon">
             <span class="line top"></span>
             <span class="line middle"></span>
@@ -41,63 +42,172 @@
       </nav>
     </div>
   </header>
-<!-- 本日12/18　画像探しの旅に出る -->
+
+  <!-- ハンバーガーメニュー（中身） -->
+  <div class="drawer-overlay" data-drawer-close></div>
+
+  <aside class="drawer" id="drawer" aria-label="サイトメニュー" aria-hidden="true">
+    <nav class="drawer-nav" aria-label="サイト内リンク">
+      <ul class="drawer-list">
+        <li><a href="#news">NEWS</a></li>
+        <li><a href="#products">製品紹介</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#shop">オンラインショップ</a></li>
+      </ul>
+    </nav>
+  </aside>
+
   <main>
     <!-- メインビジュアル -->
     <section class="hero">
-      <div class="wrap">
+      <div class="wrap wrap-right">
         <div class="hero-card">
-          <img class="hero-image" src="./image/hero1.png" alt="インテリアのメインビジュアル">
-          <p class="hero-badge">Living<br>Style</p>
-        </div>
-        <div class="hero-dots">
-          <button class="hero-dot is-active" data-hero="1" aria-label="1枚目"></button>
-          <button class="hero-dot" data-hero="2" aria-label="2枚目"></button>
-          <button class="hero-dot" data-hero="3" aria-label="3枚目"></button>
-          <button class="hero-dot" data-hero="4" aria-label="4枚目"></button>
-          <button class="hero-dot" data-hero="5" aria-label="5枚目"></button>
+          <div class="hero-viewport">
+            <div class="hero-track">
+              <img class="hero-image" src="./image/hero1.png" alt="">
+              <img class="hero-image" src="./image/hero2.png" alt="">
+              <img class="hero-image" src="./image/hero3.png" alt="">
+              <img class="hero-image" src="./image/hero4.png" alt="">
+              <img class="hero-image" src="./image/hero5.png" alt="">
+            </div>
+          </div>
+
+          <div class="hero-badge" aria-hidden="true">
+            <div class="hero-badge__back"></div>
+            <div class="hero-badge__front"></div>
+            <div class="hero-badge__text" data-text="Living&#10;Style">Living<br>Style</div>
+          </div>
+
+          <div class="hero-dots">
+            <button class="hero-dot is-active" data-hero="1" aria-label="1枚目"></button>
+            <button class="hero-dot" data-hero="2" aria-label="2枚目"></button>
+            <button class="hero-dot" data-hero="3" aria-label="3枚目"></button>
+            <button class="hero-dot" data-hero="4" aria-label="4枚目"></button>
+            <button class="hero-dot" data-hero="5" aria-label="5枚目"></button>
+          </div>
+
+          <button class="hero-arrow hero-prev" type="button" aria-label="前の画像"></button>
+          <button class="hero-arrow hero-next" type="button" aria-label="次の画像"></button>
         </div>
       </div>
     </section>
 
     <!-- NEWS -->
-    <section class="news">
+    <section class="news" id="news">
       <div class="wrap news-inner">
-        <h2 class="section-title">NEWS</h2>
-
         <div class="news-grid">
-          <ul class="news-list">
-            <li><a href="#"><time datetime="2024-05-31">2024/05/31</time> 雑誌に掲載されました</a></li>
-            <li><a href="#"><time datetime="2024-04-20">2024/04/20</time> おすすめスタイリング</a></li>
-            <li><a href="#"><time datetime="2024-04-12">2024/04/12</time> イベント出展</a></li>
-          </ul>
+          <div class="news-left">
+            <h2 class="news-title">NEWS</h2>
 
-          <div class="news-photo">
-            <img src="images/news.jpg" alt="部屋の写真">
+            <ul class="news-list">
+              <li class="news-item">
+                <time class="news-date" datetime="2023-05-30">2023.05.30</time>
+                <a class="news-link" href="#">
+                  <span class="news-tag">【イベント】</span>
+                  <span class="news-text">「インテリア ライフスタイル2024」出展</span>
+                </a>
+              </li>
+
+              <li class="news-item">
+                <time class="news-date" datetime="2024-05-14">2024.05.14</time>
+                <a class="news-link" href="#">
+                  <span class="news-text">雑誌「北米版 ELLE gourmet 2024春夏号」に掲載されました。</span>
+                </a>
+              </li>
+
+              <li class="news-item">
+                <time class="news-date" datetime="2024-04-20">2024.04.20</time>
+                <a class="news-link" href="#">
+                  <span class="news-tag">【レポート】</span>
+                  <span class="news-text">eterble初となるインスタレーション展示を行いました。</span>
+                </a>
+              </li>
+
+              <li class="news-item">
+                <time class="news-date" datetime="2024-04-12">2024.04.12</time>
+                <a class="news-link" href="#">
+                  <span class="news-tag">【イベント】</span>
+                  <span class="news-text">「エシカルウェディングフェス “Joy!!”」feat. THINKSでインスタレーション&トークイベント開催</span>
+                </a>
+              </li>
+            </ul>
+
+            <p class="news-more">
+              <a class="news-more-link" href="#">View more</a>
+            </p>
           </div>
+
+          <figure class="news-photo">
+            <img src="./image/news.png" alt="部屋の写真">
+          </figure>
         </div>
       </div>
     </section>
 
     <!-- 製品紹介 -->
-    <section class="products">
+    <section class="products" id="products">
       <div class="wrap">
-        <h2 class="section-title">製品紹介</h2>
+        <h2 class="section-title products-title">製品紹介</h2>
 
-        <div class="product-grid">
+        <div class="product-grid" aria-label="製品カテゴリ一覧">
           <article class="product-card">
-            <img src="images/p1.jpg" alt="ソファー">
-            <h3 class="product-title">ソファー</h3>
+            <a class="product-link" href="#">
+              <img class="product-image" src="image/ソファー.png" alt="ソファー">
+              <span class="product-badge">
+                <span class="product-name">ソファー</span>
+                <span class="product-arrow" aria-hidden="true"></span>
+              </span>
+            </a>
           </article>
 
           <article class="product-card">
-            <img src="images/p2.jpg" alt="ベッド">
-            <h3 class="product-title">ベッド</h3>
+            <a class="product-link" href="#">
+              <img class="product-image" src="image/ベッド.png" alt="ベッド">
+              <span class="product-badge">
+                <span class="product-name">ベッド</span>
+                <span class="product-arrow" aria-hidden="true"></span>
+              </span>
+            </a>
           </article>
 
           <article class="product-card">
-            <img src="images/p3.jpg" alt="テーブル">
-            <h3 class="product-title">テーブル</h3>
+            <a class="product-link" href="#">
+              <img class="product-image" src="image/テーブル.png" alt="テーブル">
+              <span class="product-badge">
+                <span class="product-name">テーブル</span>
+                <span class="product-arrow" aria-hidden="true"></span>
+              </span>
+            </a>
+          </article>
+
+          <article class="product-card">
+            <a class="product-link" href="#">
+              <img class="product-image" src="image/椅子.png" alt="イス">
+              <span class="product-badge">
+                <span class="product-name">椅子</span>
+                <span class="product-arrow" aria-hidden="true"></span>
+              </span>
+            </a>
+          </article>
+
+          <article class="product-card">
+            <a class="product-link" href="#">
+              <img class="product-image" src="image/キャビネット.png" alt="キャビネット＆シェルフ">
+              <span class="product-badge">
+                <span class="product-name">キャビネット<br>&amp;<br>シェルフ</span>
+                <span class="product-arrow" aria-hidden="true"></span>
+              </span>
+            </a>
+          </article>
+
+          <article class="product-card">
+            <a class="product-link" href="#">
+              <img class="product-image" src="image/照明器具.png" alt="照明器具">
+              <span class="product-badge">
+                <span class="product-name">照明器具</span>
+                <span class="product-arrow" aria-hidden="true"></span>
+              </span>
+            </a>
           </article>
         </div>
 
@@ -106,20 +216,68 @@
         </p>
       </div>
     </section>
+
+    <!-- about -->
+    <section class="about" id="about">
+      <div class="about__inner">
+        <h2>About Us</h2>
+        <p>
+          <span class="c-comfort">「心地よさ」</span>と
+          <span class="c-beauty">「美しさ」</span>が共存する暮らしを提案する<br>
+          ライフスタイル型インテリアショップです。
+        </p>
+
+        <p>
+          丁寧に選び抜かれた天然素材、手仕事のぬくもり、空間にすっとなじむ静かなデザイン。<br>
+          トレンドに左右されすぎず、<span class="c-self">自分らしく</span>整えた部屋には、<br>
+          自然と深呼吸したくなるような穏やかさが広がります。
+        </p>
+      </div>
+    </section>
+
+    <div class="about-cta" id="shop">
+      <a class="about-cta__btn" href="#">
+        <span class="about-cta__text">オンラインショップはこちら</span>
+      </a>
+    </div>
+
   </main>
 
+  <!-- フッター -->
   <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <p class="footer-brand">Living Style</p>
-
-      <ul class="footer-links">
+    <div class="wrap footer-inner footer-stack">
+      <div class="footer-logo">
+        <a href="#">
+          <img src="image/インテリアロゴ横長.png" alt="Living Style">
+        </a>
+        <!-- <span class="footer-logo__text">Living Style</span> -->
+      </div>
+      <ul class="footer-nav" aria-label="フッターリンク">
+        <li><a href="#">よくある質問</a></li>
         <li><a href="#">お問い合わせ</a></li>
-        <li><a href="#">会社情報</a></li>
-        <li><a href="#">プライバシー</a></li>
+        <li><a href="#">店舗情報</a></li>
+        <li><a href="#">配送・返品について</a></li>
+        <li><a href="#">会員登録</a></li>
       </ul>
+      <ul class="footer-subnav" aria-label="規約リンク">
+        <li><a href="#">利用規約</a></li>
+        <li><a href="#">プライバシーポリシー</a></li>
+      </ul>
+      <nav class="footer-sns" aria-label="SNS">
+        <a class="icon" href="https://x.com/ITWEB15" aria-label="X">
+          <img src="image/Xロゴ 1.png" alt="">
+        </a>
+        <a class="icon" href="https://www.siw.ac.jp/redirect/?type=instagram" aria-label="Instagram">
+          <img src="image/インスタロゴ 1.png" alt="">
+        </a>
+        <a class="icon" href="https://www.siw.ac.jp/redirect/?type=youtube" aria-label="youtube">
+          <img src="image/YouTubeロゴ.png" alt="">
+        </a>
+      </nav>
+
+      <p class="footer-copy">2025 © Living Style Inc.</p>
     </div>
   </footer>
-
-  <script src="script.js"></script>
 </body>
+
 </html>

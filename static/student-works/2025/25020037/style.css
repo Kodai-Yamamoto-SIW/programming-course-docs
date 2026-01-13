@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 h2 {
@@ -88,12 +89,16 @@ header img {
 }
 
 
+.inner {
+    max-width: 1160px;
+    margin: 0 auto;
+}
+
 /* News 
 ------------------------------------- */
 #news {
     background-color: #CABD9F;
     margin: 150px auto;
-    width: 1160px;
     padding: 30px;
 }
 
@@ -117,7 +122,8 @@ header img {
 /* ABOUT US 
 ------------------------------------- */
 #about {
-    position: relative;
+    display: block;
+    margin-bottom: 150px;
 }
 
 #about .box {
@@ -126,22 +132,60 @@ header img {
     width: 415px;
     background-color: #47336F;
     top: 0;
-    right: 0;
+    right: -280px;
+    z-index: -50;
 }
 
-#about img {
-    position: absolute;
+#about h3 {
+    margin-bottom: 20px;
+}
+
+.flexbox {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: wrap;
+}
+
+.text {
+    width: 55%;
+}
+
+.mostro .mostro_img {
     width: 472px;
     height: 300px;
     object-fit: cover;
-    top: 50%;
+    top: 150px;
     right: 140px;
+    z-index: -10;
+}
+
+.mostro {
+    position: relative;
+    padding-top: 70px;
+}
+
+.viproom {
+    position: relative;
+    margin-top: 200px;
+    right: 0;
+    flex-flow: row-reverse;
+}
+
+.viproom_img {
+    width: 472px;
+    height: 300px;
+    object-fit: cover;
+    left: 100px;
 }
 
 
 
 /* STAFF 
 ------------------------------------- */
+#staff {
+    margin-bottom: 150px;
+}
+
 .introduction {
     position: relative;
     display: flex;
@@ -157,6 +201,7 @@ header img {
     background-color: #282F53;
     overflow: hidden;
 }
+
 .octavinelle img {
     width: 100%;
     vertical-align: middle;
@@ -201,7 +246,9 @@ header img {
     /* KV 
     ------------------------------------- */
     .swiper {
-        height: 500px;
+        width: auto;
+        height: 400px;
+        object-fit: cover;
     }
 
     /* NEWS 
@@ -229,21 +276,22 @@ header img {
     }
 
     .sub_list {
-        position: fixed;
-        padding-top: 10vh;
+        position: relative;
+        padding-top: 50px;
         top: 0;
         left: 105%;
         z-index: 100;
-        width: 100%;
-        max-width: 240px;
-        height: 100vh;
+        width: calc(100% - 50%);
+        height: 400px;
         flex-direction: column;
         transition: 0.3s;
         background-color: #030A2E;
-        margin-top: 66px;
     }
 
 
     /* ABOUT US 
     ------------------------------------- */
+    #about {
+        max-width: 100%;
+    }
 }
