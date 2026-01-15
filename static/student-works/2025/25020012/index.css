@@ -1,3 +1,6 @@
+*{
+    margin: 0;
+}
 
 h1 {
     font-family: "Nico Moji";
@@ -5,12 +8,103 @@ h1 {
     color: #B5EAFF;
     text-shadow: 10px;
     text-align: center;
+    margin-bottom: 40px;
 }
 
 body {
     background-image: url(images/_\ \(56\).jpeg);
     width: 100%;
     height: 100%;
+}
+
+.ham-btn {
+  display: block; 
+  padding: 20px;
+
+  border: none; 
+  background: transparent; 
+  cursor: pointer; 
+
+  position: fixed;
+  z-index: 9999;
+}
+
+.ham-icon {
+  display: flex;
+  flex-direction: column; 
+  gap: 8px; 
+}
+
+.ham-icon .line {
+  width: 32px;
+  height: 4px;
+
+  display: block; 
+  background-color: #B5EAFF;
+
+  transform-origin: left center; 
+  transition: all 1s;
+}
+
+.ham-icon.open .line.top { 
+  transform: rotate(45deg); 
+}
+.ham-icon.open .line.middle { 
+  opacity: 0; 
+}
+.ham-icon.open .line.bottom {
+  transform: rotate(-45deg); 
+}
+
+.drawer {
+  position: fixed; 
+  top: 0; 
+  bottom: 0; 
+  left: 0; 
+  background-color: white; 
+
+  padding-top: 60px; 
+
+  transform: translateX(-100%);
+  transition: all 1s;
+  z-index: 2;
+}
+
+.drawer.open { 
+  transform: translateX(0); 
+  box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2); 
+}
+
+.drawer a {
+    display: block;
+    padding: 12px 36px;
+    text-decoration: none;
+    color: #6cd3fc;
+}
+
+.drawer a:hover {
+    background-color: #B5EAFF;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 1;
+}
+
+.overlay.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .img{
@@ -34,6 +128,7 @@ body {
     height: 700px;
     left: 58px;
     position: relative;
+    margin-top: 120px;
 }
 
 .p1 {
@@ -56,7 +151,518 @@ body {
     text-align: center;
 }
 
-.img3 img {
-    width: 500px;
-    height: 700px;
+.p3 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 40px;
+    color: #B5EAFF;
+    position: relative;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+li{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.img3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.img3 img{
+    margin: 0 auto;
+    flex-wrap: wrap;
+    width: 300px;
+    height: 450px;
+    margin-right: 32px;
+    margin-bottom: 20px;
+}
+
+.name1 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 40px;
+    color: #F7E495;
+    display: block;
+    left: 48px;
+    position: relative;
+    /* margin-bottom: 20px; */
+}
+.name2 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 40px;
+    color: #B5EAFF;
+    display: block;
+    left: 70px;
+    position: relative;
+    margin: 0;
+    /* margin-bottom: 20px; */
+}
+.name3 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 40px;
+    color: #FF6666;
+    display: block;
+    left: 50px;
+    position: relative;
+    /* margin-bottom: 20px; */
+}
+.name4 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 40px;
+    color: #96E55D;
+    display: block;
+    left: 50px;
+    position: relative;
+    /* margin-bottom: 20px; */
+}
+.name5 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 40px;
+    color: #FFB785;
+    display: block;
+    left: 70px;
+    position: relative;
+    /* margin-bottom: 20px; */
+}
+.name6 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 40px;
+    color: #FFBCCE;
+    display: block;
+    left: 70px;
+    position: relative;
+    /* margin-bottom: 20px; */
+}
+.name7 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 40px;
+    color: #DB67F0;
+    display: block;
+    left: 70px;
+    position: relative;
+    /* margin-bottom: 20px; */
+}
+.name8 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 40px;
+    color: #C2BCBC;
+    display: block;
+    left: 70px;
+    position: relative;
+    /* margin-bottom: 20px; */
+}
+
+.eng1 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 5px;
+    position: relative;
+    margin-bottom: 4px;
+}
+
+.eng2 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 10px;
+    position: relative;
+    margin-bottom: 4px;
+}
+
+.eng3 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 10px;
+    position: relative;
+    margin-bottom: 4px;
+}
+
+.eng4 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 10px;
+    position: relative;
+    margin-bottom: 4px;
+}
+
+.eng5 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    right: 20px;
+    position: relative;
+    margin-bottom: 4px;
+}
+
+.eng6 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    right: 25px;
+    position: relative;
+    margin-bottom: 4px;
+}
+
+.eng7 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    margin-bottom: 4px;
+}
+
+.eng8 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    right: 24px;
+    position: relative;
+    margin-bottom: 4px;
+}
+
+.kata1 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 57px;
+    position: relative;
+    color: #F7E495;
+    margin-bottom: 20px;
+}
+
+.kata2 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 108px;
+    position: relative;
+    color: #B5EAFF;
+    margin-bottom: 20px;
+}
+.kata3 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 88px;
+    position: relative;
+    color: #FF6666;
+    margin-bottom: 20px
+}
+.kata4 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 100px;
+    position: relative;
+    color: #96E55D;
+    margin-bottom: 20px
+}
+.kata5 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 78px;
+    position: relative;
+    color: #FFB785;
+    margin-bottom: 20px
+}
+.kata6 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 70px;
+    position: relative;
+    color: #FFBCCE;
+    margin-bottom: 20px
+}
+.kata7 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 98px;
+    position: relative;
+    color: #DB67F0;
+    margin-bottom: 20px
+}
+.kata8 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 70px;
+    position: relative;
+    color: #C2BCBC;
+    margin-bottom: 20px
+}
+
+.bri1 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 69px;
+    position: relative;
+    color: #F7E495;
+}
+
+.bri2 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 69px;
+    position: relative;
+    color: #B5EAFF;
+}
+.bri3 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 69px;
+    position: relative;
+    color: #FF6666;
+}
+.bri4 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 69px;
+    position: relative;
+    color: #96E55D;
+}
+.bri5 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 69px;
+    position: relative;
+    color: #FFB785;
+}
+.bri6 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 69px;
+    position: relative;
+    color: #FFBCCE;
+}
+.bri7 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 69px;
+    position: relative;
+    color: #DB67F0;
+}
+.bri8 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 69px;
+    position: relative;
+    color: #C2BCBC;
+}
+
+.ti1 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 120px;
+    position: relative;
+    color: #F7E495;
+    /* margin-bottom: 120px; */
+    
+}
+.ti2 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 120px;
+    position: relative;
+    color: #B5EAFF;
+    /* margin-bottom: 120px; */
+}
+.ti3 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 120px;
+    position: relative;
+    color: #FF6666;
+    /* margin-bottom: 120px; */
+}
+.ti4 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 120px;
+    position: relative;
+    color: #96E55D;
+    /* margin-bottom: 120px; */
+}
+.ti5 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 120px;
+    position: relative;
+    color: #FFB785;
+}
+.ti6 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 120px;
+    position: relative;
+    color: #FFBCCE;
+}
+.ti7 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 120px;
+    position: relative;
+    color: #DB67F0;
+}
+.ti8 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 120px;
+    position: relative;
+    color: #C2BCBC;
+}
+
+.from1 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 109px;
+    position: relative;
+    color: #F7E495;
+    margin-bottom: 120px;
+}
+
+.from2 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 109px;
+    position: relative;
+    color: #B5EAFF;
+    margin-bottom: 120px;
+}
+.from3 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 109px;
+    position: relative;
+    color: #FF6666;
+    margin-bottom: 120px;
+}
+.from4 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 109px;
+    position: relative;
+    color: #96E55D;
+    margin-bottom: 120px;
+}
+.from5 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 109px;
+    position: relative;
+    color: #FFB785;
+    margin-bottom: 120px;
+}
+.from6 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 109px;
+    position: relative;
+    color: #FFBCCE;
+    margin-bottom: 120px;
+}
+.from7 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 109px;
+    position: relative;
+    color: #DB67F0;
+    margin-bottom: 120px;
+}
+.from8 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 20px;
+    margin: 0;
+    left: 109px;
+    position: relative;
+    color: #C2BCBC;
+    margin-bottom: 120px;
+}
+
+.p4 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 48px;
+    color: #B5EAFF;
+    position: relative;
+    text-align: center;
+}
+.p5 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 40px;
+    color: #B5EAFF;
+    position: relative;
+    text-align: center;
+}
+.p6 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 40px;
+    color: #B5EAFF;
+    position: relative;
+    text-align: center;
+}
+
+.img4 {
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.img4 img {
+    width: 300px;
+    height: 300px;
+    padding: 92px 66px 0px;
+}
+
+.p7 {
+    font-family: GenEi Kiwami Gothic;
+    font-size: 40px;
+    top: 200px;
+    color: #B5EAFF;
+    position: relative;
+    text-align: center;
+}
+
+.youtube {
+    width: 1000px;
+}
+.youtube iframe {
+    width: 400px;
+    height: 250px;
+    top: 300px;
+    left: 560px;
+    position: relative;
+}
+
+footer{
+    height: 600px;
 }
