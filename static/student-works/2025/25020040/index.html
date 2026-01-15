@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mrs.GREEN APPLE</title>
     <!-- ナビゲーションのフォント -->
-    <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&display=swap"
@@ -21,6 +20,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <!-- index.css -->
+    <link rel="stylesheet" href="index.css">
+
+    <!-- index.js -->
+    <script src="index.js" defer></script>
 </head>
 
 <body>
@@ -37,116 +46,129 @@
         </nav>
     </header>
 
-    <section class="keyvisual">
+    <div class="swiper">
         <h1>Mrs.GREEN APPLE</h1>
-    </section>
+        <div class="swiper-wrapper">
+            <div class="swiper-slide kv"></div>
+            <div class="swiper-slide kv2"></div>
+            <div class="swiper-slide kv3"></div>
+            <div class="swiper-slide kv4"></div>
+        </div>
+    </div>
 
-    <main>
-        <section id="shokai">
-            <h2>Interaction</h2>
-            <p>大森元貴 (Vo/Gt)、若井滉斗 (Gt)、藤澤涼架 (Key)による3人組バンド。2013年結成。
-                <br>2015年EMI Recordsからミニアルバム『Variety』でメジャーデビュー。
-            </p>
 
-            <p>
-                <b>『第48回日本アカデミー賞』</b>で新設された特別賞「主題歌賞」（映画『ディア・ファミリー』主題歌「Dear」にて）
-            </p>
+    <div class="inner">
+        <main>
+            <section id="shokai">
+                <h2>Interaction</h2>
+                <p>大森元貴 (Vo/Gt)、若井滉斗 (Gt)、藤澤涼架 (Key)による3人組バンド。2013年結成。
+                    <br>2015年EMI Recordsからミニアルバム『Variety』でメジャーデビュー。
+                </p>
 
-            <p>
-                デビュー10周年を迎える2025年を"MGA MAGICAL 10 YEARS"と称して、さまざまなプロジェクトを発表。
-                <br>今年10月から12月にかけて、12公演で55万人を動員予定の自身最大規模となる
-                <br>5大ドームツアー『Mrs. GREEN APPLE DOME TOUR 2025 "BABEL no TOH"』を開催する。
-            </p>
+                <p>
+                    <b>『第48回日本アカデミー賞』</b>で新設された特別賞「主題歌賞」（映画『ディア・ファミリー』主題歌「Dear」にて）
+                </p>
 
-        </section>
+                <p>
+                    デビュー10周年を迎える2025年を"MGA MAGICAL 10 YEARS"と称して、さまざまなプロジェクトを発表。
+                    <br>「第67回 輝く！日本レコード大賞」にて『ダーリン』で日本レコード大賞を受賞
+                    <br>バンド初となる3年連続大賞受賞の3連覇を記録した。
+                </p>
 
-        <section id="joho">
-            <h2>News</h2>
-            <ul class="news">
-                <li>
-                    <h3>12月31日(水)</h3>
-                    <p>「第76回NHK紅白歌合戦」出場決定！</p>
-                </li>
-                <li>
-                    <h3>12月30日(火)</h3>
-                    <p>TBS系「第67回 輝く！日本レコード大賞」出演決定！</p>
-                </li>
-                <li>
-                    <h3>12月15日(月)、16日(火)</h3>
-                    <p>≪DOME TOUR 2025 “BABEL no TOH”≫東京公演　開幕！</p>
-                </li>
-            </ul>
-        </section>
+            </section>
 
-        <section id="member">
-            <h2>Profile</h2>
+            <section id="joho">
+                <h2>News</h2>
+                <ul class="news">
+                    <li>
+                        <h3>2026年</h3>
+                        <p>ZENJIN MITO 2026 開催決定！</p>
+                    </li>
+                    <li>
+                        <h3>2025年1月1日(木)</h3>
+                        <p>Mrs. GREEN APPLE「フェーズ3」開幕！ </p>
+                    </li>
+                    <li>
+                        <h3>2025年12月30日（火）</h3>
+                        <p>TBS系「第67回 輝く！日本レコード大賞」にて『ダーリン』が日本レコード大賞受賞！</p>
+                    </li>
+                </ul>
+            </section>
 
-            <div class="mrs">
-                <div class="Fujisawa">
-                    <p>Ryoka Fujisawa</p>
+            <section id="member">
+                <h2>Profile</h2>
+
+                <div class="mrs">
+                    <div class="Fujisawa">
+                        <p>Ryoka Fujisawa</p>
+                    </div>
+
+                    <div class="omori">
+                        <p>Omori Motoki</p>
+                    </div>
+
+                    <div class="wakai">
+                        <p>Hiroto Wakai</p>
+                    </div>
                 </div>
+            </section>
 
-                <div class="omori">
-                    <p>Omori Motoki</p>
-                </div>
+            <section id="Video">
+                <h2>Video</h2>
+                <div class="sns">
+                    <div class="sns-item sns-youtube1">
+                        <iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/TLJqi0IjMwo?si=oc0hqbWc6YY8rKkz"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <h3>Mrs. GREEN APPLE「GOOD DAY」
+                            <br>Official Music Video
+                        </h3>
+                    </div>
 
-                <div class="wakai">
-                    <p>Hiroto Wakai</p>
+                    <div class="sns-item sns-youtube2">
+                        <iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/EnrN4VyNzI4?si=xsI289Uc_BRBPXJT"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <h3>映画『MGA MAGICAL 10 YEARS』
+                            <br>11月28日（金）より映画2作品　全国同時公開！
+                        </h3>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section id="Video">
-            <h2>Video</h2>
-            <div class="sns">
-                <div class="sns-item sns-youtube">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/TLJqi0IjMwo?si=oc0hqbWc6YY8rKkz"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    <h3>Mrs. GREEN APPLE「GOOD DAY」Official Music Video</h3>
-                </div>
+            <section id="music">
+                <h2>Release</h2>
+                <div class="grid">
+                    <div class="cd">
+                        <img src="img/cd/9e1b06f840659ae06c7425ed2f16570e.jpg" alt="10周年アルバムのジャケット">
+                    </div>
 
-                <div class="sns-item sns-youtube">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/EnrN4VyNzI4?si=xsI289Uc_BRBPXJT"
-                        title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    <h3>映画『MGA MAGICAL 10 YEARS』
-                        <br>11月28日（金）より映画2作品　全国同時公開！
-                    </h3>
-                </div>
-            </div>
-        </section>
+                    <div class="cd">
+                        <img src="img/cd/GOOD-DAY_Cover-Art.jpg" alt="GOODDAYのジャケット写真">
+                    </div>
 
-        <section id="music">
-            <h2>Release</h2>
-            <div class="grid">
-                <div class="cd">
-                    <img src="img/cd/9e1b06f840659ae06c7425ed2f16570e.jpg" alt="10周年アルバムのジャケット">
-                </div>
+                    <div class="cd">
+                        <img src="img/cd/eee3606d463618b1db1e54f6d4e2e6d6.jpg" alt="夏の影のジャケット写真">
+                    </div>
 
-                <div class="cd">
-                    <img src="img/cd/GOOD-DAY_Cover-Art.jpg" alt="GOODDAYのジャケット写真">
-                </div>
+                    <div class="cd">
+                        <img src="img/cd/a6c14ec36aad7abc134e772ff106a35e.jpg" alt="天国のジャケット写真">
+                    </div>
 
-                <div class="cd">
-                    <img src="img/cd/eee3606d463618b1db1e54f6d4e2e6d6.jpg" alt="夏の影のジャケット写真">
-                </div>
+                    <div class="cd">
+                        <img src="img/cd/365a5031f245aeb4013d5b6484a84070.jpeg" alt="クスシキのジャケット写真">
+                    </div>
 
-                <div class="cd">
-                    <img src="img/cd/a6c14ec36aad7abc134e772ff106a35e.jpg" alt="天国のジャケット写真">
+                    <div class="cd">
+                        <img src="img/cd/be676429bb5e74d0d05e8c425fedad2f.jpg" alt="ライラックのジャケット写真">
+                    </div>
                 </div>
-
-                <div class="cd">
-                    <img src="img/cd/365a5031f245aeb4013d5b6484a84070.jpeg" alt="クスシキのジャケット写真">
-                </div>
-
-                <div class="cd">
-                    <img src="img/cd/be676429bb5e74d0d05e8c425fedad2f.jpg" alt="ライラックのジャケット写真">
-                </div>
-            </div>
-        </section>
+            </section>
+    </div>
     </main>
 
     <footer>

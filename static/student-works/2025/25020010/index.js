@@ -91,5 +91,63 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    
+    /* =========================================
+       3. マップスライドの制御
+       ========================================= */
+    const slider = document.getElementById('js-slider');
+    const prevBtn = document.getElementById('js-prev');
+    const nextBtn = document.getElementById('js-next');
+    const mapCards = document.querySelectorAll('.map-card');
+    
+    let counter = 0; // 今何枚目にいるか数える変数
+
+    // 次へボタンを押したとき
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            counter++;
+            // 8枚中、1画面に3枚出ているので、最大5回まで進める（0,1,2,3,4,5）
+            if (counter > 5) {
+                counter = 0; // 最後まで行ったら最初に戻る
+            }
+            const cardWidth = document.querySelector('.map-card').clientWidth + 20; // 横幅+隙間
+            slider.style.transform = 'translateX(' + (-cardWidth * counter) + 'px)';
+        });
+    }
+
+    // 前へボタンを押したとき
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            counter--;
+            if (counter < 0) {
+                counter = 5; // 最初より前に行ったら最後に飛ぶ
+            }
+            const cardWidth = document.querySelector('.map-card').clientWidth + 20;
+            slider.style.transform = 'translateX(' + (-cardWidth * counter) + 'px)';
+        });
+    }
+
+    /* =========================================
+       4. マップ詳細をモーダルで表示
+       ========================================= */
+    mapCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const imgPath = card.querySelector('img').src;
+            const mapName = card.dataset.name;
+            const description = card.dataset.desc;
+
+            // マップの時は墓守の調整（右寄せ）を外す
+            modalImg.classList.remove('grave-focus');
+
+            modalImg.src = imgPath;
+            // 役職名（job-title）のところに「MAP」と表示させる
+            modalName.innerHTML = `
+                <span class="job-title">MAP</span><br>
+                <span class="char-name">${mapName}</span>
+            `; 
+            modalDesc.innerText = description;
+            modal.classList.add('is-visible');
+        });
+    });
 });
 

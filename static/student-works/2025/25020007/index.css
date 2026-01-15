@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.hero {}
+.main_png{
+    position: absolute;
+    z-index: 9000;
+    width:100%;
+    height: auto;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover; */
+}
+img{
+    width: 100%;
+    height: auto;
+}
+/* 
+.mainbgc {
+    display: block;
+    margin: 0;
+    background-image: url(./images/miku16th_concept_credit.png);
+    width: 1600px;
+    height: 100vh;
+    overflow: hidden;
+    top: -100px;
+    display: flex;
+    z-index: 1;
+}
+ .mainpng {
+    position: absolute;
+    z-index: 9001;
+    width: 123%;
+    height: auto;
+    overflow: hidden;
+    top: -543px;
+    left: -196px;
+    display: flex;
+    
+} /*
+
+.title_withyou,
+.title_view {
+    margin: 0;
+    display: block;
+    position: absolute;
+    z-index: 9000;
+}
+
+.title_withyou {
+    width: 100%;
+    top: 20%;
+    left: 87px;
+}
+
+.title_view {
+    width: 100%;
+    top: 613px;
+    left: 323px;
+}
+
+.title_viewmask {
+    margin: 0;
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 614px;
+    left: 426px;
+    z-index: 9001;
+} */

@@ -1,3 +1,19 @@
+// スムーズスクロール機能
+document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
 // スライダーの設定
 let currentSlide = 0;
 const slides = document.querySelectorAll('.product-slide');
@@ -43,3 +59,27 @@ function goToSlide(index) {
 
 // 初期状態を設定
 updateSlider();
+
+// スクロール位置に応じてナビゲーションのアクティブ状態を更新（オプション）
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.scrollY >= (sectionTop - 200)) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.style.opacity = '1';
+        const href = link.getAttribute('href');
+        if (href === `#${current}`) {
+            link.style.opacity = '0.7';
+        }
+    });
+});

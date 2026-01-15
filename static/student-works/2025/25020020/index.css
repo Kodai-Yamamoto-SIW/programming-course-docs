@@ -8,17 +8,17 @@ body {
 
 /* 矢印アイコン */
 .bi--heart-arrow {
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' d='M6.707 9h4.364c-.536 1.573 2.028 3.806 4.929-.5c-2.9-4.306-5.465-2.073-4.929-.5H6.707L4.854 6.146a.5.5 0 1 0-.708.708L5.293 8h-.586L2.854 6.146a.5.5 0 1 0-.708.708L3.293 8h-.586L.854 6.146a.5.5 0 1 0-.708.708L1.793 8.5L.146 10.146a.5.5 0 0 0 .708.708L2.707 9h.586l-1.147 1.146a.5.5 0 0 0 .708.708L4.707 9h.586l-1.147 1.146a.5.5 0 0 0 .708.708z'/%3E%3C/svg%3E");
-  background-color: currentColor;
-  -webkit-mask-image: var(--svg);
-  mask-image: var(--svg);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23000' d='M6.707 9h4.364c-.536 1.573 2.028 3.806 4.929-.5c-2.9-4.306-5.465-2.073-4.929-.5H6.707L4.854 6.146a.5.5 0 1 0-.708.708L5.293 8h-.586L2.854 6.146a.5.5 0 1 0-.708.708L3.293 8h-.586L.854 6.146a.5.5 0 1 0-.708.708L1.793 8.5L.146 10.146a.5.5 0 0 0 .708.708L2.707 9h.586l-1.147 1.146a.5.5 0 0 0 .708.708L4.707 9h.586l-1.147 1.146a.5.5 0 0 0 .708.708z'/%3E%3C/svg%3E");
+    background-color: currentColor;
+    -webkit-mask-image: var(--svg);
+    mask-image: var(--svg);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
 }
 
 
@@ -27,42 +27,42 @@ a {
     color: #B39D5A;
     text-decoration: none;
 }
+
 /* 押したら色が変わる or 乗せたら色が変わる */
-a:hover {color: #E4C1B5;}
+a:hover {
+    color: #E4C1B5;
+}
 /* a:valid {color: #E4C1B5;} */
+
 
 /* ボタン ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .view-btn {
-    color: #000;
-    padding: 3px 20px;
-    border: 1px #B39D5A solid;
-    font-family: "Brittany Signature"; /* 商用利用可 */
-    font-style: normal;
+    display: flex;
+    justify-content: center;
 }
+
 
 /* ナビゲーション ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 .nv {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     list-style: none;
     padding: 0;
-    margin: 0 140px;
     gap: 30px;
     font-size: 20px;
 }
+
 .nv>li {
     padding: 20px;
     cursor: pointer;
 }
-.nv>li:hover {
-    background-color: #B0D5C0;
-}
-
+.nv>li:hover { background-color: #B0D5C0;}
 
 
 /* ヘッダー ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
 h1 {
-    font-family: "Yesteryear", cursive; /* 商用利用可 */
+    font-family: "Yesteryear", cursive;
+    /* 商用利用可 */
     font-style: normal;
     font-size: 70px;
     margin-bottom: -20px;
@@ -82,11 +82,12 @@ h1 {
     background-repeat: no-repeat;
     width: 1190px;
     height: 650px;
-    margin-left: 200px;
+    margin-left: 150px;
 }
 
 .title2 {
-    font-family: "Brittany Signature"; /* 商用利用可 */
+    font-family: "Brittany Signature";
+    /* 商用利用可 */
     font-style: normal;
     color: #B39D5A;
 
@@ -101,8 +102,13 @@ h1 {
     align-items: center;
 
     position: absolute;
-    top: 240px;
-    left: 50px;
+    top: 220px;
+    /* left: 50px; */
+}
+
+header {
+    padding: 0 50px;
+    padding-bottom: 95px;
 }
 
 
@@ -112,15 +118,21 @@ h1 {
     margin-bottom: -8px;
     font-size: 30px;
 }
+
 .concept {
     text-align: center;
     font-size: 20px;
     line-height: 50px;
 }
+
 .section-con {
-    background-image: url(image/Intersect.png);
+    padding: 68px 0;
+
+    /* 画像 */
+    background-image: url(image/concept.png);
+    background-repeat: no-repeat;
+    width: 100%;
     height: 100%;
-    height: 725px;
 }
 
 
@@ -128,22 +140,35 @@ h1 {
 .contents {
     width: 500px;
     height: 1040px;
+
     margin: 0 60px;
+    padding: 30px 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-
-
-
 
 .menu {
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
     justify-content: center;
+
+    /* 画像 */
+    background-image: url(image/introduction.png);
+    background-repeat: no-repeat;
 }
-.menu h3 {
+
+.menu h2 {
     text-align: center;
     background-color: #B0D5C0;
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 160px;
+    height: 160px;
+
+    margin: -10px;
+    display: grid;
+    place-items: center;
 }

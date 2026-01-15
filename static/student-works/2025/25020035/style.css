@@ -7,12 +7,9 @@
 
 body {
     background-color: #1B222A;
-
 }
 
-
 /* ファーストビューーーーーーーーーーーーーーーーーーーーーーーーーー */
-
 header {
     width: 100%;
     position: fixed;
@@ -31,7 +28,6 @@ header {
     background-size: cover;
     height: 100vh;
     object-fit: cover;
-
 }
 
 .logo img {
@@ -77,13 +73,6 @@ h1 {
     margin-top: 204px;
 }
 
-.first-view p:hover {
-    background: linear-gradient(90deg, #a38131 0%, #e7c76d 33%, #ffe6c5 62%, #e3c05d 83%, #9d874e 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-}
-
 h2 {
     font-size: 84px;
     /* display: inline-block; */
@@ -107,8 +96,6 @@ h2 {
 }
 
 /* コンセプトーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-
-
 .concept {
     position: relative;
     width: 1120px;
@@ -121,7 +108,6 @@ h2 {
     padding: 38px 0;
     font-size: 16px;
 }
-
 
 .concept-1 {
     display: flex;
@@ -140,7 +126,6 @@ h2 {
 }
 
 /* ゲストルームーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-
 .h2-guest {
     text-align: right;
 }
@@ -176,7 +161,6 @@ h2 {
 }
 
 /* レストランーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-
 .restaurant {
     position: relative;
     width: 1120px;
@@ -207,7 +191,6 @@ h2 {
 }
 
 /* スパーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */
-
 .spa {
     position: relative;
     width: 1120px;
@@ -241,9 +224,7 @@ h2 {
     z-index: 10;
 }
 
-
 /* -------------------------------------------------------- */
-
 ul li a {
     display: block;
     padding: 8px 12px;
@@ -262,7 +243,6 @@ ul li a:hover {
     transform: translateY(3px);
 }
 
-
 /* TOPへ戻るボタン */
 .back-top {
     position: fixed;
@@ -277,14 +257,7 @@ ul li a:hover {
     font-size: 12px;
     font-weight: 600;
     letter-spacing: .08em;
-
-    background: linear-gradient(90deg,
-            #a38131 0%,
-            #e7c76d 33%,
-            #ffe6c5 62%,
-            #e3c05d 83%,
-            #9d874e 100%);
-
+    background: linear-gradient(90deg, #a38131 0%, #e7c76d 33%, #ffe6c5 62%, #e3c05d 83%, #9d874e 100%);
     color: #1B222A;
     box-shadow: 0 10px 24px rgba(0, 0, 0, .35);
     z-index: 400;
@@ -300,7 +273,6 @@ ul li a:hover {
     position: absolute;
     top: 100%;
     right: 50px;
-
     width: min(320px, calc(100vw - 100px));
     display: block;
     /* ul全体はブロックでOK */
@@ -308,7 +280,6 @@ ul li a:hover {
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 14px;
     overflow: hidden;
-
     max-height: 0;
     /* 閉じてる状態 */
     opacity: 0;

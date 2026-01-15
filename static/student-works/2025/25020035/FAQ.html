@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>お問い合わせ | Elysian Resort</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
+
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="contact.css" />
+    <style>
+        /* ===== Base ===== */
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Aboreto", system-ui;
+            font-weight: 400;
+            color: #e3e3e3;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: #1B222A;
+        }
+
+        a {
+            color: #e3e3e3;
+            text-decoration: none;
+        }
+
+        /* ===== Header ===== */
+        .site-header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 15px 50px;
+            z-index: 300;
+            background: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+        }
+
+        .logo img {
+            width: 65px;
+            height: 80px;
+        }
+
+        .oya-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hamburger-line {
+            width: 44px;
+            height: 4px;
+            background: #fff;
+            margin: 10px 0;
+            border-radius: 999px;
+        }
+
+        /* ===== Hamburger Menu ===== */
+        .hamberger-menu {
+            list-style: none;
+            position: absolute;
+            top: 100%;
+            right: 50px;
+
+            width: 320px;
+            background: #1B222A;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 14px;
+            overflow: hidden;
+
+            max-height: 0;
+            opacity: 0;
+            pointer-events: none;
+            transition: max-height .35s ease, opacity .25s ease;
+        }
+
+        .hamberger-menu.is-open {
+            max-height: 400px;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .hamberger-menu a {
+            display: block;
+            padding: 14px 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+        }
+
+        .hamberger-menu a:hover {
+            background: linear-gradient(90deg,
+                    #a38131 0%,
+                    #e7c76d 33%,
+                    #ffe6c5 62%,
+                    #e3c05d 83%,
+                    #9d874e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ===== Layout ===== */
+        .wrap {
+            width: 860px;
+            /* ← 固定 */
+            margin: 0 auto;
+            padding: 140px 0 60px;
+            /* header分 */
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-title {
+            font-size: 64px;
+            background: linear-gradient(90deg,
+                    #a38131 0%,
+                    #e7c76d 33%,
+                    #ffe6c5 62%,
+                    #e3c05d 83%,
+                    #9d874e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-sub {
+            margin-top: 10px;
+            font-size: 13px;
+            color: rgba(227, 227, 227, 0.75);
+        }
+
+        /* ===== Card ===== */
+        .card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            border-radius: 16px;
+            padding: 28px;
+            backdrop-filter: blur(8px);
+        }
+
+        .card-title {
+            font-size: 18px;
+            letter-spacing: .06em;
+        }
+
+        .sub {
+            margin-top: 8px;
+            font-size: 13px;
+            color: rgba(227, 227, 227, 0.75);
+        }
+
+        /* ===== Form (Simple) ===== */
+        .stack {
+            display: grid;
+            gap: 18px;
+            margin-top: 22px;
+        }
+
+        .field {
+            display: grid;
+            gap: 8px;
+        }
+
+        .field label {
+            font-size: 13px;
+            letter-spacing: .03em;
+        }
+
+        .req {
+            margin-left: 8px;
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(0, 0, 0, 0.25);
+            outline: none;
+        }
+
+        textarea {
+            min-height: 160px;
+            resize: vertical;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: rgba(231, 199, 109, 0.7);
+            box-shadow: 0 0 0 3px rgba(231, 199, 109, 0.18);
+        }
+
+        /* ===== Buttons ===== */
+        .actions {
+            margin-top: 20px;
+            display: flex;
+            gap: 14px;
+        }
+
+        .btn {
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .primary {
+            background: #fff;
+            color: #1B222A;
+            border: none;
+        }
+
+        .ghost {
+            background: transparent;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ===== Back to TOP ===== */
+        .back-top {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            width: 52px;
+            height: 52px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: 600;
+
+            background: linear-gradient(90deg,
+                    #a38131 0%,
+                    #e7c76d 33%,
+                    #ffe6c5 62%,
+                    #e3c05d 83%,
+                    #9d874e 100%);
+            color: #1B222A;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="top" class="site-header">
+        <div class="logo">
+            <a href="index.html"><img src="img/Group 1.svg" alt="ロゴ"></a>
+        </div>
+
+        <button class="oya-btn" aria-controls="hum-menu" aria-expanded="false" aria-label="メニューを開く">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line"></div>
+        </button>
+
+        <ul class="hamberger-menu" id="hum-menu">
+            <li><a href="index.html">TOP</a></li>
+            <li><a href="reservation.html">宿泊予約フォーム</a></li>
+            <li><a href="faq.html">よくある質問</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+    </header>
+
+    <main class="wrap">
+        <section class="hero">
+            <h1 class="page-title">CONTACT</h1>
+            <p class="page-sub">ご質問はフォームからお送りください。</p>
+        </section>
+
+        <section class="card" aria-labelledby="title">
+            <header class="card__head">
+                <h2 id="title" class="card-title">お問い合わせ</h2>
+                <p class="sub">内容を確認のうえ、ご返信します。</p>
+            </header>
+
+            <form class="form" action="#" method="post">
+                <div class="stack">
+                    <div class="field">
+                        <label for="name">お名前<span class="req">必須</span></label>
+                        <input id="name" name="name" type="text" placeholder="例）山田 太郎" required />
+                    </div>
+
+                    <div class="field">
+                        <label for="email">メールアドレス<span class="req">必須</span></label>
+                        <input id="email" name="email" type="email" placeholder="example@mail.com" required />
+                    </div>
+
+                    <div class="field">
+                        <label for="message">お問い合わせ内容<span class="req">必須</span></label>
+                        <textarea id="message" name="message" rows="6" placeholder="例）記念日プランについて相談したい"
+                            required></textarea>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button type="submit" class="btn primary">送信する</button>
+                    <button type="reset" class="btn ghost">クリア</button>
+                </div>
+
+            </form>
+        </section>
+
+        <a href="#top" class="back-top" aria-label="トップへ戻る">TOP</a>
+    </main>
+</body>
+
+</html>

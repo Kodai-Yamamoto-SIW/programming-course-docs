@@ -5,12 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="../CSS/index.css">
   <script src="index.js" defer></script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Philosopher&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Philosopher&display=swap"
+    rel="stylesheet">
 
 
 </head>
@@ -20,36 +22,55 @@
 
     <header>
       <div class="gazou">
-      <img src="image/Rectangle 2.png" alt="">
-      <p class="main"><span>start yourself From here</span><br>
-      ここから始まる、二人の人生</p>
+        <img src="../image/Rectangle 2.png" alt="">
+        <div class="main">
+          <h1>start yourself From here</h1><br>
+          <p>ここから始まる、二人の人生</p>
+        </div>
       </div>
 
+      <!-- bar -->
       <div class="box">
         <span class="mise">
-          <img src="image/image 2.png" alt="ロゴ">
-        <p class="name">Etenal Welling</p>
+          <img src="../image/image 2.png" alt="ロゴ" class="rogo">
+          <p class="name">Etenal Welling</p>
         </span>
+      
 
-        <ul>
-          <li>concept</li>
-          <li>chapel</li>
-          <li>party</li>
-          <li>Cuisine & Cake</li>
-          <li>Wedding</li>
-          <li>Dress Access</li>
-          <li></li>
-        </ul>
-        <div class="box2"></div>
+        <nav>
+          <ul id="menu">
+            <li><a href="#concept">concept</a></li>
+
+            <li class="dd-menu">
+              <a href="#chapel">chapel</a>
+              <ul class="dd-submenu">
+                <li>Web開発</li>
+                <li>モバイルアプリ開発</li>
+                <li>UI/UXデザイン</li>
+              </ul>
+            </li>
+
+            <li><a href="#party">party</a></li>
+            <li><a href="#Wedding">Wedding</a></li>
+            <li><a href="#Dress">Dress Access</a></li>
+          </ul>
+        </nav>
+
+
+
+        <div class="box2">
+          <p>見学予約</p>
+        </div>
+
       </div>
 
     </header>
 
-
+    <!-- コンテンツ -->
     <section>
       <div class="concept">
 
-        <h2>concept</h2>
+        <h2 id="concept">concept</h2>
         <p class="Message">人生をともに歩むと決めたおふたりのために<br>
           お望みのウエディングを創り上げるエターナルウェディング。<br>
           新しい家族になる準備も、その先の人生も共に。</p><br>

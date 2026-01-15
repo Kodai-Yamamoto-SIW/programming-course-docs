@@ -33,9 +33,9 @@ document.addEventListener('DOMContentLoaded', function() {
         carousel.addEventListener('transitionend', () => {
             // アニメーションを一時的に無効化
             carousel.style.transition = 'none';
-            // 最初の要素を最後に移動（これが無限ループの仕組み）
+            // 最初の要素を最後に移動(これが無限ループの仕組み)
             carousel.appendChild(carousel.firstElementChild);
-            // 位置をリセット（DOM移動によるズレを相殺）
+            // 位置をリセット(DOM移動によるズレを相殺)
             carousel.style.transform = 'translateX(0)';
             
             // フラグ解除
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // アニメーションなしで最後の要素を最初に持ってくる
         carousel.style.transition = 'none';
         carousel.prepend(carousel.lastElementChild);
-        // 位置をずらしておく（見た目は変わらないように）
+        // 位置をずらしておく(見た目は変わらないように)
         carousel.style.transform = `translateX(-${slideWidth}px)`;
 
         // わずかな遅延の後にアニメーションさせて0に戻す

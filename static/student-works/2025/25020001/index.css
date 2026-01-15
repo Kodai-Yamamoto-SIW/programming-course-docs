@@ -3,19 +3,57 @@
 }
 body{
     background-color: rgb(229, 240, 255);
+    margin-bottom: 50px;
 }
-header{
+.hed{
     margin: 0;
     
     background: url(./image/画像.jpg);
     width: 1000px;
-    height: 70vh;
+    height: 40vh;
     background-size: cover;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+/* ハンバーガーのボタンとアイコンの調整 */
+.ham-btn {
+  display: block; /* block にしないと変な意図しない余白が勝手に入るので */
+  padding: 20px;
+
+  border: none; /* 枠線を消す */
+  background: transparent; /* 背景を消す */
+  cursor: pointer; /* カーソルは手のマーク */
+  position: relative; /* z-index を効かせるためだけに position を relative に */
+  z-index: 1;
+}
+
+.ham-icon {
+  display: flex; /* gap を使いたいだけ */
+  flex-direction: column; /* 縦並び */
+  gap: 8px; /* 間隔 8px */
+}
+
+.ham-icon .line {
+  width: 32px;
+  height: 4px;
+
+  display: block; /* span はデフォルトで display: inline なので、width, height を効かせるために block にする */
+  background-color: black;
+}
+
+.drawer {
+  position: fixed; /* 画面内で、位置固定 */
+  top: 0; /* 要素の上端は画面の上端に合わせる */
+  bottom: 0; /* 要素の下端は画面の下端に合わせる(top:0, bottom:0 によって高さが画面いっぱいになる) */
+  left: 0; /* 画面の左端に配置 */
+  background-color: white; /* 背景をつけないと透明になるから */
+  box-shadow: 4px 0 6px rgba(0, 0, 0, 0.2); /* 右側に影をつける */
+
+  padding-top: 60px; /* 上に60pxの余白 */
 }
 
 h4{
@@ -64,7 +102,7 @@ h1{
     display: flex;
     position: relative;
     margin-top: 40px;
-    right: 50px;
+    right: 40px;
 }
 
 .txt1{
@@ -75,4 +113,88 @@ h1{
 .onamae{  
     position: relative;
     left: 70px;
+}
+
+.p{
+    margin: 30px;
+}
+
+.movi{
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.you{
+    width: 1000px;
+    background-color: #fff;
+    color: rgb(2, 57, 104);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+
+.dou{
+    width: 1000px;
+}
+
+.dou iframe{
+    height: 200px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+}
+
+.megu{
+    position: relative;
+    left: 620px;
+    font-size: 13px;
+    
+}
+.kimi{
+    position: relative;
+    left: 620px;
+    font-size: 13px;
+    
+}
+.sayo{
+    position: relative;
+    left: 620px;
+    font-size: 13px;
+}
+
+.dou1{
+    width: 1000px;
+}
+
+.dou1 iframe{
+    margin: 30px auto;
+    height: 200px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+}
+.dou2{
+    width: 1000px;
+}
+
+.dou2 iframe{
+    margin: 30px auto;
+    height: 200px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+a{
+    color: rgb(2, 57, 104);
+}
+
+a:hover{
+    cursor: pointer;
+    color: #4809bc;
+    
 }

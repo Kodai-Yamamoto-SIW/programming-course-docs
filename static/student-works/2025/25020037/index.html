@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>モストロ・ラウンジ</title>
+    <!-- ファビコン -->
+    <link rel="icon" type="image/png" href="./img/college_dormitory.png">
     <!-- CSS読み込み -->
     <link rel="stylesheet" href="style.css">
     <!-- スライダー -->
@@ -14,22 +16,32 @@
     <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"
         integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/3a775888a6.js" crossorigin="anonymous"></script>
+    <!-- Adobe Fontsの読み込み -->
+    <link rel="stylesheet" href="https://use.typekit.net/nuq8por.css">
+    <!-- Google Fontの読み込み -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
     <!-- JS読み込み -->
     <script src="index.js" defer></script>
 </head>
 
 <body>
-    <header id="top">
-        <a href="#top"><img src="img/octavinelle_dormitory-archive.png" alt="オクタヴィネル寮のロゴ" id="js-gnav"></a>
+    <header id="js-gnav">
+        <a href="https://twisted-wonderland.aniplex.co.jp/character/?d=octavinelle" target="_blank"><img
+                src="img/octavinelle_dormitory-archive.png" alt="オクタヴィネル寮のロゴ">
+            <h1>Octavinelle</h1>
+        </a>
         <!-- ナビゲーション -->
         <nav class="main_nav">
             <ul class="sub_list" id="js-gnav-list">
-                <li><a href="#top">Top</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="https://online.aniplex.co.jp/twisted-wonderland?srsltid=AfmBOoqwBN6_vpsLw7jtcRXUc0Rm2WZN1rhs--Dg61or0VUXJGr7LyFG"
-                        target="_blank">Store</a></li>
+                <li><a href="#top">TOP</a></li>
+                <li><a href="#news">NEWS</a></li>
+                <li><a href="#about">ABOUT US</a></li>
+                <li><a href="#staff">STAFF</a></li>
                 <li><a href="#sns">SNS</a></li>
+                <li><a href="https://online.aniplex.co.jp/twisted-wonderland?srsltid=AfmBOoqwBN6_vpsLw7jtcRXUc0Rm2WZN1rhs--Dg61or0VUXJGr7LyFG"
+                        target="_blank">ONLINE SHOP</a></li>
             </ul>
         </nav>
         <div class="ham_btn" id="js-gnav-button">
@@ -39,7 +51,7 @@
         </div>
     </header>
 
-    <main>
+    <main id="top">
 
         <div class="swiper">
             <div class="swiper-wrapper">
@@ -52,48 +64,67 @@
 
         <div class="inner">
             <section id="news">
-                <h2>News</h2>
+                <h2>NEWS</h2>
                 <ul>
                     <li>
-                        <h3 class="list_item">2025/04/09</h3>
-                        <div>オクタヴィネル寮「エンタングルメント」MVを公開しました。</div>
+                        <h3 class="list_item h3_title">2025/04/09</h3>
+                        <div>
+                            <a href="https://www.youtube.com/watch?v=BdUXlNT9Fl4"
+                                target="_blank">オクタヴィネル寮「エンタングルメント」MVを公開しました。
+                            </a>
+                        </div>
                     </li>
                     <li>
-                        <h3 class="list_item">2025/03/08</h3>
-                        <div>【5周年ビジュアル】プロモーション用に描き下ろされた5周年ビジュアルデザイン（オクタヴィネル寮）を公開しました。</div>
+                        <h3 class="list_item h3_title">2025/03/08</h3>
+                        <div>
+                            <a href="https://5th-gallery.twisted-wonderland.aniplex.co.jp/gallery/octavinelle/" target="_blank">
+                                【5周年ビジュアル】プロモーション用に描き下ろされた5周年ビジュアルデザイン（オクタヴィネル寮）を公開しました。
+                            </a>
+                        </div>
                     </li>
                     <li>
-                        <h3 class="list_item">2023/07/30</h3>
-                        <div>【TWSTWDL FES.】 「ディズニー ツイステッドワンダーランド Fes.」の描き下ろしレコードアート（オクタヴィネル寮）を公開いたします。
-                            <br>本アートのグッズ展開も予定しておりますので、お楽しみに。
+                        <h3 class="list_item h3_title">2023/07/30</h3>
+                        <div>
+                            <a href="https://x.com/twst_jp/status/1685591065703669760?s=20" target="_blank">
+                                【TWSTWDL FES.】 「ディズニー ツイステッドワンダーランド Fes.」の描き下ろしレコードアート（オクタヴィネル寮）を公開いたします。
+                                <br>本アートのグッズ展開も予定しておりますので、お楽しみに。
+                            </a>
                         </div>
                     </li>
                 </ul>
             </section>
 
             <section id="about">
-                <h2>About Us</h2>
+                <h2>ABOUT US</h2>
                 <div class="mostro flexbox">
                     <div class="text">
-                        <h3>モストロ・ラウンジについて</h3>
+                        <h3 class="h3_title">モストロ・ラウンジについて</h3>
                         <p>ナイトレイブンカレッジのオクタヴィネル寮が運営しているカフェです。<br>
                             寮長アズール・アーシェングロットが中心となり、スタッフのジェイド・リーチ、フロイド・リーチがあなたを歓迎します。<br>
-                            <p>争いごとは禁止</p>
-                            ワンドリンク制。<br>
+                        <p>
+                            当店はワンドリンク制となっております。
                         </p>
+                        <p>
+                            <b>禁止事項</b><br>
+                            争いごとは禁止。<br>
+                        </p>
+                        </p>
+                        <button class="btn">View More</button>
                     </div>
                     <div class="box"></div>
-                    <img class="mostro_img" src="./img/084e963674f24ad59e50d88bc7952a85.jpg" alt="モストロ・ラウンジ">
+                    <img class="mostro_img" src="./img/084e963674f24ad59e50d88bc7952a85.jpg" alt="モストロ・ラウンジの写真">
                 </div>
 
                 <div class="viproom flexbox">
                     <div class="text">
-                        <h3>VIPルームについて</h3>
-                        <p>オクタヴィネル寮が運営するモストロ・ラウンジの一角に設けられた特別室。<br>
-                            選ばれた客のみが案内される空間で、外部から隔離された静かな環境が保たれている。<br>
-                            契約や重要な取引、内密な話し合いが行われる場として使用され、寮長アズール・アーシェングロットのもてなしと計算が最も色濃く表れる場所でもある。</p>
+                        <h3 class="h3_title">VIPルームについて</h3>
+                        <p>オクタヴィネル寮が運営しているモストロ・ラウンジの一角に設けられた特別室です。<br>
+                            選ばれた客のみが案内される空間で、外部から隔離された静かな環境が保たれています。<br>
+                            契約や重要な取引、内密な話し合いが行われる場として使用されています。
+                        </p>
+                        <button class="btn2">View More</button>
                     </div>
-                    <img class="viproom_img" src="./img/fcea148d6493bb34f25e7520183ee782.jpg" alt="VIPルーム">
+                    <img class="viproom_img" src="./img/fcea148d6493bb34f25e7520183ee782.jpg" alt="VIPルームの写真">
                 </div>
             </section>
 
@@ -101,50 +132,63 @@
                 <h2>STAFF</h2>
                 <div class="introduction">
                     <div class="octavinelle floyd">
-                        <h3>Floyd Leech</h3>
-                        <img src="./img/octavinelle_chara_floyd_detail2_A.png" alt="フロイド・リーチ">
+                        <a href="https://twisted-wonderland.aniplex.co.jp/character/floyd/" target="_blank"><img
+                                src="./img/octavinelle_chara_floyd_detail2_A.png" alt="フロイド・リーチ">
+                            <h3>Floyd Leech</h3>
+                            <p>フロイド・リーチ</p>
+                        </a>
                     </div>
                     <div class="octavinelle azul">
-                        <h3>Azul Ashengrotto</h3>
-                        <img src="./img/octavinelle_chara_azul_detail2_A.png" alt="アズール・アーシェングロット">
+                        <a href="https://twisted-wonderland.aniplex.co.jp/character/azul/" target="_blank">
+                            <h3>Azul Ashengrotto</h3>
+                            <p>アズール・アーシェングロット</p>
+                            <img src="./img/octavinelle_chara_azul_detail2_A.png" alt="アズール・アーシェングロット">
+                        </a>
                     </div>
                     <div class="octavinelle jade">
-                        <h3>Jade Leech</h3>
-                        <img src="./img/octavinelle_chara_jade_detail2_A.png" alt="ジェイド・リーチ">
+                        <a href="https://twisted-wonderland.aniplex.co.jp/character/jade/" target="_blank"><img
+                                src="./img/octavinelle_chara_jade_detail2_A.png" alt="ジェイド・リーチ">
+                            <h3>Jade Leech</h3>
+                            <p>ジェイド・リーチ</p>
+                        </a>
                     </div>
                 </div>
             </section>
 
             <section id="sns">
                 <h2>SNS</h2>
-                <div class="sns-item sns-x">
-                    <h3>X</h3>
-                    <blockquote class="twitter-tweet">
-                        <p lang="ja" dir="ltr">【アドトラック】<a
-                                href="https://twitter.com/hashtag/%E3%83%84%E3%82%A4%E3%82%B9%E3%83%86%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%9E%E3%82%B92025?src=hash&amp;ref_src=twsrc%5Etfw">#ツイステクリスマス2025</a>
-                            を記念し、アドトラック走行中です。<br><br>◆期間<br>12/5(金)-12/14(日)まで<br><br>◆時間<br>10:00～19:00頃まで<br><br>◆走行エリア<br>12/5：渋谷<br>12/6：新宿<br>12/7：池袋<br>12/8：渋谷・新宿<br>12/9：新宿・池袋・渋谷<br><br>※12/10以降の走行ルートは後日お知らせします
-                        </p>&mdash; 【公式】ディズニー ツイステッドワンダーランド (@twst_jp) <a
-                            href="https://twitter.com/twst_jp/status/1996783736193790005?ref_src=twsrc%5Etfw">December
-                            5,
-                            2025</a>
-                    </blockquote>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                </div>
-                <div class="sns-item sns-youtube">
-                    <h3>Youtube</h3>
-                    <div>
+                <div class="sns">
+                    <div class="sns-item sns-x">
+                        <h3>X</h3>
+                        <blockquote class="twitter-tweet">
+                            <p lang="ja" dir="ltr">【5周年ビジュアル】<br>プロモーション用に描き下ろされた5周年ビジュアルデザイン（オクタヴィネル寮）を公開しました。 <a
+                                    href="https://twitter.com/hashtag/%E3%83%84%E3%82%A4%E3%82%B9%E3%83%86?src=hash&amp;ref_src=twsrc%5Etfw">#ツイステ</a>
+                                <a
+                                    href="https://twitter.com/hashtag/%E3%83%87%E3%82%A3%E3%82%BA%E3%83%8B%E3%83%BC?src=hash&amp;ref_src=twsrc%5Etfw">#ディズニー</a>
+                                <a
+                                    href="https://twitter.com/hashtag/%E3%83%84%E3%82%A4%E3%82%B9%E3%83%865%E5%91%A8%E5%B9%B4?src=hash&amp;ref_src=twsrc%5Etfw">#ツイステ5周年</a>
+                            </p>&mdash; 【公式】ディズニー ツイステッドワンダーランド (@twst_jp) <a
+                                href="https://twitter.com/twst_jp/status/1898339931891884207?ref_src=twsrc%5Etfw">March
+                                8, 2025</a>
+                        </blockquote>
+                        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    </div>
+                    <div class="sns-item sns-youtube">
+                        <h3>Youtube</h3>
                         <iframe width="560" height="315"
                             src="https://www.youtube.com/embed/BdUXlNT9Fl4?si=C_cXmOD4soSBLs1-"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        <p></p>
                     </div>
                 </div>
             </section>
         </div>
     </main>
 
+    <footer>
+        <small>25020037_堀之内清華</small>
+    </footer>
 </body>
 
 </html>

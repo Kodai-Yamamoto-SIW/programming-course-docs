@@ -7,9 +7,32 @@
     scroll-behavior: smooth;
 }
 
+h1 {
+    font-family: snell-roundhand-lt-std, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
 h2 {
     text-align: center;
     margin-bottom: 1em;
+}
+
+.h3_title {
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+h2,
+h3,
+#js-gnav-list {
+    font-family: "Abril Fatface", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+section {
+    scroll-margin-top: 200px;
 }
 
 
@@ -21,13 +44,29 @@ header {
     display: flex;
     height: 70px;
     width: 100%;
-    position: relative;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
 }
 
 header img {
+    position: relative;
+    left: 10px;
     width: 80px;
     height: 80px;
     object-fit: cover;
+}
+
+header h1 {
+    color: #fff;
+    position: relative;
+    top: 15px;
+    left: 20px;
+}
+
+header a {
+    display: flex;
+    text-decoration: none;
 }
 
 
@@ -40,7 +79,7 @@ header img {
     align-items: center;
     position: absolute;
     top: 25px;
-    right: 100px;
+    right: 50px;
 }
 
 .main_nav a {
@@ -48,19 +87,55 @@ header img {
     text-decoration: none;
 }
 
+.sub_list a:hover {
+    color: #B0A12E;
+}
+
+.sub_list a:active {
+    color: rgba(176, 161, 46, .6);
+}
+
 
 /* ham_button 
 ------------------------------------- */
 .ham_btn {
     display: none;
-    right: 0;
+    width: 40px;
+    height: 30px;
+    position: absolute;
+    cursor: pointer;
+    top: 20px;
+    right: 30px;
 }
+
+.ham_btn .line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.ham_btn .line.top {
+    top: 0;
+}
+
+.ham_btn .line.middle {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ham_btn .line.bottom {
+    bottom: 0;
+}
+
 
 
 /* KV 
 ------------------------------------- */
 .kv {
-    background-image: url(./img/084e963674f24ad59e50d88bc7952a85.jpg);
+    background-image: url(./img/3c8df39dedfb194864a5f967a0e38eae.jpg);
     object-fit: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -84,10 +159,11 @@ header img {
 }
 
 .swiper {
+    position: relative;
+    top: 70px;
     width: 100%;
     height: 100vh;
 }
-
 
 .inner {
     max-width: 1160px;
@@ -100,6 +176,11 @@ header img {
     background-color: #CABD9F;
     margin: 150px auto;
     padding: 30px;
+}
+
+#news a {
+    color: #000;
+    text-decoration: none;
 }
 
 #news ul {
@@ -150,6 +231,49 @@ header img {
     width: 55%;
 }
 
+.btn {
+    margin: 10px 0;
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 45px;
+    width: 100px;
+    height: 2px;
+    background-color: #000;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all .3s;
+}
+
+.text:hover .btn::after {
+    transform: scaleX(1);
+}
+
+.btn2::after {
+    content: "";
+    position: absolute;
+    right: 540px;
+    bottom: 140px;
+    width: 100px;
+    height: 2px;
+    background-color: #000;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: all .3s;
+}
+
+.text:hover .btn2::after {
+    transform: scaleX(1);
+}
+
+.mostro {
+    position: relative;
+    padding-top: 70px;
+}
+
 .mostro .mostro_img {
     width: 472px;
     height: 300px;
@@ -159,15 +283,14 @@ header img {
     z-index: -10;
 }
 
-.mostro {
-    position: relative;
-    padding-top: 70px;
+.mostro p {
+    margin-bottom: 10px;
 }
+
 
 .viproom {
     position: relative;
     margin-top: 200px;
-    right: 0;
     flex-flow: row-reverse;
 }
 
@@ -178,6 +301,21 @@ header img {
     left: 100px;
 }
 
+.viproom p {
+    margin-bottom: 10px;
+}
+
+button {
+    border: none;
+    background: transparent;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:active {
+    color: #999;
+}
 
 
 /* STAFF 
@@ -200,6 +338,10 @@ header img {
     height: 500px;
     background-color: #282F53;
     overflow: hidden;
+    border-radius: 10px;
+    transition: all .3s;
+    cursor: pointer;
+    border: 3px solid #030A2E;
 }
 
 .octavinelle img {
@@ -209,16 +351,62 @@ header img {
     bottom: -70px;
 }
 
+.octavinelle a {
+    text-decoration: none;
+}
+
+.octavinelle p {
+    margin-top: 5px;
+}
+
 .octavinelle h3 {
+    position: relative;
     color: #fff;
     font-size: 30px;
-    text-align: center;
     margin-top: 50px;
+    text-align: center;
 }
+
+/* h3の文字に下線 */
+.octavinelle h3::after {
+    content: "";
+    position: absolute;
+    left: 50px;
+    bottom: -4px;
+    width: 350px;
+    height: 2px;
+    background-color: #B0A12E;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: all .2s;
+}
+
+.octavinelle:hover h3::after {
+    transform: scaleX(1);
+}
+
+.octavinelle p {
+    color: #fff;
+    text-align: center;
+}
+
 
 .floyd {
     /* background-image: url(./img/octavinelle_chara_floyd_detail2_A.png); */
     background-size: cover;
+}
+
+.floyd:hover {
+    width: 500px;
+    height: 550px;
+    box-shadow: 1px 10px 1px #282F53;
+    transform: translateY(-20px);
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, .4);
+}
+
+.floyd:active {
+    background-color: #030A2E;
+    transform: scale(.98);
 }
 
 .azul {
@@ -226,66 +414,143 @@ header img {
     background-size: cover;
 }
 
+.azul:hover {
+    width: 500px;
+    height: 550px;
+    box-shadow: 1px 10px 1px #282F53;
+    transform: translateY(-20px);
+    box-shadow: 5px 10px 20px rgba(0, 0, 0, .4);
+}
+
+.azul:active {
+    background-color: #030A2E;
+    transform: scale(.98);
+}
+
 .jade {
     /* background-image: url(./img/octavinelle_chara_jade_detail2_A.png); */
     background-size: cover;
 }
 
+.jade:hover {
+    width: 500px;
+    height: 550px;
+    box-shadow: 1px 10px 1px #282F53;
+    transform: translateY(-20px);
+    box-shadow: -5px 10px 20px rgba(0, 0, 0, .4);
+}
+
+.jade:active {
+    background-color: #030A2E;
+    transform: scale(.98);
+}
 
 
-/* SNS_X 
+
+/* SNS
 ------------------------------------- */
+#sns {
+    scroll-margin-top: 100px;
+}
+
+.sns {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.sns-item h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
 
+/* footer
+------------------------------------- */
+footer {
+    width: 100%;
+    height: 200px;
+    background-color: #030A2E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer small {
+    color: #fff;
+}
 
 
 /* mobile版 
 ------------------------------------- */
 @media (max-width: 800px) {
 
+    /* 共通設定 
+    ------------------------------------- */
+    p {
+        font-size: 12px;
+    }
+
+    .inner {
+        max-width: 360px;
+    }
+
+    /* header 
+    ------------------------------------- */
+    #js-gnav-list {
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        flex-direction: column;
+        gap: 50px;
+        background-color: rgba(3, 10, 46, .95);
+        padding: 50px;
+        transition: all .3s;
+        transform: translateX(100%);
+        margin-top: 70px;
+    }
+
+    #js-gnav-list.open {
+        transform: translateX(0);
+    }
+
+
+    /* ham_button 
+    ------------------------------------- */
+    .ham_btn {
+        display: block;
+    }
+
+
     /* KV 
     ------------------------------------- */
+
     .swiper {
-        width: auto;
-        height: 400px;
+        height: 300px;
+        width: 100%;
         object-fit: cover;
     }
 
     /* NEWS 
     ------------------------------------- */
     #news {
-        width: 350px;
+        height: 280px;
+        overflow: scroll;
     }
 
     #news h2 {
         margin-bottom: 1em;
     }
 
-    /* ham_button 
-    ------------------------------------- */
-    .ham_btn {
-        padding-right: 1em;
-        position: relative;
-        top: 0;
-        right: 0;
+    #news .list_item {
+        font-size: 16px;
     }
 
-    .line {
-        display: block;
-        cursor: pointer;
-    }
-
-    .sub_list {
-        position: relative;
-        padding-top: 50px;
-        top: 0;
-        left: 105%;
-        z-index: 100;
-        width: calc(100% - 50%);
-        height: 400px;
-        flex-direction: column;
-        transition: 0.3s;
-        background-color: #030A2E;
+    #news div {
+        font-size: 12px;
     }
 
 
@@ -294,4 +559,126 @@ header img {
     #about {
         max-width: 100%;
     }
+
+    #about .box {
+        display: none;
+    }
+
+    .text {
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .mostro {
+        padding-top: 10px;
+    }
+
+    .mostro .mostro_img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .viproom {
+        display: block;
+        margin-top: 100px;
+    }
+
+    .viproom .viproom_img {
+        width: 100%;
+        height: 200px;
+    }
+
+    button {
+        font-size: 15px;
+    }
+
+    .btn::after {
+        top: 245px;
+    }
+
+    .btn2::after {
+        top: 190px;
+        left: 0;
+    }
+
+    /* STAFF 
+    ------------------------------------- */
+    .introduction {
+        height: 500px;
+        flex-direction: column;
+    }
+
+    .octavinelle {
+        width: 100%;
+    }
+
+    .octavinelle h3,
+    .octavinelle p {
+        position: relative;
+        top: 35px;
+        right: -80px;
+    }
+
+    .octavinelle h3 {
+        font-size: 12px;
+        margin-top: 30px;
+    }
+
+    .octavinelle p {
+        font-size: 8px;
+    }
+
+    .octavinelle img {
+        bottom: -100px;
+        left: -20px;
+        height: 300px;
+        width: 250px;
+    }
+
+    .octavinelle h3::after {
+        width: 150px;
+        left: 122px;
+    }
+
+    .floyd:active,
+    .floyd:hover {
+        width: 400px;
+        height: 600px;
+        transform: translateX(-15px);
+    }
+
+    .azul:active,
+    .azul:hover {
+        width: 400px;
+        height: 600px;
+        transform: translateX(-20px);
+    }
+
+    .jade:active,
+    .jade:hover {
+        width: 400px;
+        height: 600px;
+        transform: translateX(-15px);
+        box-shadow: 5px 10px 20px rgba(0, 0, 0, .4);
+    }
+
+    .azul br {
+        display: block;
+    }
+
+    /* SNS 
+    ------------------------------------- */
+    .sns {
+        display: block;
+    }
+
+    .sns-youtube {
+        aspect-ratio: 16/9;
+        margin-top: 40px;
+    }
+
+    .sns-youtube iframe {
+        width: 100%;
+    }
+
 }

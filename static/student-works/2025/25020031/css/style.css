@@ -31,22 +31,41 @@ h1 {
     margin-bottom: 0;
 }
 
-/* HERO*/
-.hero{
-    color: #fff;
-    width: 100%;
-    height: 100vh;
-    background-image: url(../images/205524_0.jpg);
-    background-size: cover;
-    background-position: center center;
+.spot{
+    background-color: #efefef;
+}
+
+.spot ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/*spot*/
+.spot li {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    background-color: #fff;
+    padding: 15px;
+    border: 1px solid #ccc;
+    margin-bottom: 30px;    
 }
-
-.hero p {
-    font-weight: bold;
-    letter-spacing: .5em;
+.spot img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    margin: 20px auto;
 }
-
+@media (min-width:800px){
+    .spot ul{
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .spot li{
+        flex: 1;
+        margin: 15px;
+    }
+}

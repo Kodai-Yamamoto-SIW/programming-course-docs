@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>お問い合わせ | Elysian Resort</title>
+    
+    <link rel="stylesheet" href="contact.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+    <div class="bg-slider" aria-hidden="true"></div>
+    <header id="top" class="site-header">
+            <div class="logo">
+                <a href="index.html"><img src="img/Group 1.svg" alt="ロゴ"></a>
+            </div>
+
+            <button class="oya-btn" aria-controls="hum-menu" aria-expanded="false" aria-label="メニューを開く">
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+                <div class="hamburger-line"></div>
+            </button>
+
+            <ul class="hamberger-menu" id="hum-menu">
+                <li><a href="index.html">TOP</a></li>
+                <li><a href="reservation.html">宿泊予約フォーム</a></li>
+                <li><a href="faq.html">よくある質問</a></li>
+                <li><a href="contact.html">お問い合わせ</a></li>
+            </ul>
+        
+    </header>
+
+    <main class="wrap">
+        <section class="hero">
+            <h1 class="page-title">CONTACT</h1>
+            <p class="page-sub">ご質問はフォームからお送りください。</p>
+        </section>
+
+        <section class="card form-card" aria-labelledby="title">
+            <header class="card__head">
+                <h2 id="title" class="card-title">お問い合わせ</h2>
+                <p class="sub">内容を確認のうえ、ご返信します。</p>
+            </header>
+
+            <form class="form" action="#" method="post">
+                <div class="stack">
+                    <div class="field">
+                        <label for="name">お名前<span class="req">必須</span></label>
+                        <input id="name" name="name" type="text" placeholder="例）山田 太郎" required />
+                    </div>
+
+                    <div class="field">
+                        <label for="email">メールアドレス<span class="req">必須</span></label>
+                        <input id="email" name="email" type="email" placeholder="example@mail.com" required />
+                    </div>
+
+                    <div class="field">
+                        <label for="message">お問い合わせ内容<span class="req">必須</span></label>
+                        <textarea id="message" name="message" rows="6" placeholder="例）記念日プランについて相談したい"
+                            required></textarea>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button type="submit" class="btn primary">送信する</button>
+                    <button type="reset" class="btn ghost">クリア</button>
+                </div>
+
+            </form>
+        </section>
+
+        <a href="index.html#top" class="back-top" aria-label="トップへ戻る">TOP</a>
+    </main>
+</body>
+
+</html>

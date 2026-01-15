@@ -1,15 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* ヘッダーのスタイル -------------------
+---------------------------------------------------*/
 header{
     display: flex;
     justify-content: right;
+    gap: 20px;
 }
-header p{
-    margin: 10px;
+header a:hover{
+    color: green;
 }
 
+.menuWrap {
+    position: relative;
+}
+
+.subMenu {
+    position: absolute;
+    top: 100%; 
+    left: 0; 
+    margin: 0;
+    opacity: 0; 
+    visibility: hidden; 
+    transition: all 0.3s;
+    color: red;
+}
+
+.subMenu.show {
+    opacity: 1;
+    visibility: visible; 
+}
+
+/* メインコンテンツのスタイル -------
+---------------------------------------------------*/
 main{
     height: 800px;
+    color: brown;
     font-size: 40px;
-    background-image: url(image.png);
+    background-image: url(image/image.png);
 }
 h2 ,h3{
     display: flex;
@@ -25,7 +55,36 @@ h2 ,h3{
     display: flex;
     justify-content: center;
     margin: 3px;
+    border-bottom: 5px solid brown;
 }
 section{
     margin-bottom: 25px;
+    background-color: aliceblue;
 }
+/* ボタンのスタイル---------------
+---------------------------------------------------*/
+.btn {
+    background-color: #e74c3c;
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #c0392b;
+    transform: translateY(-3px);
+}
+
+.btn:active {
+    transform: translateY(0px);
+}
+/* フッターのスタイル --------------
+---------------------------------------------------*/
+footer{
+    text-align: center;
+    margin: 50px;
+}
+

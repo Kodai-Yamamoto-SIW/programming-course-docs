@@ -41,3 +41,27 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+
+// ===== ファーストビュー切り替え（jQuery）=====
+$(function () {
+  const images = [
+    "url(https://cloudfront-eu-central-1.images.arcpublishing.com/thenational/OUUQ5VQLK5D4VF2KSDS66JX3DU.jpg)",
+    "url(https://images.www.kateigaho.com/media/article/23380/images/main_6b11a94d4700ffc02525fa59691b14444af34019.jpg)",
+    "url(https://hips.hearstapps.com/hmg-prod/images/000-1637656452.jpg?crop=0.888888888888889xw:1xh;center,top&resize=1200:*)",
+    "url(https://regency-trvl.com/wordpress/wp-content/uploads/2020/06/chiva-som_-_patchouli_suite_bedroom.jpg)"
+  ];
+
+  const $bg = $(".bg-slider");
+  if ($bg.length === 0) return;
+
+  let current = 0;
+  $bg.css("background-image", images[current]);
+
+  setInterval(function () {
+    $bg.fadeOut(800, function () {
+      current = (current + 1) % images.length;
+      $bg.css("background-image", images[current]).fadeIn(800);
+    });
+  }, 6000);
+});

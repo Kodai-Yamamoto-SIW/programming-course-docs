@@ -3,6 +3,50 @@ body {
     padding: 0;
 }
 
+/* ヘッダー全体のレイアウト */
+.site-header {
+  display: flex;
+  justify-content: space-between; /* ロゴとメニューを両端に離す */
+  align-items: center;            /* 上下中央に揃える */
+  padding: 10px 40px;
+  background-color: #ffffff;
+}
+
+/* ロゴのサイズ調整 */
+.logo img {
+  height: 50px; /* 画像の大きさに合わせて調整してください */
+}
+
+/* メニューの並び（横に並べる） */
+.nav-menu ul {
+  display: flex;
+  list-style: none; /* 点を消す */
+  gap: 20px;        /* メニュー同士の間隔 */
+  margin: 0;
+  padding: 0;
+}
+
+/* メニュー内のリンク（ここが縦並びのポイント！） */
+.nav-menu a {
+  display: flex;
+  flex-direction: column; /* 要素を縦に並べる */
+  align-items: center;    /* 中央に寄せる */
+  text-decoration: none;  /* 下線を消す */
+  color: #ff8cb4;         /* ちいかわ風のピンク色 */
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* アイコン（画像やフォント）のサイズ */
+.nav-menu i {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin-top: 5px;        /* 文字との隙間 */
+  background-color: #ff8cb4; /* サンプル用に色をつけています */
+  border-radius: 4px;
+}
+
 header {
   border-bottom: solid black 1px;
   background-color: #f9c1cfd3 ;
@@ -93,6 +137,14 @@ img {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.ciikawa img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: auto;
 }
 
 .animetati h3 {

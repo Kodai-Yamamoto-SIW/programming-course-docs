@@ -13,8 +13,9 @@ body {
 }
 /* ーーーーーーーーーヘッダーーーーーーーーー */
 header {
-    display: flex;
-    justify-content: space-between;
+    position: relative;
+    /* display: flex; */
+    /* justify-content: space-between; */
     background-image: url(../img/hart.avif);
     background-size: cover;
     background-position: center center;
@@ -24,15 +25,26 @@ header {
     color: white;
     margin: 0px 0px 100px;
 }
-.font-ugoku {
+.font-contena {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    margin: 20px;
-    font-style: italic;
+    margin: 0px auto;
+    height: 100vh;
     font-size: 3em;
 }
 /* ーーーーーーーヘッダーメニューーーーーーーー */
+.menu-top {
+    background-color: #602d1d;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+}
 .menu-book {
-    display: inline-block;
+    
+    /* display: inline-block; */
     list-style: none;
     cursor: pointer;
     
@@ -40,6 +52,19 @@ header {
 .menu-item {
     padding: 10px;
 }
+/* ーーーーーハンバーグメニューーーーー */
+.menu-botan {
+    display: block;
+    padding: 1rem;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+}
+#baga-icon {
+    display: flex;
+    border: 1px solid #602d1d;
+}
+
 
 
 /* ーーーーーーーーーーーーーメインーーーーーーーーーーー */
@@ -58,13 +83,13 @@ main {
     margin: 0 auto;
     border-radius: 10px;
     cursor: pointer;
-    
+    transition: transform 0.4s ease-in-out;
 }
 .botan:hover {
     background-color: #fff0f5;
     color:  #602d1d;
     transform: translateY(10px);
-    transition: all 0.4s;
+    /* transition: all 0.4s; */
 }
 
 /* --------------photogalleryの画像---------------- */
@@ -84,6 +109,9 @@ main {
 
 
 /* ーーーーーーーーー写真ーーーーーーーーーーー */
+.scroll {
+    overflow-x: scroll ;
+}
 .jouhou {
     display: flex;
     justify-content: center;
@@ -93,19 +121,67 @@ main {
     margin: 20px;
 }
 
-/* ーーーーーーーーセンター写真ーーーーーーーーー */
+/* ーーーーーーーー時間経過で切り替わるー写真ーーーーーーーーー */
 .image {
-    margin: 100px 0px 100px;
+    padding: 0px  100px;
+    margin: 50px auto 50px;
+    height: 130vh;
 }
 #contena {
     position: relative;
 }
 .art {
-    width: 70%;
-    height: 80vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 130vh;
     object-fit: cover;
     border: 3px solid palevioletred;
 }
+/* .and1 {
+    animation: ugoke1 5s ease-in-out 5s alternate infinite ;
+}
+@keyframes ugoke1 {
+0% {opacity: 0;}
+100% {opacity: 1;} 
+}  */
+
+.and2 {
+    animation: ugoke2 4s ease-in-out 0s alternate infinite ;
+    object-position: 0% 30%;
+}
+@keyframes ugoke2 {
+0% {opacity: 0;}
+100% {opacity: 1;} 
+} 
+
+/* ーーーーーーーーー動く！！プリンおばけーーーーーーーーーーーー */
+.anime {
+    position: relative;
+}
+.obake {
+    top: 20px;
+    right: 0px;
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    cursor: pointer;
+    position: absolute;
+    
+}
+.obake:hover {
+    animation: ugoke4 7s ease-in-out 0s alternate infinite;
+}
+@keyframes ugoke4 {
+0% {transform: rotate(0deg) ;}
+25% {transform: rotate(-20deg);}
+50% {transform: rotate(20deg); }
+75% {transform: rotate(-20deg); }
+100% {transform: rotate(0deg);} 
+} 
+
+
 
 
 /* ------------フッターーーーーーーーーーーー */

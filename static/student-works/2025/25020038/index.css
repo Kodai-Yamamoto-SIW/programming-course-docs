@@ -171,3 +171,49 @@ h1 {
   width: auto;
   display: block;
 }
+
+
+/* footer
+---------------------- */
+
+footer {
+  font-family: "Ibarra Real Nova", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.nav {
+  display: flex;
+}
+
+.nav1 {
+  line-height: 4rem;
+  margin: 0 242px 0 140px;
+}
+
+.nav2 {
+  line-height: 4rem;
+  margin: 0 242px 0 0;
+}
+
+.sns{
+  text-align: right;
+  margin: 0 140px 0 0;
+}
+
+.end{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 140px;
+
+  align-items: flex-end;
+}
+
+.olive{
+  font-size: 12px;
+}
+
+.name{
+  font-size: 40px;
+}

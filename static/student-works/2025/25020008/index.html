@@ -15,11 +15,20 @@
 <body>
 
 <header>
-
-    <h1 class="font-ugoku">WEB SITE</h1>
+    <div class="font-contena">
+    <h1>WEB SITE</h1>
+    </div>
         
     <div class="menu-top">
-        <button class="menu-botan">ハンバーガーメニュー予定</button>
+        <button class="menu-botan">
+            <div id="baga-icon">
+                <div id="baga-1"></div>
+                <div id="baga-2"></div>
+                <div id="baga-3"></div>
+                <div id="baga-4"></div>
+            </div>
+        </button>
+
         <ul class="menu-book">
             <li class="menu-item">TOP</li>
             <li class="menu-item">画像</li>
@@ -33,9 +42,13 @@
 
 <main>
         <section class="gallery">
+    <p>
+        プリンおばけにカーソルを合わせると...
+    </p>
+
     <h2>Photo gallery</h2>
 
-    <div>
+    <div class="scroll">
     <ul class="jouhou">
         <li class="listitem">
             <img  class="photo"  src="img/hamabe.png" alt="浜辺の画像">
@@ -49,20 +62,36 @@
         <li class="listitem">
             <img  class="photo"  src="img/huriru.png" alt="フリルの画像">
         </li>
+        <li class="listitem">
+            <img  class="photo"  src="img/garascop.png" alt="コップの画像">
+        </li>
+        <li class="listitem">
+            <img  class="photo"  src="img/nuri.avif" alt="水色の画像">
+        </li>
     </ul>
     </div>
 
     <h3 class="botan">詳しく見る<i class="fa-solid fa-angle-right"></i></h3>
     </section>
 
-    予定：写真を横にスクロール、時間経過で画像が変更、メニューバー作成、h1タグをセンターに調整、モーダルウィンドウ
+        <section class="">
+
+    <!-- 予定：メニューバー作成、 -->
+
+        </section>
 
         <section class="image">
     <div id="contena"> 
-            <img class="art" src="img/kirakira.avif" alt="">
-            <img class="art" src="img/kohakuto.avif" alt="">
-            <img class="art" src="img/keki.avif" alt="">
+            <img class="art and1" src="img/kohakuto.avif" alt="">
+            <img class="art and2" src="img/keki.avif" alt="">
+            
     </div>   
+        </section>
+
+        <section class="anime">
+            <img class="obake" src="img/obake.png" alt="">
+            
+            
         </section>
 
 </main>

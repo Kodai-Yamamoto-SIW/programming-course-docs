@@ -1,40 +1,75 @@
-header{
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 20px;
+    /* 内余白 */
+    margin: 30px;
+    /* 外余白 */
     background-color: gray;
     color: white;
 }
 
-ul{
-    display: flex;
-    gap: 30px;
-    justify-content: space-around;
-    list-style-type: none;
-    padding: 0;
-    margin: 0 auto;
+section {
+    margin: 30px;
+    /* 外余白 */
+    border: 3px solid black;
+    padding: 20px;
+    /* 内余白 */
+    background-color: lightgray;
 }
 
-h2{
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0 auto;
+    /* 外余白 */
+}
+
+.n-txt {
+    margin: 0 auto;
+    /* 外余白 */
+    padding: 3px 5px;
+    /* 内余白 */
+    background-color: darkgray;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.9s ease;
+}
+
+.n-txt:hover {
+    background-color: black;
+    transform: scale(1.1);
+}
+
+h2 {
     text-align: center;
     margin-top: 20px;
 }
 
-.item-li{
+.item-li {
     display: flex;
     gap: 20px;
     text-align: center;
     justify-content: center;
     list-style-type: none;
     padding: 0;
+    /* 内余白 */
     margin: 0 auto;
+    /* 外余白 */
 }
 
-.item-li img{
+.item-li img {
     width: 400px;
     height: 300px;
     object-fit: cover;
     display: block;
     margin: 0 auto;
+    /* 外余白 */
 }

@@ -16,7 +16,25 @@ main{
     margin: 0 100px 100px;
 }
 
-h3{
+.btn{
+    border: #fff solid 1px;
+    box-shadow: 
+        0 0 5px  #9900ff,   
+        0 0 15px #9900ff,  
+        0 0 30px #9900ff;
+    color: #fff;
+    padding: 0 20px;
+    font-size: 13px;
+    margin-bottom: 50px;
+}
+.btn:hover{
+        box-shadow: 
+        0 0 5px  #ff00f7,   
+        0 0 15px #ff00f7,  
+        0 0 30px #ff00f7;
+}
+
+h2{
     font-size: 32px;
     color: #000;
     text-shadow:
@@ -30,7 +48,7 @@ h3{
     0 0 151px #9900ff;
 }
 
-h2{
+h3{
     font-size: 40px;
     color: #000;
     text-shadow:
@@ -69,6 +87,10 @@ small{
     object-fit: cover;
 }
 
+.news small{
+    border-bottom: 1px solid #fff;
+}
+
 .concept{
     background-image: url(images/sisya.png);
     max-width: 824px;
@@ -77,10 +99,6 @@ small{
 }
 
 .concept h3{
-    margin-bottom: 50px;
-}
-
-.concept p{
     margin-bottom: 50px;
 }
 
@@ -330,6 +348,15 @@ iframe{
     text-align: center;
 }
 
+footer .site-nav{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 30px;
+}
+
+.copywrite{
+    text-align: center;
+}
 /* ____________________ */
 @media (min-width: 800px){
     p{
@@ -438,37 +465,4 @@ iframe{
         display: flex;
         justify-content: space-between;
     }
-}
-
-/* ____________________ */
-.dots-wrap {
-    display: flex;
-    justify-content: center;
-}
-
-.dots-wrap li {
-    width: 40px;
-    height: 4px;
-    margin: 0 5px;
-    background: #fff;
-    cursor: pointer;
-}
-
-.dots-wrap li:hover,
-.dots-wrap li.slick-active {
-    background: #fff;
-    box-shadow: 
-        0 0 5px  #9900ff,   
-        0 0 15px #9900ff,  
-        0 0 30px #9900ff;
-}
-.dots-wrap li button {
-    display: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    outline: none;
-    padding: 0;
-    border: none;
-    background-color: transparent;
 }

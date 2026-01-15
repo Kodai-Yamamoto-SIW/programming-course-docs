@@ -19,6 +19,7 @@ body {
 /* header------------------------------------ */
 header {
     background-color: #FBFAF5;
+    width: 100%;
 }
 
 #top {
@@ -27,7 +28,6 @@ header {
     align-items: flex-start;
     padding: 80px 80px;
     margin: auto;
-    width: 1270px;
 }
 
 .text {
@@ -35,7 +35,7 @@ header {
     flex-direction: column;
     align-items: center;
     gap: 40px;
-    margin: 0;
+    margin: 60px 0 0 100px;
 }
 
 .text>img {
@@ -74,20 +74,22 @@ p>span {
 
 /* main------------------------------------- */
 #intro {
-    writing-mode: vertical-rl;
     text-align: center;
     margin: 0 auto;
-    padding: 80px 0;
-    width: 1270px;
+    padding: 80px 140px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 
 #intro img {
     width: 580px;
-    margin: 20px auto;
-    position: absolute;
-    top: 63rem;
-    left: 8rem;
+    height: 480px;
+}
+
+#intro div {
+    writing-mode: vertical-rl;
 }
 
 #intro h2,
@@ -97,7 +99,6 @@ p>span {
 
 
 #intro h2 {
-    font-size: 36px;
     letter-spacing: 0.2em;
     margin: 0;
     padding: 0 40px;
@@ -111,43 +112,61 @@ p>span {
 }
 
 /* リスト-------------------- */
-#proud{
+#proud {
     padding: 0 200px;
 }
 
-#proud>div{
+#proud>div {
     display: flex;
     flex-direction: column;
     gap: 80px;
 }
 
-#proud h2{
-    font-size: 36px;
+#proud h2 {
     padding: 50px;
     text-align: center;
 }
 
-#proud h3{
-    font-size: 31px;
+#proud h3 {
+    font-size: 27px;
 }
 
-#proud ul{
+#proud ul {
     display: flex;
     justify-content: space-between;
 }
 
-#proud ul:nth-child(even){
+#proud ul:nth-child(even) {
     flex-direction: row-reverse;
 }
 
-#proud>div>ul>div{
+#proud>div>ul>div {
     width: 493px;
     display: grid;
     place-content: center;
 }
 
-#proud div div div{
+#proud div div div {
     width: 330px;
 }
-/* 店舗ーーーーーーーーーーーーーーー */
 
+/* 店舗ーーーーーーーーーーーーーーー */
+#tenpo h2{
+    writing-mode: vertical-rl;
+}
+
+#tenpo>div>.sen p{
+    border-bottom: 4px solid #000;
+}
+
+#tenpo p{
+    border-left: 4px solid #000;
+}
+/* お知らせーーーーーーーーーーーーーーーー */
+
+
+
+/* オンラインショップーーーーーーーーーーーーーーーー */
+section{
+
+}

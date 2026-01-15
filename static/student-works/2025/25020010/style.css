@@ -413,3 +413,86 @@ section {
 }
 
 .drawer-overlay.is-open { display: block; }
+
+/* =========================================
+   マップ一覧（スライド実装用）
+   ========================================= */
+.map-section {
+    background-color: #0C0C0C;
+    padding: 100px 40px;
+}
+
+.slider-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+/* スライドの外枠（はみ出た分を隠す） */
+.slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+    margin: 0 10px;
+}
+
+/* スライドの中身（横に並べる） */
+.slider-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 20px;
+}
+
+/* マップ1枚ずつのカード */
+.map-card {
+    min-width: calc(33.333% - 14px); /* 1画面に3枚表示 */
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+.map-card:hover {
+    border-color: #ff4d4d;
+    box-shadow: 0 10px 30px rgba(255, 77, 77, 0.3);
+}
+
+.map-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+/* 画像の上に被せる地名ラベル */
+.map-label {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7); /* 黒い半透明で文字を見やすく */
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* 矢印ボタンのデザイン */
+.slider-arrow {
+    background: none;
+    border: 1px solid #333;
+    color: #fff;
+    font-size: 2rem;
+    padding: 20px 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.slider-arrow:hover {
+    color: #ff4d4d;
+    border-color: #ff4d4d;
+}

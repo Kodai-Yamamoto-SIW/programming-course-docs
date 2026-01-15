@@ -76,15 +76,22 @@ body {
 }
 
 /* ===== プロフィール ===== */
-.profile {
+
+.Profile {
   padding: 80px 40px;
   background: #fff;
-  text-align: center;
-  
+  display: flex;
+  align-items: center;        /* 縦中央 */
+  justify-content: center;    /* 全体を中央寄せ */
+  gap: 60px;                  /* 文字と画像の間隔 */
+}
+/* ===== テキスト側 ===== */
+.profile-text {
+  max-width: 420px;
 }
 
-.profile-text {
-  max-width: 600px;
+.profile-text h2 {
+  margin-bottom: 10px;
 }
 
 .catch {
@@ -95,22 +102,37 @@ body {
 .profile-list {
   list-style: none;
   padding: 0;
+  margin-bottom: 20px;
 }
 
 .profile-list li {
   margin-bottom: 10px;
 }
-.design{
-  height: 100vh;
-  background-size: cover;
-  background-position: top center;
-  position: relative; 
+
+.profile-text h2,
+.music h2 {
+  display: inline-block;          /* 背景を文字幅にする */
+  background: #bdf2ff;            /* 水色 */
+  color: #fff;                    /* 白文字 */
+  padding: 8px 40px;              /* 余白 */
+  border-radius: 999px;           /* 丸く */
+  font-size: 22px;
+  margin-bottom: 20px;
 }
+
+
+/* ===== 画像側 ===== */
+.design {
+  width: 360px;          /* 画像の横幅 */
+  height: auto;
+  border-radius: 24px;   /* 角丸でやさしい印象 */
+}
+
 
 
 /* ===フッター=== */
 .footer {
-  background: #a6ecff;
+  background: #b7efff;
   padding: 30px 20px;
   text-align: center;
 }
@@ -168,9 +190,10 @@ body {
 
 /* もっと見るボタン */
 .more-btn {
+  font-size: small;
   display: inline-block;
-  padding: 12px 30px;
-  background: #a6ecff;
+  padding: 10px 20px;
+  background: #ffb7d0;
   color: white;
   text-decoration: none;
   border-radius: 999px;
