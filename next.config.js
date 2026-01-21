@@ -9,26 +9,18 @@ const withNextra = nextra({
   },
 });
 
-const basePath = '/programming-course-docs';
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  basePath,
-  assetPrefix: basePath,
   trailingSlash: true,
-  output: 'export',
   images: {
     unoptimized: true,
-  },
-  env: {
-    NEXT_PUBLIC_BASE_PATH: basePath,
   },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   webpack: (config, { isServer }) => {
     const assetCssPattern = /[\\/]content[\\/].*[\\/]assets[\\/].*\.css$/i;
     const staticMediaFilename = 'static/media/[name].[hash][ext]';
-    const staticMediaPublicPath = `${basePath}/_next/`;
+    const staticMediaPublicPath = '/_next/';
     const staticMediaOutputPath = isServer ? '..' : undefined;
 
     config.module.rules.unshift({

@@ -8,8 +8,6 @@ type SubmissionsClientProps = {
   studentWorks: StudentWorksData;
 };
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
-
 export default function SubmissionsClient({
   studentWorks,
 }: SubmissionsClientProps) {
@@ -87,7 +85,7 @@ export default function SubmissionsClient({
             ) : (
               <div className={styles.grid}>
                 {studentIds.map((studentId) => {
-                  const workUrl = `${basePath}/student-works/${selectedYear}/${studentId}/index.html`;
+                  const workUrl = `/student-works/${selectedYear}/${studentId}/index.html`;
 
                   return (
                     <div key={studentId} className={styles.card}>
