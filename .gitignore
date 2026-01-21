@@ -4,6 +4,7 @@
 # Next.js build output
 /.next
 /out
+public/_pagefind/
 
 # Misc
 .DS_Store
