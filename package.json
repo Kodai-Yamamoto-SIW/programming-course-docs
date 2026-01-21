@@ -7,6 +7,7 @@
     "dev": "next dev",
     "start": "next start",
     "build": "next build",
+    "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -23,6 +24,7 @@
     "@types/node": "^25.0.9",
     "@types/react": "^19.2.9",
     "@types/react-dom": "^19.2.3",
+    "pagefind": "^1.4.0",
     "remark-gfm": "^4.0.1",
     "typescript": "^5.9.3"
   },

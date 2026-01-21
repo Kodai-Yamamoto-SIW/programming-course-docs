@@ -27,6 +27,13 @@ npm run dev
 npm run build
 ```
 
+### Search
+
+Nextra search uses Pagefind. The search index is generated on `npm run build`
+via the `postbuild` script and written to `public/_pagefind/` (ignored in git).
+Search isn't available in `npm run dev` until you've built once; run
+`npm run build` and then restart `npm run dev` to test.
+
 ### Start production server
 
 ```bash
