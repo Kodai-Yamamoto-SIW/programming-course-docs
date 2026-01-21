@@ -27,12 +27,10 @@ npm run dev
 npm run build
 ```
 
-Outputs static files to `out/`.
-
-### Preview production build
+### Start production server
 
 ```bash
-npx serve out
+npm run start
 ```
 
 ### Typecheck
@@ -40,11 +38,6 @@ npx serve out
 ```bash
 npm run typecheck
 ```
-
-## Base path
-
-The site is configured with a base path in `next.config.js` (`/programming-course-docs`).
-Update it if you deploy under a different path.
 
 ## AGENTS.md
 
@@ -71,7 +64,7 @@ Static assets live in `public/`.
 
 ## Deploy
 
-GitHub Pages deployment is handled by GitHub Actions: `.github/workflows/deploy.yml`.
+Deploy on Vercel as a Next.js project (build command: `npm run build`).
 
 ## Environment variables
 
