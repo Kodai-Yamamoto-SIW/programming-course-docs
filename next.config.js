@@ -73,9 +73,6 @@ const nextConfig = {
 
     config.resolve.alias = {
       ...(config.resolve.alias ?? {}),
-      '@theme/Heading': fileURLToPath(
-        new URL('./src/components/DocusaurusHeading.tsx', import.meta.url)
-      ),
     };
     return config;
   },
