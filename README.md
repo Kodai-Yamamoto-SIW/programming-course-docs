@@ -1,6 +1,6 @@
 # programming-course-docs
 
-Course site built with [Docusaurus](https://docusaurus.io/) (TypeScript).
+Course site built with [Nextra](https://nextra.site/) (Next.js + MDX).
 
 ## Requirements
 
@@ -18,7 +18,7 @@ npm install
 ### Local development
 
 ```bash
-npm run start
+npm run dev
 ```
 
 ### Build
@@ -27,12 +27,10 @@ npm run start
 npm run build
 ```
 
-Outputs static files to `build/`.
-
-### Preview production build
+### Start production server
 
 ```bash
-npm run serve
+npm run start
 ```
 
 ### Typecheck
@@ -61,14 +59,21 @@ node agent-rules-tools/tools/compose-agents.cjs
 This site uses shared modules from sibling repositories:
 
 - `@metyatech/code-preview` (interactive HTML/CSS/JS previews)
-- `@metyatech/exercise` (exercise/solution blocks)
-- `@metyatech/docusaurus-download-assets` (import/require for `docs/**/assets/`)
+
+Static assets live in `public/`.
 
 ## Deploy
 
-GitHub Pages deployment is handled by GitHub Actions: `.github/workflows/deploy.yml`.
+Deploy via GitHub Actions with the Vercel CLI (`.github/workflows/deploy-vercel.yml`).
 
-`npm run deploy` (Docusaurus deploy script) still exists, but the default deployment flow is the Actions workflow.
+Required GitHub secrets:
+
+- `VERCEL_TOKEN`
+- `VERCEL_ORG_ID`
+- `VERCEL_PROJECT_ID`
+
+You can obtain the org/project IDs by running `npx vercel link` locally and checking
+`.vercel/project.json` (do not commit that directory).
 
 ## Environment variables
 
