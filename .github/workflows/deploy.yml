@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    name: Build Docusaurus
+    name: Build Next.js
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -28,7 +28,7 @@ jobs:
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: build
+          path: out
 
   deploy:
     name: Deploy to GitHub Pages

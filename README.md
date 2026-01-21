@@ -1,6 +1,6 @@
 # programming-course-docs
 
-Course site built with [Docusaurus](https://docusaurus.io/) (TypeScript).
+Course site built with [Nextra](https://nextra.site/) (Next.js + MDX).
 
 ## Requirements
 
@@ -18,7 +18,7 @@ npm install
 ### Local development
 
 ```bash
-npm run start
+npm run dev
 ```
 
 ### Build
@@ -27,12 +27,12 @@ npm run start
 npm run build
 ```
 
-Outputs static files to `build/`.
+Outputs static files to `out/`.
 
 ### Preview production build
 
 ```bash
-npm run serve
+npx serve out
 ```
 
 ### Typecheck
@@ -40,6 +40,11 @@ npm run serve
 ```bash
 npm run typecheck
 ```
+
+## Base path
+
+The site is configured with a base path in `next.config.js` (`/programming-course-docs`).
+Update it if you deploy under a different path.
 
 ## AGENTS.md
 
@@ -61,14 +66,12 @@ node agent-rules-tools/tools/compose-agents.cjs
 This site uses shared modules from sibling repositories:
 
 - `@metyatech/code-preview` (interactive HTML/CSS/JS previews)
-- `@metyatech/exercise` (exercise/solution blocks)
-- `@metyatech/docusaurus-download-assets` (import/require for `docs/**/assets/`)
+
+Static assets live in `public/`.
 
 ## Deploy
 
 GitHub Pages deployment is handled by GitHub Actions: `.github/workflows/deploy.yml`.
-
-`npm run deploy` (Docusaurus deploy script) still exists, but the default deployment flow is the Actions workflow.
 
 ## Environment variables
 
