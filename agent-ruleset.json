@@ -9,6 +9,8 @@
     "agent-rules/rules/command-execution.md",
     "agent-rules/rules/repository-hygiene-and-file-naming.md",
     "agent-rules/rules/multi-repo-workflow.md",
+    "agent-rules-local/rules/course-site-metadata.md",
+    "agent-rules-local/rules/module-system.md",
     "agent-rules-private/rules/course-site-content-authoring.md"
   ]
 }
