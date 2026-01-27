@@ -112,7 +112,7 @@ alter publication supabase_realtime add table public.work_intros;
 alter publication supabase_realtime add table public.work_comments;
 ```
 
-Example RLS policies (public read, anonymous insert, no update/delete):
+Example RLS policies (public read, anonymous insert, public update for intros, no deletes):
 
 ```sql
 alter table public.work_intros enable row level security;
@@ -129,9 +129,18 @@ using (true);
 create policy "insert work comments"
 on public.work_comments for insert
 with check (true);
+
+create policy "upsert work intros"
+on public.work_intros for insert
+with check (true);
+
+create policy "update work intros"
+on public.work_intros for update
+using (true)
+with check (true);
 ```
 
-Introduce/edit intro text via the Supabase dashboard (no UI in the site yet).
+Introductions can be edited from the submissions page UI (public editing).
 
 #### Environment variables
 

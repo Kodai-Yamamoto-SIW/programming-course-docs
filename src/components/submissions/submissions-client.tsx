@@ -11,6 +11,7 @@ import {
   type WorkCommentMap,
   type WorkIntroMap,
 } from './work-data-mappers';
+import WorkIntroEditor from './work-intro-editor';
 
 type SubmissionsClientProps = {
   studentWorks: StudentWorksData;
@@ -196,6 +197,26 @@ export default function SubmissionsClient({
     [selectedYear, supabase]
   );
 
+  const saveIntro = useCallback(
+    async (studentId: string, intro: string | null) => {
+      if (!supabase || !selectedYear) {
+        throw new Error('Supabase is not configured.');
+      }
+
+      const { error } = await supabase.from('work_intros').upsert({
+        year: selectedYear,
+        student_id: studentId,
+        intro,
+        updated_at: new Date().toISOString(),
+      });
+
+      if (error) {
+        throw error;
+      }
+    },
+    [selectedYear, supabase]
+  );
+
   return (
     <main className={styles.submissionsMain}>
       <div className={styles.container}>
@@ -276,6 +297,13 @@ export default function SubmissionsClient({
                               作者からの紹介文はまだありません。
                             </p>
                           )}
+                          <WorkIntroEditor
+                            intro={intro}
+                            isDisabled={!supabase}
+                            onSave={(nextIntro) =>
+                              saveIntro(work.studentId, nextIntro)
+                            }
+                          />
                         </section>
                         <WorkComments
                           comments={comments}
