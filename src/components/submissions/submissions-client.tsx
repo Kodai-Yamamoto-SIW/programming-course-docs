@@ -42,12 +42,11 @@ const formatSupabaseError = (error: unknown) => {
   return parts.join(' / ');
 };
 
-const buildWorkUrl = (
-  baseUrl: string,
-  year: string,
-  studentId: string
-) => {
-  const workPath = `${year}/${studentId}/index.html`;
+const buildWorkUrl = (baseUrl: string, workPath: string | null) => {
+  if (!workPath) {
+    return null;
+  }
+
   if (!baseUrl) {
     return `/student-works/${workPath}`;
   }
@@ -356,11 +355,7 @@ export default function SubmissionsClient({
             ) : (
               <div className={styles.grid}>
                 {studentWorksInYear.map((work) => {
-                  const workUrl = buildWorkUrl(
-                    worksBaseUrl,
-                    selectedYear,
-                    work.studentId
-                  );
+                  const workUrl = buildWorkUrl(worksBaseUrl, work.workPath);
                   const intro = introMap[work.studentId];
                   const comments = commentMap[work.studentId] ?? [];
 
@@ -374,18 +369,36 @@ export default function SubmissionsClient({
                         <h3 className={styles.studentId}>{work.studentId}</h3>
                       </div>
                       <div
-                        className={styles.iframeWrapper}
-                        onClick={() => window.open(workUrl, '_blank')}
-                        style={{ cursor: 'pointer' }}
-                        title="クリックして新しいタブで開く"
+                        className={`${styles.iframeWrapper} ${
+                          workUrl ? '' : styles.iframeWrapperDisabled
+                        }`}
+                        onClick={
+                          workUrl
+                            ? () => window.open(workUrl, '_blank')
+                            : undefined
+                        }
+                        style={{ cursor: workUrl ? 'pointer' : 'default' }}
+                        title={
+                          workUrl
+                            ? 'クリックして新しいタブで開く'
+                            : 'index.html が見つかりません'
+                        }
+                        data-testid={`work-preview-${work.studentId}`}
                       >
-                        <iframe
-                          src={workUrl}
-                          className={styles.iframe}
-                          title={`${work.studentId}の提出作品`}
-                          loading="lazy"
-                          sandbox="allow-scripts allow-same-origin"
-                        />
+                        {workUrl ? (
+                          <iframe
+                            src={workUrl}
+                            className={styles.iframe}
+                            title={`${work.studentId}の提出作品`}
+                            loading="lazy"
+                            sandbox="allow-scripts allow-same-origin"
+                          />
+                        ) : (
+                          <div className={styles.iframePlaceholder}>
+                            <p>index.html が見つかりません。</p>
+                            <p>フォルダ内に配置してください。</p>
+                          </div>
+                        )}
                       </div>
                       <div className={styles.cardBody}>
                         <section className={styles.introSection}>

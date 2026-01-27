@@ -92,6 +92,21 @@ Static assets live in `public/`.
 ### Student works metadata
 
 Each submission is served from `public/student-works/<year>/<studentId>/index.html`.
+If an `index.html` lives deeper inside the student folder, the closest
+`index.html` is used instead.
+
+#### Folder name sanitization (privacy)
+
+Student folders under `public/student-works/<year>/` must be numeric IDs only.
+To prevent accidental commits with names, install the git hook once:
+
+```bash
+npm run setup:git-hooks
+```
+
+The pre-commit hook will rename `public/student-works/<year>/<id> ...` to
+`public/student-works/<year>/<id>` and will block commits if no numeric ID is
+found.
 Introductions and comments are stored in Supabase so they are shared across devices
 and updated in real time.
 

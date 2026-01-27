@@ -1,7 +1,8 @@
 import { expect, test } from '@playwright/test';
 
-const seedYear = '2025';
+const seedYear = '2099-e2e';
 const seedStudentId = '25020001';
+const nestedStudentId = '25020002';
 
 test.beforeEach(async ({ page }) => {
   const intros = new Map<string, string>();
@@ -161,4 +162,16 @@ test('admin can delete a comment', async ({ page }) => {
   const commentItem = commentBody.locator('..');
   await commentItem.getByTestId('comment-delete').click();
   await expect(commentBody).toBeHidden();
+});
+
+test('nested index.html uses the nested path', async ({ page }) => {
+  await page.goto(`/submissions?year=${seedYear}`);
+
+  const card = page.getByTestId(`work-card-${nestedStudentId}`);
+  const iframe = card.locator('iframe');
+
+  await expect(iframe).toHaveAttribute(
+    'src',
+    new RegExp(`/__works__/${seedYear}/${nestedStudentId}/project/index\\.html$`)
+  );
 });
