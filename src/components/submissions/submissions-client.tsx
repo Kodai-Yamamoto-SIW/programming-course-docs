@@ -104,6 +104,7 @@ export default function SubmissionsClient({
   const [introMap, setIntroMap] = useState<WorkIntroMap>({});
   const [commentMap, setCommentMap] = useState<WorkCommentMap>({});
   const [dataError, setDataError] = useState<string | null>(null);
+  const supabaseMissing = !supabase;
   const studentIds = useMemo(
     () => studentWorksInYear.map((work) => work.studentId),
     [studentWorksInYear]
@@ -346,28 +347,30 @@ export default function SubmissionsClient({
                       <div className={styles.cardBody}>
                         <section className={styles.introSection}>
                           <h4 className={styles.sectionTitle}>作者からの紹介</h4>
-                          {!supabase ? (
-                            <p className={styles.placeholder}>
-                              連携先が未設定のため紹介文を表示できません。
-                            </p>
-                          ) : intro ? (
-                            <p
-                              className={styles.introText}
-                              data-testid="work-intro-text"
-                            >
-                              {intro}
-                            </p>
-                          ) : (
-                            <p
-                              className={styles.placeholder}
-                              data-testid="work-intro-empty"
-                            >
-                              作者からの紹介文はまだありません。
-                            </p>
-                          )}
+                          <div className={styles.contentBlock}>
+                            {supabaseMissing ? (
+                              <p className={styles.placeholder}>
+                                Supabaseのanon keyが未設定のため表示できません。
+                              </p>
+                            ) : intro ? (
+                              <p
+                                className={styles.introText}
+                                data-testid="work-intro-text"
+                              >
+                                {intro}
+                              </p>
+                            ) : (
+                              <p
+                                className={styles.placeholder}
+                                data-testid="work-intro-empty"
+                              >
+                                作者からの紹介文はまだありません。
+                              </p>
+                            )}
+                          </div>
                           <WorkIntroEditor
                             intro={intro}
-                            isDisabled={!supabase}
+                            isDisabled={supabaseMissing}
                             onSave={(nextIntro) =>
                               saveIntro(work.studentId, nextIntro)
                             }
@@ -375,7 +378,7 @@ export default function SubmissionsClient({
                         </section>
                         <WorkComments
                           comments={comments}
-                          isDisabled={!supabase}
+                          isDisabled={supabaseMissing}
                           onSubmit={(name, message) =>
                             submitComment(work.studentId, name, message)
                           }

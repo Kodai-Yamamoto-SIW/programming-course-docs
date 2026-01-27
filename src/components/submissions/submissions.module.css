@@ -145,28 +145,42 @@
 .introSection {
     padding: 0.5rem 0.75rem;
     border-radius: 6px;
-    background-color: var(--ifm-color-emphasis-100);
+    background-color: var(--ifm-background-surface-color);
     border: 1px solid var(--ifm-color-emphasis-200);
 }
 
 .sectionTitle {
-    margin: 0 0 0.35rem;
-    font-size: 0.95rem;
+    margin: 0 0 0.4rem;
+    font-size: 0.78rem;
     font-weight: 600;
-    color: var(--ifm-heading-color);
+    color: var(--ifm-color-emphasis-500);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.sectionTitle::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 12px;
+    border-radius: 999px;
+    background-color: var(--ifm-color-emphasis-400);
 }
 
 .introText {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--ifm-font-color-base);
     white-space: pre-wrap;
 }
 
 .placeholder {
     margin: 0;
-    color: var(--ifm-color-emphasis-600);
-    font-size: 0.85rem;
+    color: var(--ifm-color-emphasis-500);
+    font-size: 0.9rem;
 }
 
 .commentsSection {
@@ -176,11 +190,30 @@
     background-color: var(--ifm-background-surface-color);
 }
 
-.commentNotice {
-    margin: 0 0 0.5rem;
-    font-size: 0.75rem;
-    color: var(--ifm-color-emphasis-600);
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
 }
+
+.sectionHeaderSpacer {
+    flex: 1;
+}
+
+.sectionSubtitle {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ifm-font-color-base);
+}
+
+.actionRow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
 
 .commentList {
     list-style: none;
@@ -191,10 +224,49 @@
     gap: 0.5rem;
 }
 
+.contentBlock {
+    padding: 0.65rem 0.75rem;
+    border-radius: 10px;
+    border: 1px solid var(--ifm-color-emphasis-200);
+    background-color: var(--ifm-color-emphasis-50);
+    position: relative;
+}
+
+.editorPanel {
+    margin-top: 0.6rem;
+    padding: 0.65rem 0.75rem;
+    border-radius: 8px;
+    border: 1px dashed var(--ifm-color-emphasis-300);
+    background-color: var(--ifm-background-surface-color);
+}
+
+.actionButton {
+    border: 1px solid var(--ifm-color-emphasis-300);
+    background: transparent;
+    color: var(--ifm-color-emphasis-700);
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.actionButton:hover {
+    border-color: var(--ifm-color-primary);
+    color: var(--ifm-color-primary);
+}
+
+.actionButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 .commentItem {
     padding: 0.5rem;
     border-radius: 6px;
     background-color: var(--ifm-color-emphasis-100);
+    border-left: 3px solid var(--ifm-color-primary-light);
 }
 
 .commentMeta {
@@ -211,13 +283,10 @@
     color: var(--ifm-font-color-base);
 }
 
-.commentDate {
-    white-space: nowrap;
-}
 
 .commentBody {
     margin: 0;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: var(--ifm-font-color-base);
     white-space: pre-wrap;
 }
@@ -302,11 +371,40 @@
     box-shadow: none;
 }
 
+.commentButtonSecondary {
+    align-self: flex-start;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    border: 1px solid var(--ifm-color-emphasis-300);
+    background-color: var(--ifm-background-surface-color);
+    color: var(--ifm-font-color-base);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.commentButtonSecondary:hover {
+    border-color: var(--ifm-color-primary);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.commentButtonSecondary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 .introEditor {
     margin-top: 0.5rem;
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
+}
+
+.inlineActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 .formSuccess {
@@ -364,13 +462,14 @@ html.dark .iframeWrapper,
 
 html.dark .introSection,
 [data-theme='dark'] .introSection {
-    background-color: var(--ifm-color-emphasis-200);
+    background-color: var(--ifm-background-surface-color);
     border-color: var(--ifm-color-emphasis-300);
 }
 
 html.dark .commentItem,
 [data-theme='dark'] .commentItem {
     background-color: var(--ifm-color-emphasis-200);
+    border-left-color: var(--ifm-color-primary-light);
 }
 
 html.dark .commentButton,
@@ -384,4 +483,29 @@ html.dark .commentButton,
 html.dark .commentButton:focus-visible,
 [data-theme='dark'] .commentButton:focus-visible {
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.45);
+}
+
+html.dark .commentButtonSecondary,
+[data-theme='dark'] .commentButtonSecondary {
+    background-color: var(--ifm-color-emphasis-200);
+    border-color: var(--ifm-color-emphasis-400);
+    color: var(--ifm-font-color-base);
+}
+
+html.dark .editorPanel,
+[data-theme='dark'] .editorPanel {
+    background-color: var(--ifm-color-emphasis-200);
+    border-color: var(--ifm-color-emphasis-400);
+}
+
+html.dark .contentBlock,
+[data-theme='dark'] .contentBlock {
+    background-color: var(--ifm-color-emphasis-200);
+    border-color: var(--ifm-color-emphasis-400);
+}
+
+html.dark .actionButton,
+[data-theme='dark'] .actionButton {
+    border-color: var(--ifm-color-emphasis-400);
+    color: var(--ifm-color-emphasis-700);
 }

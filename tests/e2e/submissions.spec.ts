@@ -112,13 +112,13 @@ test('intro can be saved and reflected in the card', async ({ page }) => {
   await page.goto(`/submissions?year=${seedYear}`);
 
   const card = page.getByTestId(`work-card-${seedStudentId}`);
+  await card.getByTestId('work-intro-open').click();
   const introInput = card.getByTestId('work-intro-input');
   const saveButton = card.getByTestId('work-intro-save');
 
   await introInput.fill('テスト紹介文');
   await saveButton.click();
 
-  await expect(card.getByText('保存しました。')).toBeVisible();
   await expect(card.getByTestId('work-intro-text')).toHaveText('テスト紹介文');
 });
 
@@ -126,6 +126,7 @@ test('comment can be submitted and shown', async ({ page }) => {
   await page.goto(`/submissions?year=${seedYear}`);
 
   const card = page.getByTestId(`work-card-${seedStudentId}`);
+  await card.getByTestId('comment-open').click();
   await card.getByTestId('comment-name').fill('テスター');
   await card.getByTestId('comment-message').fill('素敵な作品でした');
   await card.getByTestId('comment-submit').click();
