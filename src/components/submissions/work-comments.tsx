@@ -55,8 +55,12 @@ export default function WorkComments({
       await onSubmit(trimmedName, trimmedMessage);
       setMessage('');
       setFormError(null);
-    } catch {
-      setFormError('コメントの送信に失敗しました。');
+    } catch (error) {
+      if (error instanceof Error) {
+        setFormError(error.message);
+      } else {
+        setFormError('コメントの送信に失敗しました。');
+      }
     } finally {
       setIsSubmitting(false);
     }

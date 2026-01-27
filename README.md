@@ -98,7 +98,7 @@ and updated in real time.
 #### Supabase setup
 
 Create a Supabase project, then create the tables below and enable Row Level Security
-(RLS). The app uses a publishable API key in the browser, so RLS policies are required.
+(RLS). The app uses the anon API key in the browser, so RLS policies are required.
 
 ```sql
 create table if not exists public.work_intros (
@@ -160,7 +160,7 @@ Introductions can be edited from the submissions page UI (public editing).
 
 ```
 NEXT_PUBLIC_SUPABASE_URL=https://qshyifbipsyrowssjqnd.supabase.co
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_fPG8qs1FKKvqYKsdTsCYjg_iWGNgwPN
+NEXT_PUBLIC_SUPABASE_ANON_KEY=...your anon key...
 NEXT_PUBLIC_WORKS_BASE_URL=https://metyatech.github.io/programming-course-docs
 ```
 
@@ -193,5 +193,5 @@ You can obtain the org/project IDs by running `npx vercel link` locally and chec
 ## Environment variables
 
 - `NEXT_PUBLIC_SUPABASE_URL`
-- `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 - `NEXT_PUBLIC_WORKS_BASE_URL` (optional; GitHub Pages base URL for works)

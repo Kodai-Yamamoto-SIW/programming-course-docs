@@ -35,8 +35,12 @@ export default function WorkIntroEditor({
     try {
       await onSave(normalizeIntroInput(draft));
       setFormSuccess('保存しました。');
-    } catch {
-      setFormError('紹介文の保存に失敗しました。');
+    } catch (error) {
+      if (error instanceof Error) {
+        setFormError(error.message);
+      } else {
+        setFormError('紹介文の保存に失敗しました。');
+      }
     } finally {
       setIsSaving(false);
     }

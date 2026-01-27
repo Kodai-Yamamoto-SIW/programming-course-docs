@@ -17,6 +17,31 @@ type SubmissionsClientProps = {
   studentWorks: StudentWorksData;
 };
 
+const formatSupabaseError = (error: unknown) => {
+  if (!error || typeof error !== 'object') {
+    return '保存に失敗しました。';
+  }
+
+  const maybeError = error as {
+    message?: string;
+    details?: string | null;
+    hint?: string | null;
+    code?: string | null;
+  };
+  const parts = [
+    maybeError.message,
+    maybeError.details,
+    maybeError.hint,
+    maybeError.code ? `code=${maybeError.code}` : null,
+  ].filter((value): value is string => Boolean(value));
+
+  if (parts.length === 0) {
+    return '保存に失敗しました。';
+  }
+
+  return parts.join(' / ');
+};
+
 const buildWorkUrl = (
   baseUrl: string,
   year: string,
@@ -194,7 +219,7 @@ export default function SubmissionsClient({
         .select('id,student_id,author_name,message,created_at');
 
       if (error) {
-        throw error;
+        throw new Error(formatSupabaseError(error));
       }
 
       const inserted = data?.[0];
@@ -234,7 +259,7 @@ export default function SubmissionsClient({
         .select('student_id,intro,updated_at');
 
       if (error) {
-        throw error;
+        throw new Error(formatSupabaseError(error));
       }
 
       const saved = data?.[0];
