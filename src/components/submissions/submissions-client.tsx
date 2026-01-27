@@ -183,15 +183,35 @@ export default function SubmissionsClient({
         throw new Error('Supabase is not configured.');
       }
 
-      const { error } = await supabase.from('work_comments').insert({
-        year: selectedYear,
-        student_id: studentId,
-        author_name: name.trim() ? name.trim() : null,
-        message,
-      });
+      const { data, error } = await supabase
+        .from('work_comments')
+        .insert({
+          year: selectedYear,
+          student_id: studentId,
+          author_name: name.trim() ? name.trim() : null,
+          message,
+        })
+        .select('id,student_id,author_name,message,created_at');
 
       if (error) {
         throw error;
+      }
+
+      const inserted = data?.[0];
+      if (inserted) {
+        setCommentMap((prev) => ({
+          ...prev,
+          [studentId]: [
+            {
+              id: inserted.id,
+              studentId: inserted.student_id,
+              authorName: inserted.author_name?.trim() || '匿名',
+              message: inserted.message,
+              createdAt: inserted.created_at,
+            },
+            ...(prev[studentId] ?? []),
+          ],
+        }));
       }
     },
     [selectedYear, supabase]
@@ -203,15 +223,26 @@ export default function SubmissionsClient({
         throw new Error('Supabase is not configured.');
       }
 
-      const { error } = await supabase.from('work_intros').upsert({
-        year: selectedYear,
-        student_id: studentId,
-        intro,
-        updated_at: new Date().toISOString(),
-      });
+      const { data, error } = await supabase
+        .from('work_intros')
+        .upsert({
+          year: selectedYear,
+          student_id: studentId,
+          intro,
+          updated_at: new Date().toISOString(),
+        })
+        .select('student_id,intro,updated_at');
 
       if (error) {
         throw error;
+      }
+
+      const saved = data?.[0];
+      if (saved) {
+        setIntroMap((prev) => ({
+          ...prev,
+          [studentId]: saved.intro ?? undefined,
+        }));
       }
     },
     [selectedYear, supabase]
@@ -265,7 +296,11 @@ export default function SubmissionsClient({
                   const comments = commentMap[work.studentId] ?? [];
 
                   return (
-                    <div key={work.studentId} className={styles.card}>
+                    <div
+                      key={work.studentId}
+                      className={styles.card}
+                      data-testid={`work-card-${work.studentId}`}
+                    >
                       <div className={styles.cardHeader}>
                         <h3 className={styles.studentId}>{work.studentId}</h3>
                       </div>
@@ -291,9 +326,17 @@ export default function SubmissionsClient({
                               連携先が未設定のため紹介文を表示できません。
                             </p>
                           ) : intro ? (
-                            <p className={styles.introText}>{intro}</p>
+                            <p
+                              className={styles.introText}
+                              data-testid="work-intro-text"
+                            >
+                              {intro}
+                            </p>
                           ) : (
-                            <p className={styles.placeholder}>
+                            <p
+                              className={styles.placeholder}
+                              data-testid="work-intro-empty"
+                            >
                               作者からの紹介文はまだありません。
                             </p>
                           )}

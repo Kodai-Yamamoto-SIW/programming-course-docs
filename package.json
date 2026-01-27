@@ -9,7 +9,9 @@
     "build": "next build",
     "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
     "typecheck": "tsc --noEmit",
-    "test": "node --test --import tsx src/components/submissions/__tests__/*.test.ts"
+    "test": "node --test --import tsx src/components/submissions/__tests__/*.test.ts",
+    "test:e2e": "node scripts/run-playwright-e2e.mjs",
+    "test:e2e:inner": "playwright test"
   },
   "dependencies": {
     "@mdx-js/react": "^3.1.1",
@@ -26,6 +28,7 @@
     "@types/node": "^25.0.9",
     "@types/react": "^19.2.9",
     "@types/react-dom": "^19.2.3",
+    "@playwright/test": "^1.55.0",
     "pagefind": "^1.4.0",
     "remark-gfm": "^4.0.1",
     "tsx": "^4.20.5",

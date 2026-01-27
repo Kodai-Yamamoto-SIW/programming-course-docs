@@ -55,6 +55,7 @@ export default function WorkIntroEditor({
           placeholder="作品の説明や頑張ったところを書いてください"
           maxLength={MAX_INTRO_LENGTH}
           disabled={isDisabled || isSaving}
+          data-testid="work-intro-input"
         />
       </label>
       {formError && <p className={styles.formError}>{formError}</p>}
@@ -69,6 +70,7 @@ export default function WorkIntroEditor({
         className={styles.commentButton}
         onClick={handleSave}
         disabled={isDisabled || isSaving}
+        data-testid="work-intro-save"
       >
         {isSaving ? '保存中...' : '紹介文を保存'}
       </button>

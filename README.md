@@ -52,6 +52,20 @@ npm run typecheck
 npm run test
 ```
 
+### E2E (Playwright)
+
+```bash
+npm run test:e2e
+```
+
+The E2E tests pick a free local port automatically and mock Supabase requests
+inside Playwright, so they do not touch the real database.
+
+If Playwright browsers are missing, install Chromium:
+
+```bash
+npx playwright install chromium
+```
 ## AGENTS.md
 
 This project uses `agent-rules`, `agent-rules-tools`, and `agent-rules-private` as git submodules.

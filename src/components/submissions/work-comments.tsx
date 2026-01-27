@@ -70,18 +70,22 @@ export default function WorkComments({
       {comments.length === 0 ? (
         <p className={styles.placeholder}>コメントはまだありません。</p>
       ) : (
-        <ul className={styles.commentList}>
+        <ul className={styles.commentList} data-testid="comment-list">
           {comments.map((comment) => (
             <li key={comment.id} className={styles.commentItem}>
               <div className={styles.commentMeta}>
                 <span className={styles.commentAuthor}>
-                  {comment.authorName}
+                  <span data-testid="comment-author">
+                    {comment.authorName}
+                  </span>
                 </span>
                 <span className={styles.commentDate}>
                   {formatTimestamp(comment.createdAt)}
                 </span>
               </div>
-              <p className={styles.commentBody}>{comment.message}</p>
+              <p className={styles.commentBody} data-testid="comment-body">
+                {comment.message}
+              </p>
             </li>
           ))}
         </ul>
@@ -100,6 +104,7 @@ export default function WorkComments({
             placeholder="例: たろう"
             maxLength={MAX_NAME_LENGTH}
             disabled={isDisabled || isSubmitting}
+            data-testid="comment-name"
           />
         </label>
         <label className={styles.commentLabel}>
@@ -114,6 +119,7 @@ export default function WorkComments({
             maxLength={MAX_COMMENT_LENGTH}
             required
             disabled={isDisabled || isSubmitting}
+            data-testid="comment-message"
           />
         </label>
         {formError && <p className={styles.formError}>{formError}</p>}
@@ -122,7 +128,11 @@ export default function WorkComments({
             コメント機能がまだ設定されていません。
           </p>
         )}
-        <button type="submit" className={styles.commentButton}>
+        <button
+          type="submit"
+          className={styles.commentButton}
+          data-testid="comment-submit"
+        >
           {isSubmitting ? '送信中...' : 'コメントを送信'}
         </button>
       </form>
