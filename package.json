@@ -8,12 +8,14 @@
     "start": "next start",
     "build": "next build",
     "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "node --test --import tsx src/components/submissions/__tests__/*.test.ts"
   },
   "dependencies": {
     "@mdx-js/react": "^3.1.1",
     "@metyatech/code-preview": "github:metyatech/code-preview",
     "@metyatech/exercise": "github:metyatech/exercise-module",
+    "@supabase/supabase-js": "^2.49.1",
     "next": "^15.5.9",
     "nextra": "^4.6.1",
     "nextra-theme-docs": "^4.6.1",
@@ -26,6 +28,7 @@
     "@types/react-dom": "^19.2.3",
     "pagefind": "^1.4.0",
     "remark-gfm": "^4.0.1",
+    "tsx": "^4.20.5",
     "typescript": "^5.9.3"
   },
   "browserslist": {

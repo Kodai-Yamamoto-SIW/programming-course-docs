@@ -135,6 +135,159 @@
     pointer-events: none;
 }
 
+.cardBody {
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.introSection {
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    background-color: var(--ifm-color-emphasis-100);
+    border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.sectionTitle {
+    margin: 0 0 0.35rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--ifm-heading-color);
+}
+
+.introText {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--ifm-font-color-base);
+    white-space: pre-wrap;
+}
+
+.placeholder {
+    margin: 0;
+    color: var(--ifm-color-emphasis-600);
+    font-size: 0.85rem;
+}
+
+.commentsSection {
+    padding: 0.5rem 0.75rem 0.75rem;
+    border-radius: 6px;
+    border: 1px solid var(--ifm-color-emphasis-200);
+    background-color: var(--ifm-background-surface-color);
+}
+
+.commentNotice {
+    margin: 0 0 0.5rem;
+    font-size: 0.75rem;
+    color: var(--ifm-color-emphasis-600);
+}
+
+.commentList {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.commentItem {
+    padding: 0.5rem;
+    border-radius: 6px;
+    background-color: var(--ifm-color-emphasis-100);
+}
+
+.commentMeta {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--ifm-color-emphasis-600);
+    margin-bottom: 0.35rem;
+}
+
+.commentAuthor {
+    font-weight: 600;
+    color: var(--ifm-font-color-base);
+}
+
+.commentDate {
+    white-space: nowrap;
+}
+
+.commentBody {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--ifm-font-color-base);
+    white-space: pre-wrap;
+}
+
+.commentForm {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.commentLabel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    color: var(--ifm-font-color-base);
+}
+
+.commentInput,
+.commentTextarea {
+    border: 1px solid var(--ifm-color-emphasis-300);
+    border-radius: 4px;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.85rem;
+    background-color: var(--ifm-background-color);
+    color: var(--ifm-font-color-base);
+}
+
+.commentTextarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.commentInput:focus,
+.commentTextarea:focus {
+    outline: none;
+    border-color: var(--ifm-color-primary);
+    box-shadow: 0 0 0 2px var(--ifm-color-primary-light);
+}
+
+.formError {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #b42318;
+}
+
+.dataError {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #b42318;
+}
+
+.commentButton {
+    align-self: flex-start;
+    padding: 0.4rem 0.9rem;
+    border: none;
+    border-radius: 999px;
+    background-color: var(--ifm-color-primary);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.commentButton:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
     .grid {
@@ -180,4 +333,15 @@ html.dark .cardHeader,
 html.dark .iframeWrapper,
 [data-theme='dark'] .iframeWrapper {
     background-color: #f5f5f5;
+}
+
+html.dark .introSection,
+[data-theme='dark'] .introSection {
+    background-color: var(--ifm-color-emphasis-200);
+    border-color: var(--ifm-color-emphasis-300);
+}
+
+html.dark .commentItem,
+[data-theme='dark'] .commentItem {
+    background-color: var(--ifm-color-emphasis-200);
 }

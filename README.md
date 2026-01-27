@@ -46,6 +46,12 @@ npm run start
 npm run typecheck
 ```
 
+### Test
+
+```bash
+npm run test
+```
+
 ## AGENTS.md
 
 This project uses `agent-rules`, `agent-rules-tools`, and `agent-rules-private` as git submodules.
@@ -69,6 +75,85 @@ This site uses shared modules from sibling repositories:
 
 Static assets live in `public/`.
 
+### Student works metadata
+
+Each submission is served from `public/student-works/<year>/<studentId>/index.html`.
+Introductions and comments are stored in Supabase so they are shared across devices
+and updated in real time.
+
+#### Supabase setup
+
+Create a Supabase project, then create the tables below and enable Row Level Security
+(RLS). The app uses a publishable API key in the browser, so RLS policies are required.
+
+```sql
+create table if not exists public.work_intros (
+  year text not null,
+  student_id text not null,
+  intro text,
+  updated_at timestamptz not null default now(),
+  primary key (year, student_id)
+);
+
+create table if not exists public.work_comments (
+  id uuid primary key default gen_random_uuid(),
+  year text not null,
+  student_id text not null,
+  author_name text,
+  message text not null,
+  created_at timestamptz not null default now()
+);
+```
+
+Enable realtime for both tables:
+
+```sql
+alter publication supabase_realtime add table public.work_intros;
+alter publication supabase_realtime add table public.work_comments;
+```
+
+Example RLS policies (public read, anonymous insert, no update/delete):
+
+```sql
+alter table public.work_intros enable row level security;
+alter table public.work_comments enable row level security;
+
+create policy "read work intros"
+on public.work_intros for select
+using (true);
+
+create policy "read work comments"
+on public.work_comments for select
+using (true);
+
+create policy "insert work comments"
+on public.work_comments for insert
+with check (true);
+```
+
+Introduce/edit intro text via the Supabase dashboard (no UI in the site yet).
+
+#### Environment variables
+
+```
+NEXT_PUBLIC_SUPABASE_URL=https://qshyifbipsyrowssjqnd.supabase.co
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_fPG8qs1FKKvqYKsdTsCYjg_iWGNgwPN
+NEXT_PUBLIC_WORKS_BASE_URL=https://metyatech.github.io/programming-course-docs
+```
+
+### Student works hosting (GitHub Pages)
+
+Student works can be hosted on GitHub Pages to reduce Vercel bandwidth usage.
+The workflow `.github/workflows/deploy-student-works-pages.yml` publishes
+`public/student-works` to Pages on every push.
+
+Set `NEXT_PUBLIC_WORKS_BASE_URL` to the Pages base URL so the iframe links
+point to the external host. Example:
+
+```
+NEXT_PUBLIC_WORKS_BASE_URL=https://metyatech.github.io/programming-course-docs
+```
+
 ## Deploy
 
 Deploy via GitHub Actions with the Vercel CLI (`.github/workflows/deploy-vercel.yml`).
@@ -84,4 +169,6 @@ You can obtain the org/project IDs by running `npx vercel link` locally and chec
 
 ## Environment variables
 
-None.
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
+- `NEXT_PUBLIC_WORKS_BASE_URL` (optional; GitHub Pages base URL for works)
