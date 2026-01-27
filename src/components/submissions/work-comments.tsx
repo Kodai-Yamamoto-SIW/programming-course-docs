@@ -1,3 +1,4 @@
+import { Info, Trash2 } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import styles from './submissions.module.css';
 import type { WorkComment } from './work-data-mappers';
@@ -96,26 +97,44 @@ export default function WorkComments({
           <ul className={styles.commentList} data-testid="comment-list">
             {visibleComments.map((comment) => (
               <li key={comment.id} className={styles.commentItem}>
-                <div className={styles.commentMeta}>
-                  <span className={styles.commentAuthor}>
-                    <span data-testid="comment-author">
-                      {comment.authorName}
-                    </span>
-                  </span>
-                  {isAdmin && (
-                    <button
-                      type="button"
-                      className={styles.textButton}
-                      onClick={() => handleDelete(comment.id)}
-                      data-testid="comment-delete"
-                    >
-                      削除
-                    </button>
-                  )}
-                </div>
                 <p className={styles.commentBody} data-testid="comment-body">
                   {comment.message}
                 </p>
+                <div className={styles.commentControls}>
+                  <button
+                    type="button"
+                    className={styles.commentAuthorToggle}
+                    aria-label="表示名を表示"
+                    data-testid="comment-author-toggle"
+                  >
+                    <span className={styles.visuallyHidden}>表示名</span>
+                    <Info
+                      className={styles.commentAuthorIcon}
+                      aria-hidden="true"
+                    />
+                  </button>
+                  {isAdmin ? (
+                    <button
+                      type="button"
+                      className={styles.commentDeleteButton}
+                      onClick={() => handleDelete(comment.id)}
+                      aria-label="コメントを削除"
+                      data-testid="comment-delete"
+                    >
+                      <span className={styles.visuallyHidden}>削除</span>
+                      <Trash2
+                        className={styles.commentDeleteIcon}
+                        aria-hidden="true"
+                      />
+                    </button>
+                  ) : null}
+                  <span
+                    className={styles.commentAuthorName}
+                    data-testid="comment-author"
+                  >
+                    {comment.authorName}
+                  </span>
+                </div>
               </li>
             ))}
           </ul>
@@ -152,7 +171,7 @@ export default function WorkComments({
         <div className={styles.editorPanel}>
           <form className={styles.commentForm} onSubmit={handleSubmit}>
             <label className={styles.commentLabel}>
-              名前（任意）
+              表示名（任意）
               <input
                 type="text"
                 value={name}

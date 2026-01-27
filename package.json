@@ -19,6 +19,7 @@
     "@metyatech/code-preview": "github:metyatech/code-preview",
     "@metyatech/exercise": "github:metyatech/exercise-module",
     "@supabase/supabase-js": "^2.49.1",
+    "lucide-react": "^0.563.0",
     "next": "^15.5.9",
     "nextra": "^4.6.1",
     "nextra-theme-docs": "^4.6.1",
@@ -26,10 +27,10 @@
     "react-dom": "^19.2.3"
   },
   "devDependencies": {
+    "@playwright/test": "^1.55.0",
     "@types/node": "^25.0.9",
     "@types/react": "^19.2.9",
     "@types/react-dom": "^19.2.3",
-    "@playwright/test": "^1.55.0",
     "pagefind": "^1.4.0",
     "remark-gfm": "^4.0.1",
     "tsx": "^4.20.5",

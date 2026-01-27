@@ -380,23 +380,120 @@
 
 .commentItem {
     padding: 0.5rem;
+    padding-right: 2.4rem;
     border-radius: 6px;
     background-color: var(--ifm-color-emphasis-100);
     border-left: 3px solid var(--ifm-color-primary-light);
+    position: relative;
 }
 
-.commentMeta {
-    display: flex;
-    justify-content: space-between;
-    gap: 0.5rem;
-    font-size: 0.75rem;
+.commentControls {
+    position: absolute;
+    top: 0.45rem;
+    right: 0.45rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.commentAuthorToggle {
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    border: 1px solid var(--ifm-color-emphasis-400);
+    background: transparent;
     color: var(--ifm-color-emphasis-600);
-    margin-bottom: 0.35rem;
+    font-size: 0.6rem;
+    font-weight: 600;
+    line-height: 1;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.commentAuthor {
+.commentAuthorToggle:hover,
+.commentAuthorToggle:focus-visible,
+.commentAuthorToggle:focus {
+    border-color: var(--ifm-color-primary);
+    color: var(--ifm-color-primary);
+    outline: none;
+}
+
+.commentDeleteButton {
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    border: 1px solid var(--ifm-color-emphasis-400);
+    background: transparent;
+    color: var(--ifm-color-emphasis-600);
+    font-size: 0.6rem;
     font-weight: 600;
-    color: var(--ifm-font-color-base);
+    line-height: 1;
+    padding: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.commentDeleteButton:hover,
+.commentDeleteButton:focus-visible,
+.commentDeleteButton:focus {
+    border-color: #dc2626;
+    color: #dc2626;
+    outline: none;
+}
+
+.commentDeleteIcon {
+    width: 12px;
+    height: 12px;
+}
+
+.commentAuthorIcon {
+    width: 12px;
+    height: 12px;
+}
+
+.visuallyHidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.commentAuthorName {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 0.25rem);
+    padding: 0.2rem 0.45rem;
+    border-radius: 999px;
+    border: 1px solid var(--ifm-color-emphasis-200);
+    background-color: var(--ifm-background-surface-color);
+    color: var(--ifm-color-emphasis-700);
+    font-size: 0.7rem;
+    font-weight: 500;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.commentAuthorToggle:hover ~ .commentAuthorName,
+.commentAuthorToggle:focus-visible ~ .commentAuthorName,
+.commentAuthorToggle:focus ~ .commentAuthorName {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 

@@ -135,7 +135,10 @@ test('comment can be submitted and shown', async ({ page }) => {
   await expect(card.getByTestId('comment-body')).toContainText(
     '素敵な作品でした'
   );
-  await expect(card.getByTestId('comment-author')).toContainText('テスター');
+  const commentAuthor = card.getByTestId('comment-author');
+  await expect(commentAuthor).toBeHidden();
+  await card.getByTestId('comment-author-toggle').hover();
+  await expect(commentAuthor).toContainText('テスター');
 });
 
 test('admin can delete a comment', async ({ page }) => {
