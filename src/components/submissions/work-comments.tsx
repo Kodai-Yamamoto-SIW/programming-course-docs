@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import styles from './submissions.module.css';
 import type { WorkComment } from './work-data-mappers';
 
 type WorkCommentsProps = {
   comments: WorkComment[];
   isDisabled: boolean;
+  isAdmin: boolean;
   onSubmit: (name: string, message: string) => Promise<void>;
+  onDelete: (commentId: string) => Promise<void>;
 };
 
 const MAX_COMMENT_LENGTH = 300;
@@ -14,13 +16,43 @@ const MAX_NAME_LENGTH = 40;
 export default function WorkComments({
   comments,
   isDisabled,
+  isAdmin,
   onSubmit,
+  onDelete,
 }: WorkCommentsProps) {
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
   const [formError, setFormError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [deletedIds, setDeletedIds] = useState<Set<string>>(new Set());
+
+  const visibleComments = useMemo(
+    () => comments.filter((comment) => !deletedIds.has(comment.id)),
+    [comments, deletedIds]
+  );
+
+  const handleDelete = async (commentId: string) => {
+    if (!isAdmin) {
+      return;
+    }
+
+    try {
+      await onDelete(commentId);
+
+      setDeletedIds((prev) => {
+        const next = new Set(prev);
+        next.add(commentId);
+        return next;
+      });
+    } catch (error) {
+      if (error instanceof Error) {
+        setFormError(error.message);
+      } else {
+        setFormError('削除に失敗しました。');
+      }
+    }
+  };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -58,19 +90,29 @@ export default function WorkComments({
     <section className={styles.commentsSection}>
       <h4 className={styles.sectionTitle}>みんなのコメント</h4>
       <div className={styles.contentBlock}>
-        {comments.length === 0 ? (
+        {visibleComments.length === 0 ? (
           <p className={styles.placeholder}>コメントはまだありません。</p>
         ) : (
           <ul className={styles.commentList} data-testid="comment-list">
-            {comments.map((comment) => (
+            {visibleComments.map((comment) => (
               <li key={comment.id} className={styles.commentItem}>
-              <div className={styles.commentMeta}>
-                <span className={styles.commentAuthor}>
-                  <span data-testid="comment-author">
-                    {comment.authorName}
+                <div className={styles.commentMeta}>
+                  <span className={styles.commentAuthor}>
+                    <span data-testid="comment-author">
+                      {comment.authorName}
+                    </span>
                   </span>
-                </span>
-              </div>
+                  {isAdmin && (
+                    <button
+                      type="button"
+                      className={styles.textButton}
+                      onClick={() => handleDelete(comment.id)}
+                      data-testid="comment-delete"
+                    >
+                      削除
+                    </button>
+                  )}
+                </div>
                 <p className={styles.commentBody} data-testid="comment-body">
                   {comment.message}
                 </p>

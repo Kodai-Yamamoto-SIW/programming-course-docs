@@ -162,6 +162,8 @@ Introductions can be edited from the submissions page UI (public editing).
 NEXT_PUBLIC_SUPABASE_URL=https://qshyifbipsyrowssjqnd.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=...your anon key...
 NEXT_PUBLIC_WORKS_BASE_URL=https://metyatech.github.io/programming-course-docs
+SUPABASE_SERVICE_ROLE_KEY=...service role key...
+ADMIN_DELETE_TOKEN=...admin token...
 ```
 
 ### Student works hosting (GitHub Pages)
@@ -195,3 +197,5 @@ You can obtain the org/project IDs by running `npx vercel link` locally and chec
 - `NEXT_PUBLIC_SUPABASE_URL`
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 - `NEXT_PUBLIC_WORKS_BASE_URL` (optional; GitHub Pages base URL for works)
+- `SUPABASE_SERVICE_ROLE_KEY` (server-only, required for admin comment deletion)
+- `ADMIN_DELETE_TOKEN` (server-only, shared admin code for deletion UI)

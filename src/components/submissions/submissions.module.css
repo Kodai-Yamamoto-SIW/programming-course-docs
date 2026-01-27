@@ -16,6 +16,29 @@
     color: var(--ifm-heading-color);
 }
 
+.adminFooter {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.adminFooterButton {
+    border: 1px solid var(--ifm-color-emphasis-300);
+    background: transparent;
+    color: var(--ifm-color-emphasis-600);
+    font-size: 0.78rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.adminFooterButton:hover {
+    border-color: var(--ifm-color-primary);
+    color: var(--ifm-color-primary);
+}
+
 .controls {
     display: flex;
     align-items: center;
@@ -32,6 +55,60 @@
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--ifm-font-color-base);
+}
+
+.adminFooterPanel {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 0.35rem);
+    width: min(260px, 70vw);
+    padding: 0.75rem 0.85rem;
+    border-radius: 10px;
+    border: 1px solid var(--ifm-color-emphasis-300);
+    background-color: #ffffff;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+    z-index: 5;
+}
+
+.adminFooterLabel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--ifm-font-color-base);
+}
+
+.adminFooterInput {
+    border: 1px solid var(--ifm-color-emphasis-300);
+    border-radius: 8px;
+    padding: 0.45rem 0.6rem;
+    font-size: 0.85rem;
+    background-color: #fff;
+    color: var(--ifm-font-color-base);
+}
+
+.adminFooterSave {
+    margin-top: 0.6rem;
+    border: none;
+    border-radius: 8px;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.8rem;
+    background-color: #2563eb;
+    color: #ffffff;
+    cursor: pointer;
+    align-self: flex-start;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.35);
+}
+
+.adminFooterSave:hover {
+    background-color: #1d4ed8;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
+}
+
+.adminFooterSave:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35);
 }
 
 .select {
@@ -262,6 +339,19 @@
     cursor: not-allowed;
 }
 
+.textButton {
+    border: none;
+    background: transparent;
+    color: var(--ifm-color-emphasis-500);
+    font-size: 0.75rem;
+    cursor: pointer;
+    padding: 0;
+}
+
+.textButton:hover {
+    color: var(--ifm-color-primary);
+}
+
 .commentItem {
     padding: 0.5rem;
     border-radius: 6px;
@@ -466,6 +556,12 @@ html.dark .introSection,
     border-color: var(--ifm-color-emphasis-300);
 }
 
+html.dark .adminFooterButton,
+[data-theme='dark'] .adminFooterButton {
+    border-color: var(--ifm-color-emphasis-400);
+    color: var(--ifm-color-emphasis-600);
+}
+
 html.dark .commentItem,
 [data-theme='dark'] .commentItem {
     background-color: var(--ifm-color-emphasis-200);
@@ -502,6 +598,25 @@ html.dark .contentBlock,
 [data-theme='dark'] .contentBlock {
     background-color: var(--ifm-color-emphasis-200);
     border-color: var(--ifm-color-emphasis-400);
+}
+
+html.dark .adminFooterPanel,
+[data-theme='dark'] .adminFooterPanel {
+    background-color: #1f2937;
+    border-color: var(--ifm-color-emphasis-400);
+}
+
+html.dark .adminFooterInput,
+[data-theme='dark'] .adminFooterInput {
+    background-color: #111827;
+    border-color: var(--ifm-color-emphasis-500);
+    color: #f9fafb;
+}
+
+html.dark .adminFooterSave,
+[data-theme='dark'] .adminFooterSave {
+    background-color: #3b82f6;
+    color: #ffffff;
 }
 
 html.dark .actionButton,

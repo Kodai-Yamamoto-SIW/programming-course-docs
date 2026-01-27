@@ -136,3 +136,29 @@ test('comment can be submitted and shown', async ({ page }) => {
   );
   await expect(card.getByTestId('comment-author')).toContainText('テスター');
 });
+
+test('admin can delete a comment', async ({ page }) => {
+  await page.addInitScript(() => {
+    window.sessionStorage.setItem('admin-comment-token', 'test-admin');
+  });
+
+  await page.route('**/api/admin/comments/**', async (route) => {
+    await route.fulfill({ status: 200, body: JSON.stringify({ ok: true }) });
+  });
+
+  await page.goto(`/submissions?year=${seedYear}`);
+
+  const card = page.getByTestId(`work-card-${seedStudentId}`);
+  await card.getByTestId('comment-open').click();
+  await card.getByTestId('comment-message').fill('削除対象のコメント');
+  await card.getByTestId('comment-submit').click();
+
+  const commentBody = card.getByTestId('comment-body').filter({
+    hasText: '削除対象のコメント',
+  });
+  await expect(commentBody).toBeVisible();
+
+  const commentItem = commentBody.locator('..');
+  await commentItem.getByTestId('comment-delete').click();
+  await expect(commentBody).toBeHidden();
+});

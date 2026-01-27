@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Footer, Navbar } from 'nextra-theme-docs';
+import AdminFooterToggle from './src/components/submissions/admin-footer-toggle';
 
 const config = {
   navbar: (
@@ -11,7 +12,10 @@ const config = {
   ),
   footer: (
     <Footer>
-      <p>&copy; {new Date().getFullYear()} さいたまIT・WEB専門学校</p>
+      <div className="footer-row">
+        <p>&copy; {new Date().getFullYear()} さいたまIT・WEB専門学校</p>
+        <AdminFooterToggle />
+      </div>
     </Footer>
   ),
   docsRepositoryBase:

@@ -105,6 +105,7 @@ export default function SubmissionsClient({
   const [commentMap, setCommentMap] = useState<WorkCommentMap>({});
   const [dataError, setDataError] = useState<string | null>(null);
   const supabaseMissing = !supabase;
+  const [adminToken, setAdminToken] = useState('');
   const studentIds = useMemo(
     () => studentWorksInYear.map((work) => work.studentId),
     [studentWorksInYear]
@@ -243,6 +244,27 @@ export default function SubmissionsClient({
     [selectedYear, supabase]
   );
 
+  const deleteComment = useCallback(
+    async (commentId: string) => {
+      if (!adminToken.trim()) {
+        throw new Error('管理者コードが未設定です。');
+      }
+
+      const response = await fetch(`/api/admin/comments/${commentId}`, {
+        method: 'DELETE',
+        headers: {
+          'x-admin-token': adminToken.trim(),
+        },
+      });
+
+      if (!response.ok) {
+        const message = await response.text();
+        throw new Error(message || '削除に失敗しました。');
+      }
+    },
+    [adminToken]
+  );
+
   const saveIntro = useCallback(
     async (studentId: string, intro: string | null) => {
       if (!supabase || !selectedYear) {
@@ -273,6 +295,27 @@ export default function SubmissionsClient({
     },
     [selectedYear, supabase]
   );
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const stored = window.sessionStorage.getItem('admin-comment-token');
+    if (stored) {
+      setAdminToken(stored);
+    }
+
+    const handler = (event: Event) => {
+      const detail = (event as CustomEvent).detail as { token?: string };
+      setAdminToken(detail?.token ?? '');
+    };
+
+    window.addEventListener('admin-token', handler);
+    return () => {
+      window.removeEventListener('admin-token', handler);
+    };
+  }, []);
 
   return (
     <main className={styles.submissionsMain}>
@@ -379,9 +422,11 @@ export default function SubmissionsClient({
                         <WorkComments
                           comments={comments}
                           isDisabled={supabaseMissing}
+                          isAdmin={adminToken.trim().length > 0}
                           onSubmit={(name, message) =>
                             submitComment(work.studentId, name, message)
                           }
+                          onDelete={deleteComment}
                         />
                         {dataError && (
                           <p className={styles.dataError}>{dataError}</p>
