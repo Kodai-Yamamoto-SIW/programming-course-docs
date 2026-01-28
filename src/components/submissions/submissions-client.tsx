@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { createPortal } from 'react-dom';
 import styles from './submissions.module.css';
 import type { StudentWorksData } from './types';
 import WorkComments from './work-comments';
@@ -110,6 +111,7 @@ export default function SubmissionsClient({
   const [activeCommentStudentId, setActiveCommentStudentId] = useState<
     string | null
   >(null);
+  const [isMounted, setIsMounted] = useState(false);
   const studentIds = useMemo(
     () => studentWorksInYear.map((work) => work.studentId),
     [studentWorksInYear]
@@ -393,6 +395,10 @@ export default function SubmissionsClient({
     };
   }, [activeCommentWork]);
 
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <main className={styles.submissionsMain}>
       <div className={styles.container}>
@@ -534,48 +540,54 @@ export default function SubmissionsClient({
         )}
       </div>
 
-      {activeCommentWork ? (
-        <div className={styles.commentDrawerRoot} data-testid="comment-drawer">
-          <button
-            type="button"
-            className={styles.commentDrawerOverlay}
-            aria-label="コメントパネルを閉じる"
-            onClick={() => setActiveCommentStudentId(null)}
-          />
-          <aside
-            className={styles.commentDrawer}
-            role="dialog"
-            aria-modal="true"
-            aria-label="コメント"
-          >
-            <div className={styles.commentDrawerHeader}>
-              <div>
-                <p className={styles.commentDrawerTitle}>コメント</p>
-                <p className={styles.commentDrawerMeta}>
-                  作品番号: {activeCommentWork.studentId}
-                </p>
-              </div>
+      {activeCommentWork && isMounted
+        ? createPortal(
+            <div
+              className={styles.commentDrawerRoot}
+              data-testid="comment-drawer"
+            >
               <button
                 type="button"
-                className={styles.commentDrawerClose}
+                className={styles.commentDrawerOverlay}
+                aria-label="コメントパネルを閉じる"
                 onClick={() => setActiveCommentStudentId(null)}
-                data-testid="comment-close"
+              />
+              <aside
+                className={styles.commentDrawer}
+                role="dialog"
+                aria-modal="true"
+                aria-label="コメント"
               >
-                閉じる
-              </button>
-            </div>
-            <WorkComments
-              comments={activeComments}
-              isDisabled={supabaseMissing}
-              isAdmin={adminToken.trim().length > 0}
-              onSubmit={(name, message) =>
-                submitComment(activeCommentWork.studentId, name, message)
-              }
-              onDelete={deleteComment}
-            />
-          </aside>
-        </div>
-      ) : null}
+                <div className={styles.commentDrawerHeader}>
+                  <div>
+                    <p className={styles.commentDrawerTitle}>コメント</p>
+                    <p className={styles.commentDrawerMeta}>
+                      作品番号: {activeCommentWork.studentId}
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    className={styles.commentDrawerClose}
+                    onClick={() => setActiveCommentStudentId(null)}
+                    data-testid="comment-close"
+                  >
+                    閉じる
+                  </button>
+                </div>
+                <WorkComments
+                  comments={activeComments}
+                  isDisabled={supabaseMissing}
+                  isAdmin={adminToken.trim().length > 0}
+                  onSubmit={(name, message) =>
+                    submitComment(activeCommentWork.studentId, name, message)
+                  }
+                  onDelete={deleteComment}
+                />
+              </aside>
+            </div>,
+            document.body
+          )
+        : null}
     </main>
   );
 }
