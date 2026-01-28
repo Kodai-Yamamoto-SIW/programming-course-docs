@@ -132,7 +132,6 @@ export default function WorkComments({
   return (
     <section className={styles.commentsSection}>
       <div className={styles.commentHeader}>
-        <h4 className={styles.sectionTitle}>みんなのコメント</h4>
         <button
           type="button"
           className={styles.commentToggleButton}
