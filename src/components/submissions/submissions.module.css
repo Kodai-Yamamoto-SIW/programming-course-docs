@@ -293,6 +293,36 @@
     background-color: var(--ifm-background-surface-color);
 }
 
+.commentHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.commentToggleButton {
+    border: 1px solid var(--ifm-color-emphasis-300);
+    background: transparent;
+    color: var(--ifm-color-emphasis-700);
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease;
+    white-space: nowrap;
+}
+
+.commentToggleButton:hover {
+    border-color: var(--ifm-color-primary);
+    color: var(--ifm-color-primary);
+}
+
+.commentToggleButton:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+}
+
 .sectionHeader {
     display: flex;
     align-items: center;
@@ -851,6 +881,12 @@ html.dark .adminFooterSave,
 
 html.dark .actionButton,
 [data-theme='dark'] .actionButton {
+    border-color: var(--ifm-color-emphasis-400);
+    color: var(--ifm-color-emphasis-700);
+}
+
+html.dark .commentToggleButton,
+[data-theme='dark'] .commentToggleButton {
     border-color: var(--ifm-color-emphasis-400);
     color: var(--ifm-color-emphasis-700);
 }

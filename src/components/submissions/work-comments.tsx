@@ -30,6 +30,7 @@ export default function WorkComments({
   const [expandedComments, setExpandedComments] = useState<
     Record<string, boolean>
   >({});
+  const [isSectionOpen, setIsSectionOpen] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') {
@@ -130,142 +131,160 @@ export default function WorkComments({
 
   return (
     <section className={styles.commentsSection}>
-      <h4 className={styles.sectionTitle}>みんなのコメント</h4>
-      <div className={styles.commentComposer}>
-        <form className={styles.commentComposerForm} onSubmit={handleSubmit}>
-          <div className={styles.commentComposerHeader}>
-            <div className={styles.commentAvatar} aria-hidden="true" />
-            <label className={styles.commentNameLabel}>
-              表示名
-              <input
-                type="text"
-                value={name}
+      <div className={styles.commentHeader}>
+        <h4 className={styles.sectionTitle}>みんなのコメント</h4>
+        <button
+          type="button"
+          className={styles.commentToggleButton}
+          onClick={() => setIsSectionOpen((prev) => !prev)}
+          aria-expanded={isSectionOpen}
+          data-testid="comment-toggle"
+        >
+          {isSectionOpen ? '閉じる' : `コメントを見る (${comments.length})`}
+        </button>
+      </div>
+
+      {isSectionOpen ? (
+        <>
+          <div className={styles.commentComposer}>
+            <form className={styles.commentComposerForm} onSubmit={handleSubmit}>
+              <div className={styles.commentComposerHeader}>
+                <div className={styles.commentAvatar} aria-hidden="true" />
+                <label className={styles.commentNameLabel}>
+                  表示名
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(event) =>
+                      handleNameChange(
+                        event.target.value.slice(0, MAX_NAME_LENGTH)
+                      )
+                    }
+                    className={styles.commentNameInput}
+                    placeholder="例: たろう"
+                    maxLength={MAX_NAME_LENGTH}
+                    disabled={isDisabled || isSubmitting}
+                    data-testid="comment-name"
+                  />
+                </label>
+              </div>
+              <textarea
+                value={message}
                 onChange={(event) =>
-                  handleNameChange(
-                    event.target.value.slice(0, MAX_NAME_LENGTH)
-                  )
+                  setMessage(event.target.value.slice(0, MAX_COMMENT_LENGTH))
                 }
-                className={styles.commentNameInput}
-                placeholder="例: たろう"
-                maxLength={MAX_NAME_LENGTH}
+                className={styles.commentTextarea}
+                placeholder="良かったところや感想を書いてください"
+                maxLength={MAX_COMMENT_LENGTH}
+                required
                 disabled={isDisabled || isSubmitting}
-                data-testid="comment-name"
+                data-testid="comment-message"
               />
-            </label>
-          </div>
-          <textarea
-            value={message}
-            onChange={(event) =>
-              setMessage(event.target.value.slice(0, MAX_COMMENT_LENGTH))
-            }
-            className={styles.commentTextarea}
-            placeholder="良かったところや感想を書いてください"
-            maxLength={MAX_COMMENT_LENGTH}
-            required
-            disabled={isDisabled || isSubmitting}
-            data-testid="comment-message"
-          />
-          {formError && <p className={styles.formError}>{formError}</p>}
-          {isDisabled && (
-            <p className={styles.formError}>
-              コメント機能がまだ設定されていません。
-            </p>
-          )}
-          <div className={styles.commentComposerActions}>
-            <span className={styles.commentCounter}>
-              {MAX_COMMENT_LENGTH - message.length}
-            </span>
-            <button
-              type="submit"
-              className={styles.commentButton}
-              data-testid="comment-submit"
-              disabled={isDisabled || isSubmitting}
-            >
-              {isSubmitting ? '送信中...' : '投稿'}
-            </button>
-          </div>
-        </form>
-      </div>
-
-      <div className={styles.contentBlock}>
-        {comments.length === 0 ? (
-          <p className={styles.placeholder}>コメントはまだありません。</p>
-        ) : (
-          <ul className={styles.commentList} data-testid="comment-list">
-            {comments.map((comment) => {
-              const isExpanded = expandedComments[comment.id] ?? false;
-              const needsClamp =
-                comment.message.length > 160 ||
-                comment.message.split('\n').length > 3;
-
-              return (
-                <li
-                  key={comment.id}
-                  className={styles.commentItem}
-                  data-expanded={isExpanded ? 'true' : 'false'}
+              {formError && <p className={styles.formError}>{formError}</p>}
+              {isDisabled && (
+                <p className={styles.formError}>
+                  コメント機能がまだ設定されていません。
+                </p>
+              )}
+              <div className={styles.commentComposerActions}>
+                <span className={styles.commentCounter}>
+                  {MAX_COMMENT_LENGTH - message.length}
+                </span>
+                <button
+                  type="submit"
+                  className={styles.commentButton}
+                  data-testid="comment-submit"
+                  disabled={isDisabled || isSubmitting}
                 >
-                  <p
-                    className={`${styles.commentBody} ${
-                      needsClamp && !isExpanded ? styles.commentBodyClamped : ''
-                    }`}
-                    data-testid="comment-body"
-                  >
-                    {comment.message}
-                  </p>
-                  {needsClamp ? (
-                    <button
-                      type="button"
-                      className={styles.commentExpandButton}
-                      onClick={() => toggleExpanded(comment.id)}
-                      aria-expanded={isExpanded}
-                      data-testid="comment-expand"
+                  {isSubmitting ? '送信中...' : '投稿'}
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div className={styles.contentBlock}>
+            {comments.length === 0 ? (
+              <p className={styles.placeholder}>コメントはまだありません。</p>
+            ) : (
+              <ul className={styles.commentList} data-testid="comment-list">
+                {comments.map((comment) => {
+                  const isExpanded = expandedComments[comment.id] ?? false;
+                  const needsClamp =
+                    comment.message.length > 160 ||
+                    comment.message.split('\n').length > 3;
+
+                  return (
+                    <li
+                      key={comment.id}
+                      className={styles.commentItem}
+                      data-expanded={isExpanded ? 'true' : 'false'}
                     >
-                      {isExpanded ? '折りたたむ' : '続きを読む'}
-                    </button>
-                  ) : null}
-                <div className={styles.commentControls}>
-                  <button
-                    type="button"
-                    className={styles.commentAuthorToggle}
-                    aria-label="表示名を表示"
-                    data-testid="comment-author-toggle"
-                  >
-                    <span className={styles.visuallyHidden}>表示名</span>
-                    <Info
-                      className={styles.commentAuthorIcon}
-                      aria-hidden="true"
-                    />
-                  </button>
-                  {isAdmin ? (
-                    <button
-                      type="button"
-                      className={styles.commentDeleteButton}
-                      onClick={() =>
-                        handleDelete(comment.id, comment.studentId)
-                      }
-                      aria-label="コメントを削除"
-                      data-testid="comment-delete"
-                    >
-                      <span className={styles.visuallyHidden}>削除</span>
-                      <Trash2
-                        className={styles.commentDeleteIcon}
-                        aria-hidden="true"
-                      />
-                    </button>
-                  ) : null}
-                  <span
-                    className={styles.commentAuthorName}
-                    data-testid="comment-author"
-                  >
-                    {comment.authorName}
-                  </span>
-                </div>
-                </li>
-              );
-            })}
-          </ul>
-        )}
-      </div>
+                      <p
+                        className={`${styles.commentBody} ${
+                          needsClamp && !isExpanded
+                            ? styles.commentBodyClamped
+                            : ''
+                        }`}
+                        data-testid="comment-body"
+                      >
+                        {comment.message}
+                      </p>
+                      {needsClamp ? (
+                        <button
+                          type="button"
+                          className={styles.commentExpandButton}
+                          onClick={() => toggleExpanded(comment.id)}
+                          aria-expanded={isExpanded}
+                          data-testid="comment-expand"
+                        >
+                          {isExpanded ? '折りたたむ' : '続きを読む'}
+                        </button>
+                      ) : null}
+                      <div className={styles.commentControls}>
+                        <button
+                          type="button"
+                          className={styles.commentAuthorToggle}
+                          aria-label="表示名を表示"
+                          data-testid="comment-author-toggle"
+                        >
+                          <span className={styles.visuallyHidden}>表示名</span>
+                          <Info
+                            className={styles.commentAuthorIcon}
+                            aria-hidden="true"
+                          />
+                        </button>
+                        {isAdmin ? (
+                          <button
+                            type="button"
+                            className={styles.commentDeleteButton}
+                            onClick={() =>
+                              handleDelete(comment.id, comment.studentId)
+                            }
+                            aria-label="コメントを削除"
+                            data-testid="comment-delete"
+                          >
+                            <span className={styles.visuallyHidden}>削除</span>
+                            <Trash2
+                              className={styles.commentDeleteIcon}
+                              aria-hidden="true"
+                            />
+                          </button>
+                        ) : null}
+                        <span
+                          className={styles.commentAuthorName}
+                          data-testid="comment-author"
+                        >
+                          {comment.authorName}
+                        </span>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+          </div>
+        </>
+      ) : null}
     </section>
   );
 }
