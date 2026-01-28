@@ -140,7 +140,6 @@ test('comment can be submitted and shown', async ({ page }) => {
   await page.goto(`/submissions?year=${seedYear}`);
 
   const card = page.getByTestId(`work-card-${seedStudentId}`);
-  await card.getByTestId('comment-open').click();
   await card.getByTestId('comment-name').fill('テスター');
   await card.getByTestId('comment-message').fill('素敵な作品でした');
   await card.getByTestId('comment-submit').click();
@@ -176,7 +175,6 @@ test('admin can delete a comment', async ({ page }) => {
   await page.goto(`/submissions?year=${seedYear}`);
 
   const card = page.getByTestId(`work-card-${seedStudentId}`);
-  await card.getByTestId('comment-open').click();
   await card.getByTestId('comment-message').fill('削除対象のコメント');
   await card.getByTestId('comment-submit').click();
 
@@ -222,6 +220,21 @@ test('intro and comments refresh when data changes in background', async ({
     '更新後の紹介文'
   );
   await expect(card.getByText('コメントはまだありません。')).toBeVisible();
+});
+
+test('comment display name is shared across cards', async ({ page }) => {
+  await page.goto(`/submissions?year=${seedYear}`);
+
+  const cardA = page.getByTestId(`work-card-${seedStudentId}`);
+  const cardB = page.getByTestId(`work-card-${nestedStudentId}`);
+
+  await cardA.getByTestId('comment-name').fill('共通表示名');
+  await expect(cardB.getByTestId('comment-name')).toHaveValue('共通表示名');
+
+  await cardB.getByTestId('comment-name').fill('更新済み表示名');
+  await expect(cardA.getByTestId('comment-name')).toHaveValue(
+    '更新済み表示名'
+  );
 });
 
 test('nested index.html uses the nested path', async ({ page }) => {

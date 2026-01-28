@@ -1,5 +1,5 @@
 import { Info, Trash2 } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './submissions.module.css';
 import type { WorkComment } from './work-data-mappers';
 
@@ -13,6 +13,8 @@ type WorkCommentsProps = {
 
 const MAX_COMMENT_LENGTH = 300;
 const MAX_NAME_LENGTH = 40;
+const NAME_STORAGE_KEY = 'work-comment-display-name';
+const NAME_EVENT = 'work-comment-display-name';
 
 export default function WorkComments({
   comments,
@@ -25,7 +27,51 @@ export default function WorkComments({
   const [message, setMessage] = useState('');
   const [formError, setFormError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const stored = window.localStorage.getItem(NAME_STORAGE_KEY);
+    if (stored) {
+      setName(stored.slice(0, MAX_NAME_LENGTH));
+    }
+
+    const handleStorage = (event: StorageEvent) => {
+      if (event.key !== NAME_STORAGE_KEY) {
+        return;
+      }
+      setName((event.newValue ?? '').slice(0, MAX_NAME_LENGTH));
+    };
+
+    const handleNameEvent = (event: Event) => {
+      const detail = (event as CustomEvent).detail as { name?: string };
+      if (typeof detail?.name !== 'string') {
+        return;
+      }
+      setName(detail.name.slice(0, MAX_NAME_LENGTH));
+    };
+
+    window.addEventListener('storage', handleStorage);
+    window.addEventListener(NAME_EVENT, handleNameEvent);
+    return () => {
+      window.removeEventListener('storage', handleStorage);
+      window.removeEventListener(NAME_EVENT, handleNameEvent);
+    };
+  }, []);
+
+  const handleNameChange = (nextName: string) => {
+    setName(nextName);
+    if (typeof window === 'undefined') {
+      return;
+    }
+    window.localStorage.setItem(NAME_STORAGE_KEY, nextName);
+    window.dispatchEvent(
+      new CustomEvent(NAME_EVENT, { detail: { name: nextName } })
+    );
+  };
+
   const handleDelete = async (commentId: string, studentId: string) => {
     if (!isAdmin) {
       return;
@@ -60,9 +106,7 @@ export default function WorkComments({
     try {
       await onSubmit(trimmedName, trimmedMessage);
       setMessage('');
-      setName('');
       setFormError(null);
-      setIsOpen(false);
     } catch (error) {
       if (error instanceof Error) {
         setFormError(error.message);
@@ -77,6 +121,62 @@ export default function WorkComments({
   return (
     <section className={styles.commentsSection}>
       <h4 className={styles.sectionTitle}>みんなのコメント</h4>
+      <div className={styles.commentComposer}>
+        <form className={styles.commentComposerForm} onSubmit={handleSubmit}>
+          <div className={styles.commentComposerHeader}>
+            <div className={styles.commentAvatar} aria-hidden="true" />
+            <label className={styles.commentNameLabel}>
+              表示名
+              <input
+                type="text"
+                value={name}
+                onChange={(event) =>
+                  handleNameChange(
+                    event.target.value.slice(0, MAX_NAME_LENGTH)
+                  )
+                }
+                className={styles.commentNameInput}
+                placeholder="例: たろう"
+                maxLength={MAX_NAME_LENGTH}
+                disabled={isDisabled || isSubmitting}
+                data-testid="comment-name"
+              />
+            </label>
+          </div>
+          <textarea
+            value={message}
+            onChange={(event) =>
+              setMessage(event.target.value.slice(0, MAX_COMMENT_LENGTH))
+            }
+            className={styles.commentTextarea}
+            placeholder="良かったところや感想を書いてください"
+            maxLength={MAX_COMMENT_LENGTH}
+            required
+            disabled={isDisabled || isSubmitting}
+            data-testid="comment-message"
+          />
+          {formError && <p className={styles.formError}>{formError}</p>}
+          {isDisabled && (
+            <p className={styles.formError}>
+              コメント機能がまだ設定されていません。
+            </p>
+          )}
+          <div className={styles.commentComposerActions}>
+            <span className={styles.commentCounter}>
+              {MAX_COMMENT_LENGTH - message.length}
+            </span>
+            <button
+              type="submit"
+              className={styles.commentButton}
+              data-testid="comment-submit"
+              disabled={isDisabled || isSubmitting}
+            >
+              {isSubmitting ? '送信中...' : '投稿'}
+            </button>
+          </div>
+        </form>
+      </div>
+
       <div className={styles.contentBlock}>
         {comments.length === 0 ? (
           <p className={styles.placeholder}>コメントはまだありません。</p>
@@ -129,84 +229,6 @@ export default function WorkComments({
           </ul>
         )}
       </div>
-
-      <div className={styles.sectionHeader}>
-        <div className={styles.sectionHeaderSpacer} />
-        <div className={styles.actionRow}>
-          {!isOpen ? (
-            <button
-              type="button"
-              className={styles.actionButton}
-              onClick={() => setIsOpen(true)}
-              disabled={isDisabled}
-              data-testid="comment-open"
-            >
-              追加
-            </button>
-          ) : (
-            <button
-              type="button"
-              className={styles.actionButton}
-              onClick={() => setIsOpen(false)}
-              disabled={isSubmitting}
-            >
-              閉じる
-            </button>
-          )}
-        </div>
-      </div>
-
-      {isOpen ? (
-        <div className={styles.editorPanel}>
-          <form className={styles.commentForm} onSubmit={handleSubmit}>
-            <label className={styles.commentLabel}>
-              表示名（任意）
-              <input
-                type="text"
-                value={name}
-                onChange={(event) =>
-                  setName(event.target.value.slice(0, MAX_NAME_LENGTH))
-                }
-                className={styles.commentInput}
-                placeholder="例: たろう"
-                maxLength={MAX_NAME_LENGTH}
-                disabled={isDisabled || isSubmitting}
-                data-testid="comment-name"
-              />
-            </label>
-            <label className={styles.commentLabel}>
-              コメント
-              <textarea
-                value={message}
-                onChange={(event) =>
-                  setMessage(event.target.value.slice(0, MAX_COMMENT_LENGTH))
-                }
-                className={styles.commentTextarea}
-                placeholder="良かったところや感想を書いてください"
-                maxLength={MAX_COMMENT_LENGTH}
-                required
-                disabled={isDisabled || isSubmitting}
-                data-testid="comment-message"
-              />
-            </label>
-            {formError && <p className={styles.formError}>{formError}</p>}
-            {isDisabled && (
-              <p className={styles.formError}>
-                コメント機能がまだ設定されていません。
-              </p>
-            )}
-            <div className={styles.inlineActions}>
-              <button
-                type="submit"
-                className={styles.commentButton}
-                data-testid="comment-submit"
-              >
-                {isSubmitting ? '送信中...' : 'コメントを送信'}
-              </button>
-            </div>
-          </form>
-        </div>
-      ) : null}
     </section>
   );
 }
