@@ -3,10 +3,21 @@ import { expect, test } from '@playwright/test';
 const seedYear = '2099-e2e';
 const seedStudentId = '25020001';
 const nestedStudentId = '25020002';
+let introsStore: Map<string, string>;
+let commentsStore: Map<
+  string,
+  Array<{
+    id: string;
+    student_id: string;
+    author_name: string | null;
+    message: string;
+    created_at: string;
+  }>
+>;
 
 test.beforeEach(async ({ page }) => {
-  const intros = new Map<string, string>();
-  const comments = new Map<
+  introsStore = new Map<string, string>();
+  commentsStore = new Map<
     string,
     Array<{
       id: string;
@@ -22,12 +33,14 @@ test.beforeEach(async ({ page }) => {
     const method = request.method();
 
     if (method === 'GET') {
-      const data = Array.from(intros.entries()).map(([studentId, intro]) => ({
-        year: seedYear,
-        student_id: studentId,
-        intro,
-        updated_at: new Date().toISOString(),
-      }));
+      const data = Array.from(introsStore.entries()).map(
+        ([studentId, intro]) => ({
+          year: seedYear,
+          student_id: studentId,
+          intro,
+          updated_at: new Date().toISOString(),
+        })
+      );
       await route.fulfill({
         status: 200,
         contentType: 'application/json',
@@ -43,9 +56,9 @@ test.beforeEach(async ({ page }) => {
       >;
       const introValue = payload.intro ?? null;
       if (introValue) {
-        intros.set(payload.student_id as string, introValue);
+        introsStore.set(payload.student_id as string, introValue);
       } else {
-        intros.delete(payload.student_id as string);
+        introsStore.delete(payload.student_id as string);
       }
 
       await route.fulfill({
@@ -71,7 +84,7 @@ test.beforeEach(async ({ page }) => {
     const method = request.method();
 
     if (method === 'GET') {
-      const data = comments.get(seedStudentId) ?? [];
+      const data = commentsStore.get(seedStudentId) ?? [];
       await route.fulfill({
         status: 200,
         contentType: 'application/json',
@@ -93,9 +106,9 @@ test.beforeEach(async ({ page }) => {
         message: payload.message,
         created_at: new Date().toISOString(),
       };
-      const current = comments.get(payload.student_id as string) ?? [];
+      const current = commentsStore.get(payload.student_id as string) ?? [];
       current.unshift(nextComment);
-      comments.set(payload.student_id as string, current);
+      commentsStore.set(payload.student_id as string, current);
 
       await route.fulfill({
         status: 201,
@@ -147,6 +160,16 @@ test('admin can delete a comment', async ({ page }) => {
   });
 
   await page.route('**/api/admin/comments/**', async (route) => {
+    const requestUrl = new URL(route.request().url());
+    const commentId = requestUrl.pathname.split('/').pop() ?? '';
+    if (commentId) {
+      for (const [studentId, list] of commentsStore.entries()) {
+        commentsStore.set(
+          studentId,
+          list.filter((comment) => comment.id !== commentId)
+        );
+      }
+    }
     await route.fulfill({ status: 200, body: JSON.stringify({ ok: true }) });
   });
 
@@ -165,6 +188,40 @@ test('admin can delete a comment', async ({ page }) => {
   const commentItem = commentBody.locator('..');
   await commentItem.getByTestId('comment-delete').click();
   await expect(commentBody).toBeHidden();
+});
+
+test('intro and comments refresh when data changes in background', async ({
+  page,
+}) => {
+  introsStore.set(seedStudentId, '初期紹介文');
+  commentsStore.set(seedStudentId, [
+    {
+      id: 'comment-seed',
+      student_id: seedStudentId,
+      author_name: '見学者',
+      message: '初期コメント',
+      created_at: new Date().toISOString(),
+    },
+  ]);
+
+  await page.goto(`/submissions?year=${seedYear}`);
+
+  const card = page.getByTestId(`work-card-${seedStudentId}`);
+  await expect(card.getByTestId('work-intro-text')).toHaveText('初期紹介文');
+  await expect(card.getByTestId('comment-body')).toHaveText('初期コメント');
+
+  introsStore.set(seedStudentId, '更新後の紹介文');
+  commentsStore.set(seedStudentId, []);
+
+  await page.evaluate(() => {
+    window.dispatchEvent(new Event('focus'));
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+
+  await expect(card.getByTestId('work-intro-text')).toHaveText(
+    '更新後の紹介文'
+  );
+  await expect(card.getByText('コメントはまだありません。')).toBeVisible();
 });
 
 test('nested index.html uses the nested path', async ({ page }) => {

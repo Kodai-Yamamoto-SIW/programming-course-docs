@@ -17,6 +17,8 @@ type SubmissionsClientProps = {
   studentWorks: StudentWorksData;
 };
 
+const SYNC_INTERVAL_MS = 15000;
+
 const formatSupabaseError = (error: unknown) => {
   if (!error || typeof error !== 'object') {
     return '保存に失敗しました。';
@@ -151,14 +153,14 @@ export default function SubmissionsClient({
     setCommentMap(mapWorkComments(data ?? []));
   }, [selectedYear, studentIds, supabase]);
 
-  useEffect(() => {
-    const load = async () => {
-      setDataError(null);
-      await Promise.all([fetchIntros(), fetchComments()]);
-    };
-
-    load();
+  const refreshAll = useCallback(async () => {
+    setDataError(null);
+    await Promise.all([fetchIntros(), fetchComments()]);
   }, [fetchComments, fetchIntros]);
+
+  useEffect(() => {
+    refreshAll();
+  }, [refreshAll]);
 
   useEffect(() => {
     if (!supabase || !selectedYear) {
@@ -203,6 +205,32 @@ export default function SubmissionsClient({
     };
   }, [fetchComments, fetchIntros, selectedYear, supabase]);
 
+  useEffect(() => {
+    if (typeof window === 'undefined' || !selectedYear) {
+      return;
+    }
+
+    const refresh = () => {
+      void refreshAll();
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        refresh();
+      }
+    };
+
+    window.addEventListener('focus', refresh);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    const intervalId = window.setInterval(refresh, SYNC_INTERVAL_MS);
+
+    return () => {
+      window.removeEventListener('focus', refresh);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.clearInterval(intervalId);
+    };
+  }, [refreshAll, selectedYear]);
+
   const submitComment = useCallback(
     async (studentId: string, name: string, message: string) => {
       if (!supabase || !selectedYear) {
@@ -244,7 +272,7 @@ export default function SubmissionsClient({
   );
 
   const deleteComment = useCallback(
-    async (commentId: string) => {
+    async (commentId: string, studentId: string) => {
       if (!adminToken.trim()) {
         throw new Error('管理者コードが未設定です。');
       }
@@ -260,8 +288,16 @@ export default function SubmissionsClient({
         const message = await response.text();
         throw new Error(message || '削除に失敗しました。');
       }
+
+      setCommentMap((prev) => ({
+        ...prev,
+        [studentId]: (prev[studentId] ?? []).filter(
+          (comment) => comment.id !== commentId
+        ),
+      }));
+      await fetchComments();
     },
-    [adminToken]
+    [adminToken, fetchComments]
   );
 
   const saveIntro = useCallback(

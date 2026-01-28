@@ -1,5 +1,5 @@
 import { Info, Trash2 } from 'lucide-react';
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 import styles from './submissions.module.css';
 import type { WorkComment } from './work-data-mappers';
 
@@ -8,7 +8,7 @@ type WorkCommentsProps = {
   isDisabled: boolean;
   isAdmin: boolean;
   onSubmit: (name: string, message: string) => Promise<void>;
-  onDelete: (commentId: string) => Promise<void>;
+  onDelete: (commentId: string, studentId: string) => Promise<void>;
 };
 
 const MAX_COMMENT_LENGTH = 300;
@@ -26,26 +26,13 @@ export default function WorkComments({
   const [formError, setFormError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [deletedIds, setDeletedIds] = useState<Set<string>>(new Set());
-
-  const visibleComments = useMemo(
-    () => comments.filter((comment) => !deletedIds.has(comment.id)),
-    [comments, deletedIds]
-  );
-
-  const handleDelete = async (commentId: string) => {
+  const handleDelete = async (commentId: string, studentId: string) => {
     if (!isAdmin) {
       return;
     }
 
     try {
-      await onDelete(commentId);
-
-      setDeletedIds((prev) => {
-        const next = new Set(prev);
-        next.add(commentId);
-        return next;
-      });
+      await onDelete(commentId, studentId);
     } catch (error) {
       if (error instanceof Error) {
         setFormError(error.message);
@@ -91,11 +78,11 @@ export default function WorkComments({
     <section className={styles.commentsSection}>
       <h4 className={styles.sectionTitle}>みんなのコメント</h4>
       <div className={styles.contentBlock}>
-        {visibleComments.length === 0 ? (
+        {comments.length === 0 ? (
           <p className={styles.placeholder}>コメントはまだありません。</p>
         ) : (
           <ul className={styles.commentList} data-testid="comment-list">
-            {visibleComments.map((comment) => (
+            {comments.map((comment) => (
               <li key={comment.id} className={styles.commentItem}>
                 <p className={styles.commentBody} data-testid="comment-body">
                   {comment.message}
@@ -117,7 +104,9 @@ export default function WorkComments({
                     <button
                       type="button"
                       className={styles.commentDeleteButton}
-                      onClick={() => handleDelete(comment.id)}
+                      onClick={() =>
+                        handleDelete(comment.id, comment.studentId)
+                      }
                       aria-label="コメントを削除"
                       data-testid="comment-delete"
                     >
