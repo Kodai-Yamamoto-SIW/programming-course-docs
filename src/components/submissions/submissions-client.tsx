@@ -107,6 +107,9 @@ export default function SubmissionsClient({
   const [dataError, setDataError] = useState<string | null>(null);
   const supabaseMissing = !supabase;
   const [adminToken, setAdminToken] = useState('');
+  const [activeCommentStudentId, setActiveCommentStudentId] = useState<
+    string | null
+  >(null);
   const studentIds = useMemo(
     () => studentWorksInYear.map((work) => work.studentId),
     [studentWorksInYear]
@@ -353,6 +356,43 @@ export default function SubmissionsClient({
     };
   }, []);
 
+  const activeCommentWork = activeCommentStudentId
+    ? studentWorksInYear.find(
+        (work) => work.studentId === activeCommentStudentId
+      )
+    : null;
+  const activeComments = activeCommentWork
+    ? commentMap[activeCommentWork.studentId] ?? []
+    : [];
+
+  useEffect(() => {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
+    document.body.style.overflow = activeCommentWork ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [activeCommentWork]);
+
+  useEffect(() => {
+    if (!activeCommentWork) {
+      return;
+    }
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setActiveCommentStudentId(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [activeCommentWork]);
+
   return (
     <main className={styles.submissionsMain}>
       <div className={styles.container}>
@@ -469,15 +509,18 @@ export default function SubmissionsClient({
                             }
                           />
                         </section>
-                        <WorkComments
-                          comments={comments}
-                          isDisabled={supabaseMissing}
-                          isAdmin={adminToken.trim().length > 0}
-                          onSubmit={(name, message) =>
-                            submitComment(work.studentId, name, message)
-                          }
-                          onDelete={deleteComment}
-                        />
+                        <div className={styles.commentEntry}>
+                          <button
+                            type="button"
+                            className={styles.commentToggleButton}
+                            onClick={() =>
+                              setActiveCommentStudentId(work.studentId)
+                            }
+                            data-testid="comment-open"
+                          >
+                            コメントを見る ({comments.length})
+                          </button>
+                        </div>
                         {dataError && (
                           <p className={styles.dataError}>{dataError}</p>
                         )}
@@ -490,6 +533,49 @@ export default function SubmissionsClient({
           </>
         )}
       </div>
+
+      {activeCommentWork ? (
+        <div className={styles.commentDrawerRoot} data-testid="comment-drawer">
+          <button
+            type="button"
+            className={styles.commentDrawerOverlay}
+            aria-label="コメントパネルを閉じる"
+            onClick={() => setActiveCommentStudentId(null)}
+          />
+          <aside
+            className={styles.commentDrawer}
+            role="dialog"
+            aria-modal="true"
+            aria-label="コメント"
+          >
+            <div className={styles.commentDrawerHeader}>
+              <div>
+                <p className={styles.commentDrawerTitle}>コメント</p>
+                <p className={styles.commentDrawerMeta}>
+                  作品番号: {activeCommentWork.studentId}
+                </p>
+              </div>
+              <button
+                type="button"
+                className={styles.commentDrawerClose}
+                onClick={() => setActiveCommentStudentId(null)}
+                data-testid="comment-close"
+              >
+                閉じる
+              </button>
+            </div>
+            <WorkComments
+              comments={activeComments}
+              isDisabled={supabaseMissing}
+              isAdmin={adminToken.trim().length > 0}
+              onSubmit={(name, message) =>
+                submitComment(activeCommentWork.studentId, name, message)
+              }
+              onDelete={deleteComment}
+            />
+          </aside>
+        </div>
+      ) : null}
     </main>
   );
 }

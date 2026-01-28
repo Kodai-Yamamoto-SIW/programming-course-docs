@@ -140,7 +140,7 @@ test('comment can be submitted and shown', async ({ page }) => {
   await page.goto(`/submissions?year=${seedYear}`);
 
   const card = page.getByTestId(`work-card-${seedStudentId}`);
-  await card.getByTestId('comment-toggle').click();
+  await card.getByTestId('comment-open').click();
   await card.getByTestId('comment-name').fill('テスター');
   await card.getByTestId('comment-message').fill('素敵な作品でした');
   await card.getByTestId('comment-submit').click();
@@ -176,7 +176,7 @@ test('admin can delete a comment', async ({ page }) => {
   await page.goto(`/submissions?year=${seedYear}`);
 
   const card = page.getByTestId(`work-card-${seedStudentId}`);
-  await card.getByTestId('comment-toggle').click();
+  await card.getByTestId('comment-open').click();
   await card.getByTestId('comment-message').fill('削除対象のコメント');
   await card.getByTestId('comment-submit').click();
 
@@ -208,7 +208,7 @@ test('intro and comments refresh when data changes in background', async ({
 
   const card = page.getByTestId(`work-card-${seedStudentId}`);
   await expect(card.getByTestId('work-intro-text')).toHaveText('初期紹介文');
-  await card.getByTestId('comment-toggle').click();
+  await card.getByTestId('comment-open').click();
   await expect(card.getByTestId('comment-body')).toHaveText('初期コメント');
 
   introsStore.set(seedStudentId, '更新後の紹介文');
@@ -222,8 +222,8 @@ test('intro and comments refresh when data changes in background', async ({
   await expect(card.getByTestId('work-intro-text')).toHaveText(
     '更新後の紹介文'
   );
-  await card.getByTestId('comment-toggle').click();
-  await expect(card.getByTestId('comment-toggle')).toHaveText(/コメントを見る/);
+  await card.getByTestId('comment-close').click();
+  await expect(card.getByTestId('comment-open')).toHaveText(/コメントを見る/);
 });
 
 test('comment display name is shared across cards', async ({ page }) => {
@@ -232,12 +232,17 @@ test('comment display name is shared across cards', async ({ page }) => {
   const cardA = page.getByTestId(`work-card-${seedStudentId}`);
   const cardB = page.getByTestId(`work-card-${nestedStudentId}`);
 
-  await cardA.getByTestId('comment-toggle').click();
-  await cardB.getByTestId('comment-toggle').click();
+  await cardA.getByTestId('comment-open').click();
   await cardA.getByTestId('comment-name').fill('共通表示名');
+  await page.getByTestId('comment-close').click();
+
+  await cardB.getByTestId('comment-open').click();
   await expect(cardB.getByTestId('comment-name')).toHaveValue('共通表示名');
 
   await cardB.getByTestId('comment-name').fill('更新済み表示名');
+  await page.getByTestId('comment-close').click();
+
+  await cardA.getByTestId('comment-open').click();
   await expect(cardA.getByTestId('comment-name')).toHaveValue(
     '更新済み表示名'
   );
@@ -272,7 +277,7 @@ test('long comments can be expanded and collapsed', async ({ page }) => {
   await page.goto(`/submissions?year=${seedYear}`);
 
   const card = page.getByTestId(`work-card-${seedStudentId}`);
-  await card.getByTestId('comment-toggle').click();
+  await card.getByTestId('comment-open').click();
   const expandButton = card.getByTestId('comment-expand');
   await expect(expandButton).toHaveText('続きを読む');
 
@@ -287,6 +292,6 @@ test('comments are collapsed by default', async ({ page }) => {
   await page.goto(`/submissions?year=${seedYear}`);
 
   const card = page.getByTestId(`work-card-${seedStudentId}`);
-  await expect(card.getByTestId('comment-toggle')).toBeVisible();
-  await expect(card.getByTestId('comment-name')).toBeHidden();
+  await expect(card.getByTestId('comment-open')).toBeVisible();
+  await expect(page.getByTestId('comment-drawer')).toHaveCount(0);
 });
