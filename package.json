@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "start": "next start",
+    "dev": "cross-env HOST=127.0.0.1 next dev",
+    "start": "cross-env HOST=127.0.0.1 next start",
     "build": "next build",
     "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
     "lint": "npm run typecheck",
@@ -33,6 +33,7 @@
     "@types/node": "^25.0.9",
     "@types/react": "^19.2.9",
     "@types/react-dom": "^19.2.3",
+    "cross-env": "^10.1.0",
     "pagefind": "^1.4.0",
     "remark-gfm": "^4.0.1",
     "tsx": "^4.20.5",
