@@ -562,6 +562,20 @@
     -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1) 60%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1) 60%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
 }
 
 .commentExpandButton {
@@ -769,6 +783,7 @@ html.dark .commentItem,
     background-color: var(--ifm-color-emphasis-200);
     border-left-color: var(--ifm-color-primary-light);
 }
+
 
 html.dark .commentButton,
 [data-theme='dark'] .commentButton {
