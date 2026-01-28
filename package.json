@@ -8,6 +8,7 @@
     "start": "next start",
     "build": "next build",
     "postbuild": "pagefind --site .next/server/app --output-path public/_pagefind",
+    "lint": "npm run typecheck",
     "typecheck": "tsc --noEmit",
     "test": "node --test --import tsx src/components/submissions/__tests__/*.test.ts scripts/__tests__/*.test.ts",
     "test:e2e": "node scripts/run-playwright-e2e.mjs",

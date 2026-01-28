@@ -248,3 +248,30 @@ test('nested index.html uses the nested path', async ({ page }) => {
     new RegExp(`/__works__/${seedYear}/${nestedStudentId}/project/index\\.html$`)
   );
 });
+
+test('long comments can be expanded and collapsed', async ({ page }) => {
+  const longMessage = Array.from({ length: 12 })
+    .map((_, index) => `長文コメント行${index + 1}`)
+    .join('\n');
+  commentsStore.set(seedStudentId, [
+    {
+      id: 'comment-long',
+      student_id: seedStudentId,
+      author_name: '長文投稿者',
+      message: longMessage,
+      created_at: new Date().toISOString(),
+    },
+  ]);
+
+  await page.goto(`/submissions?year=${seedYear}`);
+
+  const card = page.getByTestId(`work-card-${seedStudentId}`);
+  const expandButton = card.getByTestId('comment-expand');
+  await expect(expandButton).toHaveText('続きを読む');
+
+  await expandButton.click();
+  await expect(expandButton).toHaveText('折りたたむ');
+
+  await expandButton.click();
+  await expect(expandButton).toHaveText('続きを読む');
+});

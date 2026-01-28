@@ -557,6 +557,28 @@
     white-space: pre-wrap;
 }
 
+.commentBodyClamped {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.commentExpandButton {
+    border: none;
+    background: transparent;
+    color: var(--ifm-color-primary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    margin-top: 0.35rem;
+}
+
+.commentExpandButton:hover {
+    text-decoration: underline;
+}
+
 .commentLabel {
     display: flex;
     flex-direction: column;

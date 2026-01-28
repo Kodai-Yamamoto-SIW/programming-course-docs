@@ -46,6 +46,12 @@ npm run start
 npm run typecheck
 ```
 
+### Lint
+
+```bash
+npm run lint
+```
+
 ### Test
 
 ```bash

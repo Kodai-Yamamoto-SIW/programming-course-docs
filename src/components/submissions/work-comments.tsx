@@ -27,6 +27,9 @@ export default function WorkComments({
   const [message, setMessage] = useState('');
   const [formError, setFormError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [expandedComments, setExpandedComments] = useState<
+    Record<string, boolean>
+  >({});
 
   useEffect(() => {
     if (typeof window === 'undefined') {
@@ -86,6 +89,13 @@ export default function WorkComments({
         setFormError('削除に失敗しました。');
       }
     }
+  };
+
+  const toggleExpanded = (commentId: string) => {
+    setExpandedComments((prev) => ({
+      ...prev,
+      [commentId]: !prev[commentId],
+    }));
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -182,11 +192,37 @@ export default function WorkComments({
           <p className={styles.placeholder}>コメントはまだありません。</p>
         ) : (
           <ul className={styles.commentList} data-testid="comment-list">
-            {comments.map((comment) => (
-              <li key={comment.id} className={styles.commentItem}>
-                <p className={styles.commentBody} data-testid="comment-body">
-                  {comment.message}
-                </p>
+            {comments.map((comment) => {
+              const isExpanded = expandedComments[comment.id] ?? false;
+              const needsClamp =
+                comment.message.length > 160 ||
+                comment.message.split('\n').length > 3;
+
+              return (
+                <li
+                  key={comment.id}
+                  className={styles.commentItem}
+                  data-expanded={isExpanded ? 'true' : 'false'}
+                >
+                  <p
+                    className={`${styles.commentBody} ${
+                      needsClamp && !isExpanded ? styles.commentBodyClamped : ''
+                    }`}
+                    data-testid="comment-body"
+                  >
+                    {comment.message}
+                  </p>
+                  {needsClamp ? (
+                    <button
+                      type="button"
+                      className={styles.commentExpandButton}
+                      onClick={() => toggleExpanded(comment.id)}
+                      aria-expanded={isExpanded}
+                      data-testid="comment-expand"
+                    >
+                      {isExpanded ? '折りたたむ' : '続きを読む'}
+                    </button>
+                  ) : null}
                 <div className={styles.commentControls}>
                   <button
                     type="button"
@@ -224,8 +260,9 @@ export default function WorkComments({
                     {comment.authorName}
                   </span>
                 </div>
-              </li>
-            ))}
+                </li>
+              );
+            })}
           </ul>
         )}
       </div>
