@@ -1,3 +1,4 @@
+import { ShowMore } from '@re-dev/react-truncate';
 import { Info, Trash2 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import styles from './submissions.module.css';
@@ -11,7 +12,7 @@ type WorkCommentsProps = {
   onDelete: (commentId: string, studentId: string) => Promise<void>;
 };
 
-const MAX_COMMENT_LENGTH = 300;
+const MAX_COMMENT_LENGTH = 200;
 const MAX_NAME_LENGTH = 40;
 const NAME_STORAGE_KEY = 'work-comment-display-name';
 const NAME_EVENT = 'work-comment-display-name';
@@ -89,13 +90,6 @@ export default function WorkComments({
         setFormError('削除に失敗しました。');
       }
     }
-  };
-
-  const toggleExpanded = (commentId: string) => {
-    setExpandedComments((prev) => ({
-      ...prev,
-      [commentId]: !prev[commentId],
-    }));
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -192,36 +186,33 @@ export default function WorkComments({
         ) : (
           <ul className={styles.commentList} data-testid="comment-list">
             {comments.map((comment) => {
-              const isExpanded = expandedComments[comment.id] ?? false;
-              const needsClamp =
+              const shouldClamp =
                 comment.message.length > 160 ||
                 comment.message.split('\n').length > 3;
+              const isExpanded = expandedComments[comment.id] ?? false;
 
               return (
                 <li
                   key={comment.id}
                   className={styles.commentItem}
-                  data-expanded={isExpanded ? 'true' : 'false'}
                 >
-                  <p
-                    className={`${styles.commentBody} ${
-                      needsClamp && !isExpanded ? styles.commentBodyClamped : ''
-                    }`}
-                    data-testid="comment-body"
-                  >
-                    {comment.message}
-                  </p>
-                  {needsClamp ? (
-                    <button
-                      type="button"
-                      className={styles.commentExpandButton}
-                      onClick={() => toggleExpanded(comment.id)}
-                      aria-expanded={isExpanded}
-                      data-testid="comment-expand"
+                  <div className={styles.commentBody} data-testid="comment-body">
+                    <ShowMore
+                      lines={shouldClamp ? 6 : 0}
+                      more="続きを読む"
+                      less="折りたたむ"
+                      anchorClass={styles.commentExpandLink}
+                      expanded={isExpanded}
+                      onToggle={(nextExpanded) =>
+                        setExpandedComments((prev) => ({
+                          ...prev,
+                          [comment.id]: nextExpanded,
+                        }))
+                      }
                     >
-                      {isExpanded ? '折りたたむ' : '続きを読む'}
-                    </button>
-                  ) : null}
+                      {comment.message}
+                    </ShowMore>
+                  </div>
                   <div className={styles.commentControls}>
                     <button
                       type="button"

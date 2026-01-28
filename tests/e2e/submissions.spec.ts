@@ -214,7 +214,7 @@ test('intro and comments refresh when data changes in background', async ({
   await expect(card.getByTestId('work-intro-text')).toHaveText('初期紹介文');
   await card.getByTestId('comment-open').click();
   const drawer = page.getByTestId('comment-drawer');
-  await expect(drawer.getByTestId('comment-body')).toHaveText('初期コメント');
+  await expect(drawer.getByTestId('comment-body')).toContainText('初期コメント');
 
   introsStore.set(seedStudentId, '更新後の紹介文');
   commentsStore.set(seedStudentId, []);
@@ -285,14 +285,21 @@ test('long comments can be expanded and collapsed', async ({ page }) => {
 
   const card = page.getByTestId(`work-card-${seedStudentId}`);
   await card.getByTestId('comment-open').click();
-  const expandButton = page.getByTestId('comment-drawer').getByTestId('comment-expand');
+  const drawer = page.getByTestId('comment-drawer');
+  const panelHandle = await page.getByTestId('comment-panel').elementHandle();
+  if (!panelHandle) {
+    throw new Error('Drawer panel handle not found.');
+  }
+  await panelHandle.waitForElementState('stable');
+  const expandButton = drawer.getByTestId('more-button');
   await expect(expandButton).toHaveText('続きを読む');
 
-  await expandButton.click();
-  await expect(expandButton).toHaveText('折りたたむ');
+  await expandButton.evaluate((element) => (element as HTMLElement).click());
+  const collapseButton = drawer.getByTestId('less-button');
+  await expect(collapseButton).toHaveText('折りたたむ');
 
-  await expandButton.click();
-  await expect(expandButton).toHaveText('続きを読む');
+  await collapseButton.click();
+  await expect(drawer.getByTestId('more-button')).toHaveText('続きを読む');
 });
 
 test('comments are collapsed by default', async ({ page }) => {

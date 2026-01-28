@@ -666,41 +666,17 @@
     font-size: 0.9rem;
     color: var(--ifm-font-color-base);
     white-space: pre-wrap;
+    display: block;
 }
 
-.commentBodyClamped {
-    display: -webkit-box;
-    -webkit-line-clamp: 6;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    -webkit-mask-image: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 1) 60%,
-        rgba(0, 0, 0, 0) 100%
-    );
-    mask-image: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 1) 60%,
-        rgba(0, 0, 0, 0) 100%
-    );
-    -webkit-mask-size: 100% 100%;
-    mask-size: 100% 100%;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-}
-
-.commentExpandButton {
-    border: none;
-    background: transparent;
+.commentExpandLink {
     color: var(--ifm-color-primary);
     font-size: 0.75rem;
     font-weight: 600;
-    cursor: pointer;
-    padding: 0;
-    margin-top: 0.35rem;
+    text-decoration: none;
 }
 
-.commentExpandButton:hover {
+.commentExpandLink:hover {
     text-decoration: underline;
 }
 
