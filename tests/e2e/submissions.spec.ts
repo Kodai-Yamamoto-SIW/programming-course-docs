@@ -141,16 +141,18 @@ test('comment can be submitted and shown', async ({ page }) => {
 
   const card = page.getByTestId(`work-card-${seedStudentId}`);
   await card.getByTestId('comment-open').click();
-  await card.getByTestId('comment-name').fill('テスター');
-  await card.getByTestId('comment-message').fill('素敵な作品でした');
-  await card.getByTestId('comment-submit').click();
+  const drawer = page.getByTestId('comment-drawer');
+  await expect(drawer).toBeVisible();
+  await drawer.getByTestId('comment-name').fill('テスター');
+  await drawer.getByTestId('comment-message').fill('素敵な作品でした');
+  await drawer.getByTestId('comment-submit').click();
 
-  await expect(card.getByTestId('comment-body')).toContainText(
+  await expect(drawer.getByTestId('comment-body')).toContainText(
     '素敵な作品でした'
   );
-  const commentAuthor = card.getByTestId('comment-author');
+  const commentAuthor = drawer.getByTestId('comment-author');
   await expect(commentAuthor).toBeHidden();
-  await card.getByTestId('comment-author-toggle').hover();
+  await drawer.getByTestId('comment-author-toggle').hover();
   await expect(commentAuthor).toContainText('テスター');
 });
 
@@ -177,10 +179,12 @@ test('admin can delete a comment', async ({ page }) => {
 
   const card = page.getByTestId(`work-card-${seedStudentId}`);
   await card.getByTestId('comment-open').click();
-  await card.getByTestId('comment-message').fill('削除対象のコメント');
-  await card.getByTestId('comment-submit').click();
+  const drawer = page.getByTestId('comment-drawer');
+  await expect(drawer).toBeVisible();
+  await drawer.getByTestId('comment-message').fill('削除対象のコメント');
+  await drawer.getByTestId('comment-submit').click();
 
-  const commentBody = card.getByTestId('comment-body').filter({
+  const commentBody = drawer.getByTestId('comment-body').filter({
     hasText: '削除対象のコメント',
   });
   await expect(commentBody).toBeVisible();
@@ -209,7 +213,8 @@ test('intro and comments refresh when data changes in background', async ({
   const card = page.getByTestId(`work-card-${seedStudentId}`);
   await expect(card.getByTestId('work-intro-text')).toHaveText('初期紹介文');
   await card.getByTestId('comment-open').click();
-  await expect(card.getByTestId('comment-body')).toHaveText('初期コメント');
+  const drawer = page.getByTestId('comment-drawer');
+  await expect(drawer.getByTestId('comment-body')).toHaveText('初期コメント');
 
   introsStore.set(seedStudentId, '更新後の紹介文');
   commentsStore.set(seedStudentId, []);
@@ -222,7 +227,7 @@ test('intro and comments refresh when data changes in background', async ({
   await expect(card.getByTestId('work-intro-text')).toHaveText(
     '更新後の紹介文'
   );
-  await card.getByTestId('comment-close').click();
+  await page.getByTestId('comment-close').click();
   await expect(card.getByTestId('comment-open')).toHaveText(/コメントを見る/);
 });
 
@@ -233,17 +238,19 @@ test('comment display name is shared across cards', async ({ page }) => {
   const cardB = page.getByTestId(`work-card-${nestedStudentId}`);
 
   await cardA.getByTestId('comment-open').click();
-  await cardA.getByTestId('comment-name').fill('共通表示名');
+  const drawer = page.getByTestId('comment-drawer');
+  await drawer.getByTestId('comment-name').fill('共通表示名');
   await page.getByTestId('comment-close').click();
 
   await cardB.getByTestId('comment-open').click();
-  await expect(cardB.getByTestId('comment-name')).toHaveValue('共通表示名');
+  const drawerB = page.getByTestId('comment-drawer');
+  await expect(drawerB.getByTestId('comment-name')).toHaveValue('共通表示名');
 
-  await cardB.getByTestId('comment-name').fill('更新済み表示名');
+  await drawerB.getByTestId('comment-name').fill('更新済み表示名');
   await page.getByTestId('comment-close').click();
 
   await cardA.getByTestId('comment-open').click();
-  await expect(cardA.getByTestId('comment-name')).toHaveValue(
+  await expect(page.getByTestId('comment-drawer').getByTestId('comment-name')).toHaveValue(
     '更新済み表示名'
   );
 });
@@ -278,7 +285,7 @@ test('long comments can be expanded and collapsed', async ({ page }) => {
 
   const card = page.getByTestId(`work-card-${seedStudentId}`);
   await card.getByTestId('comment-open').click();
-  const expandButton = card.getByTestId('comment-expand');
+  const expandButton = page.getByTestId('comment-drawer').getByTestId('comment-expand');
   await expect(expandButton).toHaveText('続きを読む');
 
   await expandButton.click();
