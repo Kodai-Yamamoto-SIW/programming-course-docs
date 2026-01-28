@@ -351,6 +351,14 @@
     padding: 1rem;
     overflow-y: auto;
     z-index: 2;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.24s ease, opacity 0.24s ease;
+}
+
+.commentDrawerOpen .commentDrawer {
+    transform: translateX(0);
+    opacity: 1;
 }
 
 .commentDrawerHeader {

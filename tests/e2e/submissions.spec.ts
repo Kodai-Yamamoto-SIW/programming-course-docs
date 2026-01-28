@@ -302,3 +302,42 @@ test('comments are collapsed by default', async ({ page }) => {
   await expect(card.getByTestId('comment-open')).toBeVisible();
   await expect(page.getByTestId('comment-drawer')).toHaveCount(0);
 });
+
+test('comment drawer animates into view', async ({ page }) => {
+  await page.goto(`/submissions?year=${seedYear}`);
+
+  const card = page.getByTestId(`work-card-${seedStudentId}`);
+  await card.getByTestId('comment-open').click();
+
+  const drawerPanel = page.getByTestId('comment-panel');
+  await expect(drawerPanel).toBeVisible();
+
+  const transitionDuration = await drawerPanel.evaluate(
+    (element) => getComputedStyle(element).transitionDuration
+  );
+  expect(transitionDuration).not.toBe('0s');
+
+  const drawerHandle = await drawerPanel.elementHandle();
+  if (!drawerHandle) {
+    throw new Error('Drawer panel handle not found.');
+  }
+
+  await page.waitForFunction(
+    (element) => getComputedStyle(element).transform !== 'none',
+    drawerHandle
+  );
+
+  await page.waitForFunction((element) => {
+    const transform = getComputedStyle(element).transform;
+    if (transform === 'none') {
+      return true;
+    }
+    const match = transform.match(/matrix\(([^)]+)\)/);
+    if (!match) {
+      return false;
+    }
+    const values = match[1].split(',').map((value) => Number(value.trim()));
+    const translateX = values[4] ?? 0;
+    return Math.abs(translateX) < 1;
+  }, drawerHandle);
+});

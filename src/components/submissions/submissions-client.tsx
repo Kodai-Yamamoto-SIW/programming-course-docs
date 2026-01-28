@@ -112,6 +112,7 @@ export default function SubmissionsClient({
     string | null
   >(null);
   const [isMounted, setIsMounted] = useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const studentIds = useMemo(
     () => studentWorksInYear.map((work) => work.studentId),
     [studentWorksInYear]
@@ -380,6 +381,7 @@ export default function SubmissionsClient({
 
   useEffect(() => {
     if (!activeCommentWork) {
+      setIsDrawerOpen(false);
       return;
     }
 
@@ -392,6 +394,21 @@ export default function SubmissionsClient({
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [activeCommentWork]);
+
+  useEffect(() => {
+    if (!activeCommentWork) {
+      return;
+    }
+
+    setIsDrawerOpen(false);
+    const frameId = window.requestAnimationFrame(() => {
+      setIsDrawerOpen(true);
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
     };
   }, [activeCommentWork]);
 
@@ -543,7 +560,9 @@ export default function SubmissionsClient({
       {activeCommentWork && isMounted
         ? createPortal(
             <div
-              className={styles.commentDrawerRoot}
+              className={`${styles.commentDrawerRoot} ${
+                isDrawerOpen ? styles.commentDrawerOpen : ''
+              }`}
               data-testid="comment-drawer"
             >
               <button
@@ -557,6 +576,7 @@ export default function SubmissionsClient({
                 role="dialog"
                 aria-modal="true"
                 aria-label="コメント"
+                data-testid="comment-panel"
               >
                 <div className={styles.commentDrawerHeader}>
                   <div>
