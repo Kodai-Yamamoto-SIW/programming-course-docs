@@ -231,6 +231,7 @@ export default function SubmissionsClient({
     };
   }, [refreshAll, selectedYear]);
 
+
   const submitComment = useCallback(
     async (studentId: string, name: string, message: string) => {
       if (!supabase || !selectedYear) {
