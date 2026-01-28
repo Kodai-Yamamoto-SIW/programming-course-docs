@@ -2,10 +2,16 @@ import { defineConfig } from '@playwright/test';
 
 const e2ePort = process.env.E2E_PORT ?? '3003';
 const e2eBaseUrl = process.env.E2E_BASE_URL ?? `http://localhost:${e2ePort}`;
+const maxFailuresEnv = process.env.PLAYWRIGHT_MAX_FAILURES;
+const maxFailures =
+  maxFailuresEnv && Number.isFinite(Number(maxFailuresEnv))
+    ? Number(maxFailuresEnv)
+    : 1;
 
 export default defineConfig({
   testDir: './tests/e2e',
   timeout: 60_000,
+  maxFailures,
   expect: {
     timeout: 10_000,
   },
