@@ -156,6 +156,28 @@ test('comment can be submitted and shown', async ({ page }) => {
   await expect(commentAuthor).toContainText('テスター');
 });
 
+test('comment drawer adapts to dark mode', async ({ page }) => {
+  await page.goto(`/submissions?year=${seedYear}`);
+
+  await page.evaluate(() => {
+    document.documentElement.classList.add('dark');
+    document.documentElement.classList.remove('light');
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.body.classList.add('dark');
+    document.body.classList.remove('light');
+    document.body.setAttribute('data-theme', 'dark');
+  });
+
+  const card = page.getByTestId(`work-card-${seedStudentId}`);
+  await card.getByTestId('comment-open').click();
+
+  const drawer = page.getByTestId('comment-drawer');
+  await expect(drawer).toHaveAttribute('data-theme', 'dark');
+
+  const panel = page.getByTestId('comment-panel');
+  await expect(panel).toHaveCSS('background-color', 'rgb(11, 16, 32)');
+});
+
 test('admin can delete a comment', async ({ page }) => {
   await page.addInitScript(() => {
     window.sessionStorage.setItem('admin-comment-token', 'test-admin');

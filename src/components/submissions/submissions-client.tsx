@@ -113,6 +113,7 @@ export default function SubmissionsClient({
   >(null);
   const [isMounted, setIsMounted] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [drawerTheme, setDrawerTheme] = useState<'light' | 'dark'>('light');
   const studentIds = useMemo(
     () => studentWorksInYear.map((work) => work.studentId),
     [studentWorksInYear]
@@ -416,6 +417,69 @@ export default function SubmissionsClient({
     setIsMounted(true);
   }, []);
 
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const resolveTheme = () => {
+      const html = document.documentElement;
+      const body = document.body;
+      const dataTheme =
+        html.getAttribute('data-theme') ?? body.getAttribute('data-theme');
+
+      if (dataTheme === 'dark' || dataTheme === 'light') {
+        return dataTheme;
+      }
+
+      if (html.classList.contains('dark') || body.classList.contains('dark')) {
+        return 'dark';
+      }
+
+      if (html.classList.contains('light') || body.classList.contains('light')) {
+        return 'light';
+      }
+
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
+    };
+
+    const updateTheme = () => {
+      setDrawerTheme(resolveTheme());
+    };
+
+    updateTheme();
+
+    const observer = new MutationObserver(updateTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class', 'data-theme'],
+    });
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['class', 'data-theme'],
+    });
+
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleMediaChange = () => updateTheme();
+
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', handleMediaChange);
+    } else {
+      mediaQuery.addListener(handleMediaChange);
+    }
+
+    return () => {
+      observer.disconnect();
+      if (mediaQuery.removeEventListener) {
+        mediaQuery.removeEventListener('change', handleMediaChange);
+      } else {
+        mediaQuery.removeListener(handleMediaChange);
+      }
+    };
+  }, []);
+
   return (
     <main className={styles.submissionsMain}>
       <div className={styles.container}>
@@ -563,6 +627,7 @@ export default function SubmissionsClient({
               className={`${styles.commentDrawerRoot} ${
                 isDrawerOpen ? styles.commentDrawerOpen : ''
               }`}
+              data-theme={drawerTheme}
               data-testid="comment-drawer"
             >
               <button
