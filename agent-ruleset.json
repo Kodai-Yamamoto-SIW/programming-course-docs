@@ -4,5 +4,10 @@
     "node",
     "web"
   ],
+  "extra": [
+    "../agent-rules-local/ghws-workspace.md",
+    "agent-rules-local/rules/course-site-metadata.md",
+    "agent-rules-private/rules/course-site-content-authoring.md"
+  ],
   "output": "AGENTS.md"
 }
