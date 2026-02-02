@@ -220,3 +220,7 @@ You can obtain the org/project IDs by running `npx vercel link` locally and chec
 - `NEXT_PUBLIC_WORKS_BASE_URL` (optional; GitHub Pages base URL for works)
 - `SUPABASE_SERVICE_ROLE_KEY` (server-only, required for admin comment deletion)
 - `ADMIN_DELETE_TOKEN` (server-only, shared admin code for deletion UI)
+
+## Overview
+This repository contains the programming-course-docs project.
+
