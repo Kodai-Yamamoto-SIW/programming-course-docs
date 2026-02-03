@@ -13,3 +13,11 @@ test("background exercise previews resolve images via CodePreview images map", (
   assert.ok(mdx.includes('"img/image1.png"'));
   assert.ok(mdx.includes('"css/image2.png"'));
 });
+
+test("shorthand-properties previews resolve background-sample.png via CodePreview images map", () => {
+  const mdx = readRepoFile("content/docs/css-basics/shorthand-properties/index.mdx");
+
+  assert.ok(mdx.includes('cssPath="style.css"'));
+  assert.ok(mdx.includes('"img/background-sample.png"'));
+  assert.ok(mdx.includes('new URL("./img/background-sample.png", import.meta.url)'));
+});

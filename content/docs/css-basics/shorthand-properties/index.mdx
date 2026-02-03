@@ -401,7 +401,10 @@ background: <image> <repeat> <position> / <size> <attachment> <color>;
 
 ### background の基本的な一括指定
 
-<CodePreview>
+<CodePreview
+  cssPath="style.css"
+  images={{ "img/background-sample.png": new URL("./img/background-sample.png", import.meta.url).toString() }}
+>
 ```html
 <div class="box1">一括指定</div>
 <div class="box2">個別指定</div>
@@ -430,7 +433,10 @@ div {
 
 ### よく使われるbackgroundパターン
 
-<CodePreview>
+<CodePreview
+  cssPath="style.css"
+  images={{ "img/background-sample.png": new URL("./img/background-sample.png", import.meta.url).toString() }}
+>
 ```html
 <div class="pattern1">色のみ</div>
 <div class="pattern2">画像のみ</div>
