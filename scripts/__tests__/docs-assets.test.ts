@@ -12,6 +12,13 @@ test("background exercise previews resolve images via CodePreview images map", (
   assert.ok(mdx.includes('cssPath="css/style.css"'));
   assert.ok(mdx.includes('"img/image1.png"'));
   assert.ok(mdx.includes('"css/image2.png"'));
+  assert.ok(mdx.includes('sourceId="bg-exercise-1"'));
+  assert.ok(mdx.includes('sourceId="bg-exercise-2"'));
+  assert.ok(mdx.includes('sourceId="bg-exercise-3"'));
+  assert.ok(mdx.includes('sourceId="bg-exercise-4"'));
+  assert.ok(mdx.includes('sourceId="bg-exercise-5"'));
+  assert.ok(mdx.includes("htmlVisible={false}"));
+  assert.ok(mdx.includes("cssVisible={false}"));
 });
 
 test("shorthand-properties previews resolve background-sample.png via CodePreview images map", () => {
