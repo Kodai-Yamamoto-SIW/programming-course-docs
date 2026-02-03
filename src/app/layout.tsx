@@ -2,6 +2,7 @@ import 'nextra-theme-docs/style.css';
 import type { ReactNode } from 'react';
 import { Head } from 'nextra/components';
 import '@/styles/globals.css';
+import SearchSlashShortcutGuard from '@/components/search-slash-shortcut-guard';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -11,6 +12,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="icon" href="/img/favicon.ico" />
       </Head>
       <body>
+        <SearchSlashShortcutGuard />
         {children}
       </body>
     </html>
