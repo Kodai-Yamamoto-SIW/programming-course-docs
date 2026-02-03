@@ -1,4 +1,39 @@
 const STATIC_ASSET_EXTENSIONS = new Set([
+  // Archives
+  '7z',
+  'bz2',
+  'gz',
+  'rar',
+  'tar',
+  'tgz',
+  'xz',
+  'zip',
+
+  // Audio
+  'aac',
+  'flac',
+  'm4a',
+  'mp3',
+  'ogg',
+  'opus',
+  'wav',
+
+  // Data / documents
+  'csv',
+  'json',
+  'pdf',
+  'txt',
+  'xml',
+  'yaml',
+  'yml',
+
+  // Fonts
+  'otf',
+  'ttf',
+  'woff',
+  'woff2',
+
+  // Images
   'apng',
   'avif',
   'bmp',
@@ -11,6 +46,19 @@ const STATIC_ASSET_EXTENSIONS = new Set([
   'tif',
   'tiff',
   'webp',
+
+  // Video
+  'mkv',
+  'mov',
+  'mp4',
+  'webm',
+
+  // Web assets (note: not md/mdx)
+  'css',
+  'htm',
+  'html',
+  'js',
+  'map',
 ]);
 
 const isStaticAssetLike = (segment: string) => {
@@ -34,4 +82,3 @@ export const shouldIgnoreMdxPath = (mdxPath: string[] | undefined) => {
 
   return isStaticAssetLike(mdxPath[mdxPath.length - 1] ?? '');
 };
-

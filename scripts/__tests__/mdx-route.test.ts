@@ -17,6 +17,8 @@ test('shouldIgnoreMdxPath ignores static-asset-like requests', () => {
     shouldIgnoreMdxPath(['docs', 'css-basics', 'backgrounds', 'image2.JPG']),
     true,
   );
+  assert.equal(shouldIgnoreMdxPath(['docs', 'downloads', 'lesson.zip']), true);
+  assert.equal(shouldIgnoreMdxPath(['docs', 'downloads', 'handout.pdf']), true);
 });
 
 test('shouldIgnoreMdxPath does not ignore normal doc routes', () => {
@@ -24,4 +26,3 @@ test('shouldIgnoreMdxPath does not ignore normal doc routes', () => {
   assert.equal(shouldIgnoreMdxPath(['docs', 'css-basics', 'backgrounds']), false);
   assert.equal(shouldIgnoreMdxPath(['docs', 'release-notes', 'v1.0']), false);
 });
-
