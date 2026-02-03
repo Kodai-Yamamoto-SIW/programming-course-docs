@@ -554,54 +554,43 @@ div {
 > **パララックスについて**
 > **パララックス（parallax）** とは、手前のコンテンツと背後の背景がスクロールの速さや動きでズレて見えることで、奥行きがあるように見せる表現のことです。たとえば、背景を画面に固定しておくと、前の部分（テキストや白い帯）がスクロールするたびに背景との位置が変わるため、奥行きが生まれます。
 
-下の例では、プレビュー内をスクロールしてみると背景画像が固定されていて、白い帯（テキスト）だけが動くので、奥行きがあるように見えます。
+下の例では、スクロールしてみると背景画像が固定されていて、白い帯（テキスト）だけが動くので、奥行きがあるように見えます。
 
 <CodePreview 
   images={{ "img/parallax1.jpg": new URL("./img/parallax1.jpg", import.meta.url).toString(), "img/parallax2.jpg": new URL("./img/parallax2.jpg", import.meta.url).toString(), "img/parallax3.jpg": new URL("./img/parallax3.jpg", import.meta.url).toString() }}
 >
 ```html
-<div class="content">
-  <p>最初のコンテンツ領域です。</p>
-  <p>色々文章を</p>
-  <p>書いておきます</p>
-  <p>スクロールしてみてください。</p>
+<div class="scrollarea">
+  <div class="content">
+    <p>最初のコンテンツ領域です。</p>
+    <p>色々文章を</p>
+    <p>書いておきます</p>
+  </div>
+  <div class="parallax1">背景が固定されている領域1</div>
+  <div class="parallax2">背景が固定されている領域2</div>
+  <div class="content">
+    <p>別のコンテンツ領域です。</p>
+    <p>背景が固定されているので、動きにズレが生まれます。</p>
+    <p>これがパララックス効果です。</p>
+  </div>
+  <div class="parallax3">背景が固定されている領域3</div>
 </div>
-
-<div class="parallax1">背景が固定されている領域1</div>
-<div class="parallax2">背景が固定されている領域2</div>
-
-<div class="content">
-  <p>別のコンテンツ領域です。</p>
-  <p>背景が固定されているので、動きにズレが生まれます。</p>
-  <p>これがパララックス効果です。</p>
-</div>
-
-<div class="parallax3">背景が固定されている領域3</div>
 ```
 
 ```css
-body {
-  margin: 0;
-}
-
-.content {
-  padding: 32px 16px;
-  background: #fff;
+.scrollarea {
+  height: 400px;
+  overflow: auto;
 }
 
 .parallax1,
 .parallax2,
 .parallax3 {
-  height: 520px;
+  height: 100%;
   background-attachment: fixed;
   background-size: cover;
   background-position: center center;
   color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 .parallax1 {
