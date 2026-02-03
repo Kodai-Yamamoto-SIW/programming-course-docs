@@ -1,4 +1,5 @@
 import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 import remarkGfm from 'remark-gfm';
 import nextra from 'nextra';
 
@@ -24,7 +25,11 @@ const nextConfig = {
     const assetCssPattern = /[\\/]content[\\/].*[\\/]assets[\\/].*\.css$/i;
     const staticMediaFilename = 'static/media/[name].[hash][ext]';
     const staticMediaPublicPath = '/_next/';
-    const staticMediaOutputPath = isServer ? '..' : undefined;
+    const projectRoot = fileURLToPath(new URL('.', import.meta.url));
+    const nextOutputRoot = path.join(projectRoot, '.next');
+    const staticMediaOutputPath = isServer
+      ? path.relative(config.output.path, nextOutputRoot)
+      : undefined;
 
     config.module.rules.unshift({
       test: assetCssPattern,
