@@ -1,12 +1,12 @@
 # programming-course-docs
 
-Programmingコースの **教材コンテンツ専用** リポジトリです。
+Course content repository for the Programming course.
 
-このリポジトリ自体は Next.js アプリではありません（サイト実行基盤は別リポジトリ `metyatech/course-docs-site` で共有します）。
+This repo is **content-only** (not a Next.js app). The shared site runtime lives in `metyatech/course-docs-site`.
 
 ## Local preview
 
-`course-docs-site` を使ってプレビューします。
+Use `course-docs-site` and point it at this content repo:
 
 ```sh
 git clone https://github.com/metyatech/course-docs-site.git
@@ -17,30 +17,40 @@ COURSE_CONTENT_REPO=metyatech/programming-course-docs npm run dev
 
 ## Deploy (Vercel)
 
-このリポジトリへの push をトリガに、GitHub Actions から Vercel CLI でデプロイします（`.github/workflows/deploy-vercel.yml`）。
+Deployment is done via GitHub Actions using the Vercel CLI (no Vercel GitHub integration).
+See `.github/workflows/deploy-vercel.yml`.
 
-必要な GitHub Actions secrets:
+Required GitHub Actions secrets:
 
 - `VERCEL_TOKEN`
 - `VERCEL_ORG_ID`
 - `VERCEL_PROJECT_ID`
 
-## Student works hosting (GitHub Pages)
+## Student works (GitHub Pages)
 
-student-works は別リポジトリ `metyatech/programming-course-student-works` で管理し、GitHub Pages に公開します（大容量のため分離）。
+Student works are hosted from a separate repository to avoid bloating this repo:
 
-サイト側は `NEXT_PUBLIC_WORKS_BASE_URL`（例: `https://metyatech.github.io/programming-course-student-works`）で参照します。
-また、作品一覧の表示に必要な `works-index.json` は student-works 側で自動生成されます。
+- Works repo: `metyatech/programming-course-student-works`
+- Pages base URL: `https://metyatech.github.io/programming-course-student-works`
 
-## AGENTS.md
+The course site uses `NEXT_PUBLIC_WORKS_BASE_URL` to build iframe URLs, and reads `works-index.json`
+from the same base URL.
 
-After cloning, initialize submodules:
+## Project files
+
+- `content/`: course pages (MDX)
+- `public/`: static files (e.g. `public/img/**`)
+- `site.config.ts`: per-course site configuration consumed by `course-docs-site`
+
+## Agent rules
+
+This repo includes `agent-rules-private` as a git submodule. Initialize it after cloning:
 
 ```bash
 git submodule update --init --recursive
 ```
 
-Regenerate `AGENTS.md`:
+Regenerate `AGENTS.md` after editing `agent-ruleset.json`:
 
 ```bash
 compose-agentsmd
