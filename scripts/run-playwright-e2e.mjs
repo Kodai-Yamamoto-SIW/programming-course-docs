@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import net from 'node:net';
 import path from 'node:path';
 
-const e2eYear = '2099-e2e';
+const e2eYear = '2099';
 
 const ensureE2EStudentWorks = () => {
   const basePath = path.join(

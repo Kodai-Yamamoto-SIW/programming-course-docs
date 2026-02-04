@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-const seedYear = '2099-e2e';
+const seedYear = '2099';
 const seedStudentId = '25020001';
 const nestedStudentId = '25020002';
 let introsStore: Map<string, string>;
