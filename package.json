@@ -17,8 +17,7 @@
   },
   "dependencies": {
     "@mdx-js/react": "^3.1.1",
-    "@metyatech/code-preview": "github:metyatech/code-preview#main",
-    "@metyatech/exercise": "github:metyatech/exercise-module",
+    "@metyatech/course-docs-platform": "github:metyatech/course-docs-platform#main",
     "@re-dev/react-truncate": "^0.5.2",
     "@supabase/supabase-js": "^2.49.1",
     "lucide-react": "^0.563.0",
@@ -35,7 +34,6 @@
     "@types/react-dom": "^19.2.3",
     "cross-env": "^10.1.0",
     "pagefind": "^1.4.0",
-    "remark-gfm": "^4.0.1",
     "tsx": "^4.20.5",
     "typescript": "^5.9.3"
   },

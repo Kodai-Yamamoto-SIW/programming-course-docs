@@ -1,7 +1,9 @@
 import { fileURLToPath } from 'node:url';
-import path from 'node:path';
-import remarkGfm from 'remark-gfm';
 import nextra from 'nextra';
+import {
+  applyCourseAssetWebpackRules,
+  courseMdxOptions,
+} from '@metyatech/course-docs-platform/next';
 
 const withNextra = nextra({
   defaultShowCopyCode: true,
@@ -9,7 +11,7 @@ const withNextra = nextra({
     codeblocks: false,
   },
   mdxOptions: {
-    remarkPlugins: [remarkGfm],
+    ...courseMdxOptions,
   },
 });
 
@@ -22,67 +24,8 @@ const nextConfig = {
   },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   webpack: (config, { isServer }) => {
-    const assetCssPattern = /[\\/]content[\\/].*[\\/]assets[\\/].*\.css$/i;
-    const staticMediaFilename = 'static/media/[name].[hash][ext]';
-    const staticMediaPublicPath = '/_next/';
     const projectRoot = fileURLToPath(new URL('.', import.meta.url));
-    const nextOutputRoot = path.join(projectRoot, '.next');
-    const staticMediaOutputPath = isServer
-      ? path.relative(config.output.path, nextOutputRoot)
-      : undefined;
-
-    config.module.rules.unshift({
-      test: assetCssPattern,
-      type: 'asset/resource',
-      generator: {
-        filename: staticMediaFilename,
-        publicPath: staticMediaPublicPath,
-        outputPath: staticMediaOutputPath,
-      },
-    });
-
-    const matchesExclude = (exclude, resourcePath) => {
-      if (!exclude) return false;
-      if (exclude instanceof RegExp) return exclude.test(resourcePath);
-      if (typeof exclude === 'function') return exclude(resourcePath);
-      return false;
-    };
-
-    for (const rule of config.module.rules) {
-      if (!rule.oneOf) continue;
-
-      for (const oneOfRule of rule.oneOf) {
-        if (!(oneOfRule.test instanceof RegExp)) continue;
-        if (!oneOfRule.test.test('test.css')) continue;
-
-        const existingExclude = oneOfRule.exclude;
-        oneOfRule.exclude = (resourcePath) => {
-          if (assetCssPattern.test(resourcePath)) return true;
-          if (!existingExclude) return false;
-          if (Array.isArray(existingExclude)) {
-            return existingExclude.some((exclude) =>
-              matchesExclude(exclude, resourcePath)
-            );
-          }
-          return matchesExclude(existingExclude, resourcePath);
-        };
-      }
-    }
-
-    config.module.rules.push({
-      test: /\.(png|jpe?g|gif|svg|webp|avif|ico|txt|zip|html)$/i,
-      type: 'asset/resource',
-      generator: {
-        filename: staticMediaFilename,
-        publicPath: staticMediaPublicPath,
-        outputPath: staticMediaOutputPath,
-      },
-    });
-
-    config.resolve.alias = {
-      ...(config.resolve.alias ?? {}),
-    };
-    return config;
+    return applyCourseAssetWebpackRules(config, { isServer, projectRoot });
   },
 };
 

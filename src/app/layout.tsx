@@ -1,4 +1,6 @@
 import 'nextra-theme-docs/style.css';
+import '@metyatech/course-docs-platform/styles/course-base.css';
+import '@metyatech/course-docs-platform/styles/course-admonition.css';
 import type { ReactNode } from 'react';
 import { Head } from 'nextra/components';
 import '@/styles/globals.css';
