@@ -6,11 +6,9 @@ on:
       - master
     paths:
       - "content/**"
-      - "public/**"
+      - "public/img/**"
       - "site.config.ts"
       - ".github/workflows/deploy-vercel.yml"
-    paths-ignore:
-      - "public/student-works/**"
   workflow_dispatch:
 
 permissions:
