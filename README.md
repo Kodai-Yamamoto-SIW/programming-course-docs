@@ -17,17 +17,20 @@ COURSE_CONTENT_REPO=metyatech/programming-course-docs npm run dev
 
 ## Deploy (Vercel)
 
-このリポジトリへの push をトリガに、Vercel の Deploy Hook を叩きます（`.github/workflows/deploy-vercel.yml`）。
+このリポジトリへの push をトリガに、GitHub Actions から Vercel CLI でデプロイします（`.github/workflows/deploy-vercel.yml`）。
 
 必要な GitHub Actions secrets:
 
-- `VERCEL_DEPLOY_HOOK_URL`
+- `VERCEL_TOKEN`
+- `VERCEL_ORG_ID`
+- `VERCEL_PROJECT_ID`
 
 ## Student works hosting (GitHub Pages)
 
-`.github/workflows/deploy-student-works-pages.yml` が `public/student-works` を GitHub Pages に公開します。
+student-works は別リポジトリ `metyatech/programming-course-student-works` で管理し、GitHub Pages に公開します（大容量のため分離）。
 
-サイト側は `NEXT_PUBLIC_WORKS_BASE_URL`（例: `https://metyatech.github.io/programming-course-docs`）で参照します。
+サイト側は `NEXT_PUBLIC_WORKS_BASE_URL`（例: `https://metyatech.github.io/programming-course-student-works`）で参照します。
+また、作品一覧の表示に必要な `works-index.json` は student-works 側で自動生成されます。
 
 ## AGENTS.md
 
@@ -42,4 +45,3 @@ Regenerate `AGENTS.md`:
 ```bash
 compose-agentsmd
 ```
-

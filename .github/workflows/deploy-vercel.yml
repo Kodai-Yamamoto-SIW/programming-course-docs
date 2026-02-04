@@ -24,7 +24,7 @@ jobs:
       VERCEL_CLI_VERSION: 50.9.6
       COURSE_CONTENT_REPO: metyatech/programming-course-docs
       COURSE_CONTENT_REF: master
-      NEXT_PUBLIC_WORKS_BASE_URL: https://metyatech.github.io/programming-course-docs
+      NEXT_PUBLIC_WORKS_BASE_URL: https://metyatech.github.io/programming-course-student-works
     steps:
       - name: Validate secrets
         run: |
