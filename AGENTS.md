@@ -376,7 +376,7 @@ Source: github:metyatech/agent-rules@HEAD/rules/domains/web/web-ui-and-testing.m
 - For cross-system integration flows, add an end-to-end test (or a contract test at the boundary). If impractical, document the limitation and get explicit user approval before skipping.
 - Use established icon libraries; do not handcraft custom icons or inline SVGs.
 
-Source: agent-rules-local/rules/course-site-metadata.md
+Source: agent-rules-private/rules/course-site-metadata.md
 
 ## 教材サイトのメタデータ/サイドバー
 
