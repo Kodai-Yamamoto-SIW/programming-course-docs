@@ -1,11 +1,11 @@
 import React from 'react';
 import { createCourseThemeConfig } from '@metyatech/course-docs-platform/nextra';
-import AdminFooterToggle from './src/components/submissions/admin-footer-toggle';
+import AdminFooterToggle from '@metyatech/course-docs-platform/submissions/admin-footer-toggle';
+import { siteConfig } from './site.config';
 
 export default createCourseThemeConfig({
-  logo: <span>プログラミング演習</span>,
-  projectLink: 'https://github.com/metyatech/programming-course-docs',
-  docsRepositoryBase:
-    'https://github.com/metyatech/programming-course-docs/tree/master',
+  logo: <span>{siteConfig.logoText}</span>,
+  projectLink: siteConfig.projectLink,
+  docsRepositoryBase: siteConfig.docsRepositoryBase,
   footerRight: <AdminFooterToggle />,
 });

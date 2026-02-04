@@ -1,9 +1,6 @@
 import { fileURLToPath } from 'node:url';
 import nextra from 'nextra';
-import {
-  applyCourseAssetWebpackRules,
-  courseMdxOptions,
-} from '@metyatech/course-docs-platform/next';
+import { applyCourseAssetWebpackRules, courseMdxOptions } from '@metyatech/course-docs-platform/next';
 
 const withNextra = nextra({
   defaultShowCopyCode: true,
