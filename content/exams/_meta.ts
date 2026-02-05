@@ -1,6 +1,5 @@
 const meta = {
-  "first-term": "前期",
-  "second-term": "後期"
+  "2025": "2025"
 };
 
 export default meta;
