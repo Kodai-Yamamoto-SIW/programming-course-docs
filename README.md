@@ -12,7 +12,7 @@ Use `course-docs-site` and point it at this content repo:
 git clone https://github.com/metyatech/course-docs-site.git
 cd course-docs-site
 npm install
-COURSE_CONTENT_REPO=metyatech/programming-course-docs npm run dev
+COURSE_CONTENT_SOURCE="github:metyatech/programming-course-docs#master" npm run dev
 ```
 
 ## Deploy (Vercel)
