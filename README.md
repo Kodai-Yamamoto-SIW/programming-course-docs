@@ -25,14 +25,10 @@ To preview the content locally, you must use the `course-docs-site` runtime and 
 git clone https://github.com/metyatech/course-docs-site.git
 cd course-docs-site
 npm install
-<<<<<<< HEAD
 
 # 2. Run the site pointing to this local content directory
 # Replace /path/to/programming-course-docs with your actual local path
-COURSE_CONTENT_REPO=path/to/programming-course-docs npm run dev
-=======
-COURSE_CONTENT_SOURCE="github:metyatech/programming-course-docs#master" npm run dev
->>>>>>> master
+COURSE_CONTENT_SOURCE=path/to/programming-course-docs npm run dev
 ```
 
 ## Development Commands
