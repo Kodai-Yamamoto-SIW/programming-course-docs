@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install compose-agentsmd
+        run: npm install -g compose-agentsmd
+
+      - name: Check AGENTS.md
+        run: compose-agentsmd --check
+
+      - name: Verify metadata structure
+        run: |
+          # Basic check to ensure _meta.ts exists where expected
+          test -f content/_meta.ts
+          test -f content/docs/_meta.ts
