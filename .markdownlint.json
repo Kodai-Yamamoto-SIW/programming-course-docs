@@ -1,0 +1,43 @@
+{
+  "default": true,
+  "MD013": false,
+  "MD033": {
+    "allowed_elements": [
+      "Exercise",
+      "Solution",
+      "CodePreview",
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4",
+      "Q5",
+      "Q6",
+      "Q7",
+      "Q8",
+      "Q9",
+      "iframe",
+      "SubmissionsPage",
+      "br",
+      "h1",
+      "h2",
+      "h3",
+      "h4",
+      "h5",
+      "h6",
+      "p",
+      "span",
+      "div",
+      "ul",
+      "ol",
+      "li",
+      "a",
+      "img",
+      "strong",
+      "small",
+      "head",
+      "body",
+      "html"
+    ]
+  },
+  "MD041": false
+}
