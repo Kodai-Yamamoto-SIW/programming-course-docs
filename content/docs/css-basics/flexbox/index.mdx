@@ -20,7 +20,7 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
 
 以下は、ショッピングサイトのヘッダーと商品一覧の例です。
 
-<CodePreview 
+<CodePreview
   htmlVisible={false}
   cssVisible={false}
   consoleVisible={false}
@@ -152,6 +152,7 @@ body {
   color: #1976d2;
 }
 ```
+
 </CodePreview>
 
 ---
@@ -163,6 +164,7 @@ body {
 **説明**: 親要素に `display: flex;` を指定すると、その要素は**フレックスコンテナ**となり、直下の子要素（**フレックスアイテム**）が横並びになります。
 
 **基本的な書き方**:
+
 ```css
 親要素のセレクタ {
     display: flex;
@@ -198,6 +200,7 @@ body {
   border: 2px solid #1976d2;
 }
 ```
+
 </CodePreview>
 
 親の `.oya` に `display: flex;` を指定すると、子要素の `.hako` が横並びになります。
@@ -213,7 +216,7 @@ body {
 
 3つのボタンが横に並ぶようにCSSを書いてください。下のプレビューのような見た目になるようにしてください。
 
-<CodePreview 
+<CodePreview
   sourceId="flex-ex1"
   cssVisible={false}
 >
@@ -234,6 +237,7 @@ body {
   border: 2px solid #1565c0;
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -241,6 +245,7 @@ body {
 <CodePreview sourceId="flex-ex1" htmlVisible={true} cssVisible={true} />
 
 **解説**:
+
 - `.btngroup` に `display: flex;` を指定することで、直下の `.btn` 要素（`div`）が横並びになります。
 - `div` は通常 `display: block` なので縦に並びますが、親に `display: flex` を指定することで横並びになります。
 
@@ -257,6 +262,7 @@ body {
 **説明**: `gap` プロパティは、フレックスアイテム同士の間隔を一括で指定できます。
 
 **基本的な書き方**:
+
 ```css
 親要素のセレクタ {
     display: flex;
@@ -309,6 +315,7 @@ body {
   color: #fff;
 }
 ```
+
 </CodePreview>
 
 `gap: 16px;` を指定すると、要素間に16pxの余白が自動的に入ります。
@@ -319,7 +326,7 @@ body {
 
 3つのカードが横に並び、カード間に余白が入るようにCSSを書いてください。下のプレビューのような見た目になるようにしてください。
 
-<CodePreview 
+<CodePreview
   sourceId="flex-ex2"
   cssVisible={false}
 >
@@ -343,6 +350,7 @@ body {
   border: 1px solid #ddd;
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -350,6 +358,7 @@ body {
 <CodePreview sourceId="flex-ex2" htmlVisible={true} cssVisible={true} />
 
 **解説**:
+
 - `display: flex;` で横並びにし、`gap: 12px;` で要素間の余白を指定します。
 - `gap` を使うことで、各カードに個別に `margin` を指定する必要がなくなります。
 
@@ -363,7 +372,7 @@ body {
 
 ナビゲーションメニューのリンクが横に並び、リンク間に余白が入るようにCSSを書いてください。下のプレビューのような見た目になるようにしてください。
 
-<CodePreview 
+<CodePreview
   sourceId="flex-ex2-adv"
   cssVisible={false}
 >
@@ -382,6 +391,7 @@ body {
   gap: 20px;
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -389,6 +399,7 @@ body {
 <CodePreview sourceId="flex-ex2-adv" htmlVisible={true} cssVisible={true} />
 
 **解説**:
+
 - ナビゲーションメニューは、Flexboxを使った横並びレイアウトの典型的な例です。
 - `gap` を使うことで、リンク間の余白を統一できます。
 
@@ -405,6 +416,7 @@ body {
 **説明**: `justify-content` プロパティは、フレックスアイテムを主軸（横並びの場合は横方向）に沿ってどのように配置するかを指定します。
 
 **主な値**:
+
 - `flex-start`（初期値）：先頭に寄せる（左寄せ）
 - `flex-end`：末尾に寄せる（右寄せ）
 - `center`：中央に寄せる
@@ -413,6 +425,7 @@ body {
 - `space-evenly`：すべての余白を均等に空ける
 
 **基本的な書き方**:
+
 ```css
 親要素のセレクタ {
     display: flex;
@@ -507,6 +520,7 @@ body {
   color: #fff;
 }
 ```
+
 </CodePreview>
 
 それぞれの `justify-content` の値によって、要素の配置が変わることを確認してください。
@@ -517,7 +531,7 @@ body {
 
 2つのボタンが中央に配置され、ボタン間に余白が入るようにCSSを書いてください。下のプレビューのような見た目になるようにしてください。
 
-<CodePreview 
+<CodePreview
   sourceId="flex-ex3"
   cssVisible={false}
 >
@@ -539,6 +553,7 @@ button {
   border: 2px solid #388e3c;
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -546,6 +561,7 @@ button {
 <CodePreview sourceId="flex-ex3" htmlVisible={true} cssVisible={true} />
 
 **解説**:
+
 - `justify-content: center;` で要素を中央に配置します。
 - `gap` で要素間の余白も指定しています。
 
@@ -559,7 +575,7 @@ button {
 
 ヘッダー内で、ロゴを左端に、ナビゲーションメニューを右端に配置してください。ナビゲーションメニューのリンクは横に並び、リンク間に余白が入るようにしてください。下のプレビューのような見た目になるようにしてください。
 
-<CodePreview 
+<CodePreview
   sourceId="flex-ex3-adv"
   cssVisible={false}
 >
@@ -585,6 +601,7 @@ button {
   gap: 16px;
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -592,6 +609,7 @@ button {
 <CodePreview sourceId="flex-ex3-adv" htmlVisible={true} cssVisible={true} />
 
 **解説**:
+
 - `justify-content: space-between;` で、最初の要素（ロゴ）を左端、最後の要素（ナビゲーション）を右端に配置します。
 - ヘッダーレイアウトの典型的なパターンです。
 
@@ -605,7 +623,7 @@ button {
 
 4つのアイコンが横に並び、すべての余白（左端・アイコン間・右端）が均等になるようにCSSを書いてください。下のプレビューのような見た目になるようにしてください。
 
-<CodePreview 
+<CodePreview
   sourceId="flex-ex3-adv2"
   cssVisible={false}
 >
@@ -624,6 +642,7 @@ button {
   justify-content: space-evenly;
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -631,6 +650,7 @@ button {
 <CodePreview sourceId="flex-ex3-adv2" htmlVisible={true} cssVisible={true} />
 
 **解説**:
+
 - `justify-content: space-evenly;` で、すべての余白を均等に配置します。
 - モバイルアプリのような下部ナビゲーションバーでよく使われるパターンです。
 
@@ -647,10 +667,12 @@ button {
 **説明**: `flex-wrap` プロパティは、フレックスアイテムが親要素の幅に収まらない場合に、折り返すかどうかを指定します。
 
 **主な値**:
+
 - `nowrap`（初期値）：折り返さない（1行に収める）
 - `wrap`：折り返す（複数行になる）
 
 **基本的な書き方**:
+
 ```css
 親要素のセレクタ {
     display: flex;
@@ -708,6 +730,7 @@ button {
   color: #fff;
 }
 ```
+
 </CodePreview>
 
 `flex-wrap: nowrap;` では要素が1行に収まるように縮小されますが、`flex-wrap: wrap;` では折り返して複数行になります。
@@ -718,7 +741,7 @@ button {
 
 商品カードが横に並び、親要素の幅に収まらない場合は次の行に折り返されるようにCSSを書いてください。カード間には余白を入れてください。下のプレビューのような見た目になるようにしてください。
 
-<CodePreview 
+<CodePreview
   sourceId="flex-ex4"
   cssVisible={false}
 >
@@ -746,6 +769,7 @@ button {
   border: 1px solid #90caf9;
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -753,6 +777,7 @@ button {
 <CodePreview sourceId="flex-ex4" htmlVisible={true} cssVisible={true} />
 
 **解説**:
+
 - `flex-wrap: wrap;` で要素が折り返されます。
 - 商品一覧やギャラリーなど、レスポンシブなグリッドレイアウトに最適です。
 
@@ -766,7 +791,7 @@ button {
 
 タグが中央に配置され、横に並び、親要素の幅に収まらない場合は次の行に折り返されるようにCSSを書いてください。タグ間には余白を入れてください。下のプレビューのような見た目になるようにしてください。
 
-<CodePreview 
+<CodePreview
   sourceId="flex-ex4-adv"
   cssVisible={false}
 >
@@ -795,6 +820,7 @@ button {
   border: 1px solid #2196f3;
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -802,6 +828,7 @@ button {
 <CodePreview sourceId="flex-ex4-adv" htmlVisible={true} cssVisible={true} />
 
 **解説**:
+
 - `flex-wrap: wrap;` で折り返し、`justify-content: center;` で中央寄せにします。
 - タグクラウドやラベル一覧など、動的なコンテンツの表示に便利です。
 
@@ -815,7 +842,7 @@ button {
 
 画像が横に並び、親要素の幅に収まらない場合は次の行に折り返されるようにCSSを書いてください。画像間には余白を入れてください。下のプレビューのような見た目になるようにしてください。
 
-<CodePreview 
+<CodePreview
   sourceId="flex-ex4-adv2"
   cssVisible={false}
 >
@@ -845,6 +872,7 @@ button {
   border: 1px solid #999;
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -852,6 +880,7 @@ button {
 <CodePreview sourceId="flex-ex4-adv2" htmlVisible={true} cssVisible={true} />
 
 **解説**:
+
 - `display: flex;` と `flex-wrap: wrap;` を組み合わせることで、画像ギャラリーのようなレスポンシブなグリッドレイアウトが作れます。
 - `gap` で画像間の余白を統一します。
 
@@ -865,7 +894,7 @@ button {
 
 カードが中央に配置され、横に並び、親要素の幅に収まらない場合は次の行に折り返されるようにCSSを書いてください。カード間には余白を入れてください。下のプレビューのような見た目になるようにしてください。
 
-<CodePreview 
+<CodePreview
   sourceId="flex-ex4-adv3"
   cssVisible={false}
 >
@@ -903,6 +932,7 @@ button {
   border: 1px solid #e0e0e0;
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -910,6 +940,7 @@ button {
 <CodePreview sourceId="flex-ex4-adv3" htmlVisible={true} cssVisible={true} />
 
 **解説**:
+
 - `display: flex;` で横並び、`flex-wrap: wrap;` で折り返し、`gap: 20px;` で余白、`justify-content: center;` で中央寄せを実現します。
 - これらのプロパティを組み合わせることで、実用的なカードレイアウトが簡単に作れます。
 
@@ -946,9 +977,8 @@ Flexboxは、現代のWebレイアウトで最も重要な技術の1つです。
 
 最後に、練習として次のデザイン通りのサイトを作ってみましょう。
 
-デザインへのリンク: https://www.figma.com/design/hvae4QKzBkGi79L6AAIsKF/Website-of-architects---free-website--Community-?node-id=0-1&t=VwT0ZkKsl6b6cwEm-1
+デザインへのリンク: <https://www.figma.com/design/hvae4QKzBkGi79L6AAIsKF/Website-of-architects---free-website--Community-?node-id=0-1&t=VwT0ZkKsl6b6cwEm-1>
 
 ### 著作権元
+
 <p style={{ fontSize: "0.8em" }}><a href="https://www.figma.com/community/file/891374608655348853" target="_blank" rel="noopener noreferrer">上述のデザインの元デザイン</a></p>
-
-

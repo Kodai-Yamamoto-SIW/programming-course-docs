@@ -22,6 +22,7 @@ transition: プロパティ名 時間;
 ```
 
 **例**:
+
 ```css
 .button {
     background-color: blue;
@@ -68,6 +69,7 @@ transition: プロパティ名 時間;
     transform: translateY(0px);
 }
 ```
+
 </CodePreview>
 
 ### 演習1
@@ -77,11 +79,13 @@ transition: プロパティ名 時間;
 以下のHTMLを使って、基本的なボタンアニメーションを作ってみましょう。
 
 **HTML**:
+
 ```html
 <button class="btn2">クリックしてね</button>
 ```
 
 **要件**:
+
 - 通常時：背景色`#27ae60`、文字色`white`、パディング`10px 20px`、枠線なし、角の丸み`5px`、カーソルをポインター表示
 - ホバー時：背景色`#229954`
 - アニメーション：背景色の変化を0.25秒で滑らかに
@@ -108,6 +112,7 @@ transition: プロパティ名 時間;
     background-color: #229954;
 }
 ```
+
 </CodePreview>
 </Solution>
 
@@ -120,11 +125,13 @@ transition: プロパティ名 時間;
 以下のHTMLを使って、上下に動くボタンを作ってみましょう。
 
 **HTML**:
+
 ```html
 <button class="btn3">上下に動くボタン</button>
 ```
 
 **要件**:
+
 - 通常時：背景色`#e74c3c`、文字色`white`、パディング`15px 25px`、枠線なし、角の丸み`5px`、カーソルをポインター表示
 - ホバー時：3px上に移動、背景色`#c0392b`
 - アクティブ時：元の位置に戻る
@@ -157,6 +164,7 @@ transition: プロパティ名 時間;
     transform: translateY(0px);
 }
 ```
+
 </CodePreview>
 </Solution>
 
@@ -169,5 +177,3 @@ transition: プロパティ名 時間;
 **transitionプロパティ**を使って、疑似クラス（`:hover`、`:active`など）と組み合わせることで、滑らかなアニメーション効果を作ることができます。
 
 基本構文：`transition: プロパティ名 時間;`
-
-

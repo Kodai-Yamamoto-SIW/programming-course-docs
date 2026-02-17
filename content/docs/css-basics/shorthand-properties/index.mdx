@@ -21,6 +21,7 @@ title: 一括指定プロパティ
 **一括指定プロパティ（shorthand property）** とは、複数の関連するプロパティを1つのプロパティでまとめて指定できる仕組みです。
 
 例えば、`margin`プロパティは実際には以下の4つのプロパティをまとめて指定しています：
+
 - `margin-top`（上の余白）
 - `margin-right`（右の余白）
 - `margin-bottom`（下の余白）
@@ -70,6 +71,7 @@ div {
   background-color: lightgreen;
 }
 ```
+
 </CodePreview>
 
 ### 部分的な指定も可能
@@ -101,11 +103,13 @@ div {
   background-color: lightcoral;
 }
 ```
+
 </CodePreview>
 
 > [!TIP]
 >
 > **使い分けのポイント**
+>
 > - **同じ値を全方向に設定**：一括指定（`padding: 20px;`）が便利
 > - **特定の方向だけ設定**：個別指定（`padding-top: 30px;`）を使用
 > - **方向ごとに違う値**：一括指定の複数値指定（`padding: 10px 20px;`）も可能
@@ -117,6 +121,7 @@ div {
 ### 🔲 borderプロパティの構成要素
 
 `border`プロパティは、実際には以下の3つのプロパティを一括で指定しています：
+
 ```css
 border: 太さ スタイル 色;
 ```
@@ -147,6 +152,7 @@ border: 太さ スタイル 色;
   border-color: red;
 }
 ```
+
 </CodePreview>
 
 ### 方向別のborder指定
@@ -165,9 +171,11 @@ borderも方向別に個別指定することができます：
   border-bottom: 3px solid blue;
 }
 ```
+
 </CodePreview>
 
 **方向別のborderプロパティ**：
+
 - `border-top`：上の線
 - `border-right`：右の線  
 - `border-bottom`：下の線
@@ -179,7 +187,7 @@ borderも方向別に個別指定することができます：
 
 以下のHTMLに対して、コメントのようになるように CSS を書いてください。
 
-<CodePreview 
+<CodePreview
   sourceId="border-exercise-1"
   cssVisible={false}
 >
@@ -211,6 +219,7 @@ div {
   border-top: 3px double red;
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -218,6 +227,7 @@ div {
 <CodePreview sourceId="border-exercise-1"/>
 
 **解説**:
+
 - 方向別borderプロパティを使用して、必要な箇所にだけ線を追加
 - `double`スタイルは二重線を表示
 - レイアウトの区切りとして、視覚的に分かりやすい境界線を作成
@@ -234,9 +244,11 @@ div {
 ### 📝 fontプロパティの構成要素
 
 `font`プロパティは、テキストに関する複数のプロパティを一括で指定できます（ホントはもっとたくさんありますが一部抜粋）：
+
 ```css
 font: スタイル 太さ サイズ フォントファミリー;
 ```
+
 ※ スタイル、太さは順不同、省略可
 
 1. **font-style**：文字のスタイル：normal (通常体)、italic (筆記体)、oblique (斜体)
@@ -268,6 +280,7 @@ font: スタイル 太さ サイズ フォントファミリー;
   font-family: "Yu Gothic", sans-serif;
 }
 ```
+
 </CodePreview>
 
 ### フォントファミリーの「カンマ区切り」について
@@ -278,9 +291,11 @@ font: スタイル 太さ サイズ フォントファミリー;
   - 最後に書く `serif` / `sans-serif` / `monospace` のような「ジェネリックファミリー」は、指定したフォントが全部無かったときに、似た種類のフォントをブラウザに自動で選ばせるための保険です。
 
 具体例：
+
 ```
 font-family: "Yu Mincho", "Hiragino Mincho ProN", "Meiryo", serif;
 ```
+
 - 意味：まずYu Mincho（Yu Mincho）があれば使う。なければヒラギノ明朝、なければ Meiryo、最後にシステムの明朝系フォント（serif）を使う、という順番になります。
 - ポイント：上にあるフォントほど優先度が高い。必ず最後にジェネリックファミリーを1つ入れておくと、フォントが全く無い環境でも見た目の崩れを小さくできます。一般的に、明朝体なら`serif`、ゴシック体なら`sans-serif`を指定します。
 
@@ -290,7 +305,7 @@ font-family: "Yu Mincho", "Hiragino Mincho ProN", "Meiryo", serif;
 
 以下のHTMLに対して、コメントのようになるように CSS を書いてください。
 
-<CodePreview 
+<CodePreview
   sourceId="font-exercise-2"
   cssVisible={false}
 >
@@ -319,7 +334,8 @@ font-family: "Yu Mincho", "Hiragino Mincho ProN", "Meiryo", serif;
   font-family: "Yu Gothic", sans-serif;
 }
 ```
-</CodePreview> 
+
+</CodePreview>
 
 <Solution>
 
@@ -335,7 +351,7 @@ font-family: "Yu Mincho", "Hiragino Mincho ProN", "Meiryo", serif;
 
 以下のHTMLに対して、コメントのようになるように CSS を書いてください。
 
-<CodePreview 
+<CodePreview
   sourceId="font-exercise-2-advanced"
   cssVisible={false}
 >
@@ -369,7 +385,8 @@ font-family: "Yu Mincho", "Hiragino Mincho ProN", "Meiryo", serif;
   font: 14px "Yu Gothic", sans-serif;
 }
 ```
-</CodePreview> 
+
+</CodePreview>
 
 <Solution>
 
@@ -386,9 +403,11 @@ font-family: "Yu Mincho", "Hiragino Mincho ProN", "Meiryo", serif;
 ### 🎨 backgroundプロパティの構成要素
 
 `background`プロパティは、背景に関する複数のプロパティを一括で指定できます：
+
 ```css
 background: <image> <repeat> <position> / <size> <attachment> <color>;
 ```
+
 ※ いずれも順不同、省略可だが、`<position>` と `<size>` のみ、 `<position> / <size>` の順でスラッシュで区切る必要がある。
 
 1. **background-color**：背景色
@@ -428,6 +447,7 @@ div {
   background-color: lightblue;
 }
 ```
+
 </CodePreview>
 
 ### よく使われるbackgroundパターン
@@ -463,6 +483,7 @@ div {
   background: url("./img/background-sample.png") no-repeat right lightgreen;
 }
 ```
+
 </CodePreview>
 
 ### 演習3
@@ -476,7 +497,7 @@ div {
   fileStructureVisible={true}
   cssVisible={false}
   images={{
- "img/fence.png": new URL("./img/fence.png", import.meta.url).toString() 
+ "img/fence.png": new URL("./img/fence.png", import.meta.url).toString()
   }}
   cssPath="css/style.css"
 >
@@ -505,6 +526,7 @@ div {
   background-color: #839fbb;
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -521,12 +543,12 @@ div {
 
 以下のHTMLに対して、コメントのようになるように CSS を書いてください。
 
-<CodePreview 
+<CodePreview
   sourceId="background-exercise-3-advanced"
   fileStructureVisible={true}
   cssVisible={false}
   images={{
- "img/fence.png": new URL("./img/fence.png", import.meta.url).toString() 
+ "img/fence.png": new URL("./img/fence.png", import.meta.url).toString()
   }}
   cssPath="css/style.css"
 >
@@ -545,14 +567,17 @@ div {
   height: 250px;
 }
 ```
+
 </CodePreview>
 
 > [!TIP]
 >
 > **ヒント**
+>
 > ```css
 > background: <image> <repeat> <position> / <size> <attachment> <color>;
 > ```
+>
 > ※ いずれも順不同、省略可だが、`<position>` と `<size>` のみ、 `<position> / <size>` の順でスラッシュで区切る必要がある。
 
 <Solution>
@@ -560,6 +585,7 @@ div {
 <CodePreview sourceId="background-exercise-3-advanced" fileStructureVisible={true}/>
 
 **解説**:
+
 - `background` の一括指定で、画像の位置・繰り返し・サイズ・背景色を1行でまとめて指定しています。
 - 画像サイズを変えたい場合は「/」スラッシュの後ろにサイズ（例: 120px auto）を指定します。
 - 今回は「フェンス画像を幅120px・高さ自動」で横方向に繰り返すため、
@@ -580,6 +606,7 @@ div {
 
 - CSS の `background` はカンマ（,）で区切って複数指定できます。複数指定すると、**先頭の指定が一番上に表示され、以降の指定がその下に重なります**。
 - 書き方の例：
+
   ```
   background:
     background1,
@@ -587,6 +614,7 @@ div {
     ...,
     backgroundN;
   ```
+
 - その際、背景色は最後の1つ（backgroundN）にしか指定できません。（背景色は一番後ろだから、と覚えると覚えやすい）
 
 具体例：
@@ -611,6 +639,7 @@ div {
     url("./img/trains.png") repeat-x center top #fdf;
 }
 ```
+
 </CodePreview>
 
 ### 演習4
@@ -624,7 +653,7 @@ div {
   fileStructureVisible={true}
   cssVisible={false}
   images={{
- "img/dinosaur.png": new URL("./img/docusaurus.png", import.meta.url).toString(), "img/fence.png": new URL("./img/fence.png", import.meta.url).toString() 
+ "img/dinosaur.png": new URL("./img/docusaurus.png", import.meta.url).toString(), "img/fence.png": new URL("./img/fence.png", import.meta.url).toString()
   }}
   cssPath="css/style.css"
 >
@@ -648,6 +677,7 @@ div {
     url("../img/dinosaur.png") no-repeat center bottom #f0f8ff;
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -695,6 +725,7 @@ div {
     url("../img/pattern.jpg") repeat center center / 100px auto;
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -711,9 +742,8 @@ div {
 
 最後に、練習として次のデザイン通りのサイトを作ってみましょう。
 
-デザインへのリンク: https://www.figma.com/design/gJBGYlSMeqickBiBXCLuVI/shorthand-property-practice?node-id=0-1&t=JGIWuj6jvssdAzn3-1
+デザインへのリンク: <https://www.figma.com/design/gJBGYlSMeqickBiBXCLuVI/shorthand-property-practice?node-id=0-1&t=JGIWuj6jvssdAzn3-1>
 
 ### 著作権元
+
 <p style={{ fontSize: "0.8em" }}><a href="https://www.figma.com/community/file/993910904620677970/travel-website-landing-page" target="_blank" rel="noopener noreferrer">上述のデザインの元デザイン</a></p>
-
-

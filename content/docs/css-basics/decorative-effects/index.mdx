@@ -9,10 +9,12 @@ title: 装飾エフェクト
 このページでは、border-radius、text-shadow、box-shadow、グラデーションといった、ウェブサイトを視覚的に魅力的にするための装飾エフェクトを学びます。これらの技術は、ボタンやカード、ヘッダーなど、あらゆる要素をデザインする際に幅広く使われています。例えば、オンラインショップの商品カードに影をつけて立体感を出したり、ボタンに丸みをつけてやさしい印象にしたり、見出しにグラデーションを使って目を引くデザインにしたりします。
 
 ### 例: プロモーションカードのデザイン
+
 <CodePreview
   htmlVisible={false}
   cssVisible={false}
   previewVisible={true}>
+
 ```html
 <div class="promo-card">
   <div class="promo-badge">NEW</div>
@@ -78,6 +80,7 @@ title: 装飾エフェクト
   transform: translateY(-2px);
 }
 ```
+
 </CodePreview>
 
 ## border-radius（角の丸み）
@@ -85,6 +88,7 @@ title: 装飾エフェクト
 `border-radius` は要素の角を丸くするプロパティです。値を大きくするほど丸みが強くなります。
 
 **書き方:**
+
 ```css
 border-radius: 値;
 ```
@@ -129,6 +133,7 @@ border-radius: 値;
   text-align: center;
 }
 ```
+
 </CodePreview>
 
 ![border-radiusのイメージ](./img/border-radius.png)
@@ -138,6 +143,7 @@ border-radius: 値;
 4つの角を個別に指定することもできます。
 
 **書き方:**
+
 ```css
 border-radius: 左上 右上 右下 左下;
 ```
@@ -159,6 +165,7 @@ border-radius: 左上 右上 右下 左下;
   background: #ffe5cc;
 }
 ```
+
 </CodePreview>
 
 ### 演習1（角丸ボタンを作る）
@@ -191,6 +198,7 @@ border-radius: 左上 右上 右下 左下;
   text-align: center;
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -198,6 +206,7 @@ border-radius: 左上 右上 右下 左下;
 <CodePreview sourceId="exercise1" />
 
 **解説:**
+
 - `border-radius: 8px;` で角を丸くしています。
 - `padding: 12px 24px;` で上下と左右のパディングを指定しています。
 
@@ -234,6 +243,7 @@ border-radius: 左上 右上 右下 左下;
   text-align: center;
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -241,6 +251,7 @@ border-radius: 左上 右上 右下 左下;
 <CodePreview sourceId="exercise2" />
 
 **解説:**
+
 - `border-radius: 50%;` で正方形を完全な円にできます。
 - `text-align: center;` でテキストを左右中央に配置しています。
 
@@ -275,6 +286,7 @@ border-radius: 左上 右上 右下 左下;
   border-radius: 20px 20px 20px 0;
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -282,6 +294,7 @@ border-radius: 左上 右上 右下 左下;
 <CodePreview sourceId="exercise2-advanced" />
 
 **解説:**
+
 - `border-radius: 20px 20px 20px 0;` で左下の角だけ丸くしないことで、吹き出しのような形を作れます。
 - 4つの値は「左上 右上 右下 左下」の順番です。
 
@@ -293,6 +306,7 @@ border-radius: 左上 右上 右下 左下;
 `text-shadow` は文字に影をつけるプロパティです。立体感や強調効果を出せます。
 
 **書き方:**
+
 ```css
 text-shadow: 横方向 縦方向 ぼかし 色;
 ```
@@ -324,6 +338,7 @@ text-shadow: 横方向 縦方向 ぼかし 色;
   color: #ff6b6b;
 }
 ```
+
 </CodePreview>
 
 ### 演習3（影付き見出しを作る）
@@ -350,6 +365,7 @@ text-shadow: 横方向 縦方向 ぼかし 色;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -357,6 +373,7 @@ text-shadow: 横方向 縦方向 ぼかし 色;
 <CodePreview sourceId="exercise3" />
 
 **解説:**
+
 - `text-shadow` の値は「横 縦 ぼかし 色」の順で指定します。
 - `rgba(0, 0, 0, 0.4)` で半透明の黒い影を指定しています。
 
@@ -368,6 +385,7 @@ text-shadow: 横方向 縦方向 ぼかし 色;
 `box-shadow` は要素全体に影をつけるプロパティです。カードやボタンに立体感を出すのに使います。
 
 **書き方:**
+
 ```css
 box-shadow: 横方向 縦方向 ぼかし 色;
 ```
@@ -377,6 +395,7 @@ box-shadow: 横方向 縦方向 ぼかし 色;
 - 色: 影の色
 
 **ポイント:**
+
 - 横方向を `0` にして縦方向だけ指定すると、下に影が落ちて浮いた感じになる
 
 **例:**
@@ -408,6 +427,7 @@ box-shadow: 横方向 縦方向 ぼかし 色;
   border-radius: 8px;
 }
 ```
+
 </CodePreview>
 
 ### 演習4（影付きカードを作る）
@@ -438,6 +458,7 @@ box-shadow: 横方向 縦方向 ぼかし 色;
   box-shadow: 0 6px 16px rgba(0,0,0,0.25);
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -445,6 +466,7 @@ box-shadow: 横方向 縦方向 ぼかし 色;
 <CodePreview sourceId="exercise4" />
 
 **解説:**
+
 - 横方向を `0` にすることで、影が左右対称になります。
 
 </Solution>
@@ -482,6 +504,7 @@ box-shadow: 横方向 縦方向 ぼかし 色;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -489,6 +512,7 @@ box-shadow: 横方向 縦方向 ぼかし 色;
 <CodePreview sourceId="exercise4-advanced" />
 
 **解説:**
+
 - `:hover` 疑似クラスを使って、マウスを重ねたときに影を強くしています。
 
 </Solution>
@@ -499,6 +523,7 @@ box-shadow: 横方向 縦方向 ぼかし 色;
 `linear-gradient` は直線的なグラデーションを持つ画像を生成するCSS関数です。背景に使うことで、単色よりも豊かな表現ができます。
 
 **書き方:**
+
 ```css
 background: linear-gradient(方向, 開始色, 終了色);
 ```
@@ -540,6 +565,7 @@ background: linear-gradient(方向, 開始色, 終了色);
   margin: 10px 0;
 }
 ```
+
 </CodePreview>
 
 ![linear-gradientの角度指定の意味](./img/linear-gradient.png)
@@ -568,6 +594,7 @@ background: linear-gradient(方向, 開始色, 終了色);
   background: linear-gradient(to right, #ff6b6b, #4ecdc4);
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -575,6 +602,7 @@ background: linear-gradient(方向, 開始色, 終了色);
 <CodePreview sourceId="exercise5" />
 
 **解説:**
+
 - `linear-gradient(to right, #ff6b6b, #4ecdc4)` で左から右へのグラデーション画像を生成しています。
 - `background` や `background-image` プロパティに指定できます。
 
@@ -586,6 +614,7 @@ background: linear-gradient(方向, 開始色, 終了色);
 `radial-gradient` は中心から外側へ広がる円形のグラデーションを持つ画像を生成するCSS関数です。
 
 **書き方:**
+
 ```css
 background: radial-gradient(形状, 開始色, 終了色);
 ```
@@ -620,6 +649,7 @@ background: radial-gradient(形状, 開始色, 終了色);
   text-align: center;
 }
 ```
+
 </CodePreview>
 
 ### 演習6（円形グラデーションボタンを作る）
@@ -654,6 +684,7 @@ background: radial-gradient(形状, 開始色, 終了色);
   font-size: 20px;
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -661,6 +692,7 @@ background: radial-gradient(形状, 開始色, 終了色);
 <CodePreview sourceId="exercise6" />
 
 **解説:**
+
 - `radial-gradient(circle, #6bcf7f, #4a90e2)` で中心から外側へのグラデーション画像を生成しています。
 - `border-radius: 50%;` と組み合わせることで、円形になります。
 
@@ -701,6 +733,7 @@ background: radial-gradient(形状, 開始色, 終了色);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -708,6 +741,7 @@ background: radial-gradient(形状, 開始色, 終了色);
 <CodePreview sourceId="exercise6-advanced" />
 
 **解説:**
+
 - `border-radius`、`box-shadow`、`text-shadow`、`linear-gradient` を組み合わせることで、複数の装飾を同時に使えます。
 
 </Solution>
@@ -717,9 +751,8 @@ background: radial-gradient(形状, 開始色, 終了色);
 
 最後に、練習として次のデザイン通りのサイトを作ってみましょう。
 
-デザインへのリンク: https://www.figma.com/design/nAh5Afbk4orz7pzNTkWXTi/Cooking-Template-%F0%9F%9F%A3-by-Flowbase.co--Community-?node-id=1-296&t=E5hswHM2pZZuyH0L-1
+デザインへのリンク: <https://www.figma.com/design/nAh5Afbk4orz7pzNTkWXTi/Cooking-Template-%F0%9F%9F%A3-by-Flowbase.co--Community-?node-id=1-296&t=E5hswHM2pZZuyH0L-1>
 
 ### 著作権元
+
 <p style={{ fontSize: "0.8em" }}><a href="https://www.figma.com/community/file/1093372331682706566" target="_blank" rel="noopener noreferrer">上述のデザインの元デザイン</a></p>
-
-
