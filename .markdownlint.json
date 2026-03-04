@@ -39,5 +39,12 @@
       "html"
     ]
   },
-  "MD041": false
+  "MD041": false,
+  "MD024": {
+    "siblings_only": true
+  },
+  "MD025": false,
+  "MD028": false,
+  "MD036": false,
+  "MD060": false
 }
