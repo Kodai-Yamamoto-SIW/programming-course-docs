@@ -2,7 +2,6 @@
 sidebar_position: 9
 ---
 
-
 # CSSセレクタ（基礎）
 
 セレクタは、どの要素にスタイルを当てるかを決めるための書き方です。
@@ -12,6 +11,7 @@ sidebar_position: 9
 ## セレクタとは？
 
 セレクタは「どの要素に当てるか」を選ぶ仕組みです。
+
 - 例：`p { color: red; }` は「すべての p に赤色を当てる」。
 - `#ichiban { ... }` は「id が ichiban の1つだけに当てる」。
 - `.aka { ... }` は「class が aka のもの全部に当てる」。
@@ -40,12 +40,13 @@ HTMLのタグ名を書くだけで、そのタグすべてに当たります。
 
 ```css
 h2 {
-  color: #1565FF;
+  color: #1565ff;
 }
 p {
-  color: #E53935;
+  color: #e53935;
 }
 ```
+
 </CodePreview>
 
 ポイント：特定のタグに一括で同じ見た目を当てたいときに便利です。
@@ -74,9 +75,10 @@ p {
 
 ```css
 .aka {
-  color: #E53935;
+  color: #e53935;
 }
 ```
+
 </CodePreview>
 
 ポイント：同じ役割の見た目をまとめて当てたいときに使います。
@@ -106,9 +108,10 @@ p {
 
 ```css
 #ichiban {
-  color: #6200EA;
+  color: #6200ea;
 }
 ```
+
 </CodePreview>
 
 ポイント：ページ内で「一つだけ特別にしたい」ときに使います。
@@ -141,9 +144,10 @@ p {
 
 ```css
 .oya p {
-  color: #00A152;
+  color: #00a152;
 }
 ```
+
 </CodePreview>
 
 ポイント：`.oya p` は「class が oya の中にある p だけ」で、
@@ -152,7 +156,7 @@ p {
 
 ---
 
-## 全称セレクタ（*）
+## 全称セレクタ（\*）
 
 すべての要素に当てます。全体の基本スタイルを軽く整えるときに使えます。
 
@@ -173,9 +177,10 @@ p {
 
 ```css
 * {
-  color: #1E88E5;
+  color: #1e88e5;
 }
 ```
+
 </CodePreview>
 
 > [!CAUTION]
@@ -193,7 +198,8 @@ p {
 構文:
 
 ```css
-セレクタA, セレクタB {
+セレクタA,
+セレクタB {
   プロパティ: 値;
 }
 ```
@@ -207,10 +213,13 @@ p {
 ```
 
 ```css
-h2, h3, .danraku {
-  color: #6200EA;
+h2,
+h3,
+.danraku {
+  color: #6200ea;
 }
 ```
+
 </CodePreview>
 
 ---
@@ -236,7 +245,8 @@ h2, h3, .danraku {
 - h1と「ookii」クラスをまとめて大きく
 
 ```css
-h1, .ookii {
+h1,
+.ookii {
   font-size: 32px;
 }
 ```
@@ -268,9 +278,10 @@ h1, .ookii {
 
 ```css
 .oya > p {
-  color: #00A152;
+  color: #00a152;
 }
 ```
+
 </CodePreview>
 
 ポイント：`.oya > p` は「.oya のすぐ下にある p だけ」。入れ子のさらに中の p には当たりません。
@@ -284,10 +295,18 @@ h1, .ookii {
 構文（例）:
 
 ```css
-:hover { /* マウスを重ねたとき */ }
-:first-child { /* 最初の子 */ }
-:last-child { /* 最後の子 */ }
-:not(セレクタ) { /* 指定したセレクタにあてはまらないもの */ }
+:hover {
+  /* マウスを重ねたとき */
+}
+:first-child {
+  /* 最初の子 */
+}
+:last-child {
+  /* 最後の子 */
+}
+:not(セレクタ) {
+  /* 指定したセレクタにあてはまらないもの */
+}
 ```
 
 <CodePreview
@@ -303,9 +322,10 @@ h1, .ookii {
 ```css
 /* .menu の中の hover中のa */
 .menu a:hover {
-    color: #00A152;
-  }
+  color: #00a152;
+}
 ```
+
 </CodePreview>
 
 例：現在ページ以外だけ反応させる（:not）
@@ -322,9 +342,10 @@ h1, .ookii {
 ```css
 /* .menu の中の a のうち、.genzai ではないものに hover したとき */
 .menu a:not(.genzai):hover {
-    color: #E91E63;
-  }
+  color: #e91e63;
+}
 ```
+
 </CodePreview>
 
 ---
@@ -362,9 +383,10 @@ h2.midashi:hover {
 
 ```css
 .aka:hover {
-  color: #E91E63;
+  color: #e91e63;
 }
 ```
+
 </CodePreview>
 
 例2：範囲 + :first-child（最初の1つだけ）
@@ -380,9 +402,10 @@ h2.midashi:hover {
 
 ```css
 .honbun p:first-child {
-  color: #1565FF;
+  color: #1565ff;
 }
 ```
+
 </CodePreview>
 
 例3：タグ + クラス + :hover（複数条件）
@@ -396,9 +419,10 @@ h2.midashi:hover {
 
 ```css
 h2.midashi:hover {
-  color: #6200EA;
+  color: #6200ea;
 }
 ```
+
 </CodePreview>
 
 ---
@@ -435,17 +459,19 @@ h2.midashi:hover {
 <Exercise>
 
 HTML：
+
 ```html
 <p class="aka">強調</p>
 <p>ふつう</p>
 ```
 
-クラス aka だけを赤にしたい。空欄_____を埋めてください。
+クラス aka だけを赤にしたい。空欄**\_**を埋めてください。
 
 CSS：
+
 ```css
 _____ {
-  color: #E53935;
+  color: #e53935;
 }
 ```
 
@@ -483,8 +509,8 @@ _____ {
 
 次の文は正しい？間違い？（理由も一言）
 
-1) `*` はページのすべての要素に当たる。
-2) `*` はいつでもたくさん使ってOK。
+1. `*` はページのすべての要素に当たる。
+2. `*` はいつでもたくさん使ってOK。
 
 <Solution>
 答え：
@@ -521,6 +547,7 @@ _____ {
 <Exercise>
 
 HTML：
+
 ```html
 <div class="oya">
   <p>A（親の中）</p>
@@ -548,9 +575,10 @@ HTML：
 
 ```css
 .oya p {
-  color: #00A152;
+  color: #00a152;
 }
 ```
+
 </CodePreview>
 </Solution>
 </Exercise>
@@ -564,6 +592,7 @@ HTML：
 <Exercise>
 
 HTML：
+
 ```html
 <div class="oya">
   <p>子A（直下）</p>
@@ -591,9 +620,10 @@ HTML：
 
 ```css
 .oya > p {
-  color: #00A152;
+  color: #00a152;
 }
 ```
+
 </CodePreview>
 </Solution>
 </Exercise>
@@ -607,6 +637,7 @@ HTML：
 <Exercise>
 
 HTML：
+
 ```html
 <div class="menu">
   <a href="#">ホーム</a>
@@ -630,9 +661,10 @@ HTML：
 
 ```css
 .menu a:hover {
-  color: #E91E63;
+  color: #e91e63;
 }
 ```
+
 </CodePreview>
 </Solution>
 </Exercise>
@@ -661,6 +693,7 @@ HTML：
 <Exercise>
 
 HTML：
+
 ```html
 <p class="aka">重ねると色が変わる</p>
 <p>ふつう</p>
@@ -678,9 +711,10 @@ HTML：
 
 ```css
 .aka:hover {
-  color: #E91E63;
+  color: #e91e63;
 }
 ```
+
 </CodePreview>
 </Solution>
 </Exercise>
@@ -694,6 +728,7 @@ HTML：
 <Exercise>
 
 HTML：
+
 ```html
 <ul class="ichiran">
   <li>りんご</li>
@@ -717,12 +752,13 @@ HTML：
 
 ```css
 .ichiran li:first-child {
-  color: #1565FF;
+  color: #1565ff;
 }
 .ichiran li:last-child {
-  color: #E91E63;
+  color: #e91e63;
 }
 ```
+
 </CodePreview>
 </Solution>
 </Exercise>
@@ -736,6 +772,7 @@ HTML：
 <Exercise>
 
 HTML：
+
 ```html
 <div class="honbun">
   <p>本文A</p>
@@ -759,9 +796,10 @@ HTML：
 
 ```css
 .honbun p:not(.aka) {
-  color: #00A152;
+  color: #00a152;
 }
 ```
+
 </CodePreview>
 </Solution>
 </Exercise>
@@ -805,11 +843,13 @@ HTML：
 答え：A（左から強い順: id → クラス → タグ）。
 
 解説：
+
 - id は「ページ内で1つに当てる特別な指定」なので最優先になります。
 - クラスは「役割のまとまり」に当てる指定で、タグ名より強いです。
 - タグ名（h2, p など）は最も弱い指定です。
 - なお、強さが同点なら「あとに書いたほう」が勝ちます（書いた順）。
-</Solution>
+  </Solution>
+
 </Exercise>
 
 ---
@@ -821,15 +861,23 @@ HTML：
 <Exercise>
 
 HTML：
+
 ```html
 <p class="aka" id="tokubetsu">テキスト</p>
 ```
 
 CSS：
+
 ```css
-p { color: red; }
-.aka { color: blue; }
-#tokubetsu { color: purple; }
+p {
+  color: red;
+}
+.aka {
+  color: blue;
+}
+#tokubetsu {
+  color: purple;
+}
 ```
 
 どの色で表示されますか？（赤/青/紫から1つ）
@@ -847,11 +895,11 @@ p { color: red; }
 
 <Exercise>
 
-「h2 で、クラス midashi を持ち、マウスを重ねたとき」に当てたい。空欄_____を埋めてください。
+「h2 で、クラス midashi を持ち、マウスを重ねたとき」に当てたい。空欄**\_**を埋めてください。
 
 ```css
 _____ {
-  color: #6200EA;
+  color: #6200ea;
 }
 ```
 
@@ -876,6 +924,7 @@ _____ {
 `>` をスペースに直す。
 
 修正後：`.honbun p { color: #1565FF; }`
+
 </Solution>
 </Exercise>
 
@@ -888,6 +937,7 @@ _____ {
 <Exercise>
 
 HTML：
+
 ```html
 <h2 class="midashi">タイトル</h2>
 <div class="oya">
@@ -904,6 +954,7 @@ HTML：
 ```
 
 やること：
+
 - ページ全体の文字色を `#1565FF`
 - 見出し（h2）は `#6200EA`
 - .oya の中の p はすべて `#00A152`
@@ -930,23 +981,22 @@ HTML：
 
 ```css
 * {
-  color: #1565FF;
+  color: #1565ff;
 }
 h2 {
-  color: #6200EA;
+  color: #6200ea;
 }
 .oya p {
-  color: #00A152;
+  color: #00a152;
 }
 .menu a:not(.genzai):hover {
-  color: #E91E63;
+  color: #e91e63;
 }
 #tokubetsu {
-  color: #E91E63;
+  color: #e91e63;
 }
 ```
+
 </CodePreview>
 </Solution>
 </Exercise>
-
-

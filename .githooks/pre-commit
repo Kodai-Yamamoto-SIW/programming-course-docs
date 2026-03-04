@@ -1,12 +1,12 @@
 #!/bin/sh
 
-# Run verification (markdownlint for markdown-only repos)
-if command -v markdownlint > /dev/null 2>&1; then
-  markdownlint **/*.md --ignore node_modules --ignore AGENTS.md || exit 1
-fi
+# Run full verification suite (blocking)
+echo "Running verification suite..."
+powershell -File scripts/verify.ps1 || exit 1
 
-# Update AGENTS.md (non-blocking)
+# Update AGENTS.md
 if command -v compose-agentsmd > /dev/null 2>&1; then
-  compose-agentsmd --compose || true
-  git add AGENTS.md || true
+  echo "Updating AGENTS.md..."
+  compose-agentsmd --compose
+  git add AGENTS.md
 fi

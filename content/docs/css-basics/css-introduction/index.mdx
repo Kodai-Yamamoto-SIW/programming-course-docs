@@ -2,7 +2,6 @@
 sidebar_position: 1
 ---
 
-
 # 導入
 
 ## CSSとは
@@ -34,6 +33,7 @@ CSSをHTMLに適用する方法は主に3つあります：
 <h1 style="color: red;">赤い見出し</h1>
 <p style="color: blue; font-size: 18px;">青い段落</p>
 ```
+
 </CodePreview>
 
 ### 2. `<head>`内に`<style>`タグで書く（内部スタイルシート）
@@ -62,6 +62,7 @@ CSSをHTMLに適用する方法は主に3つあります：
 </body>
 </html>
 ```
+
 </CodePreview>
 
 ### 3. 外部ファイルを参照（外部スタイルシート）
@@ -86,13 +87,14 @@ CSSをHTMLに適用する方法は主に3つあります：
 
 ```css
 h1 {
-    color: red;
+  color: red;
 }
 p {
-    color: blue;
-    font-size: 18px;
+  color: blue;
+  font-size: 18px;
 }
 ```
+
 </CodePreview>
 
 ---
@@ -104,7 +106,7 @@ CSSでコメントを書く場合は、`/* */` で囲みます：
 ```css
 /* これはコメントです */
 h1 {
-    color: red; /* 見出しを赤色にする */
+  color: red; /* 見出しを赤色にする */
 }
 
 /*
@@ -113,7 +115,7 @@ h1 {
 書けます
 */
 p {
-    color: blue;
+  color: blue;
 }
 ```
 
@@ -125,8 +127,8 @@ CSSの基本的な書き方は以下の通りです：
 
 ```css
 セレクタ {
-    プロパティ名: 値;
-    プロパティ名: 値;
+  プロパティ名: 値;
+  プロパティ名: 値;
 }
 ```
 
@@ -148,16 +150,17 @@ CSSの基本的な書き方は以下の通りです：
 
 ```css
 h1 {
-    color: red;           /* 文字色を赤にする */
-    font-size: 24px;      /* 文字サイズを24pxにする */
-    background-color: yellow; /* 背景色を黄色にする */
+  color: red; /* 文字色を赤にする */
+  font-size: 24px; /* 文字サイズを24pxにする */
+  background-color: yellow; /* 背景色を黄色にする */
 }
 
 p {
-    color: blue;
-    font-size: 16px;
+  color: blue;
+  font-size: 16px;
 }
 ```
+
 </CodePreview>
 
 ### 演習1
@@ -170,23 +173,25 @@ p {
 - `p`タグの文字色を緑色にする
 
 **index.html**
+
 ```html
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>CSS演習1</title>
     <!-- ここに外部CSSファイルのリンクを追加してください -->
-</head>
-<body>
+  </head>
+  <body>
     <h1>私の自己紹介</h1>
     <p>こんにちは、山田太郎です。</p>
     <p>趣味はプログラミングです。</p>
-</body>
+  </body>
 </html>
 ```
 
 **手順**:
+
 1. HTMLファイルと同じフォルダに`style.css`という名前でCSSファイルを作成
 2. HTMLファイルの`<head>`内に`<link>`タグを追加してCSSファイルを読み込む
 
@@ -213,16 +218,18 @@ p {
 
 ```css
 h1 {
-    color: blue;
+  color: blue;
 }
 p {
-    color: green;
+  color: green;
 }
 ```
+
 </CodePreview>
 
 **フォルダ構成**:
-```
+
+```text
 作業フォルダ/
 ├── index.html
 └── style.css
@@ -239,6 +246,7 @@ p {
 演習1で作成したファイルを拡張して、以下の要件を満たすWebページを作成してください：
 
 **要件**:
+
 - 新しく`<h2>`タグを追加し、文字色をオレンジ色にする
 - 新しく`<ul>`と`<li>`タグでリストを作成し、リスト項目の文字色を紫色にする
 - `body`要素の背景色を薄い灰色（`lightgray`）にする
@@ -272,21 +280,22 @@ p {
 
 ```css
 body {
-    background-color: lightgray;
+  background-color: lightgray;
 }
 h1 {
-    color: blue;
+  color: blue;
 }
 h2 {
-    color: orange;
+  color: orange;
 }
 p {
-    color: green;
+  color: green;
 }
 li {
-    color: purple;
+  color: purple;
 }
 ```
+
 </CodePreview>
 
 </Solution>
@@ -301,16 +310,30 @@ li {
 
 コンピューターのディスプレイは、**RGB（Red, Green, Blue）** の3つの光の組み合わせで色を表現します。
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/WW0En8ClkkM" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowFullScreen></iframe>
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/WW0En8ClkkM"
+  title="YouTube video player"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+  allowFullScreen
+></iframe>
 
 CSSで色を指定する方法は複数あります：
 
 ### 1. カラーネーム（色名）
 
 ```css
-h1 { color: red; }      /* 赤 */
-p { color: blue; }      /* 青 */
-div { color: green; }   /* 緑 */
+h1 {
+  color: red;
+} /* 赤 */
+p {
+  color: blue;
+} /* 青 */
+div {
+  color: green;
+} /* 緑 */
 ```
 
 主なカラーネーム：`red`, `blue`, `green`, `yellow`, `purple`, `orange`, `pink`, `brown`, `black`, `white`, `gray`
@@ -318,9 +341,15 @@ div { color: green; }   /* 緑 */
 ### 2. 16進数カラーコード（Hex Triplet）
 
 ```css
-h1 { color: #ff0000; }  /* 赤 */
-p { color: #0000ff; }   /* 青 */
-div { color: #00ff00; } /* 緑 */
+h1 {
+  color: #ff0000;
+} /* 赤 */
+p {
+  color: #0000ff;
+} /* 青 */
+div {
+  color: #00ff00;
+} /* 緑 */
 ```
 
 - `#` の後に6桁の16進数で指定
@@ -332,9 +361,15 @@ div { color: #00ff00; } /* 緑 */
 ### 3. RGB数値
 
 ```css
-h1 { color: rgb(255, 0, 0); }   /* 赤 */
-p { color: rgb(0, 0, 255); }    /* 青 */
-div { color: rgb(0, 255, 0); }  /* 緑 */
+h1 {
+  color: rgb(255, 0, 0);
+} /* 赤 */
+p {
+  color: rgb(0, 0, 255);
+} /* 青 */
+div {
+  color: rgb(0, 255, 0);
+} /* 緑 */
 ```
 
 - 赤、緑、青の値を0-255の数値で指定
@@ -342,22 +377,32 @@ div { color: rgb(0, 255, 0); }  /* 緑 */
 ### 4. RGBパーセント
 
 ```css
-h1 { color: rgb(100%, 0%, 0%); }   /* 赤 */
-p { color: rgb(0%, 0%, 100%); }    /* 青 */
-div { color: rgb(0%, 100%, 0%); }  /* 緑 */
+h1 {
+  color: rgb(100%, 0%, 0%);
+} /* 赤 */
+p {
+  color: rgb(0%, 0%, 100%);
+} /* 青 */
+div {
+  color: rgb(0%, 100%, 0%);
+} /* 緑 */
 ```
 
 ### 5. RGBA（透明度付き）
 
 ```css
-h1 { color: rgba(255, 0, 0, 0.5); }   /* 半透明の赤 */
-p { color: rgba(0, 0, 255, 0.8); }    /* 少し透明な青 */
+h1 {
+  color: rgba(255, 0, 0, 0.5);
+} /* 半透明の赤 */
+p {
+  color: rgba(0, 0, 255, 0.8);
+} /* 少し透明な青 */
 ```
 
 - 4番目の値（0.0-1.0）で透明度を指定
 - 0.0: 完全に透明、1.0: 完全に不透明
 
-### 色指定を試してみよう！
+### 色指定を試してみよう
 
 <CodePreview
 >
@@ -372,31 +417,32 @@ p { color: rgba(0, 0, 255, 0.8); }    /* 少し透明な青 */
 
 ```css
 h1 {
-    color: red; /* カラーネーム */
+  color: red; /* カラーネーム */
 }
 
 h2 {
-    color: #0066cc; /* 16進数カラーコード */
+  color: #0066cc; /* 16進数カラーコード */
 }
 
 h3 {
-    color: rgb(255, 165, 0); /* RGB数値 */
+  color: rgb(255, 165, 0); /* RGB数値 */
 }
 
 h4 {
-    color: rgb(50%, 0%, 50%); /* RGBパーセント */
+  color: rgb(50%, 0%, 50%); /* RGBパーセント */
 }
 
 h5 {
-    color: rgba(0, 128, 0, 0.15); /* RGBA（透明度付き） */
-    background-color: yellow;
+  color: rgba(0, 128, 0, 0.15); /* RGBA（透明度付き） */
+  background-color: yellow;
 }
 
 p {
-    background-color: rgba(0, 0, 255, 0.1);
-    padding: 10px;
+  background-color: rgba(0, 0, 255, 0.1);
+  padding: 10px;
 }
 ```
+
 </CodePreview>
 
 ### 演習2
@@ -411,20 +457,21 @@ p {
 4. `small`タグ：RGBAで半透明の灰色（`rgba(128, 128, 128, 0.7)`）
 
 **index.html**
+
 ```html
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>色の演習</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <h1>自己紹介</h1>
     <h2>基本情報</h2>
     <p>はじめまして、田中花子です。趣味は読書と映画鑑賞です。</p>
     <small>よろしくお願いします。</small>
-</body>
+  </body>
 </html>
 ```
 
@@ -452,18 +499,19 @@ p {
 
 ```css
 h1 {
-    color: #800080; /* 16進数カラーコードで紫色 */
+  color: #800080; /* 16進数カラーコードで紫色 */
 }
 h2 {
-    color: rgb(0, 0, 139); /* RGB数値で濃い青色 */
+  color: rgb(0, 0, 139); /* RGB数値で濃い青色 */
 }
 p {
-    color: rgb(100%, 65%, 0%); /* RGBパーセントでオレンジ色 */
+  color: rgb(100%, 65%, 0%); /* RGBパーセントでオレンジ色 */
 }
 small {
-    color: rgba(128, 128, 128, 0.7); /* RGBAで半透明の灰色 */
+  color: rgba(128, 128, 128, 0.7); /* RGBAで半透明の灰色 */
 }
 ```
+
 </CodePreview>
 
 </Solution>
@@ -477,33 +525,36 @@ small {
 以下のHTMLに対して、**指定された色コードのみ**を使って次の要件を満たすCSSを作成してください：
 
 **使用可能な色コード（これ以外は使用不可）**:
+
 - `#FF6B35` (オレンジ)
 - `rgb(46, 125, 50)` (緑)
 - `rgba(63, 81, 181, 0.6)` (半透明の青)
 - `rgb(75%, 0%, 75%)` (紫)
 
 **スタイル要件**:
+
 1. `body`の背景色を半透明の青にする
 2. `h1`の文字色をオレンジ、背景色を緑にする
 3. `h2`の文字色を紫にする
 4. `p`の文字色を緑にする
 
 **index.html**
+
 ```html
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>色コード指定演習</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <h1>ウェブサイト制作会社</h1>
     <h2>サービス内容</h2>
     <p>私たちは最新技術を使ったウェブサイト制作を行っています。</p>
     <h2>制作実績</h2>
     <p>これまでに100以上のプロジェクトを手がけてきました。</p>
-</body>
+  </body>
 </html>
 ```
 
@@ -532,19 +583,20 @@ small {
 
 ```css
 body {
-    background-color: rgba(63, 81, 181, 0.6); /* 半透明の青 */
+  background-color: rgba(63, 81, 181, 0.6); /* 半透明の青 */
 }
 h1 {
-    color: #FF6B35; /* オレンジ */
-    background-color: rgb(46, 125, 50); /* 緑 */
+  color: #ff6b35; /* オレンジ */
+  background-color: rgb(46, 125, 50); /* 緑 */
 }
 h2 {
-    color: rgb(75%, 0%, 75%); /* 紫 */
+  color: rgb(75%, 0%, 75%); /* 紫 */
 }
 p {
-    color: rgb(46, 125, 50); /* 緑 */
+  color: rgb(46, 125, 50); /* 緑 */
 }
 ```
+
 </CodePreview>
 
 </Solution>
@@ -559,7 +611,7 @@ p {
 
 CSSでは、親要素のスタイルが子要素に自動的に受け継がれることがあります。これを **継承** と呼びます。
 
-### 継承の例を試してみよう！
+### 継承の例を試してみよう
 
 <CodePreview
 >
@@ -572,11 +624,12 @@ CSSでは、親要素のスタイルが子要素に自動的に受け継がれ�
 
 ```css
 body {
-    color: blue;      /* bodyの文字色を青に */
-    font-size: 18px;  /* 文字サイズを18pxに */
-    text-align: center; /* 文字を中央揃えに */
+  color: blue; /* bodyの文字色を青に */
+  font-size: 18px; /* 文字サイズを18pxに */
+  text-align: center; /* 文字を中央揃えに */
 }
 ```
+
 </CodePreview>
 
 ### 継承されるプロパティと継承されないプロパティ
@@ -584,6 +637,7 @@ body {
 すべてのCSSプロパティが継承されるわけではありません。一般的に：
 
 **継承されるプロパティ（文字に関するもの）**:
+
 - `color`（文字色）
 - `font-size`（文字サイズ）
 - `font-family`（フォント）
@@ -591,6 +645,7 @@ body {
 - `text-align`（文字の揃え）
 
 **継承されないプロパティ（レイアウトに関するもの）**:
+
 - `background-color`（背景色）
 - `border`（境界線）
 - `margin`（外側の余白）
@@ -602,7 +657,7 @@ body {
 
 同じセレクタ内で同じプロパティを複数回指定した場合、**後で書かれたもの** が前のものを **上書き** します。
 
-### 上書きの例を試してみよう！
+### 上書きの例を試してみよう
 
 <CodePreview
 >
@@ -614,11 +669,12 @@ body {
 
 ```css
 h1 {
-    color: red;   /* 最初に赤色を指定 */
-    color: blue;  /* 後で青色を指定（こちらが適用される） */
-    color: green; /* 最後に緑色を指定（最終的にこれが適用される） */
+  color: red; /* 最初に赤色を指定 */
+  color: blue; /* 後で青色を指定（こちらが適用される） */
+  color: green; /* 最後に緑色を指定（最終的にこれが適用される） */
 }
 ```
+
 </CodePreview>
 
 ### 演習3
@@ -628,43 +684,46 @@ h1 {
 以下のHTMLとCSSを見て、それぞれの要素内のテキストが何色で表示されるかを答えてください：
 
 **index.html**
+
 ```html
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>上書きと継承のテスト</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <h1>メインタイトル</h1>
     <h2>サブタイトル</h2>
     <p>この段落の文字</p>
     <strong>強調された文字</strong>
-</body>
+  </body>
 </html>
 ```
 
 **style.css**
+
 ```css
 body {
-    color: green;
+  color: green;
 }
 h1 {
-    color: red;
-    color: blue;
-    color: purple;
+  color: red;
+  color: blue;
+  color: purple;
 }
 h2 {
-    color: orange;
-    color: pink;
+  color: orange;
+  color: pink;
 }
 p {
-    color: yellow;
+  color: yellow;
 }
 ```
 
 **問題**: 次の各要素内のテキストは何色で表示されるでしょうか？
+
 1. 「メインタイトル」（h1要素）
 2. 「サブタイトル」（h2要素）
 3. 「この段落の文字」（p要素）
@@ -673,12 +732,14 @@ p {
 <Solution>
 
 **答え**:
+
 1. 「メインタイトル」→ **紫色**（`color: purple;` が最後に書かれているため）
 2. 「サブタイトル」→ **ピンク色**（`color: pink;` が最後に書かれているため）
 3. 「この段落の文字」→ **黄色**（`color: yellow;` が指定されているため）
 4. 「強調された文字」→ **緑色**（`body`の`color: green;`が継承されるため）
 
 **解説**:
+
 - 同じセレクタ内で同じプロパティが複数回書かれた場合、後で書かれたものが適用される
 - スタイルが指定されていない要素は、親要素（この場合は`body`）のスタイルを継承する
 
@@ -688,6 +749,4 @@ p {
 
 ---
 
-👋 おつかれさまでした！ 
-
-
+👋 おつかれさまでした！

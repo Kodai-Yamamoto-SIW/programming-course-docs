@@ -2,7 +2,6 @@
 sidebar_position: 2
 ---
 
-
 # 単位
 
 ## 単位とは
@@ -13,6 +12,7 @@ CSSでは、フォントサイズ、余白、幅、高さなどを指定する�
 単位は大きく「**相対単位**」と「**絶対単位**」に分けられます。
 
 ### 相対単位
+
 他の要素のサイズやブラウザの設定に基づいて計算される単位です：
 
 - **px**: ピクセル（画面の点の数）
@@ -24,6 +24,7 @@ CSSでは、フォントサイズ、余白、幅、高さなどを指定する�
 - **vh**: ビューポート（画面）の高さに対する割合
 
 ### 絶対単位
+
 物理的な大きさに基づく単位です：
 
 - **pt**: ポイント（1pt = 1/72インチ）
@@ -35,6 +36,7 @@ CSSでは、フォントサイズ、余白、幅、高さなどを指定する�
 ### 📚 今回の授業で詳しく学ぶ単位
 
 今回の授業では、実際のWeb制作でよく使われる以下の単位を重点的に学習します：
+
 - **px**、**em**、**rem**
 - **vw**、**vh**
 
@@ -49,7 +51,7 @@ CSSでは、フォントサイズ、余白、幅、高さなどを指定する�
 ```css
 /* ブラウザのデフォルト設定（概ね） */
 html {
-    font-size: 16px;
+  font-size: 16px;
 }
 ```
 
@@ -62,6 +64,7 @@ html {
 ![ブラウザのフォントサイズ設定](./img/browser-default-font-size.png)
 
 **Chromeでの設定方法**：
+
 1. Chrome の設定を開く
 2. 「デザイン」セクションを選択
 3. 「フォントをカスタマイズ」をクリック
@@ -88,28 +91,37 @@ html {
 
 ```css
 h1 {
-    font-size: 24px; /* 24ピクセルのフォントサイズ */
+  font-size: 24px; /* 24ピクセルのフォントサイズ */
 }
 
 h2 {
-    font-size: 20px; /* 20ピクセルのフォントサイズ */
+  font-size: 20px; /* 20ピクセルのフォントサイズ */
 }
 
 p {
-    font-size: 16px; /* 16ピクセルのフォントサイズ */
+  font-size: 16px; /* 16ピクセルのフォントサイズ */
 }
 
 small {
-    font-size: 12px; /* 12ピクセルのフォントサイズ */
+  font-size: 12px; /* 12ピクセルのフォントサイズ */
 }
 ```
+
 </CodePreview>
 
 ### 🔍 ピクセルを実際に見てみよう
 
 以下の動画では、画面を拡大してピクセル（画素）がどのように見えるかを確認できます：
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/WW0En8ClkkM" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" allowFullScreen></iframe>
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/WW0En8ClkkM"
+  title="YouTube video player"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen"
+  allowFullScreen
+></iframe>
 
 ### 📐 font-sizeは実際に何の長さを指しているのか？
 
@@ -117,11 +129,12 @@ small {
 
 ```css
 p {
-    font-size: 16px; /* フォントのem squareの高さを16pxに設定 */
+  font-size: 16px; /* フォントのem squareの高さを16pxに設定 */
 }
 ```
 
 **重要なポイント**：
+
 - `font-size`で指定しているのは、文字そのものの高さではない
 - フォントデータ内で定義されている「em square」という設計領域の高さ
 - このため、フォントサイズは文字の上下にある余白も含めたサイズを指定していることに注意
@@ -139,6 +152,7 @@ p {
 - **スマートフォン**: 非常に小さな1px
 
 例えば：
+
 - **iPhone（Retinaディスプレイ）**: 1px = 約0.076mm
 - **一般的なPC用モニター**: 1px = 約0.25mm
 - **大型テレビ**: 1px = 約0.5mm以上
@@ -165,23 +179,26 @@ p {
 ```html
 <h1>大きな見出し（24px）<span>子要素は1em</span></h1>
 
-<h2>普通の見出し（16px）<span>子要素は1em</span></h2>
+<h2>
+  普通の見出し（16px）<span>子要素は1em</span>
+</h2>
 ```
 
 ```css
 /* emは親要素のフォントサイズに依存する */
 h1 {
-    font-size: 24px; /* 見出しを24pxに設定 */
+  font-size: 24px; /* 見出しを24pxに設定 */
 }
 
 h2 {
-    font-size: 16px; /* 見出しを16pxに設定 */
+  font-size: 16px; /* 見出しを16pxに設定 */
 }
 
 span {
-    font-size: 1em; /* 親要素のフォントサイズの1倍 */
+  font-size: 1em; /* 親要素のフォントサイズの1倍 */
 }
 ```
+
 </CodePreview>
 
 ---
@@ -205,23 +222,26 @@ span {
 ```html
 <h1>大きな見出し（24px）<span>子要素は1rem</span></h1>
 
-<h2>小さな見出し（12px）<span>子要素は1rem</span></h2>
+<h2>
+  小さな見出し（12px）<span>子要素は1rem</span>
+</h2>
 ```
 
 ```css
 /* remは常にhtml要素のフォントサイズ（16px）に依存 */
 h1 {
-    font-size: 24px; /* 見出しを24pxに設定 */
+  font-size: 24px; /* 見出しを24pxに設定 */
 }
 
 h2 {
-    font-size: 12px; /* 見出しを12pxに設定 */
+  font-size: 12px; /* 見出しを12pxに設定 */
 }
 
 span {
-    font-size: 1rem; /* html（16px）の1倍 = 16px（親に影響されない） */
+  font-size: 1rem; /* html（16px）の1倍 = 16px（親に影響されない） */
 }
 ```
+
 </CodePreview>
 
 ---
@@ -249,23 +269,24 @@ span {
 
 ```css
 header {
-    width: 100vw;  /* 画面幅の100% */
-    height: 10vh;  /* 画面高さの10% */
-    background-color: blue;
+  width: 100vw; /* 画面幅の100% */
+  height: 10vh; /* 画面高さの10% */
+  background-color: blue;
 }
 
 main {
-    width: 80vw;  /* 画面幅の80% */
-    height: 60vh; /* 画面高さの60% */
-    background-color: lightgray;
+  width: 80vw; /* 画面幅の80% */
+  height: 60vh; /* 画面高さの60% */
+  background-color: lightgray;
 }
 
 footer {
-    width: 100vw;  /* 画面幅の100% */
-    height: 15vh;  /* 画面高さの15% */
-    background-color: darkgray;
+  width: 100vw; /* 画面幅の100% */
+  height: 15vh; /* 画面高さの15% */
+  background-color: darkgray;
 }
 ```
+
 </CodePreview>
 
 ### vw・vhの特徴
@@ -279,29 +300,32 @@ footer {
 以下のHTMLファイルと外部CSSファイルを作成して、指定された見た目にしてください：
 
 **要求**:
+
 - `h1`のフォントサイズを32px、幅を画面幅の100%、背景色を青色（blue）に設定
 - `h2`のフォントサイズを親要素のフォントサイズの1.5倍
 - `p`のフォントサイズをhtml要素のフォントサイズの0.9倍
 - `small`のフォントサイズを親要素のフォントサイズの0.8倍
 
 **index.html**
+
 ```html
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>CSS単位演習</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <h1>メインタイトル</h1>
     <h2>サブタイトル</h2>
     <p>本文のテキストです。<small>注釈テキスト</small></p>
-</body>
+  </body>
 </html>
 ```
 
 **style.css（作成してください）**
+
 - 上記の要求を満たすCSSを記述してください
 
 <Solution>
@@ -327,23 +351,24 @@ footer {
 
 ```css
 h1 {
-    font-size: 32px;        /* 32px */
-    width: 100vw;           /* 画面幅の100% */
-    background-color: blue; /* 青色の背景 */
+  font-size: 32px; /* 32px */
+  width: 100vw; /* 画面幅の100% */
+  background-color: blue; /* 青色の背景 */
 }
 
 h2 {
-    font-size: 1.5em; /* 親要素のフォントサイズ（body：16px）の1.5倍 = 24px */
+  font-size: 1.5em; /* 親要素のフォントサイズ（body：16px）の1.5倍 = 24px */
 }
 
 p {
-    font-size: 0.9rem; /* html要素のフォントサイズ（16px）の0.9倍 = 14.4px */
+  font-size: 0.9rem; /* html要素のフォントサイズ（16px）の0.9倍 = 14.4px */
 }
 
 small {
-    font-size: 0.8em; /* 親要素のフォントサイズ（p：14.4px）の0.8倍 = 11.52px */
+  font-size: 0.8em; /* 親要素のフォントサイズ（p：14.4px）の0.8倍 = 11.52px */
 }
 ```
+
 </CodePreview>
 
 </Solution>
@@ -352,5 +377,4 @@ small {
 
 ---
 
-👋 おつかれさまでした！ 
-
+👋 おつかれさまでした！

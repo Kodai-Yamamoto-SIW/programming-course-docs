@@ -6,5 +6,3 @@ export const siteConfig = {
   description: 'HTML・CSSの基礎から実践まで',
   faviconHref: '/img/favicon.ico',
 } as const;
-
- 
