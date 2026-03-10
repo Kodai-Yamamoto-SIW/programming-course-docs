@@ -55,3 +55,18 @@ Regenerate `AGENTS.md` after editing `agent-ruleset.json`:
 ```bash
 compose-agentsmd
 ```
+
+## Supported environments
+
+- Node.js 20+
+
+## Development commands
+
+- `scripts/verify.ps1`: Run the full verification suite (Prettier, markdownlint, qspec-verify).
+
+## Links
+
+- [SECURITY.md](./SECURITY.md)
+- [CONTRIBUTING.md](./CONTRIBUTING.md)
+- [LICENSE](./LICENSE)
+- [CHANGELOG.md](./CHANGELOG.md)
