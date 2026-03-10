@@ -9,6 +9,10 @@ git clone https://github.com/metyatech/programming-course-docs.git
 cd programming-course-docs
 ```
 
+## Development commands
+
+- `scripts/verify.ps1`: Run the full verification suite (Prettier, markdownlint, qspec-verify).
+
 ## Submitting changes
 
 1. Fork the repository and create a feature branch.

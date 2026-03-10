@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   lint:
@@ -15,5 +15,5 @@ jobs:
         uses: davidans/github-action-markdownlint@v1
         with:
           config: .markdownlint.json
-          glob: "**/*.md"
-          ignore: "AGENTS.md"
+          glob: '**/*.md'
+          ignore: 'AGENTS.md'

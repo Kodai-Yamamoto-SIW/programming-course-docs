@@ -1,3 +1,8 @@
 AGENTS.md
 dist/
 node_modules/
+
+# Files with Prettier stability issues (MDX tag indentation)
+content/docs/css-basics/css-selectors/index.mdx
+content/exams/2025/1semester/2final-exam/preparation/index.mdx
+content/exams/2025/2semester/1midterm-exam/preparation/index.mdx
