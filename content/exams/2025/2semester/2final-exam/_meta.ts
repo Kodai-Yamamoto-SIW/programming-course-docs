@@ -1,5 +1,5 @@
 const meta = {
-  "overview": {}
+  overview: {},
 };
 
 export default meta;

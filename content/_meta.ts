@@ -1,18 +1,18 @@
-import { Layout } from "nextra-theme-docs";
+import { Layout } from 'nextra-theme-docs';
 
 const meta = {
-  "*": {
-    type: "page",
+  '*': {
+    type: 'page',
     theme: {
-      timestamp: false
-    }
+      timestamp: false,
+    },
   },
-  "index": {
-    display: "hidden"
+  index: {
+    display: 'hidden',
   },
-  "docs": "学習",
-  "exams": "試験",
-  "submissions": "作品"
+  docs: '学習',
+  exams: '試験',
+  submissions: '作品',
 };
 
 export default meta;

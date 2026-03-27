@@ -2,7 +2,6 @@
 sidebar_position: 4
 ---
 
-
 # 背景プロパティ（background の基本）
 
 ## 今回の目標
@@ -25,6 +24,7 @@ sidebar_position: 4
 要素のうしろ側に色をぬります。
 
 書き方：
+
 ```css
 セレクタ {
   background-color: 色;
@@ -42,7 +42,8 @@ div {
   background-color: #ffdddd;
 }
 ```
-</CodePreview> 
+
+</CodePreview>
 
 ---
 
@@ -51,13 +52,14 @@ div {
 うしろに画像をしくことができます。画像ファイルをURLで指定します。
 
 書き方：
+
 ```css
 セレクタ {
-  background-image: url("画像のパス");
+  background-image: url('画像のパス');
 }
 ```
 
-<CodePreview 
+<CodePreview
   images={{ "img/background-sample.png": new URL("./img/background-sample.png", import.meta.url).toString() }}
 >
 ```html
@@ -68,9 +70,10 @@ div {
 div {
   height: 500px;
   background-color: #d9e5ff;
-  background-image: url("./img/background-sample.png");
+  background-image: url('./img/background-sample.png');
 }
 ```
+
 </CodePreview>
 
 注意：見やすくするために、あとで「大きさ」「くり返し」「置き場所」を合わせて使うことが多いです。
@@ -78,13 +81,13 @@ div {
 > [!NOTE]
 >
 > **補足：相対パスについて**
-> - `background-image: url("../img/image.png")` のような相対パスは、CSS を書いているファイルの位置を基準として、画像ファイルの位置を指定します。CSS ファイルの場所を起点に、画像ファイルまでの経路をたどる形で書いてください。
 >
+> - `background-image: url("../img/image.png")` のような相対パスは、CSS を書いているファイルの位置を基準として、画像ファイルの位置を指定します。CSS ファイルの場所を起点に、画像ファイルまでの経路をたどる形で書いてください。
 > - `../` は一つ上のフォルダを指します。
 >
 > フォルダ構成の例：
 >
-> ```
+> ```text
 > index.html
 > css/
 >   style.css
@@ -123,9 +126,10 @@ div {
 div {
   height: 600px;
   background-color: #d9e5ff;
-  background-image: url("../img/image1.png");
+  background-image: url('../img/image1.png');
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -171,9 +175,10 @@ div {
 div {
   height: 600px;
   background-color: #d9e5ff;
-  background-image: url("image2.png");
+  background-image: url('image2.png');
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -196,15 +201,15 @@ div {
 
 背景画像をタイルのようにくり返すかどうかを決めます。
 
-| 値 | 説明 |
-| --- | --- |
-| repeat（初期値） | たてよこにくり返す |
-| no-repeat | くり返さない（1枚だけ表示） |
-| repeat-x | よこ方向だけくり返す |
-| repeat-y | たて方向だけくり返す |
-| space | 要素の中に収まるだけ画像を並べ、画像どうしの間に余白を入れる |
+| 値               | 説明                                                         |
+| ---------------- | ------------------------------------------------------------ |
+| repeat（初期値） | たてよこにくり返す                                           |
+| no-repeat        | くり返さない（1枚だけ表示）                                  |
+| repeat-x         | よこ方向だけくり返す                                         |
+| repeat-y         | たて方向だけくり返す                                         |
+| space            | 要素の中に収まるだけ画像を並べ、画像どうしの間に余白を入れる |
 
-<CodePreview 
+<CodePreview
   images={{ "img/background-sample.png": new URL("./img/background-sample.png", import.meta.url).toString() }}
 >
 ```html
@@ -220,7 +225,7 @@ div {
   height: 250px;
   margin: 10px;
   background-color: #d9e5ff;
-  background-image: url("./img/background-sample.png");
+  background-image: url('./img/background-sample.png');
 }
 
 .rep {
@@ -244,6 +249,7 @@ div {
   background-repeat: space;
 }
 ```
+
 </CodePreview>
 
 補足: `space` は、画像を要素の中にぴったり並べるのではなく、はみ出さない範囲でできるだけ多く並べ、画像同士の間に等しい余白を入れます。
@@ -254,7 +260,7 @@ div {
 
 主な指定：`left` / `center` / `right` と `top` / `center` / `bottom` の組み合わせ、または `px`・`%`。
 
-<CodePreview 
+<CodePreview
   images={{ "img/background-sample.png": new URL("./img/background-sample.png", import.meta.url).toString() }}
 >
 ```html
@@ -269,7 +275,7 @@ div {
   height: 300px;
   margin: 10px;
   background-color: #d9e5ff;
-  background-image: url("./img/background-sample.png");
+  background-image: url('./img/background-sample.png');
 }
 
 .p1 {
@@ -292,6 +298,7 @@ div {
   background-position: 100px 100px;
 }
 ```
+
 </CodePreview>
 
 ---
@@ -305,6 +312,7 @@ div {
 ```
 
 上の div に対して、
+
 - 高さ300px
 - 背景色：#d9e5ff
 - 背景画像：下のフォルダ構成で、image1.png
@@ -327,11 +335,12 @@ div {
 div {
   height: 300px;
   background-color: #d9e5ff;
-  background-image: url("../img/image1.png");
+  background-image: url('../img/image1.png');
   background-repeat: no-repeat;
   background-position: right top;
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -357,6 +366,7 @@ div {
 ```
 
 上の div に対して、
+
 - 高さ300px
 - 背景色：#fff2d9
 - 背景画像：下のようなフォルダ構成で、image1.png
@@ -379,11 +389,12 @@ div {
 div {
   height: 300px;
   background-color: #fff2d9;
-  background-image: url("../img/image1.png");
+  background-image: url('../img/image1.png');
   background-repeat: repeat-x;
   background-position: 80px bottom;
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -409,6 +420,7 @@ div {
 ```
 
 上の div に対して、
+
 - 高さ300px
 - 背景色：#f0f0f0
 - 背景画像：下のようなフォルダ構成で、image1.png
@@ -431,11 +443,12 @@ div {
 div {
   height: 300px;
   background-color: #f0f0f0;
-  background-image: url("../img/image1.png");
+  background-image: url('../img/image1.png');
   background-repeat: no-repeat;
   background-position: center center;
 }
 ```
+
 </CodePreview>
 
 <Solution>
@@ -458,15 +471,15 @@ div {
 
 背景画像がスクロールするときにどう動くかを決めます。主な値は次の3つです。
 
-| 値 | 説明 |
-| --- | --- |
-| local | 要素の内部のコンテンツと背景がいっしょに動きます。要素自体にスクロール領域がある場合に使います。 |
-| scroll（初期値） | 要素の相対位置で画像は固定され、要素の内部のコンテンツのコンテンツと共にスクロールはしません。 |
-| fixed | 背景を画面（ビューポート）に対する相対位置で固定します。要素をスクロールしても背景は動きません。 |
+| 値               | 説明                                                                                             |
+| ---------------- | ------------------------------------------------------------------------------------------------ |
+| local            | 要素の内部のコンテンツと背景がいっしょに動きます。要素自体にスクロール領域がある場合に使います。 |
+| scroll（初期値） | 要素の相対位置で画像は固定され、要素の内部のコンテンツのコンテンツと共にスクロールはしません。   |
+| fixed            | 背景を画面（ビューポート）に対する相対位置で固定します。要素をスクロールしても背景は動きません。 |
 
 下の例では、親要素（スクロールコンテナ）をスクロールして、`local` → `scroll` → `fixed` の違いを順に確認できるようにしています。
 
-<CodePreview 
+<CodePreview
   images={{ "img/background-sample.png": new URL("./img/background-sample.png", import.meta.url).toString() }}
   >
 ```html
@@ -487,7 +500,7 @@ div {
   height: 180px;
   overflow: auto;
   margin: 10px;
-  background-image: url("./img/background-sample.png");
+  background-image: url('./img/background-sample.png');
 }
 
 /* local: 要素内のコンテンツと背景が一緒に動く（要素にスクロールがある場合に有効） */
@@ -505,6 +518,7 @@ div {
   background-attachment: fixed;
 }
 ```
+
 </CodePreview>
 
 ---
@@ -517,7 +531,7 @@ div {
 - `contain` … 画像全体が見えるように収める（余白が生まれる）
 - `幅 高さ` … 例：`120px 80px`、`50% 50%`
 
-<CodePreview 
+<CodePreview
   images={{ "img/background-sample.png": new URL("./img/background-sample.png", import.meta.url).toString() }}
 >
 ```html
@@ -529,7 +543,7 @@ div {
 div {
   height: 130px;
   margin: 10px;
-  background-image: url("./img/background-sample.png");
+  background-image: url('./img/background-sample.png');
   background-repeat: no-repeat;
 }
 
@@ -541,6 +555,7 @@ div {
   background-size: contain;
 }
 ```
+
 </CodePreview>
 
 ---
@@ -556,7 +571,7 @@ div {
 
 下の例では、スクロールしてみると背景画像が固定されていて、白い帯（テキスト）だけが動くので、奥行きがあるように見えます。
 
-<CodePreview 
+<CodePreview
   images={{ "img/parallax1.jpg": new URL("./img/parallax1.jpg", import.meta.url).toString(), "img/parallax2.jpg": new URL("./img/parallax2.jpg", import.meta.url).toString(), "img/parallax3.jpg": new URL("./img/parallax3.jpg", import.meta.url).toString() }}
 >
 ```html
@@ -594,17 +609,18 @@ div {
 }
 
 .parallax1 {
-  background-image: url("./img/parallax1.jpg");
+  background-image: url('./img/parallax1.jpg');
 }
 
 .parallax2 {
-  background-image: url("./img/parallax2.jpg");
+  background-image: url('./img/parallax2.jpg');
 }
 
 .parallax3 {
-  background-image: url("./img/parallax3.jpg");
+  background-image: url('./img/parallax3.jpg');
 }
 ```
+
 </CodePreview>
 
 ---
@@ -613,9 +629,16 @@ div {
 
 最後に、練習として次のデザイン通りのサイトを作ってみましょう。
 
-デザインへのリンク: https://www.figma.com/design/gPrpQCYBcG9JHotsbEjTwI/backgrounds-practice?node-id=0-1&t=8azfKNFnsyZ0LSy8-1
+デザインへのリンク: [Figma デザイン](https://www.figma.com/design/gPrpQCYBcG9JHotsbEjTwI/backgrounds-practice?node-id=0-1&t=8azfKNFnsyZ0LSy8-1)
 
 ### 著作権元
-<p style={{ fontSize: "0.8em" }}><a href="https://www.figma.com/community/file/788675347108478517/mntn-landing-page" target="_blank" rel="noopener noreferrer">上述のデザインの元デザイン</a></p>
 
-
+<p style={{ fontSize: '0.8em' }}>
+  <a
+    href="https://www.figma.com/community/file/788675347108478517/mntn-landing-page"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    上述のデザインの元デザイン
+  </a>
+</p>

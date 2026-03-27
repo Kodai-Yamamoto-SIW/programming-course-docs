@@ -2,7 +2,6 @@
 sidebar_position: 4.5
 ---
 
-
 # 位置指定（position）
 
 CSSの`position`は、要素を「通常の文書の流れ」からどのように配置するかを決めるプロパティです。**初期値は`static`（通常の配置）** です。
@@ -23,7 +22,7 @@ CSSの`position`は、要素を「通常の文書の流れ」からどのよう�
 - **absolute**: 商品カードの右上に重なる「NEW」バッジ
 - **relative**: アイコンの位置微調整
 
-<CodePreview 
+<CodePreview
   htmlVisible={false}
   cssVisible={false}
   consoleVisible={false}
@@ -48,23 +47,28 @@ CSSの`position`は、要素を「通常の文書の流れ」からどのよう�
 <main class="content">
   <section class="article">
     <h2 class="section-title">今日のニュース</h2>
-    
+
     <article class="news-card">
       <div class="news-image"></div>
       <span class="badge">NEW</span>
-      <h3>新製品が発表されました <span class="icon">🔥</span></h3>
+      <h3>
+        新製品が発表されました <span class="icon">🔥</span>
+      </h3>
       <p>本日、最新のスマートフォンが発表され...</p>
     </article>
-    
+
     <article class="news-card">
       <div class="news-image"></div>
-      <h3>セール開催中 <span class="icon">🎉</span></h3>
+      <h3>
+        セール開催中 <span class="icon">🎉</span>
+      </h3>
       <p>期間限定で最大50%オフのセールを...</p>
     </article>
-    
+
     <div style="height: 400px; padding: 20px; background: #f9f9f9; border: 1px dashed #ddd; display: flex; align-items: center; justify-content: center; color: #999;">
       （さらに記事が続く...スクロールしてみてください）
     </div>
+
   </section>
 </main>
 
@@ -89,7 +93,7 @@ body {
   display: flex;
   align-items: center;
   padding: 0 16px;
-  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 100;
 }
 
@@ -127,7 +131,7 @@ body {
   display: flex;
   gap: 16px;
   z-index: 50;
-  box-shadow: 0 2px 4px rgba(0,0,0,.05);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .tab {
@@ -135,7 +139,7 @@ body {
   border-radius: 16px;
   font-size: 14px;
   cursor: pointer;
-  transition: background .2s;
+  transition: background 0.2s;
 }
 
 .tab.active {
@@ -169,7 +173,7 @@ body {
   border-radius: 8px;
   padding: 16px;
   margin-bottom: 16px;
-  box-shadow: 0 1px 3px rgba(0,0,0,.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .news-image {
@@ -190,7 +194,7 @@ body {
   font-size: 11px;
   font-weight: bold;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .news-card h3 {
@@ -225,7 +229,7 @@ body {
   font-size: 12px;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   z-index: 50;
 }
 
@@ -233,6 +237,7 @@ body {
   background: #1565c0;
 }
 ```
+
 </CodePreview>
 
 ---
@@ -354,6 +359,7 @@ body {
   top: 0;
 }
 ```
+
 </CodePreview>
 
 ---
@@ -399,13 +405,15 @@ body {
   background: #f44336;
 }
 ```
+
 </CodePreview>
 
 真ん中のB（青）に`position: relative; left: 20px; top: 10px;`を指定しています。元の位置から右に20px、下に10pxずれますが、A・Cの配置には影響しません。
 
 **上のサンプルで`left`や`top`の値を変更してみて、どのように動くか確認してみましょう。**
 
-### よくある用途
+### sticky のよくある用途
+
 - 微調整（アイコンやバッジを少しずらす）
 
 ---
@@ -457,6 +465,7 @@ body {
   background: #f44336;
 }
 ```
+
 </CodePreview>
 
 真ん中のB（青）に`position: fixed; right: 20px; bottom: 20px;`を指定しています。画面の右下に固定され、スクロールしても常に同じ位置に表示されます。A・CはBが無かったかのように詰まって表示されます。
@@ -467,7 +476,7 @@ body {
 
 class="top" のついたボタンが、下のプレビューのような見た目になるように、CSSを書いてください。
 
-<CodePreview 
+<CodePreview
   sourceId="pos-ex1"
   htmlVisible={true}
   cssVisible={false}
@@ -491,14 +500,20 @@ class="top" のついたボタンが、下のプレビューのような見た�
   background: #1976d2;
   color: #fff;
   font-weight: bold;
-  box-shadow: 0 2px 6px rgba(0,0,0,.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 ```
+
 </CodePreview>
 
 <Solution>
 
-<CodePreview sourceId="pos-ex1" htmlVisible={true} cssVisible={true} previewVisible={true} />
+<CodePreview
+  sourceId="pos-ex1"
+  htmlVisible={true}
+  cssVisible={true}
+  previewVisible={true}
+/>
 
 </Solution>
 
@@ -511,7 +526,7 @@ class="top" のついたボタンが、下のプレビューのような見た�
 .overlay と .modal が、下のプレビューのように画面中央に固定表示されるように、CSSを書いてください。
 .overlay は画面全体を覆う半透明の背景、.modal は白いボックスです。
 
-<CodePreview 
+<CodePreview
   sourceId="pos-ex1-adv"
   htmlVisible={true}
   cssVisible={false}
@@ -552,6 +567,7 @@ class="top" のついたボタンが、下のプレビューのような見た�
   transform: translate(-50%, -50%);
 }
 ```
+
 </CodePreview>
 
 > [!TIP]
@@ -559,12 +575,17 @@ class="top" のついたボタンが、下のプレビューのような見た�
 > **ヒント**
 > モーダルを画面中央に配置するには、`top`、`left` を `50%` に設定し、`transform: translate(-50%, -50%);` で要素の中心を基準点に合わせる方法を考えてみましょう。
 
-
 <Solution>
 
-<CodePreview sourceId="pos-ex1-adv" htmlVisible={true} cssVisible={true} previewVisible={true} />
+<CodePreview
+  sourceId="pos-ex1-adv"
+  htmlVisible={true}
+  cssVisible={true}
+  previewVisible={true}
+/>
 
 解説:
+
 - `.overlay` を `position: fixed` で画面全体を覆う半透明の背景として配置します。
 - `top: 0; left: 0; right: 0; bottom: 0;` で画面全体を覆います。
 - `.modal` も `position: fixed` で画面中央に固定します。
@@ -573,7 +594,6 @@ class="top" のついたボタンが、下のプレビューのような見た�
 </Solution>
 
 </Exercise>
-
 
 ---
 
@@ -618,11 +638,13 @@ class="top" のついたボタンが、下のプレビューのような見た�
   background: #f44336;
 }
 ```
+
 </CodePreview>
 
 真ん中のB（青）に`position: sticky; top: 0;`を指定しています。最初は通常の流れで配置されますが、スクロールすると上端（`top: 0`）に貼り付きます。
 
-### よくある用途
+### absolute のよくある用途
+
 - 長文のセクション見出しを上部に貼り付けて見失わないようにする
 - サイドバーを一定の位置に貼り付ける
 
@@ -633,7 +655,7 @@ class="top" のついたボタンが、下のプレビューのような見た�
 h4.pin が、下のプレビューのようにスクロール時に上部へ貼り付くように、CSSを書いてください。  
 その際、メニューの背景が透けて下のテキストが見えないように設定してください。
 
-<CodePreview 
+<CodePreview
   sourceId="pos-ex2"
   htmlVisible={true}
   cssVisible={false}
@@ -661,11 +683,17 @@ h4.pin が、下のプレビューのようにスクロール時に上部へ貼�
   border-bottom: 1px solid #eee;
 }
 ```
+
 </CodePreview>
 
 <Solution>
 
-<CodePreview sourceId="pos-ex2" htmlVisible={true} cssVisible={true} previewVisible={true} />
+<CodePreview
+  sourceId="pos-ex2"
+  htmlVisible={true}
+  cssVisible={true}
+  previewVisible={true}
+/>
 
 </Solution>
 
@@ -677,7 +705,7 @@ h4.pin が、下のプレビューのようにスクロール時に上部へ貼�
 
 左カラムの aside.sidebar が、下のプレビューのように親コンテナ内で上部に貼り付くように、CSSを書いてください。
 
-<CodePreview 
+<CodePreview
   sourceId="pos-ex2-adv"
   htmlVisible={true}
   cssVisible={false}
@@ -703,11 +731,17 @@ h4.pin が、下のプレビューのようにスクロール時に上部へ貼�
   top: 10px;
 }
 ```
+
 </CodePreview>
 
 <Solution>
 
-<CodePreview sourceId="pos-ex2-adv" htmlVisible={true} cssVisible={true} previewVisible={true} />
+<CodePreview
+  sourceId="pos-ex2-adv"
+  htmlVisible={true}
+  cssVisible={true}
+  previewVisible={true}
+/>
 
 </Solution>
 
@@ -719,7 +753,7 @@ h4.pin が、下のプレビューのようにスクロール時に上部へ貼�
 
 header.head が、下のプレビューのようになるように CSS を書いてください（ヘッダーはスクロールで上部に貼り付く）。
 
-<CodePreview 
+<CodePreview
   sourceId="pos-ex2-adv-header"
   htmlVisible={true}
   cssVisible={false}
@@ -746,11 +780,17 @@ header.head が、下のプレビューのようになるように CSS を書い
   top: 0;
 }
 ```
+
 </CodePreview>
 
 <Solution>
 
-<CodePreview sourceId="pos-ex2-adv-header" htmlVisible={true} cssVisible={true} previewVisible={true} />
+<CodePreview
+  sourceId="pos-ex2-adv-header"
+  htmlVisible={true}
+  cssVisible={true}
+  previewVisible={true}
+/>
 
 </Solution>
 
@@ -762,7 +802,7 @@ header.head が、下のプレビューのようになるように CSS を書い
 
 h3.lv3 と h4.lv4 の見出しが、下のプレビューのように上下に積み重なって貼り付くように、CSSを書いてください。
 
-<CodePreview 
+<CodePreview
   sourceId="pos-ex2-plus"
   htmlVisible={true}
   cssVisible={false}
@@ -795,11 +835,17 @@ h3.lv3 と h4.lv4 の見出しが、下のプレビューのように上下に�
   background: #fff;
 }
 ```
+
 </CodePreview>
 
 <Solution>
 
-<CodePreview sourceId="pos-ex2-plus" htmlVisible={true} cssVisible={true} previewVisible={true} />
+<CodePreview
+  sourceId="pos-ex2-plus"
+  htmlVisible={true}
+  cssVisible={true}
+  previewVisible={true}
+/>
 
 </Solution>
 
@@ -851,11 +897,13 @@ h3.lv3 と h4.lv4 の見出しが、下のプレビューのように上下に�
   background: #f44336;
 }
 ```
+
 </CodePreview>
 
 真ん中のB（青）に`position: absolute; right: 0; top: 20px;`を指定しています。`position: relative` な親の`.wrap`を基準に右上に配置されます。文書の流れから外れるためA・Cが詰まって表示されます。
 
 ### よくある用途
+
 - カードの右上や右下にラベル/アイコンを重ねる
 - ツールチップ、吹き出し
 
@@ -865,7 +913,7 @@ h3.lv3 と h4.lv4 の見出しが、下のプレビューのように上下に�
 
 span.tag のラベルが、下のプレビューのようにカード右上へ重なる見た目になるように、CSSを書いてください。
 
-<CodePreview 
+<CodePreview
   sourceId="pos-ex3"
   htmlVisible={true}
   cssVisible={false}
@@ -890,7 +938,7 @@ span.tag のラベルが、下のプレビューのようにカード右上へ�
 }
 
 .tag {
-  background: rgba(0,0,0,.6);
+  background: rgba(0, 0, 0, 0.6);
   color: #fff;
   padding: 2px 6px;
   border-radius: 4px;
@@ -901,11 +949,17 @@ span.tag のラベルが、下のプレビューのようにカード右上へ�
   top: 8px;
 }
 ```
+
 </CodePreview>
 
 <Solution>
 
-<CodePreview sourceId="pos-ex3" htmlVisible={true} cssVisible={true} previewVisible={true} />
+<CodePreview
+  sourceId="pos-ex3"
+  htmlVisible={true}
+  cssVisible={true}
+  previewVisible={true}
+/>
 
 </Solution>
 
@@ -917,7 +971,7 @@ span.tag のラベルが、下のプレビューのようにカード右上へ�
 
 btn クラスのついたボタンにカーソルを載せると、下のプレビューのように span.tooltip が表示されるように、CSSを書いてください。
 
-<CodePreview 
+<CodePreview
   sourceId="pos-ex3-adv"
   htmlVisible={true}
   cssVisible={false}
@@ -947,7 +1001,7 @@ btn クラスのついたボタンにカーソルを載せると、下のプレ�
 
 .tooltip {
   visibility: hidden;
-  background-color: rgba(0,0,0,.8);
+  background-color: rgba(0, 0, 0, 0.8);
   color: #fff;
   padding: 6px 10px;
   border-radius: 4px;
@@ -965,18 +1019,22 @@ btn クラスのついたボタンにカーソルを載せると、下のプレ�
   visibility: visible;
 }
 ```
-</CodePreview>
 
+</CodePreview>
 
 > [!TIP]
 >
 > **ヒント①「ボタンの上に配置するには？」**
 > ツールチップの `bottom` に `%` を使うと、親要素（ボタン）の高さに応じて位置が変わります。これを巧みに利用しましょう。例えば、`bottom: 30%;` とすると、ツールチップの下端がボタンの下端からボタンの高さの30%分上に配置されますね。
 
+<div />
+
 > [!TIP]
 >
 > **ヒント②「左右中央に揃えるには？」**
 > ツールチップをボタンの左右中央に揃えたい場合は、`left: 50%;` としてツールチップの左端をボタンの左右中央の位置に配置してから、`transform: translateX(-50%);` で自身の幅の半分だけ左にずらすことで、左右中央に表示することができます。
+
+<div />
 
 > [!TIP]
 >
@@ -986,9 +1044,15 @@ btn クラスのついたボタンにカーソルを載せると、下のプレ�
 
 <Solution>
 
-<CodePreview sourceId="pos-ex3-adv" htmlVisible={true} cssVisible={true} previewVisible={true} />
+<CodePreview
+  sourceId="pos-ex3-adv"
+  htmlVisible={true}
+  cssVisible={true}
+  previewVisible={true}
+/>
 
 解説:
+
 - ボタンに `position: relative` を指定して、ツールチップの基準にします。
 - ツールチップは `position: absolute` で配置し、初期状態は `visibility: hidden` で非表示にします。
 - `bottom: 100%` でボタンの上に配置し、`left: 50%` と `transform: translateX(-50%)` で中央揃えにします。
@@ -1007,5 +1071,3 @@ btn クラスのついたボタンにカーソルを載せると、下のプレ�
 - `fixed`は画面基準。通常のフローから取り除かれるため、ドロワーメニューやフローティングボタンなど、その要素の領域の確保が必要ない場合に便利。
 - `sticky`も、基本は画面基準。通常のフローから取り除かれないため、ヘッダーやサイドメニューなど、その要素の領域の確保が必要な場合に便利。
 - `absolute`は「重ねたい・正確に置きたい」時に。流れから外れるため、過剰に使うとレイアウトが壊れやすい。
-
-
