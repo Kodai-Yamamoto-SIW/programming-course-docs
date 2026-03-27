@@ -6,7 +6,7 @@ on:
       - master
     paths:
       - 'content/**'
-      - 'public/img/**'
+      - 'public/**'
       - 'site.config.ts'
       - '.github/workflows/deploy-vercel.yml'
   workflow_dispatch:
