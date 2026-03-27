@@ -3,7 +3,7 @@
 $ErrorActionPreference = 'Stop'
 
 Write-Host 'Running Prettier check...' -ForegroundColor Cyan
-npx prettier --check .
+npx prettier@3.6.2 --check .
 if ($LASTEXITCODE -ne 0) {
   exit $LASTEXITCODE
 }
