@@ -22,10 +22,16 @@ import { createCourseDownloadUrl } from '@metyatech/course-docs-platform/mdx';
 
 演習で使用する画像ファイルをダウンロードしてください：
 
-- <a href={createCourseDownloadUrl(picnicImageUrl, 'picnic.jpg')} download="picnic.jpg">
+- <a
+    href={createCourseDownloadUrl(picnicImageUrl, 'picnic.jpg')}
+    download="picnic.jpg"
+  >
     picnic.jpgをダウンロード
   </a>
-- <a href={createCourseDownloadUrl(parkMapImageUrl, 'park_map.jpg')} download="park_map.jpg">
+- <a
+    href={createCourseDownloadUrl(parkMapImageUrl, 'park_map.jpg')}
+    download="park_map.jpg"
+  >
     park_map.jpgをダウンロード
   </a>
 
@@ -193,7 +199,10 @@ import { createCourseDownloadUrl } from '@metyatech/course-docs-platform/mdx';
 授業終了時点での完成形ファイルをダウンロードできます：
 
 <a
-  href={createCourseDownloadUrl(textMarkupCompleteZipUrl, 'text-markup-complete.zip')}
+  href={createCourseDownloadUrl(
+    textMarkupCompleteZipUrl,
+    'text-markup-complete.zip'
+  )}
   download="text-markup-complete.zip"
 >
   text-markup-complete.zip
