@@ -5,6 +5,7 @@ sidebar_position: 7
 import mainImageUrl from './img/main.png';
 import mapImageUrl from './img/map.png';
 import markupExercisesAdvancedCompleteZipUrl from './assets/markup-exercises-advanced-complete.zip';
+import { createCourseDownloadUrl } from '@metyatech/course-docs-platform/mdx';
 
 # 演習-発展
 
@@ -277,7 +278,10 @@ import markupExercisesAdvancedCompleteZipUrl from './assets/markup-exercises-adv
 授業終了時点での完成形ファイルをダウンロードできます：
 
 <a
-  href={markupExercisesAdvancedCompleteZipUrl}
+  href={createCourseDownloadUrl(
+    markupExercisesAdvancedCompleteZipUrl,
+    'markup-exercises-advanced-complete.zip',
+  )}
   download="markup-exercises-advanced-complete.zip"
 >
   markup-exercises-advanced-complete.zip

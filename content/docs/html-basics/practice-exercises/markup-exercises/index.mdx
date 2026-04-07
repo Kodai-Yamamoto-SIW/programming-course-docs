@@ -4,6 +4,7 @@ sidebar_position: 6
 
 import markupExercisesCompleteHtmlUrl from './assets/markup-exercises-complete.html';
 import markupExercisesTextUrl from './assets/演習用原稿.txt';
+import { createCourseDownloadUrl } from '@metyatech/course-docs-platform/mdx';
 
 # 演習
 
@@ -18,7 +19,10 @@ import markupExercisesTextUrl from './assets/演習用原稿.txt';
 
 演習用の原稿ファイルをダウンロードしてください：
 
-<a href={markupExercisesTextUrl} download="演習用原稿.txt">
+<a
+  href={createCourseDownloadUrl(markupExercisesTextUrl, '演習用原稿.txt')}
+  download="演習用原稿.txt"
+>
   演習用原稿.txtをダウンロード
 </a>
 
@@ -302,7 +306,7 @@ import markupExercisesTextUrl from './assets/演習用原稿.txt';
 授業終了時点での完成形ファイルをダウンロードできます：
 
 <a
-  href={markupExercisesCompleteHtmlUrl}
+  href={createCourseDownloadUrl(markupExercisesCompleteHtmlUrl, 'markup-exercises-complete.html')}
   download="markup-exercises-complete.html"
 >
   markup-exercises-complete.html
