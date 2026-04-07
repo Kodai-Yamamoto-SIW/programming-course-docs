@@ -2,6 +2,10 @@
 sidebar_position: 7
 ---
 
+import mainImageUrl from './img/main.png';
+import mapImageUrl from './img/map.png';
+import markupExercisesAdvancedCompleteZipUrl from './assets/markup-exercises-advanced-complete.zip';
+
 # 演習-発展
 
 ## HTMLマークアップ演習
@@ -112,8 +116,8 @@ sidebar_position: 7
 
 <CodePreview
   images={{
-    "images/main.png": new URL("./img/main.png", import.meta.url).toString(),
-    "images/map.png": new URL("./img/map.png", import.meta.url).toString(),
+    "images/main.png": mainImageUrl,
+    "images/map.png": mapImageUrl,
   }}
 >
 ```html
@@ -273,7 +277,7 @@ sidebar_position: 7
 授業終了時点での完成形ファイルをダウンロードできます：
 
 <a
-  href="./assets/markup-exercises-advanced-complete.zip"
+  href={markupExercisesAdvancedCompleteZipUrl}
   download="markup-exercises-advanced-complete.zip"
 >
   markup-exercises-advanced-complete.zip

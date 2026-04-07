@@ -2,6 +2,11 @@
 sidebar_position: 4
 ---
 
+import backgroundSampleUrl from './img/background-sample.png';
+import parallax1Url from './img/parallax1.jpg';
+import parallax2Url from './img/parallax2.jpg';
+import parallax3Url from './img/parallax3.jpg';
+
 # 背景プロパティ（background の基本）
 
 ## 今回の目標
@@ -60,7 +65,7 @@ div {
 ```
 
 <CodePreview
-  images={{ "img/background-sample.png": new URL("./img/background-sample.png", import.meta.url).toString() }}
+  images={{ "img/background-sample.png": backgroundSampleUrl }}
 >
 ```html
 <div>背景画像のサンプル</div>
@@ -116,7 +121,7 @@ div {
   htmlVisible={false}
   cssVisible={false}
   cssPath="css/style.css"
-  images={{ "img/image1.png": new URL("./img/background-sample.png", import.meta.url).toString() }}
+  images={{ "img/image1.png": backgroundSampleUrl }}
 >
 ```html
 <div>この div の背景に画像をつける</div>
@@ -165,7 +170,7 @@ div {
   htmlVisible={false}
   cssVisible={false}
   cssPath="css/style.css"
-  images={{ "css/image2.png": new URL("./img/background-sample.png", import.meta.url).toString() }}
+  images={{ "css/image2.png": backgroundSampleUrl }}
 >
 ```html
 <div>この div の背景に画像をつける</div>
@@ -210,7 +215,7 @@ div {
 | space            | 要素の中に収まるだけ画像を並べ、画像どうしの間に余白を入れる |
 
 <CodePreview
-  images={{ "img/background-sample.png": new URL("./img/background-sample.png", import.meta.url).toString() }}
+  images={{ "img/background-sample.png": backgroundSampleUrl }}
 >
 ```html
 <div class="rep">repeat</div>
@@ -261,7 +266,7 @@ div {
 主な指定：`left` / `center` / `right` と `top` / `center` / `bottom` の組み合わせ、または `px`・`%`。
 
 <CodePreview
-  images={{ "img/background-sample.png": new URL("./img/background-sample.png", import.meta.url).toString() }}
+  images={{ "img/background-sample.png": backgroundSampleUrl }}
 >
 ```html
 <div class="p1">left top</div>
@@ -325,7 +330,7 @@ div {
   htmlVisible={false}
   cssVisible={false}
   cssPath="css/style.css"
-  images={{ "img/image1.png": new URL("./img/background-sample.png", import.meta.url).toString() }}
+  images={{ "img/image1.png": backgroundSampleUrl }}
 >
 ```html
 <div>高さ300px,右上に画像</div>
@@ -379,7 +384,7 @@ div {
   htmlVisible={false}
   cssVisible={false}
   cssPath="css/style.css"
-  images={{ "img/image1.png": new URL("./img/background-sample.png", import.meta.url).toString() }}
+  images={{ "img/image1.png": backgroundSampleUrl }}
 >
 ```html
 <div>高さ300px, 横にだけくり返し</div>
@@ -433,7 +438,7 @@ div {
   htmlVisible={false}
   cssVisible={false}
   cssPath="css/style.css"
-  images={{ "img/image1.png": new URL("./img/background-sample.png", import.meta.url).toString() }}
+  images={{ "img/image1.png": backgroundSampleUrl }}
 >
 ```html
 <div>高さ300px, 上下左右中央に画像が1枚</div>
@@ -480,7 +485,7 @@ div {
 下の例では、親要素（スクロールコンテナ）をスクロールして、`local` → `scroll` → `fixed` の違いを順に確認できるようにしています。
 
 <CodePreview
-  images={{ "img/background-sample.png": new URL("./img/background-sample.png", import.meta.url).toString() }}
+  images={{ "img/background-sample.png": backgroundSampleUrl }}
   >
 ```html
 <div class="parent">
@@ -532,7 +537,7 @@ div {
 - `幅 高さ` … 例：`120px 80px`、`50% 50%`
 
 <CodePreview
-  images={{ "img/background-sample.png": new URL("./img/background-sample.png", import.meta.url).toString() }}
+  images={{ "img/background-sample.png": backgroundSampleUrl }}
 >
 ```html
 <div class="s1">cover</div>
@@ -572,7 +577,11 @@ div {
 下の例では、スクロールしてみると背景画像が固定されていて、白い帯（テキスト）だけが動くので、奥行きがあるように見えます。
 
 <CodePreview
-  images={{ "img/parallax1.jpg": new URL("./img/parallax1.jpg", import.meta.url).toString(), "img/parallax2.jpg": new URL("./img/parallax2.jpg", import.meta.url).toString(), "img/parallax3.jpg": new URL("./img/parallax3.jpg", import.meta.url).toString() }}
+  images={{
+    "img/parallax1.jpg": parallax1Url,
+    "img/parallax2.jpg": parallax2Url,
+    "img/parallax3.jpg": parallax3Url
+  }}
 >
 ```html
 <div class="scrollarea">

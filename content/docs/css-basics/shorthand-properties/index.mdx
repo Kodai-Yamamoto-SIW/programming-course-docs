@@ -2,6 +2,15 @@
 sidebar_position: 10
 ---
 
+import backgroundSampleUrl from './img/background-sample.png';
+import badgeImageUrl from './img/badge.png';
+import dinosaurImageUrl from './img/docusaurus.png';
+import fenceImageUrl from './img/fence.png';
+import patternImageUrl from './img/pattern.jpg';
+import redTapesImageUrl from './img/red_tapes.png';
+import ribbonImageUrl from './img/ribbon.png';
+import trainsImageUrl from './img/trains.png';
+
 # 一括指定プロパティ
 
 ## 今回学習する内容
@@ -434,7 +443,7 @@ background: <image> <repeat> <position> / <size> <attachment> <color>;
 
 <CodePreview
   cssPath="style.css"
-  images={{ "img/background-sample.png": new URL("./img/background-sample.png", import.meta.url).toString() }}
+  images={{ "img/background-sample.png": backgroundSampleUrl }}
 >
 ```html
 <div class="box1">一括指定</div>
@@ -467,7 +476,7 @@ div {
 
 <CodePreview
   cssPath="style.css"
-  images={{ "img/background-sample.png": new URL("./img/background-sample.png", import.meta.url).toString() }}
+  images={{ "img/background-sample.png": backgroundSampleUrl }}
 >
 ```html
 <div class="pattern1">色のみ</div>
@@ -510,7 +519,7 @@ div {
   fileStructureVisible={true}
   cssVisible={false}
   images={{
- "img/fence.png": new URL("./img/fence.png", import.meta.url).toString()
+ "img/fence.png": fenceImageUrl
   }}
   cssPath="css/style.css"
 >
@@ -563,7 +572,7 @@ div {
   fileStructureVisible={true}
   cssVisible={false}
   images={{
- "img/fence.png": new URL("./img/fence.png", import.meta.url).toString()
+ "img/fence.png": fenceImageUrl
   }}
   cssPath="css/style.css"
 >
@@ -635,7 +644,7 @@ div {
 具体例：
 
 <CodePreview
-  images={{ "img/red_tapes.png": new URL("./img/red_tapes.png", import.meta.url).toString(), "img/trains.png": new URL("./img/trains.png", import.meta.url).toString() }}
+  images={{ "img/red_tapes.png": redTapesImageUrl, "img/trains.png": trainsImageUrl }}
 >
 ```html
 <img src="./img/red_tapes.png" alt="赤いテープ" />
@@ -668,7 +677,7 @@ div {
   fileStructureVisible={true}
   cssVisible={false}
   images={{
- "img/dinosaur.png": new URL("./img/docusaurus.png", import.meta.url).toString(), "img/fence.png": new URL("./img/fence.png", import.meta.url).toString()
+ "img/dinosaur.png": dinosaurImageUrl, "img/fence.png": fenceImageUrl
   }}
   cssPath="css/style.css"
 >
@@ -715,9 +724,9 @@ div {
   fileStructureVisible={true}
   cssVisible={false}
   images={{
-    "img/badge.png": new URL("./img/badge.png", import.meta.url).toString(),
-    "img/ribbon.png": new URL("./img/ribbon.png", import.meta.url).toString(),
-    "img/pattern.jpg": new URL("./img/pattern.jpg", import.meta.url).toString()
+    "img/badge.png": badgeImageUrl,
+    "img/ribbon.png": ribbonImageUrl,
+    "img/pattern.jpg": patternImageUrl
   }}
   cssPath="css/style.css"
 >

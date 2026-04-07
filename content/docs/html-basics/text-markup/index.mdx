@@ -2,9 +2,9 @@
 sidebar_position: 4
 ---
 
-export const picnicImageUrl = '/docs/html-basics/text-markup/assets/picnic.jpg';
-export const parkMapImageUrl =
-  '/docs/html-basics/text-markup/assets/park_map.jpg';
+import parkMapImageUrl from './assets/park_map.jpg';
+import picnicImageUrl from './assets/picnic.jpg';
+import textMarkupCompleteZipUrl from './assets/text-markup-complete.zip';
 
 # テキスト
 
@@ -191,7 +191,7 @@ export const parkMapImageUrl =
 
 授業終了時点での完成形ファイルをダウンロードできます：
 
-<a href="./assets/text-markup-complete.zip" download="text-markup-complete.zip">
+<a href={textMarkupCompleteZipUrl} download="text-markup-complete.zip">
   text-markup-complete.zip
 </a>
 
