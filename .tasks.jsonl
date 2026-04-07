@@ -1,2 +1,3 @@
 {"id":"na5HpjbR","description":"Fix Vercel deploy workflow auth and secrets in programming-course-docs","stage":"committed","createdAt":"2026-04-03T02:08:12.142Z","updatedAt":"2026-04-03T02:15:00.157Z","committedEventId":"2RNLqvj2dCL6sm_p"}
 {"id":"s3Ylw4Dd","description":"Migrate programming-course-docs download links to DownloadLink","stage":"committed","createdAt":"2026-04-07T11:49:46.064Z","updatedAt":"2026-04-07T12:17:14.127Z","committedEventId":"odK9HLHKsANTs0kb"}
+{"id":"utx9vNc0","description":"Fix Prettier formatting for DownloadLink migration in programming-course-docs","stage":"committed","createdAt":"2026-04-07T12:28:56.586Z","updatedAt":"2026-04-07T12:30:33.399Z","committedEventId":"8Gt-9bbHNCvzIwX3"}
