@@ -3,7 +3,6 @@ sidebar_position: 5
 ---
 
 import imagesLinksCompleteZipUrl from './assets/images-links-complete.zip';
-import { createCourseDownloadUrl } from '@metyatech/course-docs-platform/mdx';
 
 # 画像・リンク
 
@@ -178,15 +177,9 @@ import { createCourseDownloadUrl } from '@metyatech/course-docs-platform/mdx';
 
 授業終了時点での完成形ファイルをダウンロードできます：
 
-<a
-  href={createCourseDownloadUrl(
-    imagesLinksCompleteZipUrl,
-    'images-links-complete.zip'
-  )}
-  download="images-links-complete.zip"
->
+<DownloadLink file={imagesLinksCompleteZipUrl} filename="images-links-complete.zip">
   images-links-complete.zip
-</a>
+</DownloadLink>
 
 ---
 

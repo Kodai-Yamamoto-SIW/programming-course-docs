@@ -4,7 +4,6 @@ sidebar_position: 3
 
 import elementsCompleteHtmlUrl from './assets/elements-complete.html';
 import manuscriptTextUrl from './assets/原稿.txt';
-import { createCourseDownloadUrl } from '@metyatech/course-docs-platform/mdx';
 
 # 要素
 
@@ -32,12 +31,9 @@ HTMLのタグを使って、文章の各部分に意味を与えることです�
 
    演習用の原稿ファイルをダウンロードしてください：
 
-   <a
-     href={createCourseDownloadUrl(manuscriptTextUrl, '原稿.txt')}
-     download="原稿.txt"
-   >
+   <DownloadLink file={manuscriptTextUrl} filename="原稿.txt">
      原稿.txtをダウンロード
-   </a>
+   </DownloadLink>
 
 <CodePreview
 >
@@ -222,15 +218,9 @@ HTMLのタグを使って、文章の各部分に意味を与えることです�
 
 授業終了時点での完成形ファイルをダウンロードできます：
 
-<a
-  href={createCourseDownloadUrl(
-    elementsCompleteHtmlUrl,
-    'elements-complete.html'
-  )}
-  download="elements-complete.html"
->
+<DownloadLink file={elementsCompleteHtmlUrl} filename="elements-complete.html">
   elements-complete.html
-</a>
+</DownloadLink>
 
 ---
 

@@ -5,7 +5,6 @@ sidebar_position: 4
 import parkMapImageUrl from './assets/park_map.jpg';
 import picnicImageUrl from './assets/picnic.jpg';
 import textMarkupCompleteZipUrl from './assets/text-markup-complete.zip';
-import { createCourseDownloadUrl } from '@metyatech/course-docs-platform/mdx';
 
 # テキスト
 
@@ -22,18 +21,12 @@ import { createCourseDownloadUrl } from '@metyatech/course-docs-platform/mdx';
 
 演習で使用する画像ファイルをダウンロードしてください：
 
-- <a
-    href={createCourseDownloadUrl(picnicImageUrl, 'picnic.jpg')}
-    download="picnic.jpg"
-  >
+- <DownloadLink file={picnicImageUrl} filename="picnic.jpg">
     picnic.jpgをダウンロード
-  </a>
-- <a
-    href={createCourseDownloadUrl(parkMapImageUrl, 'park_map.jpg')}
-    download="park_map.jpg"
-  >
+  </DownloadLink>
+- <DownloadLink file={parkMapImageUrl} filename="park_map.jpg">
     park_map.jpgをダウンロード
-  </a>
+  </DownloadLink>
 
 **重要**: ダウンロードした画像ファイルは、HTMLファイルと同じフォルダ内に`images`フォルダを作成し、その中に保存してください。
 
@@ -198,15 +191,9 @@ import { createCourseDownloadUrl } from '@metyatech/course-docs-platform/mdx';
 
 授業終了時点での完成形ファイルをダウンロードできます：
 
-<a
-  href={createCourseDownloadUrl(
-    textMarkupCompleteZipUrl,
-    'text-markup-complete.zip'
-  )}
-  download="text-markup-complete.zip"
->
+<DownloadLink file={textMarkupCompleteZipUrl} filename="text-markup-complete.zip">
   text-markup-complete.zip
-</a>
+</DownloadLink>
 
 ---
 

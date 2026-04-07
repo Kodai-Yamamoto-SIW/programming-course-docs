@@ -3,7 +3,6 @@ sidebar_position: 6
 ---
 
 import advancedStylingCompleteZipUrl from './assets/advanced-styling-complete.zip';
-import { createCourseDownloadUrl } from '@metyatech/course-docs-platform/mdx';
 
 # 発展スタイリング
 
@@ -57,14 +56,8 @@ import { createCourseDownloadUrl } from '@metyatech/course-docs-platform/mdx';
 
 授業終了時点での完成例ファイルをダウンロードできます：
 
-<a
-  href={createCourseDownloadUrl(
-    advancedStylingCompleteZipUrl,
-    'advanced-styling-complete.zip'
-  )}
-  download="advanced-styling-complete.zip"
->
+<DownloadLink file={advancedStylingCompleteZipUrl} filename="advanced-styling-complete.zip">
   advanced-styling-complete.zip
-</a>
+</DownloadLink>
 
 ---

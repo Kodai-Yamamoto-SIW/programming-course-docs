@@ -3,7 +3,6 @@ sidebar_position: 3
 ---
 
 import cssStylingBasicsCompleteZipUrl from './assets/css-styling-basics-complete.zip';
-import { createCourseDownloadUrl } from '@metyatech/course-docs-platform/mdx';
 
 # スタイリング
 
@@ -393,15 +392,9 @@ footer {
 
 授業終了時点での完成形ファイルをダウンロードできます：
 
-<a
-  href={createCourseDownloadUrl(
-    cssStylingBasicsCompleteZipUrl,
-    'css-styling-basics-complete.zip'
-  )}
-  download="css-styling-basics-complete.zip"
->
+<DownloadLink file={cssStylingBasicsCompleteZipUrl} filename="css-styling-basics-complete.zip">
   css-styling-basics-complete.zip
-</a>
+</DownloadLink>
 
 ---
 
