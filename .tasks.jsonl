@@ -7,3 +7,4 @@
 {"id":"UcfSmwEq","description":"Force GitHub Actions workflows onto Node 24 action runtime to remove deprecation warnings","stage":"committed","createdAt":"2026-04-07T14:44:51.998Z","updatedAt":"2026-04-07T14:46:25.622Z","committedEventId":"1ynLIX7NyTvT8GHS"}
 {"id":"dM1Rtrt1","description":"Upgrade actions/cache to v5 and remove temporary Node 24 forcing env","stage":"committed","createdAt":"2026-04-07T14:55:58.351Z","updatedAt":"2026-04-07T14:57:34.886Z","committedEventId":"ajTv_4ZWTr-bNrVs"}
 {"id":"IIcMZoIV","description":"Standardize portable verify entrypoint and mwt verify command","stage":"committed","createdAt":"2026-04-22T04:16:05.262Z","updatedAt":"2026-04-22T04:32:56.218Z","committedEventId":"nmipo_7_96O3KN2r"}
+{"id":"anokMFmP","description":"Compose education question authoring rules","stage":"committed","createdAt":"2026-04-27T11:27:59.595Z","updatedAt":"2026-04-27T11:27:59.771Z","committedEventId":"5dg5Fb-D-NnEGPI9"}

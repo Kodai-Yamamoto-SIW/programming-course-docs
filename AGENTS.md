@@ -12,6 +12,24 @@
 - Before applying any rule updates, present the planned changes first with an ANSI-colored diff-style preview, ask for explicit approval, then make the edits.
 - These tool rules live in tools/tool-rules.md in the compose-agentsmd repository; do not duplicate them in other rule modules.
 
+Source: github:metyatech/agent-rules@HEAD/rules/domains/education/question-authoring.md
+
+# Educational Question Authoring
+
+- Educational questions MUST align with the intended learning target, learner
+  level, and already-taught scope.
+- Each question MUST focus on one concept, skill, judgment, or misconception.
+- Prompts MUST be answerable from the question context without relying on
+  hidden classroom-event memory.
+- Questions MUST have a single defensible answer, or explicitly state the
+  accepted answer range.
+- Multiple-choice distractors MUST be plausible and based on likely
+  misconceptions or mistakes.
+- Fill-in questions MUST specify the expected answer format and any forbidden or
+  equivalent answers when ambiguity is likely.
+- Explanations MUST state the reasoning, concept, procedure, or misconception
+  behind the answer.
+
 Source: agent-rules-private/rules/course-site-metadata.md
 
 ## Course site metadata / sidebar rules
@@ -32,6 +50,26 @@ Write these rules in a way that keeps learning outcomes (clarity, sequencing, re
 
 - Prefer learning effectiveness over convenience or brevity.
 - Write logically precise prose
+
+## Tutorial / hands-on pages
+
+- For step-by-step tutorial pages (hands-on guides, walkthroughs), use the
+  `tutorial-authoring` skill. It defines the information hierarchy, component
+  system, and writing rules for procedural content.
+- Use the `<Section>`, `<Action>`, `<Verify>`, `<Concept>`, `<Reference>`,
+  `<Recovery>`, and `<Checkpoint>` components from `course-docs-platform`.
+  They are globally available in MDX pages (no import needed).
+- `<Section>` is a recursive structural container that replaces both the
+  legacy `<Step>` and `<Procedure>`. Nest Sections to any depth instead of
+  using a fixed two-level structure. Each top-level Section must declare a
+  `goal` prop.
+- Do not use `:::note` for background/concept explanations in tutorials; use
+  `<Concept>` (which renders as a collapsible `<details>`).
+- Do not use `:::caution` as recovery for an Action; use `<Recovery>` placed
+  inline immediately after the action that can fail.
+- Do not use `---` horizontal rules between sub-sections; only between
+  top-level Sections.
+- One image per `<Action>`; never batch multiple images before a numbered list.
 
 ## Reader perspective and voice
 
@@ -199,12 +237,39 @@ Write these rules in a way that keeps learning outcomes (clarity, sequencing, re
 
 ## Assessments (exam questions written in Markdown)
 
-- Write questions so there is a single interpretation and a single correct answer.
-- Avoid ambiguous verbs like “switch”; specify the exact state transition.
 - For UI behavior questions, include a visual target (GIF/image) when feasible.
-- For fill-in-the-blank questions, specify the expected answer format and any forbidden answers.
-- For external-system blanks, use `${answer}` (multiple answers: `${/regex/}`); do not convert to custom placeholders (e.g. `【1】`).
-- If multiple answers are allowed, describe the allowed range explicitly (e.g. `textContent` or `innerText`).
+- For external-system blanks, use `${answer}` (multiple answers: `${/regex/}`);
+  do not convert to custom placeholders (e.g. `【1】`).
+
+## Tutorial-shot images in `<Action>` components
+
+Tutorial-shot images are PNGs generated from `.shot.json` files in a `shots/`
+directory adjacent to the MDX file, using `tutorial-shots-shared.mjs`.
+Each annotation in a shot has a `role`: `”action”` (orange solid box) or
+`”verify”` (white dashed box).
+
+### Auto-injected legend
+
+When a shot contains both `”action”` and `”verify”` annotations (a *mixed-role*
+shot), `remarkInjectTutorialShotLegend` (in `course-docs-platform`) automatically
+injects a `<Concept>` legend before the first `<Action>` on the page that
+references such a shot.  The legend describes what each box color and line style
+means so the learner can read the shot correctly.
+
+- Authors MUST NOT write stroke-color or line-style descriptions in
+  `<Action>` text (e.g. “白い破線で囲まれた”, “オレンジの実線で囲まれた”) for
+  tutorial-shot images.  The auto-injected legend covers this; inline
+  repetition violates the Redundancy principle.
+- Authors MUST NOT manually write a `<Concept>` block for the shot legend.
+  `remarkInjectTutorialShotLegend` handles injection automatically.  Duplicate
+  manual blocks create double legends.
+
+### Keeping the legend text in sync
+
+The legend text is defined by the constants `VERIFY_VISUAL` and `ACTION_VISUAL`
+in `course-docs-platform/src/mdx/remark-inject-tutorial-shot-legend.ts`.
+When the stroke colors or line styles in `tutorial-shots-shared.mjs` change,
+update those constants in the same change set so the legend stays accurate.
 
 Source: agent-rules-private/rules/course-site-repository-architecture.md
 
