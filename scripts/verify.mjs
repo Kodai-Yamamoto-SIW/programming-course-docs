@@ -86,6 +86,8 @@ const siteEnv = {
   COURSE_CONTENT_SOURCE: repoRoot,
 };
 
+run('node', [path.relative(repoRoot, path.join(scriptDir, 'verify-exercise-headings.mjs'))]);
+
 run(npxCommand, [
   '-y',
   'markdownlint-cli',
