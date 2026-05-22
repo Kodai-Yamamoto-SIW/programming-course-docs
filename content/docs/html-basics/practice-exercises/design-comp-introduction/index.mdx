@@ -152,6 +152,136 @@ CSSは演習対象外なので空のままにして、**ブラウザそのまま
 
 </Exercise>
 
+### 演習-発展1
+
+<Exercise>
+
+早めに終わった人向けの発展課題です。  
+次のカンプと同じ **構造** になるHTMLを書いてください。今回は `section` の中にさらに `section` を入れ子にする箇所があります。入れ子になった `section` の見出しは何になるか、4ステップに当てはめて考えましょう。
+
+<CodePreview
+  sourceId="library-comp"
+  htmlVisible={false}
+  cssVisible={false}
+  previewVisible
+>
+
+```html
+<header>
+  <h1>図書室の利用案内</h1>
+</header>
+<main>
+  <section>
+    <h2>利用時間</h2>
+    <p>平日の昼休みと放課後に利用できます。</p>
+    <ul>
+      <li>昼休み: 12:30 〜 13:00</li>
+      <li>放課後: 16:00 〜 17:30</li>
+    </ul>
+  </section>
+  <section>
+    <h2>利用ルール</h2>
+    <p>みんなが気持ちよく使えるよう、次のルールを守ってください。</p>
+    <ul>
+      <li>飲食はしない</li>
+      <li>大きな声で話さない</li>
+      <li>本は元の場所に戻す</li>
+    </ul>
+  </section>
+  <section>
+    <h2>今月のおすすめ本</h2>
+    <p>図書委員が選んだおすすめの本です。気になる本があれば借りてみましょう。</p>
+    <section>
+      <h3>小説</h3>
+      <ul>
+        <li>夏の終わりの図書館</li>
+        <li>星をひろう少女</li>
+      </ul>
+    </section>
+    <section>
+      <h3>実用書</h3>
+      <ul>
+        <li>はじめてのプログラミング</li>
+        <li>ノートのとり方入門</li>
+      </ul>
+    </section>
+  </section>
+</main>
+<footer>
+  <p>図書室 担当 田中先生</p>
+</footer>
+```
+
+```css
+body {
+  font-family: sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+  color: #222;
+  line-height: 1.6;
+}
+
+header {
+  border-bottom: 1px solid #999;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+header h1 {
+  margin: 0;
+}
+
+main section {
+  margin-bottom: 24px;
+}
+
+main section section {
+  margin-bottom: 12px;
+}
+
+footer {
+  border-top: 1px solid #999;
+  padding-top: 8px;
+  margin-top: 24px;
+  color: #666;
+  font-size: 0.9em;
+}
+```
+
+</CodePreview>
+
+**ヒント:**
+
+- `main` の直下にある `section` は3つ。そのうちの1つの中に、さらに `section` が入れ子になっている。
+- 入れ子になった `section` の見出しは、`h2` ではなく `h3`（ステップ3を見直してみよう）。
+
+<Solution>
+
+カンプと同じ構造のHTMLは次のとおりです。CSSは空のまま、ブラウザそのままの見た目で表示しています。
+
+<CodePreview
+  sourceId="library-comp"
+  share={false}
+  htmlVisible
+  cssVisible={false}
+  previewVisible
+>
+
+```css
+```
+
+</CodePreview>
+
+**ポイント:**
+
+- 「今月のおすすめ本」の `section` の中には、「小説」「実用書」という2つの小さなテーマがある。それぞれが「見出し + 中身」のかたまりなので、内側の `section` として入れ子にする。
+- 内側の `section` は `main` 直下ではなくもう一段深い位置にあるので、その見出しは `h3` になる。
+
+</Solution>
+
+</Exercise>
+
 ---
 
 おつかれさまでした。次回からは、もう少し装飾のあるカンプから構造を読み取る練習をしていきます。
