@@ -29,7 +29,8 @@ const listMdxFiles = (dirPath) => {
   return files;
 };
 
-const lineNumberAt = (content, index) => content.slice(0, index).split('\n').length;
+const lineNumberAt = (content, index) =>
+  content.slice(0, index).split('\n').length;
 
 const previousNonBlankLine = (lines, startLineIndex) => {
   for (let lineIndex = startLineIndex - 1; lineIndex >= 0; lineIndex -= 1) {
@@ -42,7 +43,8 @@ const previousNonBlankLine = (lines, startLineIndex) => {
   return null;
 };
 
-const toRepoRelativePath = (filePath) => path.relative(repoRoot, filePath).replaceAll(path.sep, '/');
+const toRepoRelativePath = (filePath) =>
+  path.relative(repoRoot, filePath).replaceAll(path.sep, '/');
 
 const violations = [];
 let exerciseCount = 0;
@@ -59,13 +61,15 @@ for (const filePath of listMdxFiles(contentDir)) {
     const lineNumber = lineNumberAt(content, match.index);
 
     if (titlePropPattern.test(openingTag)) {
-      violations.push(`${relativePath}:${lineNumber} <Exercise> must not use a title prop.`);
+      violations.push(
+        `${relativePath}:${lineNumber} <Exercise> must not use a title prop.`
+      );
     }
 
     const previousLine = previousNonBlankLine(lines, lineNumber - 1);
     if (!previousLine || !headingPattern.test(previousLine.line.trim())) {
       violations.push(
-        `${relativePath}:${lineNumber} <Exercise> must be immediately preceded by a non-empty Markdown heading at level 2-6.`,
+        `${relativePath}:${lineNumber} <Exercise> must be immediately preceded by a non-empty Markdown heading at level 2-6.`
       );
     }
   }
@@ -78,5 +82,7 @@ if (violations.length > 0) {
   }
   process.exitCode = 1;
 } else {
-  console.log(`Exercise heading verification passed (${exerciseCount} Exercise block${exerciseCount === 1 ? '' : 's'} checked).`);
+  console.log(
+    `Exercise heading verification passed (${exerciseCount} Exercise block${exerciseCount === 1 ? '' : 's'} checked).`
+  );
 }

@@ -22,7 +22,8 @@ const readPackageName = (dirPath) => {
 
 const isCourseDocsSiteDir = (dirPath) => {
   if (!fs.existsSync(dirPath)) return false;
-  if (!fs.existsSync(path.join(dirPath, 'scripts', 'content-source.mjs'))) return false;
+  if (!fs.existsSync(path.join(dirPath, 'scripts', 'content-source.mjs')))
+    return false;
   return readPackageName(dirPath) === 'course-docs-site';
 };
 
@@ -33,7 +34,7 @@ const resolveCourseDocsSiteDir = () => {
     if (isCourseDocsSiteDir(resolvedPath)) return resolvedPath;
 
     throw new Error(
-      `COURSE_DOCS_SITE_DIR does not point to a course-docs-site checkout: ${resolvedPath}`,
+      `COURSE_DOCS_SITE_DIR does not point to a course-docs-site checkout: ${resolvedPath}`
     );
   }
 
@@ -48,7 +49,7 @@ const resolveCourseDocsSiteDir = () => {
   }
 
   throw new Error(
-    'Unable to locate course-docs-site automatically. Set COURSE_DOCS_SITE_DIR to a local checkout path.',
+    'Unable to locate course-docs-site automatically. Set COURSE_DOCS_SITE_DIR to a local checkout path.'
   );
 };
 
@@ -57,13 +58,16 @@ const run = (command, args, options = {}) => {
   const result =
     process.platform === 'win32'
       ? spawnSync(
-          [command, ...args.map((arg) => `"${arg.replaceAll('"', '\\"')}"`)].join(' '),
+          [
+            command,
+            ...args.map((arg) => `"${arg.replaceAll('"', '\\"')}"`),
+          ].join(' '),
           {
             stdio: 'inherit',
             cwd: repoRoot,
             shell: true,
             ...options,
-          },
+          }
         )
       : spawnSync(command, args, {
           stdio: 'inherit',
@@ -86,7 +90,9 @@ const siteEnv = {
   COURSE_CONTENT_SOURCE: repoRoot,
 };
 
-run('node', [path.relative(repoRoot, path.join(scriptDir, 'verify-exercise-headings.mjs'))]);
+run('node', [
+  path.relative(repoRoot, path.join(scriptDir, 'verify-exercise-headings.mjs')),
+]);
 
 run(npxCommand, [
   '-y',
@@ -101,4 +107,7 @@ run(npxCommand, [
 ]);
 
 run(npmCommand, ['run', 'lint'], { cwd: courseDocsSiteDir, env: siteEnv });
-run(npmCommand, ['run', 'build:verified'], { cwd: courseDocsSiteDir, env: siteEnv });
+run(npmCommand, ['run', 'build:verified'], {
+  cwd: courseDocsSiteDir,
+  env: siteEnv,
+});
