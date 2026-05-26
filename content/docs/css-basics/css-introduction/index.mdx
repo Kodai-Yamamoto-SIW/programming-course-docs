@@ -94,11 +94,11 @@ CSSをHTMLに適用する方法は主に3つあります：
 
 ```css
 h1 {
-  color: red;
+    color: red;
 }
 p {
-  color: blue;
-  font-size: 18px;
+    color: blue;
+    font-size: 18px;
 }
 ```
 
@@ -120,11 +120,11 @@ p {
 ```css
 /* これはコメントです */
 h1 {
-  color: red; /* 見出しを赤色にする */
+    color: red; /* 見出しを赤色にする */
 }
 
 p {
-  color: blue;
+    color: blue;
 }
 ```
 
@@ -136,8 +136,8 @@ CSSの基本的な書き方は以下の通りです：
 
 ```css
 セレクタ {
-  プロパティ名: 値;
-  プロパティ名: 値;
+    プロパティ名: 値;
+    プロパティ名: 値;
 }
 ```
 
@@ -159,14 +159,14 @@ CSSの基本的な書き方は以下の通りです：
 
 ```css
 h1 {
-  color: red; /* 文字色を赤にする */
-  font-size: 24px; /* 文字サイズを24pxにする */
-  background-color: yellow; /* 背景色を黄色にする */
+    color: red; /* 文字色を赤にする */
+    font-size: 24px; /* 文字サイズを24pxにする */
+    background-color: yellow; /* 背景色を黄色にする */
 }
 
 p {
-  color: blue;
-  font-size: 16px;
+    color: blue;
+    font-size: 16px;
 }
 ```
 
@@ -186,16 +186,16 @@ p {
 ```html
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <title>CSS演習1</title>
-    <!-- ここに外部CSSファイルのリンクを追加してください -->
-  </head>
-  <body>
-    <h1>私の自己紹介</h1>
-    <p>こんにちは、山田太郎です。</p>
-    <p>趣味はプログラミングです。</p>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>CSS演習1</title>
+        <!-- ここに外部CSSファイルのリンクを追加してください -->
+    </head>
+    <body>
+        <h1>私の自己紹介</h1>
+        <p>こんにちは、山田太郎です。</p>
+        <p>趣味はプログラミングです。</p>
+    </body>
 </html>
 ```
 
@@ -227,10 +227,10 @@ p {
 
 ```css
 h1 {
-  color: blue;
+    color: blue;
 }
 p {
-  color: green;
+    color: green;
 }
 ```
 
@@ -289,19 +289,19 @@ p {
 
 ```css
 body {
-  background-color: lightgray;
+    background-color: lightgray;
 }
 h1 {
-  color: blue;
+    color: blue;
 }
 h2 {
-  color: orange;
+    color: orange;
 }
 p {
-  color: green;
+    color: green;
 }
 li {
-  color: purple;
+    color: purple;
 }
 ```
 
@@ -335,13 +335,13 @@ CSSで色を指定する方法は複数あります：
 
 ```css
 h1 {
-  color: red;
+    color: red;
 } /* 赤 */
 p {
-  color: blue;
+    color: blue;
 } /* 青 */
 div {
-  color: green;
+    color: green;
 } /* 緑 */
 ```
 
@@ -351,13 +351,13 @@ div {
 
 ```css
 h1 {
-  color: #ff0000;
+    color: #ff0000;
 } /* 赤 */
 p {
-  color: #0000ff;
+    color: #0000ff;
 } /* 青 */
 div {
-  color: #00ff00;
+    color: #00ff00;
 } /* 緑 */
 ```
 
@@ -371,13 +371,13 @@ div {
 
 ```css
 h1 {
-  color: rgb(255, 0, 0);
+    color: rgb(255, 0, 0);
 } /* 赤 */
 p {
-  color: rgb(0, 0, 255);
+    color: rgb(0, 0, 255);
 } /* 青 */
 div {
-  color: rgb(0, 255, 0);
+    color: rgb(0, 255, 0);
 } /* 緑 */
 ```
 
@@ -387,13 +387,13 @@ div {
 
 ```css
 h1 {
-  color: rgb(100%, 0%, 0%);
+    color: rgb(100%, 0%, 0%);
 } /* 赤 */
 p {
-  color: rgb(0%, 0%, 100%);
+    color: rgb(0%, 0%, 100%);
 } /* 青 */
 div {
-  color: rgb(0%, 100%, 0%);
+    color: rgb(0%, 100%, 0%);
 } /* 緑 */
 ```
 
@@ -401,10 +401,10 @@ div {
 
 ```css
 h1 {
-  color: rgba(255, 0, 0, 0.5);
+    color: rgba(255, 0, 0, 0.5);
 } /* 半透明の赤 */
 p {
-  color: rgba(0, 0, 255, 0.8);
+    color: rgba(0, 0, 255, 0.8);
 } /* 少し透明な青 */
 ```
 
@@ -426,29 +426,29 @@ p {
 
 ```css
 h1 {
-  color: red; /* カラーネーム */
+    color: red; /* カラーネーム */
 }
 
 h2 {
-  color: #0066cc; /* 16進数カラーコード */
+    color: #0066cc; /* 16進数カラーコード */
 }
 
 h3 {
-  color: rgb(255, 165, 0); /* RGB数値 */
+    color: rgb(255, 165, 0); /* RGB数値 */
 }
 
 h4 {
-  color: rgb(50%, 0%, 50%); /* RGBパーセント */
+    color: rgb(50%, 0%, 50%); /* RGBパーセント */
 }
 
 h5 {
-  color: rgba(0, 128, 0, 0.15); /* RGBA（透明度付き） */
-  background-color: yellow;
+    color: rgba(0, 128, 0, 0.15); /* RGBA（透明度付き） */
+    background-color: yellow;
 }
 
 p {
-  background-color: rgba(0, 0, 255, 0.1);
-  padding: 10px;
+    background-color: rgba(0, 0, 255, 0.1);
+    padding: 10px;
 }
 ```
 
@@ -470,17 +470,17 @@ p {
 ```html
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <title>色の演習</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <h1>自己紹介</h1>
-    <h2>基本情報</h2>
-    <p>はじめまして、田中花子です。趣味は読書と映画鑑賞です。</p>
-    <small>よろしくお願いします。</small>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>色の演習</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1>自己紹介</h1>
+        <h2>基本情報</h2>
+        <p>はじめまして、田中花子です。趣味は読書と映画鑑賞です。</p>
+        <small>よろしくお願いします。</small>
+    </body>
 </html>
 ```
 
@@ -508,16 +508,16 @@ p {
 
 ```css
 h1 {
-  color: #800080; /* 16進数カラーコードで紫色 */
+    color: #800080; /* 16進数カラーコードで紫色 */
 }
 h2 {
-  color: rgb(0, 0, 139); /* RGB数値で濃い青色 */
+    color: rgb(0, 0, 139); /* RGB数値で濃い青色 */
 }
 p {
-  color: rgb(100%, 65%, 0%); /* RGBパーセントでオレンジ色 */
+    color: rgb(100%, 65%, 0%); /* RGBパーセントでオレンジ色 */
 }
 small {
-  color: rgba(128, 128, 128, 0.7); /* RGBAで半透明の灰色 */
+    color: rgba(128, 128, 128, 0.7); /* RGBAで半透明の灰色 */
 }
 ```
 
@@ -552,18 +552,18 @@ small {
 ```html
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <title>色コード指定演習</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <h1>ウェブサイト制作会社</h1>
-    <h2>サービス内容</h2>
-    <p>私たちは最新技術を使ったウェブサイト制作を行っています。</p>
-    <h2>制作実績</h2>
-    <p>これまでに100以上のプロジェクトを手がけてきました。</p>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>色コード指定演習</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1>ウェブサイト制作会社</h1>
+        <h2>サービス内容</h2>
+        <p>私たちは最新技術を使ったウェブサイト制作を行っています。</p>
+        <h2>制作実績</h2>
+        <p>これまでに100以上のプロジェクトを手がけてきました。</p>
+    </body>
 </html>
 ```
 
@@ -592,17 +592,17 @@ small {
 
 ```css
 body {
-  background-color: rgba(63, 81, 181, 0.6); /* 半透明の青 */
+    background-color: rgba(63, 81, 181, 0.6); /* 半透明の青 */
 }
 h1 {
-  color: #ff6b35; /* オレンジ */
-  background-color: rgb(46, 125, 50); /* 緑 */
+    color: #ff6b35; /* オレンジ */
+    background-color: rgb(46, 125, 50); /* 緑 */
 }
 h2 {
-  color: rgb(75%, 0%, 75%); /* 紫 */
+    color: rgb(75%, 0%, 75%); /* 紫 */
 }
 p {
-  color: rgb(46, 125, 50); /* 緑 */
+    color: rgb(46, 125, 50); /* 緑 */
 }
 ```
 
@@ -633,9 +633,9 @@ CSSでは、親要素のスタイルが子要素に自動的に受け継がれ�
 
 ```css
 body {
-  color: blue; /* bodyの文字色を青に */
-  font-size: 18px; /* 文字サイズを18pxに */
-  text-align: center; /* 文字を中央揃えに */
+    color: blue; /* bodyの文字色を青に */
+    font-size: 18px; /* 文字サイズを18pxに */
+    text-align: center; /* 文字を中央揃えに */
 }
 ```
 
@@ -678,9 +678,9 @@ body {
 
 ```css
 h1 {
-  color: red; /* 最初に赤色を指定 */
-  color: blue; /* 後で青色を指定（こちらが適用される） */
-  color: green; /* 最後に緑色を指定（最終的にこれが適用される） */
+    color: red; /* 最初に赤色を指定 */
+    color: blue; /* 後で青色を指定（こちらが適用される） */
+    color: green; /* 最後に緑色を指定（最終的にこれが適用される） */
 }
 ```
 
@@ -697,17 +697,17 @@ h1 {
 ```html
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <title>上書きと継承のテスト</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <h1>メインタイトル</h1>
-    <h2>サブタイトル</h2>
-    <p>この段落の文字</p>
-    <strong>強調された文字</strong>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>上書きと継承のテスト</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1>メインタイトル</h1>
+        <h2>サブタイトル</h2>
+        <p>この段落の文字</p>
+        <strong>強調された文字</strong>
+    </body>
 </html>
 ```
 
@@ -715,19 +715,19 @@ h1 {
 
 ```css
 body {
-  color: green;
+    color: green;
 }
 h1 {
-  color: red;
-  color: blue;
-  color: purple;
+    color: red;
+    color: blue;
+    color: purple;
 }
 h2 {
-  color: orange;
-  color: pink;
+    color: orange;
+    color: pink;
 }
 p {
-  color: yellow;
+    color: yellow;
 }
 ```
 
