@@ -22,7 +22,7 @@ sidebar_position: 5
 
 ```css
 セレクタ {
-    font-size: 値;
+  font-size: 値;
 }
 ```
 
@@ -46,19 +46,19 @@ sidebar_position: 5
 
 ```css
 .title {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .subtitle {
-    font-size: 20px;
+  font-size: 20px;
 }
 
 .text {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .small {
-    font-size: 12px;
+  font-size: 12px;
 }
 ```
 
@@ -76,7 +76,7 @@ sidebar_position: 5
 
 ```css
 セレクタ {
-    text-align: 値;
+  text-align: 値;
 }
 ```
 
@@ -98,18 +98,18 @@ sidebar_position: 5
 
 ```css
 .hidari {
-    text-align: left;
-    background-color: #add8e6;
+  text-align: left;
+  background-color: #add8e6;
 }
 
 .naka {
-    text-align: center;
-    background-color: #90ee90;
+  text-align: center;
+  background-color: #90ee90;
 }
 
 .migi {
-    text-align: right;
-    background-color: #ffc0cb;
+  text-align: right;
+  background-color: #ffc0cb;
 }
 ```
 
@@ -145,16 +145,16 @@ sidebar_position: 5
 
 ```css
 .title {
-    text-align: right;
-    font-size: 20px;
-    background-color: lightblue;
+  text-align: right;
+  font-size: 20px;
+  background-color: lightblue;
 }
 
 .text {
-    width: 250px;
-    text-align: center;
-    font-size: 16px;
-    background-color: lightgreen;
+  width: 250px;
+  text-align: center;
+  font-size: 16px;
+  background-color: lightgreen;
 }
 ```
 
@@ -178,11 +178,11 @@ sidebar_position: 5
 
 ```html
 <div class="card">
-    <h1 class="name">山田太郎</h1>
-    <p class="info">年齢：25歳</p>
-    <p class="info">職業：エンジニア</p>
-    <p class="info">趣味：読書</p>
-    <p class="contact">連絡先：yamada@example.com</p>
+  <h1 class="name">山田太郎</h1>
+  <p class="info">年齢：25歳</p>
+  <p class="info">職業：エンジニア</p>
+  <p class="info">趣味：読書</p>
+  <p class="contact">連絡先：yamada@example.com</p>
 </div>
 ```
 
@@ -208,21 +208,21 @@ sidebar_position: 5
 
 ```css
 .name {
-    text-align: center;
-    font-size: 24px;
-    background-color: lightblue;
+  text-align: center;
+  font-size: 24px;
+  background-color: lightblue;
 }
 
 .info {
-    text-align: left;
-    font-size: 16px;
-    background-color: lightgreen;
+  text-align: left;
+  font-size: 16px;
+  background-color: lightgreen;
 }
 
 .contact {
-    text-align: right;
-    font-size: 14px;
-    background-color: lightyellow;
+  text-align: right;
+  font-size: 14px;
+  background-color: lightyellow;
 }
 ```
 
@@ -244,7 +244,7 @@ sidebar_position: 5
 
 ```css
 セレクタ {
-    line-height: 値;
+  line-height: 値;
 }
 ```
 
@@ -297,22 +297,22 @@ sidebar_position: 5
 
 ```css
 div {
-    margin: 10px 0;
+  margin: 10px 0;
 }
 
 .narrow {
-    line-height: 0.5;
-    background-color: #add8e6;
+  line-height: 0.5;
+  background-color: #add8e6;
 }
 
 .normal {
-    line-height: 1;
-    background-color: #90ee90;
+  line-height: 1;
+  background-color: #90ee90;
 }
 
 .wide {
-    line-height: 1.5;
-    background-color: #ffc0cb;
+  line-height: 1.5;
+  background-color: #ffc0cb;
 }
 ```
 
@@ -328,11 +328,11 @@ div {
 
 ```html
 <p class="a">
-    フォントサイズ16px、行間1.5（単位なし）のテキストです。この文章は複数行にわたって表示され、行間の違いを確認できるようになっています。単位なしのline-heightは、フォントサイズに対する相対値として機能します。CSSでは通常、長さを表す値には必ず単位（px、em、remなど）が必要ですが、line-heightは単位なしの数値で指定することができます。これは「フォントサイズに対する相対的な行間」という特殊な概念を表現するためです。例えば、フォントサイズが16pxでline-heightが1.5の場合、実際の行間は16px
-    × 1.5 = 24pxになります。
+  フォントサイズ16px、行間1.5（単位なし）のテキストです。この文章は複数行にわたって表示され、行間の違いを確認できるようになっています。単位なしのline-heightは、フォントサイズに対する相対値として機能します。CSSでは通常、長さを表す値には必ず単位（px、em、remなど）が必要ですが、line-heightは単位なしの数値で指定することができます。これは「フォントサイズに対する相対的な行間」という特殊な概念を表現するためです。例えば、フォントサイズが16pxでline-heightが1.5の場合、実際の行間は16px
+  × 1.5 = 24pxになります。
 </p>
 <p class="b">
-    フォントサイズ16px、行間24px（単位あり）のテキストです。この文章は複数行にわたって表示され、行間の違いを確認できるようになっています。単位ありのline-heightは、固定の行間として機能します。ピクセル値で指定した場合、フォントサイズが変わっても行間は固定されたままです。これは「絶対的な行間」を表現する方法です。例えば、line-heightが24pxの場合、フォントサイズが16pxでも32pxでも、行間は常に24pxのままです。このように、同じ見た目になる場合でも、指定方法によって意味が異なります。
+  フォントサイズ16px、行間24px（単位あり）のテキストです。この文章は複数行にわたって表示され、行間の違いを確認できるようになっています。単位ありのline-heightは、固定の行間として機能します。ピクセル値で指定した場合、フォントサイズが変わっても行間は固定されたままです。これは「絶対的な行間」を表現する方法です。例えば、line-heightが24pxの場合、フォントサイズが16pxでも32pxでも、行間は常に24pxのままです。このように、同じ見た目になる場合でも、指定方法によって意味が異なります。
 </p>
 ```
 
@@ -352,15 +352,15 @@ div {
 
 ```css
 .a {
-    font-size: 16px;
-    line-height: 1.5;
-    background-color: #add8e6;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #add8e6;
 }
 
 .b {
-    font-size: 16px;
-    line-height: 24px;
-    background-color: #90ee90;
+  font-size: 16px;
+  line-height: 24px;
+  background-color: #90ee90;
 }
 ```
 
@@ -395,12 +395,12 @@ div {
 
 ```css
 .a {
-    font-size: 16px;
-    line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.5;
 }
 .b {
-    font-size: 16px;
-    line-height: 1.5em;
+  font-size: 16px;
+  line-height: 1.5em;
 }
 ```
 
@@ -422,10 +422,10 @@ div {
 
 ```css
 .oya {
-    line-height: 2;
+  line-height: 2;
 }
 .ko {
-    font-size: 34px;
+  font-size: 34px;
 }
 ```
 
@@ -443,10 +443,10 @@ div {
 
 ```css
 .oya {
-    line-height: 2em;
+  line-height: 2em;
 }
 .ko {
-    font-size: 34px;
+  font-size: 34px;
 }
 ```
 

@@ -62,22 +62,22 @@ import trainsImageUrl from './img/trains.png';
 
 ```css
 div {
-    width: 200px;
+  width: 200px;
 }
 
 /* 一括指定（今まで学習してきた方法） */
 .box1 {
-    padding: 20px;
-    background-color: lightblue;
+  padding: 20px;
+  background-color: lightblue;
 }
 
 /* 個別指定 */
 .box2 {
-    padding-top: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    background-color: lightgreen;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  background-color: lightgreen;
 }
 ```
 
@@ -97,19 +97,19 @@ div {
 
 ```css
 .box1 {
-    padding-top: 30px;
-    background-color: lightblue;
+  padding-top: 30px;
+  background-color: lightblue;
 }
 
 .box2 {
-    padding-left: 40px;
-    padding-right: 40px;
-    background-color: lightgreen;
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: lightgreen;
 }
 
 .box3 {
-    padding-bottom: 25px;
-    background-color: lightcoral;
+  padding-bottom: 25px;
+  background-color: lightcoral;
 }
 ```
 
@@ -151,14 +151,14 @@ border: 太さ スタイル 色;
 ```css
 /* 一括指定（今まで学習してきた方法） */
 .box1 {
-    border: 2px solid red;
+  border: 2px solid red;
 }
 
 /* 個別指定 */
 .box2 {
-    border-width: 2px;
-    border-style: solid;
-    border-color: red;
+  border-width: 2px;
+  border-style: solid;
+  border-color: red;
 }
 ```
 
@@ -176,8 +176,8 @@ borderも方向別に個別指定することができます：
 
 ```css
 .box {
-    border-top: 3px solid red;
-    border-bottom: 3px solid blue;
+  border-top: 3px solid red;
+  border-bottom: 3px solid blue;
 }
 ```
 
@@ -212,20 +212,20 @@ borderも方向別に個別指定することができます：
 
 ```css
 div {
-    margin: 50px 0;
+  margin: 50px 0;
 }
 
 .atama {
-    border-bottom: 2px solid blue;
+  border-bottom: 2px solid blue;
 }
 
 .naka {
-    border-top: 1px solid gray;
-    border-bottom: 1px solid gray;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
 }
 
 .sita {
-    border-top: 3px double red;
+  border-top: 3px double red;
 }
 ```
 
@@ -278,17 +278,17 @@ font: スタイル 太さ サイズ フォントファミリー;
 ```css
 /* 一括指定 */
 .moji1 {
-    /* 太さ サイズ フォントファミリー */
-    font:
-        bold 18px 'Yu Gothic',
-        sans-serif;
+  /* 太さ サイズ フォントファミリー */
+  font:
+    bold 18px 'Yu Gothic',
+    sans-serif;
 }
 
 /* 個別指定 */
 .moji2 {
-    font-weight: bold;
-    font-size: 18px;
-    font-family: 'Yu Gothic', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: 'Yu Gothic', sans-serif;
 }
 ```
 
@@ -452,21 +452,21 @@ background: <image> <repeat> <position> / <size> <attachment> <color>;
 
 ```css
 div {
-    width: 300px;
-    height: 200px;
+  width: 300px;
+  height: 200px;
 }
 
 /* 一括指定 */
 .box1 {
-    background: url('./img/background-sample.png') no-repeat center lightblue;
+  background: url('./img/background-sample.png') no-repeat center lightblue;
 }
 
 /* 個別指定 */
 .box2 {
-    background-image: url('./img/background-sample.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: lightblue;
+  background-image: url('./img/background-sample.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: lightblue;
 }
 ```
 
@@ -486,23 +486,23 @@ div {
 
 ```css
 div {
-    width: 280px;
-    height: 100px;
+  width: 280px;
+  height: 100px;
 }
 
 /* 背景色のみ */
 .pattern1 {
-    background: #ff6b6b;
+  background: #ff6b6b;
 }
 
 /* 画像のみ */
 .pattern2 {
-    background: url('./img/background-sample.png') no-repeat center;
+  background: url('./img/background-sample.png') no-repeat center;
 }
 
 /* 色と画像の組み合わせ */
 .pattern3 {
-    background: url('./img/background-sample.png') no-repeat right lightgreen;
+  background: url('./img/background-sample.png') no-repeat right lightgreen;
 }
 ```
 
@@ -538,16 +538,16 @@ div {
 
 ```css
 div {
-    width: 350px;
-    height: 200px;
+  width: 350px;
+  height: 200px;
 }
 
 .ookii {
-    background: #f0f8ff url('../img/fence.png') no-repeat center;
+  background: #f0f8ff url('../img/fence.png') no-repeat center;
 }
 
 .kaado {
-    background-color: #839fbb;
+  background-color: #839fbb;
 }
 ```
 
@@ -587,9 +587,9 @@ div {
 
 ```css
 .koe {
-    background: url('../img/fence.png') repeat-x left bottom / 120px auto #e3f2fd;
-    width: 800px;
-    height: 250px;
+  background: url('../img/fence.png') repeat-x left bottom / 120px auto #e3f2fd;
+  width: 800px;
+  height: 250px;
 }
 ```
 
@@ -636,7 +636,7 @@ div {
 - 書き方の例：
 
   ```css
-    background: background1, background2, ..., backgroundN;
+  background: background1, background2, ..., backgroundN;
   ```
 
 - その際、背景色は最後の1つ（backgroundN）にしか指定できません。（背景色は一番後ろだから、と覚えると覚えやすい）
@@ -654,13 +654,13 @@ div {
 
 ```css
 .kasanari {
-    width: 350px;
-    height: 200px;
+  width: 350px;
+  height: 200px;
 
-    /* 先頭が上に表示される（上：赤いテープ、下：電車） */
-    background:
-        url('./img/red_tapes.png') repeat-x center 20px,
-        url('./img/trains.png') repeat-x center top #fdf;
+  /* 先頭が上に表示される（上：赤いテープ、下：電車） */
+  background:
+    url('./img/red_tapes.png') repeat-x center 20px,
+    url('./img/trains.png') repeat-x center top #fdf;
 }
 ```
 
@@ -694,12 +694,12 @@ div {
 
 ```css
 .kasane1 {
-    width: 350px;
-    height: 300px;
+  width: 350px;
+  height: 300px;
 
-    background:
-        url('../img/fence.png') repeat-x center bottom,
-        url('../img/dinosaur.png') no-repeat center bottom #f0f8ff;
+  background:
+    url('../img/fence.png') repeat-x center bottom,
+    url('../img/dinosaur.png') no-repeat center bottom #f0f8ff;
 }
 ```
 
@@ -740,13 +740,13 @@ div {
 
 ```css
 .campaign {
-    width: 350px;
-    height: 200px;
+  width: 350px;
+  height: 200px;
 
-    background:
-        url('../img/badge.png') no-repeat right top / 60px auto,
-        url('../img/ribbon.png') no-repeat left bottom / 140px auto,
-        url('../img/pattern.jpg') repeat center center / 100px auto;
+  background:
+    url('../img/badge.png') no-repeat right top / 60px auto,
+    url('../img/ribbon.png') no-repeat left bottom / 140px auto,
+    url('../img/pattern.jpg') repeat center center / 100px auto;
 }
 ```
 

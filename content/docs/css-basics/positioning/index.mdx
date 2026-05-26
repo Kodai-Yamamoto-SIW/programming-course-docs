@@ -34,14 +34,14 @@ CSSの`position`は、要素を「通常の文書の流れ」からどのよう�
 </header>
 
 <div class="hero">
-    <h1>最新ニュースをチェック</h1>
-    <p>毎日更新される最新情報をお届けします</p>
+  <h1>最新ニュースをチェック</h1>
+  <p>毎日更新される最新情報をお届けします</p>
 </div>
 
 <nav class="category-tabs">
-    <span class="tab active">すべて</span>
-    <span class="tab">テクノロジー</span>
-    <span class="tab">ビジネス</span>
+  <span class="tab active">すべて</span>
+  <span class="tab">テクノロジー</span>
+  <span class="tab">ビジネス</span>
 </nav>
 
 <main class="content">
@@ -70,6 +70,7 @@ CSSの`position`は、要素を「通常の文書の流れ」からどのよう�
         </div>
 
     </section>
+
 </main>
 
 <button class="scroll-top">TOP</button>
@@ -77,164 +78,164 @@ CSSの`position`は、要素を「通常の文書の流れ」からどのよう�
 
 ```css
 body {
-    margin: 0;
-    font-family: sans-serif;
+  margin: 0;
+  font-family: sans-serif;
 }
 
 /* fixed: 画面上部に固定されるヘッダー */
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 56px;
-    background: #1976d2;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    padding: 0 16px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: #1976d2;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 100;
 }
 
 .logo {
-    font-size: 18px;
-    font-weight: bold;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 /* ヒーローエリア: stickyタブの前にスペースを作る */
 .hero {
-    margin-top: 56px;
-    padding: 40px 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #fff;
-    text-align: center;
+  margin-top: 56px;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  text-align: center;
 }
 
 .hero h1 {
-    margin: 0 0 12px;
-    font-size: 24px;
+  margin: 0 0 12px;
+  font-size: 24px;
 }
 
 .hero p {
-    margin: 0;
-    opacity: 0.9;
+  margin: 0;
+  opacity: 0.9;
 }
 
 /* sticky: スクロール時に上部に貼り付くカテゴリータブ */
 .category-tabs {
-    position: sticky;
-    top: 56px;
-    background: #fff;
-    border-bottom: 1px solid #e0e0e0;
-    padding: 12px 16px;
-    display: flex;
-    gap: 16px;
-    z-index: 50;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 56px;
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 12px 16px;
+  display: flex;
+  gap: 16px;
+  z-index: 50;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .tab {
-    padding: 6px 12px;
-    border-radius: 16px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background 0.2s;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
 .tab.active {
-    background: #e3f2fd;
-    color: #1976d2;
-    font-weight: 600;
+  background: #e3f2fd;
+  color: #1976d2;
+  font-weight: 600;
 }
 
 .content {
-    padding-top: 20px;
-    padding-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 40px;
 }
 
 .article {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 0 16px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
 
 .section-title {
-    padding: 12px 0;
-    margin: 0 0 16px;
-    border-bottom: 2px solid #1976d2;
+  padding: 12px 0;
+  margin: 0 0 16px;
+  border-bottom: 2px solid #1976d2;
 }
 
 /* relative: バッジ配置の基準 & アイコン位置調整 */
 .news-card {
-    position: relative;
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 16px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .news-image {
-    height: 160px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 4px;
-    margin-bottom: 12px;
+  height: 160px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px;
+  margin-bottom: 12px;
 }
 
 /* absolute: カード右上に重ねるバッジ */
 .badge {
-    position: absolute;
-    right: 12px;
-    top: 12px;
-    background: #ff5722;
-    color: #fff;
-    padding: 4px 8px;
-    font-size: 11px;
-    font-weight: bold;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  background: #ff5722;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 11px;
+  font-weight: bold;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .news-card h3 {
-    margin: 0 0 8px;
-    font-size: 18px;
+  margin: 0 0 8px;
+  font-size: 18px;
 }
 
 .news-card p {
-    margin: 0;
-    color: #666;
-    line-height: 1.6;
+  margin: 0;
+  color: #666;
+  line-height: 1.6;
 }
 
 /* relative: アイコンを少し上に調整 */
 .icon {
-    position: relative;
-    top: -1px;
-    font-size: 16px;
+  position: relative;
+  top: -1px;
+  font-size: 16px;
 }
 
 /* fixed: 画面右下に固定されるボタン */
 .scroll-top {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: none;
-    background: #1976d2;
-    color: #fff;
-    font-size: 12px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    z-index: 50;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #1976d2;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 50;
 }
 
 .scroll-top:hover {
-    background: #1565c0;
+  background: #1565c0;
 }
 ```
 
@@ -295,68 +296,68 @@ body {
 
 ```css
 .wrap {
-    height: 80px;
-    border: 2px dashed #999;
-    margin-bottom: 20px;
+  height: 80px;
+  border: 2px dashed #999;
+  margin-bottom: 20px;
 }
 
 .wrap.scroll {
-    height: 200px;
-    overflow: auto;
+  height: 200px;
+  overflow: auto;
 }
 
 .box {
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    color: #fff;
-    display: inline-block;
-    padding-top: 8px;
-    vertical-align: top;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  color: #fff;
+  display: inline-block;
+  padding-top: 8px;
+  vertical-align: top;
 }
 
 .box small {
-    font-size: 9px;
-    opacity: 0.8;
+  font-size: 9px;
+  opacity: 0.8;
 }
 
 .a {
-    background: #4caf50;
+  background: #4caf50;
 }
 
 .b {
-    background: #2196f3;
+  background: #2196f3;
 }
 
 .c {
-    background: #f44336;
+  background: #f44336;
 }
 
 .static {
-    /* position: static; は初期値なので指定不要 */
+  /* position: static; は初期値なので指定不要 */
 }
 
 .relative {
-    position: relative;
-    left: 20px;
-    top: 10px;
+  position: relative;
+  left: 20px;
+  top: 10px;
 }
 
 .absolute {
-    position: absolute;
-    right: 20px;
-    top: 10px;
+  position: absolute;
+  right: 20px;
+  top: 10px;
 }
 
 .fixed {
-    position: fixed;
-    right: 80px;
-    top: 60px;
+  position: fixed;
+  right: 80px;
+  top: 60px;
 }
 
 .sticky {
-    position: sticky;
-    top: 0;
+  position: sticky;
+  top: 0;
 }
 ```
 
@@ -380,29 +381,29 @@ body {
 
 ```css
 .wrap {
-    border: 2px dashed #999;
+  border: 2px dashed #999;
 }
 
 .box {
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    color: #fff;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  color: #fff;
 }
 
 .a {
-    background: #4caf50;
+  background: #4caf50;
 }
 
 .b {
-    background: #2196f3;
-    position: relative;
-    left: 20px;
-    top: 10px;
+  background: #2196f3;
+  position: relative;
+  left: 20px;
+  top: 10px;
 }
 
 .c {
-    background: #f44336;
+  background: #f44336;
 }
 ```
 
@@ -440,29 +441,29 @@ body {
 
 ```css
 .wrap {
-    border: 2px dashed #999;
+  border: 2px dashed #999;
 }
 
 .box {
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    color: #fff;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  color: #fff;
 }
 
 .a {
-    background: #4caf50;
+  background: #4caf50;
 }
 
 .b {
-    background: #2196f3;
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
+  background: #2196f3;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
 }
 
 .c {
-    background: #f44336;
+  background: #f44336;
 }
 ```
 
@@ -490,17 +491,17 @@ class="top" のついたボタンが、下のプレビューのような見た�
 
 ```css
 .top {
-    position: fixed;
-    right: 16px;
-    bottom: 16px;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: none;
-    background: #1976d2;
-    color: #fff;
-    font-weight: bold;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: #1976d2;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 ```
 
@@ -547,24 +548,24 @@ class="top" のついたボタンが、下のプレビューのような見た�
 
 ```css
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 .modal {
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 ```
 
@@ -614,28 +615,28 @@ class="top" のついたボタンが、下のプレビューのような見た�
 
 ```css
 .wrap {
-    border: 2px dashed #999;
+  border: 2px dashed #999;
 }
 
 .box {
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    color: #fff;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  color: #fff;
 }
 
 .a {
-    background: #4caf50;
+  background: #4caf50;
 }
 
 .b {
-    background: #2196f3;
-    position: sticky;
-    top: 0;
+  background: #2196f3;
+  position: sticky;
+  top: 0;
 }
 
 .c {
-    background: #f44336;
+  background: #f44336;
 }
 ```
 
@@ -674,13 +675,13 @@ h4.pin が、下のプレビューのようにスクロール時に上部へ貼�
 
 ```css
 .pin {
-    margin: 0;
-    padding: 8px 12px;
+  margin: 0;
+  padding: 8px 12px;
 
-    position: sticky;
-    top: 0;
-    background: #fff;
-    border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-bottom: 1px solid #eee;
 }
 ```
 
@@ -722,13 +723,13 @@ h4.pin が、下のプレビューのようにスクロール時に上部へ貼�
 
 ```css
 .sidebar {
-    width: 160px;
-    height: fit-content;
-    padding: 8px;
-    border: 1px solid #ccc;
+  width: 160px;
+  height: fit-content;
+  padding: 8px;
+  border: 1px solid #ccc;
 
-    position: sticky;
-    top: 10px;
+  position: sticky;
+  top: 10px;
 }
 ```
 
@@ -772,12 +773,12 @@ header.head が、下のプレビューのようになるように CSS を書い
 
 ```css
 .head {
-    height: 56px;
-    background: #333;
-    color: #fff;
+  height: 56px;
+  background: #333;
+  color: #fff;
 
-    position: sticky;
-    top: 0;
+  position: sticky;
+  top: 0;
 }
 ```
 
@@ -818,21 +819,21 @@ h3.lv3 と h4.lv4 の見出しが、下のプレビューのように上下に�
 
 ```css
 .lv3 {
-    height: 40px;
+  height: 40px;
 
-    position: sticky;
-    top: 0;
-    border-bottom: 1px solid #eee;
-    background: #fff;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid #eee;
+  background: #fff;
 }
 
 .lv4 {
-    height: 35px;
+  height: 35px;
 
-    position: sticky;
-    top: 41px; /* lv3の高さ(40px) + 境界線(1px) */
-    border-bottom: 1px solid #eee;
-    background: #fff;
+  position: sticky;
+  top: 41px; /* lv3の高さ(40px) + 境界線(1px) */
+  border-bottom: 1px solid #eee;
+  background: #fff;
 }
 ```
 
@@ -871,30 +872,30 @@ h3.lv3 と h4.lv4 の見出しが、下のプレビューのように上下に�
 
 ```css
 .wrap {
-    position: relative;
-    border: 2px dashed #999;
+  position: relative;
+  border: 2px dashed #999;
 }
 
 .box {
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    color: #fff;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  color: #fff;
 }
 
 .a {
-    background: #4caf50;
+  background: #4caf50;
 }
 
 .b {
-    background: #2196f3;
-    position: absolute;
-    right: 0;
-    top: 20px;
+  background: #2196f3;
+  position: absolute;
+  right: 0;
+  top: 20px;
 }
 
 .c {
-    background: #f44336;
+  background: #f44336;
 }
 ```
 
@@ -930,23 +931,23 @@ span.tag のラベルが、下のプレビューのようにカード右上へ�
 
 ```css
 .card {
-    width: 300px;
-    padding: 16px;
-    border: 1px solid #ccc;
+  width: 300px;
+  padding: 16px;
+  border: 1px solid #ccc;
 
-    position: relative;
+  position: relative;
 }
 
 .tag {
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 12px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
 
-    position: absolute;
-    right: 8px;
-    top: 8px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
 }
 ```
 
@@ -989,34 +990,34 @@ btn クラスのついたボタンにカーソルを載せると、下のプレ�
 
 ```css
 .btn {
-    padding: 8px 16px;
-    background-color: #1976d2;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  padding: 8px 16px;
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 
-    position: relative;
+  position: relative;
 }
 
 .tooltip {
-    visibility: hidden;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    padding: 6px 10px;
-    border-radius: 4px;
-    font-size: 13px;
-    white-space: nowrap;
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 13px;
+  white-space: nowrap;
 
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-bottom: 6px;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 6px;
 }
 
 .btn:hover .tooltip {
-    visibility: visible;
+  visibility: visible;
 }
 ```
 
