@@ -11,3 +11,5 @@
 {"id":"yF94QnOI","description":"Unify Exercise headings as Markdown headings before Exercise blocks","stage":"committed","createdAt":"2026-05-15T05:42:31.206Z","updatedAt":"2026-05-15T06:31:25.607Z","committedEventId":"srI-E9x_vU6djaL8"}
 {"id":"ZTAorDaO","description":"Create styled design comp HTML markup course page","stage":"committed","createdAt":"2026-05-29T00:02:18.043Z","updatedAt":"2026-05-29T01:46:45.186Z","committedEventId":"EOqKl158Yo37DsoQ"}
 {"id":"WjlBHeUO","description":"Fix CI Prettier failure for styled design comp page","stage":"committed","createdAt":"2026-05-29T01:53:04.983Z","updatedAt":"2026-05-29T01:53:56.940Z","committedEventId":"6DAV3YNTgY7pesDT"}
+{"id":"PPgG8GCx","description":"Assess dirty programming-course-docs worktree after pulling upstream","stage":"done","createdAt":"2026-05-29T04:52:13.211Z","updatedAt":"2026-05-29T04:55:44.635Z"}
+{"id":"sYKOUSvu","description":"Finalize programming-course-docs verification tooling changes","stage":"committed","createdAt":"2026-05-29T04:59:54.177Z","updatedAt":"2026-05-29T05:00:37.197Z","committedEventId":"ZEZYdG5maTUMbEwE"}
