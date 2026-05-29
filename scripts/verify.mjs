@@ -103,6 +103,8 @@ run(npxCommand, [
   '--ignore',
   'AGENTS.md',
   '--ignore',
+  'node_modules/**',
+  '--ignore',
   'agent-rules-private/**',
 ]);
 
