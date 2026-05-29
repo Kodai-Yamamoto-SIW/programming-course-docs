@@ -14,6 +14,8 @@
 .DS_Store
 Thumbs.db
 Desktop.ini
+.omo/
+.threads.jsonl
 tsconfig.tsbuildinfo
 .env.local
 .env.*.local

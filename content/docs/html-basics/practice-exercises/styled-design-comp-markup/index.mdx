@@ -1,0 +1,338 @@
+---
+title: 装飾のあるカンプからのマークアップ
+---
+
+## この演習について
+
+今回は、**色・余白・角丸・影がついたデザインカンプから、HTMLの構造だけを読み取る** 演習です。
+
+CSSは書きません。CSSファイル、`<style>`、`style=""`、装飾のための `class` / `id` は使わないでください。  
+カードの枠、色のついた帯、影、背景色は **CSSで作られる見た目** です。HTMLでは「何の情報が、どのまとまりに入っているか」を表します。
+
+:::note
+
+装飾のあるカンプを見ると、色のついた箱をそのままHTMLタグにしたくなります。けれど、HTMLに「カード」「青い背景」「影」というタグはありません。**見た目の箱は、見出し・段落・リストなどの中身のまとまりを見つけるための手がかり** として読みましょう。
+
+:::
+
+## 装飾から構造を読む3ステップ
+
+装飾はHTMLに書くものではありません。  
+ただし、構造を読むためのヒントにはなります。
+
+1. **大きな色のかたまりを見る**  
+   ページ全体の上部なら `header`、本文なら `main`、最後の補足なら `footer` になりやすい。
+2. **同じ見た目のカードを探す**  
+   同じ形のカードが並んでいたら、同じ種類の情報がくり返されている。各カードは「見出し + 説明 + 詳細」のかたまりとして読む。
+3. **装飾と意味を分ける**  
+   色、角丸、影、余白はCSS。見出し、文章、項目リスト、リンク、重要な言葉はHTML。
+
+「見た目を再現する」のではなく、**見た目から意味のまとまりを見つける** のが今回のゴールです。
+
+## 演習: オープンキャンパス案内ページ
+
+次のプレビューが今回のデザインカンプです。  
+このカンプと同じ **構造** になるHTMLを書いてください。カードの背景色、角丸、影、ボタン風の見た目はCSSなので、HTMLには書きません。
+
+<CodePreview
+  sourceId="open-campus-styled-comp"
+  htmlVisible={false}
+  cssVisible={false}
+  previewVisible
+>
+
+```html
+<header>
+  <p>高校生向けイベント</p>
+  <h1>夏のオープンキャンパス</h1>
+  <p>学校の雰囲気を体験できる1日です。気になる講座を選んで参加しましょう。</p>
+</header>
+<main>
+  <section>
+    <h2>開催情報</h2>
+    <ul>
+      <li>日時: 8月3日 10:00〜15:00</li>
+      <li>場所: 本校キャンパス</li>
+      <li>対象: 高校1〜3年生</li>
+    </ul>
+  </section>
+  <section>
+    <h2>体験できる講座</h2>
+    <section>
+      <h3>Webページ制作</h3>
+      <p>HTMLを使って、自己紹介ページの骨組みを作ります。</p>
+      <p><strong>初心者歓迎</strong></p>
+    </section>
+    <section>
+      <h3>ゲームプログラミング</h3>
+      <p>キャラクターを動かす小さなゲームを作ります。</p>
+      <p><strong>定員20名</strong></p>
+    </section>
+  </section>
+</main>
+<footer>
+  <p><small>参加には事前申し込みが必要です。</small></p>
+</footer>
+```
+
+```css
+body {
+  font-family: sans-serif;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #f3f7fb;
+  color: #1f2937;
+  line-height: 1.7;
+}
+
+header {
+  padding: 24px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #2563eb, #38bdf8);
+  color: white;
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.24);
+}
+
+header p:first-child {
+  display: inline-block;
+  margin: 0 0 8px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+  font-size: 0.9em;
+}
+
+header h1 {
+  margin: 0 0 8px;
+}
+
+main > section {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.1);
+}
+
+main section section {
+  margin-top: 16px;
+  padding: 16px;
+  border-left: 6px solid #f97316;
+  border-radius: 12px;
+  background: #fff7ed;
+}
+
+strong {
+  color: #c2410c;
+}
+
+footer {
+  margin-top: 24px;
+  text-align: center;
+  color: #64748b;
+}
+```
+
+</CodePreview>
+
+### 演習1
+
+<Exercise>
+
+上のカンプと同じ構造のHTMLを書いてください。
+
+**守ること:**
+
+- CSSファイルは作らない
+- `<style>` は書かない
+- `style=""` は使わない
+- 装飾のための `class` / `id` は付けない
+- カードの色、角丸、影はHTMLで再現しようとしない
+
+**進め方:**
+
+1. `<body>` の中に `header` / `main` / `footer` を置く
+2. `main` の中を「開催情報」と「体験できる講座」の2つの `section` に分ける
+3. 「体験できる講座」の中に、講座ごとの小さな `section` を入れ子にする
+4. 見出しの深さに合わせて `h1` / `h2` / `h3` を使う
+5. 箇条書きは `ul` / `li`、重要な短い言葉は `strong`、補足は `small` で表す
+
+カンプでは講座がカードのように見えますが、HTMLでは **講座ごとの情報のまとまり** として読み取ります。
+
+<Solution>
+
+カンプと同じ構造のHTMLは次のとおりです。  
+CSSは演習対象外なので空のままにして、**ブラウザそのままの見た目** で表示しています。カードの色や影が消えていても、構造が合っていればOKです。
+
+<CodePreview
+  sourceId="open-campus-styled-comp"
+  share={false}
+  htmlVisible
+  cssVisible={false}
+  previewVisible
+>
+
+```css
+
+```
+
+</CodePreview>
+
+**なぜこの構造になるのか:**
+
+- **大枠**: 青い大きな見出し部分はページの導入なので `header`。最後の小さな注意書きは `footer`。その間が `main`。
+- **テーマ分割**: 「開催情報」と「体験できる講座」は別のテーマなので、それぞれ `section` で囲む。
+- **カードの読み取り**: 2つの講座カードは、どちらも「講座名 + 説明 + 重要な条件」の同じ形。内側の `section` として入れ子にする。
+- **見出し階層**: ページタイトルは `h1`、`main` 直下のテーマは `h2`、入れ子の講座名は `h3`。
+- **装飾の切り分け**: 背景色、角丸、影、左の線はCSS。HTMLには書かない。
+
+</Solution>
+
+</Exercise>
+
+### 演習-発展1
+
+<Exercise>
+
+早めに終わった人向けの発展課題です。  
+次のカンプと同じ **構造** になるHTMLを書いてください。今度は「お知らせカード」の中に、さらに項目リストとリンクがあります。
+
+<CodePreview
+  sourceId="library-news-styled-comp"
+  htmlVisible={false}
+  cssVisible={false}
+  previewVisible
+>
+
+```html
+<header>
+  <h1>図書室からのお知らせ</h1>
+  <p>今月のイベントと利用案内をまとめています。</p>
+</header>
+<main>
+  <section>
+    <h2>今月のイベント</h2>
+    <section>
+      <p>受付中</p>
+      <h3>読書ビンゴ</h3>
+      <p>指定されたテーマの本を読んで、ビンゴカードを完成させるイベントです。</p>
+      <ul>
+        <li>期間: 6月3日〜6月28日</li>
+        <li>景品: 図書委員おすすめのしおり</li>
+      </ul>
+    </section>
+    <section>
+      <p>予告</p>
+      <h3>本の紹介ポスター展</h3>
+      <p>お気に入りの本を紹介するポスターを図書室前に掲示します。</p>
+      <p><a href="https://example.com">応募方法を見る</a></p>
+    </section>
+  </section>
+  <section>
+    <h2>利用するときの注意</h2>
+    <p><strong>返却期限を過ぎた本がある場合は、新しく借りる前に返却してください。</strong></p>
+    <p><small>図書室の開室時間は、学校行事によって変更になることがあります。</small></p>
+  </section>
+</main>
+```
+
+```css
+body {
+  font-family: sans-serif;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px;
+  background: #f8fafc;
+  color: #1e293b;
+  line-height: 1.7;
+}
+
+header {
+  padding: 24px;
+  border-radius: 20px;
+  background: #0f172a;
+  color: white;
+}
+
+main > section {
+  margin-top: 24px;
+}
+
+main section section {
+  margin-top: 16px;
+  padding: 18px;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.1);
+}
+
+main section section > p:first-child {
+  display: inline-block;
+  margin: 0 0 8px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #dcfce7;
+  color: #166534;
+  font-size: 0.85em;
+  font-weight: bold;
+}
+
+main section section:nth-of-type(2) > p:first-child {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+main > section:last-child {
+  padding: 18px;
+  border-radius: 16px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+}
+
+a {
+  color: #2563eb;
+  font-weight: bold;
+}
+```
+
+</CodePreview>
+
+**ヒント:**
+
+- 「受付中」「予告」は色つきラベルに見えますが、HTMLでは普通の短い文章として扱います。
+- 2つのお知らせカードは、どちらも「状態 + 見出し + 説明 + 詳細」のかたまりです。
+- リンク先を作るための `href` はHTMLの意味に関係する属性なので使ってOKです。装飾のための `class` / `id` は使いません。
+
+<Solution>
+
+カンプと同じ構造のHTMLは次のとおりです。CSSは空のまま、ブラウザそのままの見た目で表示しています。
+
+<CodePreview
+  sourceId="library-news-styled-comp"
+  share={false}
+  htmlVisible
+  cssVisible={false}
+  previewVisible
+>
+
+```css
+
+```
+
+</CodePreview>
+
+**ポイント:**
+
+- カードの影や背景色はHTML要素ではなく、同じ種類の情報が並んでいることを示す手がかり。
+- 「今月のイベント」の中に2つのお知らせがあるので、内側の `section` として入れ子にする。
+- 「利用するときの注意」は別テーマなので、`main` 直下の `section` にする。
+- `strong` は重要な注意、`small` は補足、`a` はリンクというように、見た目ではなく意味で要素を選ぶ。
+
+</Solution>
+
+</Exercise>
+
+---
+
+おつかれさまでした。装飾が増えても、HTMLで見るのは「情報のまとまり」と「見出しの階層」です。
