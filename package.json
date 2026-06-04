@@ -5,7 +5,7 @@
     "prepare": "husky",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "lint:md": "markdownlint \"**/*.mdx\" \"**/*.md\" --ignore AGENTS.md --ignore \"node_modules/**\" --ignore \"agent-rules-private/**\"",
+    "lint:md": "markdownlint **/*.mdx **/*.md --ignore AGENTS.md --ignore node_modules/** --ignore agent-rules-private/**",
     "lint:md:fix": "npm run lint:md -- --fix",
     "verify": "npm run format:check && node scripts/verify-exercise-headings.mjs && npm run lint:md"
   },
