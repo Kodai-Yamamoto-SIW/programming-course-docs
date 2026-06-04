@@ -1,4 +1,6 @@
 AGENTS.md
 agent-rules-private/
+content/**/*.md
+content/**/*.mdx
 dist/
 node_modules/

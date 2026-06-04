@@ -45,59 +45,59 @@ CSSは次の単元で学びます。自分が書いたHTMLは色や枠のない�
 
 ```html
 <header>
-  <h1>写真部</h1>
+    <h1>写真部</h1>
 </header>
 <main>
-  <section>
-    <h2>部の紹介</h2>
-    <p>
-      写真部は、校内や日常の風景を撮影してまとめる部活動です。初心者も歓迎しています。
-    </p>
-    <p>
-      カメラを持っていない人には、部のカメラを貸し出します。スマートフォンで撮ってもかまいません。
-    </p>
-  </section>
-  <section>
-    <h2>活動内容</h2>
-    <p>週に2回、次のスケジュールで活動しています。</p>
-    <ul>
-      <li>火曜日: 校内撮影会</li>
-      <li>金曜日: 振り返り会と写真選び</li>
-    </ul>
-    <p>年に1回、文化祭で作品を展示します。</p>
-  </section>
+    <section>
+        <h2>部の紹介</h2>
+        <p>
+            写真部は、校内や日常の風景を撮影してまとめる部活動です。初心者も歓迎しています。
+        </p>
+        <p>
+            カメラを持っていない人には、部のカメラを貸し出します。スマートフォンで撮ってもかまいません。
+        </p>
+    </section>
+    <section>
+        <h2>活動内容</h2>
+        <p>週に2回、次のスケジュールで活動しています。</p>
+        <ul>
+            <li>火曜日: 校内撮影会</li>
+            <li>金曜日: 振り返り会と写真選び</li>
+        </ul>
+        <p>年に1回、文化祭で作品を展示します。</p>
+    </section>
 </main>
 <footer>
-  <p>連絡先: 写真部 担当 鈴木先生</p>
+    <p>連絡先: 写真部 担当 鈴木先生</p>
 </footer>
 ```
 
 ```css
 body {
-  font-family: sans-serif;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 16px;
-  color: #222;
-  line-height: 1.6;
+    font-family: sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 16px;
+    color: #222;
+    line-height: 1.6;
 }
 
 header {
-  margin-bottom: 16px;
+    margin-bottom: 16px;
 }
 
 header h1 {
-  margin: 0;
+    margin: 0;
 }
 
 main section {
-  margin-bottom: 24px;
+    margin-bottom: 24px;
 }
 
 footer {
-  margin-top: 24px;
-  color: #666;
-  font-size: 0.9em;
+    margin-top: 24px;
+    color: #666;
+    font-size: 0.9em;
 }
 ```
 
@@ -113,10 +113,10 @@ footer {
 
 1. 新しいHTMLファイルを作って、`<!DOCTYPE html>` から `<body>` までの基本構造を書く
 2. `<body>` の中に4ステップを順に適用していく
-   - ステップ1: `header` / `main` / `footer` の3つを置く
-   - ステップ2: `main` の中をテーマごとに `section` で囲む
-   - ステップ3: 見出しを `h1` / `h2` に割り当てる
-   - ステップ4: 中身を `p` や `ul` / `li` に割り当てる
+    - ステップ1: `header` / `main` / `footer` の3つを置く
+    - ステップ2: `main` の中をテーマごとに `section` で囲む
+    - ステップ3: 見出しを `h1` / `h2` に割り当てる
+    - ステップ4: 中身を `p` や `ul` / `li` に割り当てる
 3. ブラウザで開いて、構造が崩れていないか確認する
 
 CSSは書かなくてOKです。ブラウザのデフォルトの見た目になります。
@@ -135,7 +135,6 @@ CSSは演習対象外なので空のままにして、**ブラウザそのまま
 >
 
 ```css
-
 ```
 
 </CodePreview>
@@ -167,82 +166,82 @@ CSSは演習対象外なので空のままにして、**ブラウザそのまま
 
 ```html
 <header>
-  <h1>図書室の利用案内</h1>
+    <h1>図書室の利用案内</h1>
 </header>
 <main>
-  <section>
-    <h2>利用時間</h2>
-    <p>平日の昼休みと放課後に利用できます。</p>
-    <ul>
-      <li>昼休み: 12:30 〜 13:00</li>
-      <li>放課後: 16:00 〜 17:30</li>
-    </ul>
-  </section>
-  <section>
-    <h2>利用ルール</h2>
-    <p>みんなが気持ちよく使えるよう、次のルールを守ってください。</p>
-    <ul>
-      <li>飲食はしない</li>
-      <li>大きな声で話さない</li>
-      <li>本は元の場所に戻す</li>
-    </ul>
-  </section>
-  <section>
-    <h2>今月のおすすめ本</h2>
-    <p>
-      図書委員が選んだおすすめの本です。気になる本があれば借りてみましょう。
-    </p>
     <section>
-      <h3>小説</h3>
-      <ul>
-        <li>夏の終わりの図書館</li>
-        <li>星をひろう少女</li>
-      </ul>
+        <h2>利用時間</h2>
+        <p>平日の昼休みと放課後に利用できます。</p>
+        <ul>
+            <li>昼休み: 12:30 〜 13:00</li>
+            <li>放課後: 16:00 〜 17:30</li>
+        </ul>
     </section>
     <section>
-      <h3>実用書</h3>
-      <ul>
-        <li>はじめてのプログラミング</li>
-        <li>ノートのとり方入門</li>
-      </ul>
+        <h2>利用ルール</h2>
+        <p>みんなが気持ちよく使えるよう、次のルールを守ってください。</p>
+        <ul>
+            <li>飲食はしない</li>
+            <li>大きな声で話さない</li>
+            <li>本は元の場所に戻す</li>
+        </ul>
     </section>
-  </section>
+    <section>
+        <h2>今月のおすすめ本</h2>
+        <p>
+            図書委員が選んだおすすめの本です。気になる本があれば借りてみましょう。
+        </p>
+        <section>
+            <h3>小説</h3>
+            <ul>
+                <li>夏の終わりの図書館</li>
+                <li>星をひろう少女</li>
+            </ul>
+        </section>
+        <section>
+            <h3>実用書</h3>
+            <ul>
+                <li>はじめてのプログラミング</li>
+                <li>ノートのとり方入門</li>
+            </ul>
+        </section>
+    </section>
 </main>
 <footer>
-  <p>図書室 担当 田中先生</p>
+    <p>図書室 担当 田中先生</p>
 </footer>
 ```
 
 ```css
 body {
-  font-family: sans-serif;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 16px;
-  color: #222;
-  line-height: 1.6;
+    font-family: sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 16px;
+    color: #222;
+    line-height: 1.6;
 }
 
 header {
-  margin-bottom: 16px;
+    margin-bottom: 16px;
 }
 
 header h1 {
-  margin: 0;
+    margin: 0;
 }
 
 main section {
-  margin-bottom: 24px;
+    margin-bottom: 24px;
 }
 
 main section section {
-  margin-bottom: 12px;
+    margin-bottom: 12px;
 }
 
 footer {
-  margin-top: 24px;
-  color: #666;
-  font-size: 0.9em;
+    margin-top: 24px;
+    color: #666;
+    font-size: 0.9em;
 }
 ```
 
@@ -266,7 +265,6 @@ footer {
 >
 
 ```css
-
 ```
 
 </CodePreview>

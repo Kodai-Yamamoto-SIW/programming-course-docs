@@ -1,22 +1,22 @@
 {
-  "name": "programming-course-docs",
-  "private": true,
-  "scripts": {
-    "prepare": "husky",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "lint:md": "markdownlint **/*.mdx **/*.md --ignore AGENTS.md --ignore node_modules/** --ignore agent-rules-private/**",
-    "lint:md:fix": "npm run lint:md -- --fix",
-    "verify": "npm run format:check && node scripts/verify-prettier-embedded-formatting.mjs && node scripts/verify-exercise-headings.mjs && npm run lint:md"
-  },
-  "devDependencies": {
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.2",
-    "markdownlint-cli": "^0.39.0",
-    "prettier": "3.6.2"
-  },
-  "lint-staged": {
-    "*.{md,mdx,json,yml,yaml,html,css,js,ts}": "prettier --write",
-    "*.{md,mdx}": "markdownlint --fix --ignore AGENTS.md --ignore node_modules/** --ignore agent-rules-private/**"
-  }
+    "name": "programming-course-docs",
+    "private": true,
+    "scripts": {
+        "prepare": "husky",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "lint:md": "markdownlint **/*.mdx **/*.md --ignore AGENTS.md --ignore node_modules/** --ignore agent-rules-private/**",
+        "lint:md:fix": "npm run lint:md -- --fix",
+        "verify": "npm run format:check && node scripts/verify-prettier-embedded-formatting.mjs && node scripts/verify-code-block-indentation.mjs && node scripts/verify-exercise-headings.mjs && npm run lint:md"
+    },
+    "devDependencies": {
+        "husky": "^9.0.11",
+        "lint-staged": "^15.2.2",
+        "markdownlint-cli": "^0.39.0",
+        "prettier": "3.6.2"
+    },
+    "lint-staged": {
+        "*.{md,mdx,json,yml,yaml,html,css,js,ts}": "prettier --write",
+        "*.{md,mdx}": "markdownlint --fix --ignore AGENTS.md --ignore node_modules/** --ignore agent-rules-private/**"
+    }
 }

@@ -43,94 +43,94 @@ CSSは書きません。CSSファイル、`<style>`、`style=""`、装飾のた�
 
 ```html
 <header>
-  <p>高校生向けイベント</p>
-  <h1>夏のオープンキャンパス</h1>
-  <p>学校の雰囲気を体験できる1日です。気になる講座を選んで参加しましょう。</p>
+    <p>高校生向けイベント</p>
+    <h1>夏のオープンキャンパス</h1>
+    <p>学校の雰囲気を体験できる1日です。気になる講座を選んで参加しましょう。</p>
 </header>
 <main>
-  <section>
-    <h2>開催情報</h2>
-    <ul>
-      <li>日時: 8月3日 10:00〜15:00</li>
-      <li>場所: 本校キャンパス</li>
-      <li>対象: 高校1〜3年生</li>
-    </ul>
-  </section>
-  <section>
-    <h2>体験できる講座</h2>
     <section>
-      <h3>Webページ制作</h3>
-      <p>HTMLを使って、自己紹介ページの骨組みを作ります。</p>
-      <p><strong>初心者歓迎</strong></p>
+        <h2>開催情報</h2>
+        <ul>
+            <li>日時: 8月3日 10:00〜15:00</li>
+            <li>場所: 本校キャンパス</li>
+            <li>対象: 高校1〜3年生</li>
+        </ul>
     </section>
     <section>
-      <h3>ゲームプログラミング</h3>
-      <p>キャラクターを動かす小さなゲームを作ります。</p>
-      <p><strong>定員20名</strong></p>
+        <h2>体験できる講座</h2>
+        <section>
+            <h3>Webページ制作</h3>
+            <p>HTMLを使って、自己紹介ページの骨組みを作ります。</p>
+            <p><strong>初心者歓迎</strong></p>
+        </section>
+        <section>
+            <h3>ゲームプログラミング</h3>
+            <p>キャラクターを動かす小さなゲームを作ります。</p>
+            <p><strong>定員20名</strong></p>
+        </section>
     </section>
-  </section>
 </main>
 <footer>
-  <p><small>参加には事前申し込みが必要です。</small></p>
+    <p><small>参加には事前申し込みが必要です。</small></p>
 </footer>
 ```
 
 ```css
 body {
-  font-family: sans-serif;
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 24px;
-  background: #f3f7fb;
-  color: #1f2937;
-  line-height: 1.7;
+    font-family: sans-serif;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px;
+    background: #f3f7fb;
+    color: #1f2937;
+    line-height: 1.7;
 }
 
 header {
-  padding: 24px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, #2563eb, #38bdf8);
-  color: white;
-  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.24);
+    padding: 24px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #2563eb, #38bdf8);
+    color: white;
+    box-shadow: 0 12px 24px rgba(37, 99, 235, 0.24);
 }
 
 header p:first-child {
-  display: inline-block;
-  margin: 0 0 8px;
-  padding: 4px 12px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.22);
-  font-size: 0.9em;
+    display: inline-block;
+    margin: 0 0 8px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.22);
+    font-size: 0.9em;
 }
 
 header h1 {
-  margin: 0 0 8px;
+    margin: 0 0 8px;
 }
 
 main > section {
-  margin-top: 24px;
-  padding: 20px;
-  border-radius: 16px;
-  background: white;
-  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.1);
+    margin-top: 24px;
+    padding: 20px;
+    border-radius: 16px;
+    background: white;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.1);
 }
 
 main section section {
-  margin-top: 16px;
-  padding: 16px;
-  border-left: 6px solid #f97316;
-  border-radius: 12px;
-  background: #fff7ed;
+    margin-top: 16px;
+    padding: 16px;
+    border-left: 6px solid #f97316;
+    border-radius: 12px;
+    background: #fff7ed;
 }
 
 strong {
-  color: #c2410c;
+    color: #c2410c;
 }
 
 footer {
-  margin-top: 24px;
-  text-align: center;
-  color: #64748b;
+    margin-top: 24px;
+    text-align: center;
+    color: #64748b;
 }
 ```
 
@@ -168,7 +168,6 @@ CSSは演習対象外なので空にして、**ブラウザデフォルトの見
 >
 
 ```css
-
 ```
 
 </CodePreview>
@@ -192,98 +191,102 @@ CSSは演習対象外なので空にして、**ブラウザデフォルトの見
 
 ```html
 <header>
-  <h1>図書室からのお知らせ</h1>
-  <p>今月のイベントと利用案内をまとめています。</p>
+    <h1>図書室からのお知らせ</h1>
+    <p>今月のイベントと利用案内をまとめています。</p>
 </header>
 <main>
-  <section>
-    <h2>今月のイベント</h2>
     <section>
-      <p>受付中</p>
-      <h3>読書ビンゴ</h3>
-      <p>
-        指定されたテーマの本を読んで、ビンゴカードを完成させるイベントです。
-      </p>
-      <ul>
-        <li>期間: 6月3日〜6月28日</li>
-        <li>景品: 図書委員おすすめのしおり</li>
-      </ul>
+        <h2>今月のイベント</h2>
+        <section>
+            <p>受付中</p>
+            <h3>読書ビンゴ</h3>
+            <p>
+                指定されたテーマの本を読んで、ビンゴカードを完成させるイベントです。
+            </p>
+            <ul>
+                <li>期間: 6月3日〜6月28日</li>
+                <li>景品: 図書委員おすすめのしおり</li>
+            </ul>
+        </section>
+        <section>
+            <p>予告</p>
+            <h3>本の紹介ポスター展</h3>
+            <p>お気に入りの本を紹介するポスターを図書室前に掲示します。</p>
+            <p><a href="https://example.com">応募方法を見る</a></p>
+        </section>
     </section>
     <section>
-      <p>予告</p>
-      <h3>本の紹介ポスター展</h3>
-      <p>お気に入りの本を紹介するポスターを図書室前に掲示します。</p>
-      <p><a href="https://example.com">応募方法を見る</a></p>
+        <h2>利用するときの注意</h2>
+        <p>
+            <strong
+                >返却期限を過ぎた本がある場合は、新しく借りる前に返却してください。</strong
+            >
+        </p>
+        <p>
+            <small
+                >図書室の開室時間は、学校行事によって変更になることがあります。</small
+            >
+        </p>
     </section>
-  </section>
-  <section>
-    <h2>利用するときの注意</h2>
-    <p>
-      <strong>返却期限を過ぎた本がある場合は、新しく借りる前に返却してください。</strong>
-    </p>
-    <p>
-      <small>図書室の開室時間は、学校行事によって変更になることがあります。</small>
-    </p>
-  </section>
 </main>
 ```
 
 ```css
 body {
-  font-family: sans-serif;
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 24px;
-  background: #f8fafc;
-  color: #1e293b;
-  line-height: 1.7;
+    font-family: sans-serif;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 24px;
+    background: #f8fafc;
+    color: #1e293b;
+    line-height: 1.7;
 }
 
 header {
-  padding: 24px;
-  border-radius: 20px;
-  background: #0f172a;
-  color: white;
+    padding: 24px;
+    border-radius: 20px;
+    background: #0f172a;
+    color: white;
 }
 
 main > section {
-  margin-top: 24px;
+    margin-top: 24px;
 }
 
 main section section {
-  margin-top: 16px;
-  padding: 18px;
-  border-radius: 16px;
-  background: white;
-  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.1);
+    margin-top: 16px;
+    padding: 18px;
+    border-radius: 16px;
+    background: white;
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.1);
 }
 
 main section section > p:first-child {
-  display: inline-block;
-  margin: 0 0 8px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: #dcfce7;
-  color: #166534;
-  font-size: 0.85em;
-  font-weight: bold;
+    display: inline-block;
+    margin: 0 0 8px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #dcfce7;
+    color: #166534;
+    font-size: 0.85em;
+    font-weight: bold;
 }
 
 main section section:nth-of-type(2) > p:first-child {
-  background: #fef3c7;
-  color: #92400e;
+    background: #fef3c7;
+    color: #92400e;
 }
 
 main > section:last-child {
-  padding: 18px;
-  border-radius: 16px;
-  background: #fff7ed;
-  border: 1px solid #fed7aa;
+    padding: 18px;
+    border-radius: 16px;
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
 }
 
 a {
-  color: #2563eb;
-  font-weight: bold;
+    color: #2563eb;
+    font-weight: bold;
 }
 ```
 
@@ -307,7 +310,6 @@ a {
 >
 
 ```css
-
 ```
 
 </CodePreview>

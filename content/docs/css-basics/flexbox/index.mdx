@@ -42,115 +42,115 @@ Flexboxは、現代のWebサイトで最もよく使われるレイアウト手�
 </header>
 
 <main class="nakami">
-  <h2>おすすめ商品</h2>
-  <div class="shohin">
-    <div class="card">
-      <div class="photo"></div>
-      <h3>商品A</h3>
-      <p>¥1,980</p>
+    <h2>おすすめ商品</h2>
+    <div class="shohin">
+        <div class="card">
+            <div class="photo"></div>
+            <h3>商品A</h3>
+            <p>¥1,980</p>
+        </div>
+        <div class="card">
+            <div class="photo"></div>
+            <h3>商品B</h3>
+            <p>¥2,480</p>
+        </div>
+        <div class="card">
+            <div class="photo"></div>
+            <h3>商品C</h3>
+            <p>¥1,280</p>
+        </div>
+        <div class="card">
+            <div class="photo"></div>
+            <h3>商品D</h3>
+            <p>¥3,200</p>
+        </div>
+        <div class="card">
+            <div class="photo"></div>
+            <h3>商品E</h3>
+            <p>¥1,580</p>
+        </div>
     </div>
-    <div class="card">
-      <div class="photo"></div>
-      <h3>商品B</h3>
-      <p>¥2,480</p>
-    </div>
-    <div class="card">
-      <div class="photo"></div>
-      <h3>商品C</h3>
-      <p>¥1,280</p>
-    </div>
-    <div class="card">
-      <div class="photo"></div>
-      <h3>商品D</h3>
-      <p>¥3,200</p>
-    </div>
-    <div class="card">
-      <div class="photo"></div>
-      <h3>商品E</h3>
-      <p>¥1,580</p>
-    </div>
-  </div>
 </main>
 ```
 
 ```css
 body {
-  margin: 0;
-  font-family: sans-serif;
+    margin: 0;
+    font-family: sans-serif;
 }
 
 /* ヘッダー: Flexboxで左・中央・右に配置 */
 .head {
-  background: #1976d2;
-  color: #fff;
-  padding: 16px 24px;
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
+    background: #1976d2;
+    color: #fff;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
 }
 
 .rogo {
-  font-size: 20px;
-  font-weight: bold;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 /* ナビゲーション: Flexboxで横並び */
 .navi {
-  display: flex;
-  gap: 20px;
+    display: flex;
+    gap: 20px;
 }
 
 .navi a {
-  color: #fff;
-  text-decoration: none;
+    color: #fff;
+    text-decoration: none;
 }
 
 /* メニュー: Flexboxで横並び */
 .menu {
-  display: flex;
-  gap: 16px;
+    display: flex;
+    gap: 16px;
 }
 
 .nakami {
-  padding: 24px;
+    padding: 24px;
 }
 
 .nakami h2 {
-  margin: 0 0 20px;
+    margin: 0 0 20px;
 }
 
 /* 商品一覧: Flexboxでカードを横並び、折り返し */
 .shohin {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
 }
 
 .card {
-  width: 180px;
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 180px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .photo {
-  height: 140px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 4px;
-  margin-bottom: 8px;
+    height: 140px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 4px;
+    margin-bottom: 8px;
 }
 
 .card h3 {
-  margin: 0 0 8px;
-  font-size: 16px;
+    margin: 0 0 8px;
+    font-size: 16px;
 }
 
 .card p {
-  margin: 0;
-  font-weight: bold;
-  color: #1976d2;
+    margin: 0;
+    font-weight: bold;
+    color: #1976d2;
 }
 ```
 
@@ -168,7 +168,7 @@ body {
 
 ```css
 親要素のセレクタ {
-  display: flex;
+    display: flex;
 }
 ```
 
@@ -187,18 +187,18 @@ body {
 ```css
 /* フレックスコンテナ */
 .oya {
-  display: flex;
-  border: 2px dashed #999;
-  padding: 8px;
+    display: flex;
+    border: 2px dashed #999;
+    padding: 8px;
 }
 
 /* フレックスアイテム */
 .hako {
-  width: 80px;
-  height: 80px;
-  background: #2196f3;
-  color: #fff;
-  border: 2px solid #1976d2;
+    width: 80px;
+    height: 80px;
+    background: #2196f3;
+    color: #fff;
+    border: 2px solid #1976d2;
 }
 ```
 
@@ -231,11 +231,11 @@ body {
 
 ```css
 .btngroup {
-  display: flex;
+    display: flex;
 }
 
 .btn {
-  border: 2px solid #1565c0;
+    border: 2px solid #1565c0;
 }
 ```
 
@@ -266,8 +266,8 @@ body {
 
 ```css
 親要素のセレクタ {
-  display: flex;
-  gap: 値;
+    display: flex;
+    gap: 値;
 }
 ```
 
@@ -285,35 +285,35 @@ body {
 
 <h4>gap: 16px</h4>
 <div class="oya ari">
-  <div class="hako">A</div>
-  <div class="hako">B</div>
-  <div class="hako">C</div>
+    <div class="hako">A</div>
+    <div class="hako">B</div>
+    <div class="hako">C</div>
 </div>
 ```
 
 ```css
 .oya {
-  display: flex;
-  border: 2px dashed #999;
-  padding: 8px;
-  margin-bottom: 16px;
+    display: flex;
+    border: 2px dashed #999;
+    padding: 8px;
+    margin-bottom: 16px;
 }
 
 /* gap なし */
 .nashi {
-  gap: 0;
+    gap: 0;
 }
 
 /* gap あり */
 .ari {
-  gap: 16px;
+    gap: 16px;
 }
 
 .hako {
-  width: 80px;
-  height: 80px;
-  background: #4caf50;
-  color: #fff;
+    width: 80px;
+    height: 80px;
+    background: #4caf50;
+    color: #fff;
 }
 ```
 
@@ -341,14 +341,14 @@ body {
 
 ```css
 .cardlist {
-  display: flex;
-  gap: 12px;
+    display: flex;
+    gap: 12px;
 }
 
 .card {
-  width: 120px;
-  height: 100px;
-  border: 1px solid #ddd;
+    width: 120px;
+    height: 100px;
+    border: 1px solid #ddd;
 }
 ```
 
@@ -388,8 +388,8 @@ body {
 
 ```css
 .navi {
-  display: flex;
-  gap: 20px;
+    display: flex;
+    gap: 20px;
 }
 ```
 
@@ -429,8 +429,8 @@ body {
 
 ```css
 親要素のセレクタ {
-  display: flex;
-  justify-content: 値;
+    display: flex;
+    justify-content: 値;
 }
 ```
 
@@ -448,77 +448,77 @@ body {
 
 <h4>center</h4>
 <div class="oya rei2">
-  <div class="hako">A</div>
-  <div class="hako">B</div>
-  <div class="hako">C</div>
+    <div class="hako">A</div>
+    <div class="hako">B</div>
+    <div class="hako">C</div>
 </div>
 
 <h4>flex-end</h4>
 <div class="oya rei3">
-  <div class="hako">A</div>
-  <div class="hako">B</div>
-  <div class="hako">C</div>
+    <div class="hako">A</div>
+    <div class="hako">B</div>
+    <div class="hako">C</div>
 </div>
 
 <h4>space-between</h4>
 <div class="oya rei4">
-  <div class="hako">A</div>
-  <div class="hako">B</div>
-  <div class="hako">C</div>
+    <div class="hako">A</div>
+    <div class="hako">B</div>
+    <div class="hako">C</div>
 </div>
 
 <h4>space-around</h4>
 <div class="oya rei5">
-  <div class="hako">A</div>
-  <div class="hako">B</div>
-  <div class="hako">C</div>
+    <div class="hako">A</div>
+    <div class="hako">B</div>
+    <div class="hako">C</div>
 </div>
 
 <h4>space-evenly</h4>
 <div class="oya rei6">
-  <div class="hako">A</div>
-  <div class="hako">B</div>
-  <div class="hako">C</div>
+    <div class="hako">A</div>
+    <div class="hako">B</div>
+    <div class="hako">C</div>
 </div>
 ```
 
 ```css
 .oya {
-  display: flex;
-  border: 2px dashed #999;
-  padding: 8px;
-  margin-bottom: 16px;
+    display: flex;
+    border: 2px dashed #999;
+    padding: 8px;
+    margin-bottom: 16px;
 }
 
 .rei1 {
-  justify-content: flex-start;
+    justify-content: flex-start;
 }
 
 .rei2 {
-  justify-content: center;
+    justify-content: center;
 }
 
 .rei3 {
-  justify-content: flex-end;
+    justify-content: flex-end;
 }
 
 .rei4 {
-  justify-content: space-between;
+    justify-content: space-between;
 }
 
 .rei5 {
-  justify-content: space-around;
+    justify-content: space-around;
 }
 
 .rei6 {
-  justify-content: space-evenly;
+    justify-content: space-evenly;
 }
 
 .hako {
-  width: 60px;
-  height: 60px;
-  background: #ff9800;
-  color: #fff;
+    width: 60px;
+    height: 60px;
+    background: #ff9800;
+    color: #fff;
 }
 ```
 
@@ -545,13 +545,13 @@ body {
 
 ```css
 .btns {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
 }
 
 button {
-  border: 2px solid #388e3c;
+    border: 2px solid #388e3c;
 }
 ```
 
@@ -593,13 +593,13 @@ button {
 
 ```css
 .head {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .navi {
-  display: flex;
-  gap: 16px;
+    display: flex;
+    gap: 16px;
 }
 ```
 
@@ -639,8 +639,8 @@ button {
 
 ```css
 .iconlist {
-  display: flex;
-  justify-content: space-evenly;
+    display: flex;
+    justify-content: space-evenly;
 }
 ```
 
@@ -676,8 +676,8 @@ button {
 
 ```css
 親要素のセレクタ {
-  display: flex;
-  flex-wrap: 値;
+    display: flex;
+    flex-wrap: 値;
 }
 ```
 
@@ -698,37 +698,37 @@ button {
 
 <h4>flex-wrap: wrap</h4>
 <div class="oya ari">
-  <div class="hako">1</div>
-  <div class="hako">2</div>
-  <div class="hako">3</div>
-  <div class="hako">4</div>
-  <div class="hako">5</div>
-  <div class="hako">6</div>
+    <div class="hako">1</div>
+    <div class="hako">2</div>
+    <div class="hako">3</div>
+    <div class="hako">4</div>
+    <div class="hako">5</div>
+    <div class="hako">6</div>
 </div>
 ```
 
 ```css
 .oya {
-  display: flex;
-  gap: 8px;
-  border: 2px dashed #999;
-  padding: 8px;
-  margin-bottom: 16px;
+    display: flex;
+    gap: 8px;
+    border: 2px dashed #999;
+    padding: 8px;
+    margin-bottom: 16px;
 }
 
 .nashi {
-  flex-wrap: nowrap;
+    flex-wrap: nowrap;
 }
 
 .ari {
-  flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 .hako {
-  width: 100px;
-  height: 60px;
-  background: #9c27b0;
-  color: #fff;
+    width: 100px;
+    height: 60px;
+    background: #9c27b0;
+    color: #fff;
 }
 ```
 
@@ -759,15 +759,15 @@ button {
 
 ```css
 .shohin {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
 .card {
-  width: 140px;
-  height: 100px;
-  border: 1px solid #90caf9;
+    width: 140px;
+    height: 100px;
+    border: 1px solid #90caf9;
 }
 ```
 
@@ -811,14 +811,14 @@ button {
 
 ```css
 .taglist {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .tag {
-  border: 1px solid #2196f3;
+    border: 1px solid #2196f3;
 }
 ```
 
@@ -862,15 +862,15 @@ button {
 
 ```css
 .gazou {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
 }
 
 .photo {
-  width: 120px;
-  height: 120px;
-  border: 1px solid #999;
+    width: 120px;
+    height: 120px;
+    border: 1px solid #999;
 }
 ```
 
@@ -922,15 +922,15 @@ button {
 
 ```css
 .cardoya {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .card {
-  width: 240px;
-  border: 1px solid #e0e0e0;
+    width: 240px;
+    border: 1px solid #e0e0e0;
 }
 ```
 
@@ -958,10 +958,10 @@ button {
 ```css
 /* 基本パターン */
 .oya {
-  display: flex; /* フレックスコンテナにする */
-  gap: 16px; /* 要素間の余白 */
-  justify-content: center; /* 主軸方向の配置 */
-  flex-wrap: wrap; /* 折り返し */
+    display: flex; /* フレックスコンテナにする */
+    gap: 16px; /* 要素間の余白 */
+    justify-content: center; /* 主軸方向の配置 */
+    flex-wrap: wrap; /* 折り返し */
 }
 ```
 

@@ -51,7 +51,7 @@ CSSでは、フォントサイズ、余白、幅、高さなどを指定する�
 ```css
 /* ブラウザのデフォルト設定（概ね） */
 html {
-  font-size: 16px;
+    font-size: 16px;
 }
 ```
 
@@ -91,19 +91,19 @@ html {
 
 ```css
 h1 {
-  font-size: 24px; /* 24ピクセルのフォントサイズ */
+    font-size: 24px; /* 24ピクセルのフォントサイズ */
 }
 
 h2 {
-  font-size: 20px; /* 20ピクセルのフォントサイズ */
+    font-size: 20px; /* 20ピクセルのフォントサイズ */
 }
 
 p {
-  font-size: 16px; /* 16ピクセルのフォントサイズ */
+    font-size: 16px; /* 16ピクセルのフォントサイズ */
 }
 
 small {
-  font-size: 12px; /* 12ピクセルのフォントサイズ */
+    font-size: 12px; /* 12ピクセルのフォントサイズ */
 }
 ```
 
@@ -129,7 +129,7 @@ small {
 
 ```css
 p {
-  font-size: 16px; /* フォントのem squareの高さを16pxに設定 */
+    font-size: 16px; /* フォントのem squareの高さを16pxに設定 */
 }
 ```
 
@@ -179,23 +179,21 @@ p {
 ```html
 <h1>大きな見出し（24px）<span>子要素は1em</span></h1>
 
-<h2>
-  普通の見出し（16px）<span>子要素は1em</span>
-</h2>
+<h2>普通の見出し（16px）<span>子要素は1em</span></h2>
 ```
 
 ```css
 /* emは親要素のフォントサイズに依存する */
 h1 {
-  font-size: 24px; /* 見出しを24pxに設定 */
+    font-size: 24px; /* 見出しを24pxに設定 */
 }
 
 h2 {
-  font-size: 16px; /* 見出しを16pxに設定 */
+    font-size: 16px; /* 見出しを16pxに設定 */
 }
 
 span {
-  font-size: 1em; /* 親要素のフォントサイズの1倍 */
+    font-size: 1em; /* 親要素のフォントサイズの1倍 */
 }
 ```
 
@@ -222,23 +220,21 @@ span {
 ```html
 <h1>大きな見出し（24px）<span>子要素は1rem</span></h1>
 
-<h2>
-  小さな見出し（12px）<span>子要素は1rem</span>
-</h2>
+<h2>小さな見出し（12px）<span>子要素は1rem</span></h2>
 ```
 
 ```css
 /* remは常にhtml要素のフォントサイズ（16px）に依存 */
 h1 {
-  font-size: 24px; /* 見出しを24pxに設定 */
+    font-size: 24px; /* 見出しを24pxに設定 */
 }
 
 h2 {
-  font-size: 12px; /* 見出しを12pxに設定 */
+    font-size: 12px; /* 見出しを12pxに設定 */
 }
 
 span {
-  font-size: 1rem; /* html（16px）の1倍 = 16px（親に影響されない） */
+    font-size: 1rem; /* html（16px）の1倍 = 16px（親に影響されない） */
 }
 ```
 
@@ -269,21 +265,21 @@ span {
 
 ```css
 header {
-  width: 100vw; /* 画面幅の100% */
-  height: 10vh; /* 画面高さの10% */
-  background-color: blue;
+    width: 100vw; /* 画面幅の100% */
+    height: 10vh; /* 画面高さの10% */
+    background-color: blue;
 }
 
 main {
-  width: 80vw; /* 画面幅の80% */
-  height: 60vh; /* 画面高さの60% */
-  background-color: lightgray;
+    width: 80vw; /* 画面幅の80% */
+    height: 60vh; /* 画面高さの60% */
+    background-color: lightgray;
 }
 
 footer {
-  width: 100vw; /* 画面幅の100% */
-  height: 15vh; /* 画面高さの15% */
-  background-color: darkgray;
+    width: 100vw; /* 画面幅の100% */
+    height: 15vh; /* 画面高さの15% */
+    background-color: darkgray;
 }
 ```
 
@@ -311,16 +307,16 @@ footer {
 ```html
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <title>CSS単位演習</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <h1>メインタイトル</h1>
-    <h2>サブタイトル</h2>
-    <p>本文のテキストです。<small>注釈テキスト</small></p>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>CSS単位演習</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1>メインタイトル</h1>
+        <h2>サブタイトル</h2>
+        <p>本文のテキストです。<small>注釈テキスト</small></p>
+    </body>
 </html>
 ```
 
@@ -336,36 +332,36 @@ footer {
 ```html
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>CSS単位演習</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>メインタイトル</h1>
-    <h2>サブタイトル</h2>
-    <p>本文のテキストです。<small>注釈テキスト</small></p>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <title>CSS単位演習</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <h1>メインタイトル</h1>
+        <h2>サブタイトル</h2>
+        <p>本文のテキストです。<small>注釈テキスト</small></p>
+    </body>
 </html>
 ```
 
 ```css
 h1 {
-  font-size: 32px; /* 32px */
-  width: 100vw; /* 画面幅の100% */
-  background-color: blue; /* 青色の背景 */
+    font-size: 32px; /* 32px */
+    width: 100vw; /* 画面幅の100% */
+    background-color: blue; /* 青色の背景 */
 }
 
 h2 {
-  font-size: 1.5em; /* 親要素のフォントサイズ（body：16px）の1.5倍 = 24px */
+    font-size: 1.5em; /* 親要素のフォントサイズ（body：16px）の1.5倍 = 24px */
 }
 
 p {
-  font-size: 0.9rem; /* html要素のフォントサイズ（16px）の0.9倍 = 14.4px */
+    font-size: 0.9rem; /* html要素のフォントサイズ（16px）の0.9倍 = 14.4px */
 }
 
 small {
-  font-size: 0.8em; /* 親要素のフォントサイズ（p：14.4px）の0.8倍 = 11.52px */
+    font-size: 0.8em; /* 親要素のフォントサイズ（p：14.4px）の0.8倍 = 11.52px */
 }
 ```
 

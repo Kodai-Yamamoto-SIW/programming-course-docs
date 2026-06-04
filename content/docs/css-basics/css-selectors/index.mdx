@@ -26,7 +26,7 @@ HTMLのタグ名を書くだけで、そのタグすべてに当たります。
 
 ```css
 タグ名 {
-  プロパティ: 値;
+    プロパティ: 値;
 }
 ```
 
@@ -40,10 +40,10 @@ HTMLのタグ名を書くだけで、そのタグすべてに当たります。
 
 ```css
 h2 {
-  color: #1565ff;
+    color: #1565ff;
 }
 p {
-  color: #e53935;
+    color: #e53935;
 }
 ```
 
@@ -61,7 +61,7 @@ p {
 
 ```css
 .クラス名 {
-  プロパティ: 値;
+    プロパティ: 値;
 }
 ```
 
@@ -75,7 +75,7 @@ p {
 
 ```css
 .aka {
-  color: #e53935;
+    color: #e53935;
 }
 ```
 
@@ -95,7 +95,7 @@ p {
 
 ```css
 #id名 {
-  プロパティ: 値;
+    プロパティ: 値;
 }
 ```
 
@@ -108,7 +108,7 @@ p {
 
 ```css
 #ichiban {
-  color: #6200ea;
+    color: #6200ea;
 }
 ```
 
@@ -126,7 +126,7 @@ p {
 
 ```css
 親セレクタ 子セレクタ {
-  プロパティ: 値;
+    プロパティ: 値;
 }
 ```
 
@@ -144,7 +144,7 @@ p {
 
 ```css
 .oya p {
-  color: #00a152;
+    color: #00a152;
 }
 ```
 
@@ -164,7 +164,7 @@ p {
 
 ```css
 * {
-  プロパティ: 値;
+    プロパティ: 値;
 }
 ```
 
@@ -177,7 +177,7 @@ p {
 
 ```css
 * {
-  color: #1e88e5;
+    color: #1e88e5;
 }
 ```
 
@@ -200,7 +200,7 @@ p {
 ```css
 セレクタA,
 セレクタB {
-  プロパティ: 値;
+    プロパティ: 値;
 }
 ```
 
@@ -216,7 +216,7 @@ p {
 h2,
 h3,
 .danraku {
-  color: #6200ea;
+    color: #6200ea;
 }
 ```
 
@@ -230,7 +230,7 @@ h3,
 
 ```css
 .menu a {
-  /* ここにスタイル */
+    /* ここにスタイル */
 }
 ```
 
@@ -238,7 +238,7 @@ h3,
 
 ```css
 #honbun p {
-  /* ここにスタイル */
+    /* ここにスタイル */
 }
 ```
 
@@ -247,7 +247,7 @@ h3,
 ```css
 h1,
 .ookii {
-  font-size: 32px;
+    font-size: 32px;
 }
 ```
 
@@ -261,7 +261,7 @@ h1,
 
 ```css
 親セレクタ > 子セレクタ {
-  プロパティ: 値;
+    プロパティ: 値;
 }
 ```
 
@@ -278,7 +278,7 @@ h1,
 
 ```css
 .oya > p {
-  color: #00a152;
+    color: #00a152;
 }
 ```
 
@@ -296,16 +296,16 @@ h1,
 
 ```css
 :hover {
-  /* マウスを重ねたとき */
+    /* マウスを重ねたとき */
 }
 :first-child {
-  /* 最初の子 */
+    /* 最初の子 */
 }
 :last-child {
-  /* 最後の子 */
+    /* 最後の子 */
 }
 :not(セレクタ) {
-  /* 指定したセレクタにあてはまらないもの */
+    /* 指定したセレクタにあてはまらないもの */
 }
 ```
 
@@ -322,7 +322,7 @@ h1,
 ```css
 /* .menu の中の hover中のa */
 .menu a:hover {
-  color: #00a152;
+    color: #00a152;
 }
 ```
 
@@ -342,7 +342,7 @@ h1,
 ```css
 /* .menu の中の a のうち、.genzai ではないものに hover したとき */
 .menu a:not(.genzai):hover {
-  color: #e91e63;
+    color: #e91e63;
 }
 ```
 
@@ -362,15 +362,15 @@ h1,
 ```css
 /* 同じ要素に条件を重ねる（スペースなし） */
 h2.midashi:hover {
-  /* h2 で、class が midashi で、マウスホバー中のもの */
+    /* h2 で、class が midashi で、マウスホバー中のもの */
 }
 .aka.ookii {
-  /* class が aka と ookii の両方を持つ同じ要素 */
+    /* class が aka と ookii の両方を持つ同じ要素 */
 }
 
 /* 範囲（子孫）指定の例（スペースあり） */
 .honbun p {
-  /* .honbun の中にある p すべて */
+    /* .honbun の中にある p すべて */
 }
 ```
 
@@ -383,7 +383,7 @@ h2.midashi:hover {
 
 ```css
 .aka:hover {
-  color: #e91e63;
+    color: #e91e63;
 }
 ```
 
@@ -402,7 +402,7 @@ h2.midashi:hover {
 
 ```css
 .honbun p:first-child {
-  color: #1565ff;
+    color: #1565ff;
 }
 ```
 
@@ -419,7 +419,7 @@ h2.midashi:hover {
 
 ```css
 h2.midashi:hover {
-  color: #6200ea;
+    color: #6200ea;
 }
 ```
 
@@ -472,7 +472,7 @@ CSS：
 
 ```css
 _____ {
-  color: #e53935;
+    color: #e53935;
 }
 ```
 
@@ -555,10 +555,10 @@ HTML：
 
 ```html
 <div class="oya">
-  <p>A（親の中）</p>
-  <div>
-    <p>B（孫の中）</p>
-  </div>
+    <p>A（親の中）</p>
+    <div>
+        <p>B（孫の中）</p>
+    </div>
 </div>
 <p>C（外）</p>
 ```
@@ -580,7 +580,7 @@ HTML：
 
 ```css
 .oya p {
-  color: #00a152;
+    color: #00a152;
 }
 ```
 
@@ -601,11 +601,11 @@ HTML：
 
 ```html
 <div class="oya">
-  <p>子A（直下）</p>
-  <div>
-    <p>孫B（入れ子）</p>
-  </div>
-  <p>子C（直下）</p>
+    <p>子A（直下）</p>
+    <div>
+        <p>孫B（入れ子）</p>
+    </div>
+    <p>子C（直下）</p>
 </div>
 ```
 
@@ -626,7 +626,7 @@ HTML：
 
 ```css
 .oya > p {
-  color: #00a152;
+    color: #00a152;
 }
 ```
 
@@ -647,8 +647,8 @@ HTML：
 
 ```html
 <div class="menu">
-  <a href="#">ホーム</a>
-  <a href="#">お知らせ</a>
+    <a href="#">ホーム</a>
+    <a href="#">お知らせ</a>
 </div>
 <a href="#">外のリンク</a>
 ```
@@ -668,7 +668,7 @@ HTML：
 
 ```css
 .menu a:hover {
-  color: #e91e63;
+    color: #e91e63;
 }
 ```
 
@@ -720,7 +720,7 @@ HTML：
 
 ```css
 .aka:hover {
-  color: #e91e63;
+    color: #e91e63;
 }
 ```
 
@@ -741,9 +741,9 @@ HTML：
 
 ```html
 <ul class="ichiran">
-  <li>りんご</li>
-  <li>みかん</li>
-  <li>バナナ</li>
+    <li>りんご</li>
+    <li>みかん</li>
+    <li>バナナ</li>
 </ul>
 ```
 
@@ -762,10 +762,10 @@ HTML：
 
 ```css
 .ichiran li:first-child {
-  color: #1565ff;
+    color: #1565ff;
 }
 .ichiran li:last-child {
-  color: #e91e63;
+    color: #e91e63;
 }
 ```
 
@@ -786,9 +786,9 @@ HTML：
 
 ```html
 <div class="honbun">
-  <p>本文A</p>
-  <p class="aka">本文B（aka）</p>
-  <p>本文C</p>
+    <p>本文A</p>
+    <p class="aka">本文B（aka）</p>
+    <p>本文C</p>
 </div>
 ```
 
@@ -807,7 +807,7 @@ HTML：
 
 ```css
 .honbun p:not(.aka) {
-  color: #00a152;
+    color: #00a152;
 }
 ```
 
@@ -884,13 +884,13 @@ CSS：
 
 ```css
 p {
-  color: red;
+    color: red;
 }
 .aka {
-  color: blue;
+    color: blue;
 }
 #tokubetsu {
-  color: purple;
+    color: purple;
 }
 ```
 
@@ -914,7 +914,7 @@ p {
 
 ```css
 _____ {
-  color: #6200ea;
+    color: #6200ea;
 }
 ```
 
@@ -957,14 +957,14 @@ HTML：
 ```html
 <h2 class="midashi">タイトル</h2>
 <div class="oya">
-  <p>本文A</p>
-  <div>
-    <p>本文B（孫）</p>
-  </div>
+    <p>本文A</p>
+    <div>
+        <p>本文B（孫）</p>
+    </div>
 </div>
 <div class="menu">
-  <a href="#">リンク1</a>
-  <a href="#" class="genzai">リンク2（現在）</a>
+    <a href="#">リンク1</a>
+    <a href="#" class="genzai">リンク2（現在）</a>
 </div>
 <p id="tokubetsu">特別</p>
 ```
@@ -997,19 +997,19 @@ HTML：
 
 ```css
 * {
-  color: #1565ff;
+    color: #1565ff;
 }
 h2 {
-  color: #6200ea;
+    color: #6200ea;
 }
 .oya p {
-  color: #00a152;
+    color: #00a152;
 }
 .menu a:not(.genzai):hover {
-  color: #e91e63;
+    color: #e91e63;
 }
 #tokubetsu {
-  color: #e91e63;
+    color: #e91e63;
 }
 ```
 
