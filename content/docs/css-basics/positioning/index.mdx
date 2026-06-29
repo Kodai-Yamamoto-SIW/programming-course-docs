@@ -264,28 +264,28 @@ body {
 <h4>static（初期値）</h4>
 <div class="wrap">
     <div class="box a">A</div>
-    <div class="box b static">B<br /><small>static</small></div>
+    <div class="box b static">B<br ><small>static</small></div>
     <div class="box c">C</div>
 </div>
 
 <h4>relative</h4>
 <div class="wrap">
     <div class="box a">A</div>
-    <div class="box b relative">B<br /><small>relative</small></div>
+    <div class="box b relative">B<br ><small>relative</small></div>
     <div class="box c">C</div>
 </div>
 
 <h4>absolute</h4>
 <div class="wrap" style="position: relative">
     <div class="box a">A</div>
-    <div class="box b absolute">B<br /><small>absolute</small></div>
+    <div class="box b absolute">B<br ><small>absolute</small></div>
     <div class="box c">C</div>
 </div>
 
 <h4>fixed</h4>
 <div class="wrap">
     <div class="box a">A</div>
-    <div class="box b fixed">B<br /><small>fixed</small></div>
+    <div class="box b fixed">B<br ><small>fixed</small></div>
     <div class="box c">C</div>
 </div>
 
@@ -293,7 +293,7 @@ body {
 <div class="wrap scroll">
     <p style="height: 50px; background: #f7f7f7">（長い内容1）</p>
     <div class="box a">A</div>
-    <div class="box b sticky">B<br /><small>sticky</small></div>
+    <div class="box b sticky">B<br ><small>sticky</small></div>
     <div class="box c">C</div>
     <p style="height: 400px; background: #f7f7f7">（長い内容2）</p>
 </div>
@@ -418,7 +418,7 @@ body {
 
 **上のサンプルで`left`や`top`の値を変更してみて、どのように動くか確認してみましょう。**
 
-### sticky のよくある用途
+### relative のよくある用途
 
 - 微調整（アイコンやバッジを少しずらす）
 
@@ -651,7 +651,7 @@ class="top" のついたボタンが、下のプレビューのような見た�
 
 真ん中のB（青）に`position: sticky; top: 0;`を指定しています。最初は通常の流れで配置されますが、スクロールすると上端（`top: 0`）に貼り付きます。
 
-### absolute のよくある用途
+### sticky のよくある用途
 
 - 長文のセクション見出しを上部に貼り付けて見失わないようにする
 - サイドバーを一定の位置に貼り付ける
@@ -730,7 +730,7 @@ h4.pin が、下のプレビューのようにスクロール時に上部へ貼�
 ```html
 <body style="display: flex; gap: 16px">
     <!-- ↓この要素にCSSを適用 -->
-    <aside class="sidebar">メニュー1<br />メニュー2<br />メニュー3</aside>
+    <aside class="sidebar">メニュー1<br >メニュー2<br >メニュー3</aside>
     <section style="flex: 1; border: 1px solid #ddd; padding: 8px">
         本文…
         <div style="height: 4000px"></div>
@@ -1088,5 +1088,5 @@ btn クラスのついたボタンにカーソルを載せると、下のプレ�
 
 - `relative`は「微調整」や「absoluteの基準のためのマーカー」として使うのが基本。
 - `fixed`は画面基準。通常のフローから取り除かれるため、ドロワーメニューやフローティングボタンなど、その要素の領域の確保が必要ない場合に便利。
-- `sticky`も、基本は画面基準。通常のフローから取り除かれないため、ヘッダーやサイドメニューなど、その要素の領域の確保が必要な場合に便利。
+- `sticky`は通常の流れに残ったまま、スクロールして指定位置に達したときだけ貼り付く。親要素やスクロール範囲の影響を受けるため、見出しやサイドメニューなど、その要素の領域を確保したまま一時的に固定したい場合に便利。
 - `absolute`は「重ねたい・正確に置きたい」時に。流れから外れるため、過剰に使うとレイアウトが壊れやすい。

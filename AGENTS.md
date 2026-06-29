@@ -36,12 +36,21 @@ Source: github:metyatech/agent-rules@HEAD/rules/domains/education/question-autho
 - Prompts, answers, and explanations MUST stand alone without referring to
   "this material", "the attached document", "lesson N", or other external
   source context unless that source context is included in the prompt itself.
-- Questions MUST NOT require untaught or extension-only content unless the task
-  explicitly asks for an extension-level assessment.
+- Questions, prompts, options, answers, scoring criteria, and explanations MUST NOT introduce, require, or casually reference untaught concepts, features, parameters, APIs, syntax, techniques, tools, or extension-only content unless the user explicitly requests extension-level assessment.
 - Questions MUST have a single defensible answer, or explicitly state the
   accepted answer range.
-- Multiple-choice distractors MUST be plausible and based on likely
-  misconceptions or mistakes.
+- Multiple-choice distractors MUST be plausible, close to the correct answer,
+  and based on likely misconceptions or mistakes.
+- Each multiple-choice distractor MUST differ from the correct answer by one
+  meaningful concept, target, condition, order, or effect.
+- Multiple-choice distractors MUST NOT be obviously unrelated options from a
+  different feature area when the question assesses specific technical
+  understanding.
+- For technical workflow questions, multiple-choice distractors SHOULD remain
+  within the same tool, editor, panel, node family, command family, or
+  operation category as the correct answer.
+- Multiple-choice distractors MAY be obviously wrong only when the learning
+  objective is basic vocabulary recognition for first exposure.
 - Fill-in questions MUST specify the expected answer format and any forbidden or
   equivalent answers when ambiguity is likely.
 - Explanations MUST state the reasoning, concept, procedure, or misconception
@@ -66,6 +75,7 @@ Source: github:metyatech/agent-rules@HEAD/rules/domains/education/question-autho
   can solve the course exercises for the taught scope.
 - When the user specifies that certain skills are more important for continuing
   later classes, assign higher scoring weight to those skills.
+- Distribute exam points across the important taught targets and avoid overrepresenting one surface pattern unless the user explicitly prioritizes it.
 - Before writing each question, decide its `出題意図`. Write the question so
   that it tests that intent.
 - Put `出題意図` at the beginning of `## Explanation`.
@@ -155,6 +165,8 @@ Write these rules in a way that keeps learning outcomes (clarity, sequencing, re
 - For code that produces output, include expected output inline (e.g. `console.log(x); // 出力: ...`).
 - Write comments inside sample code in Japanese.
 - Add language info to fenced code blocks (`js`, `ts`, `html`, `css`).
+- In learner-facing HTML examples and downloadable `.html` sample files, write HTML void elements without XHTML-style trailing slashes: use `<br>`, `<img ...>`, `<input ...>`, `<meta ...>`, `<link ...>`, and `<hr>`, not `<br />`, `<img ... />`, `<input ... />`, `<meta ... />`, `<link ... />`, or `<hr />`. This applies to HTML code fences and actual `.html` sample/complete files; it does not apply to MDX/JSX components that require self-closing syntax.
+- Keep the formatter enabled. If Prettier would reintroduce XHTML-style trailing slashes in HTML teaching examples or sample files, preserve the formatter workflow by normalizing the HTML void-element style after Prettier rather than disabling formatting broadly.
 - At the start of a chapter, add 1–2 sentences explaining where/why the topic is used.
 - When referencing real websites, do not link to pages that show personal data or require authentication.
 

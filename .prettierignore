@@ -4,3 +4,5 @@ content/**/*.md
 content/**/*.mdx
 dist/
 node_modules/
+.omo/
+.mwt/
