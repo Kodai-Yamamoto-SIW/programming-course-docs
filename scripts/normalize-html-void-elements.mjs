@@ -17,15 +17,26 @@ const markdownExtensions = new Set(['.md', '.mdx']);
 const htmlExtensions = new Set(['.html']);
 
 const voidElementPattern =
-    /<(area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)(\s[^<>]*?)?\s*\/>/gi;
+    /<(area|base|br|col|embed|hr|img|input|link|meta|param|source|track|wbr)(\s[^<>]*?)?\s*\/?\s*>/gi;
+
+const brokenTagPattern = /<\/?(small|strong)(\s[^<>]*?)?\s*\n\s*>/gi;
 
 export function normalizeHtmlVoidElements(source) {
-    return source.replace(
+    let result = source.replace(
         voidElementPattern,
         (_match, tagName, attributes = '') => {
-            return `<${tagName}${attributes}>`;
+            const normalizedAttributes = attributes.trimEnd();
+            return `<${tagName}${normalizedAttributes}>`;
         }
     );
+    result = result.replace(
+        brokenTagPattern,
+        (match, tagName, attributes = '') => {
+            const slash = match.startsWith('</') ? '/' : '';
+            return `<${slash}${tagName}${(attributes || '').trimEnd()}>`;
+        }
+    );
+    return result;
 }
 
 export function normalizeMarkdownHtmlFences(source) {
