@@ -1,13 +1,9 @@
----
-sidebar_position: 8
----
-
 # Flexbox（align-items / flex / flex-direction）
 
 Flexbox の基本（`display: flex` / `gap` / `justify-content` / `flex-wrap`）を使うと、横並びレイアウトの土台は作れます。
 このページでは、より細かく Flexbox のレイアウトを調整するため、さらに 3 つのプロパティを学びます。
 
-- `align-items`（縦方向のそろえ方）
+- `align-items`（交差軸方向のそろえ方。標準の横並びでは上下のそろえ方）
 - `flex`（アイテムごとの伸び縮み）
 - `flex-direction`（横並び・縦並びの切り替え）
 
@@ -23,17 +19,19 @@ Flexbox の基本（`display: flex` / `gap` / `justify-content` / `flex-wrap`）
 
 ---
 
-## align-items（縦方向のそろえ方）
+## align-items（交差軸方向のそろえ方）
 
 ### align-items とは
 
-**説明**: `align-items` は、フレックスアイテムを **交差軸（縦方向）** にどうそろえるかを決めます。
+**説明**: `align-items` は、フレックスアイテムを **交差軸方向** にどうそろえるかを決めます。
 
-主な値:
+標準の `flex-direction: row` では、横方向に並ぶため、交差軸は縦方向になります。つまり、最初は「上下のそろえ方」と考えればOKです。
+
+主な値（標準の横並びの場合）:
 
 - `stretch`（初期値）：高さをそろえて伸ばす
 - `flex-start`：上にそろえる
-- `center`：中央にそろえる
+- `center`：上下中央にそろえる
 - `flex-end`：下にそろえる
 
 **基本の書き方**:
@@ -95,7 +93,9 @@ Flexbox の基本（`display: flex` / `gap` / `justify-content` / `flex-wrap`）
 
 </CodePreview>
 
-`align-items` の値を変えると、縦方向のそろえ方だけが変わることに注目してください（上の 2 つの例を見比べてみましょう）。
+この例では標準の横並び（`flex-direction: row`）なので、`align-items` の値を変えると上下のそろえ方が変わります。
+
+後で `flex-direction: column` にすると、並ぶ方向が縦になり、交差軸は横方向になります。その場合、`align-items` は左右のそろえ方に関係します。
 
 ### 演習1（縦中央にそろえたヘッダー）
 
