@@ -27,18 +27,23 @@
 .card {
     width: 300px;
     height: 220px;
-    border: 2px solid #333;
+    border: 2px solid #7a4b2a;
     padding: 20px;
+    background-color: #fff7ed;
 }
 
 .label {
-    border: 1px solid #333;
+    border: 1px solid #c2410c;
     padding: 4px;
+    background-color: #fed7aa;
+    color: #7c2d12;
 }
 
 .price {
-    border: 2px solid #333;
+    border: 2px solid #c2410c;
     padding: 8px;
+    background-color: #ffedd5;
+    color: #7c2d12;
 }
 ```
 
@@ -51,6 +56,7 @@
 - `.price` が「180円」の **価格だけ** を選んでいる
 - `width` と `height` でカードの **内容部分の幅・高さ** を決めている
 - `border` と `padding` で枠線と余白をつけ、**カードらしい見た目** を作っている
+- 枠線と背景色を組み合わせると、商品カードらしく見える
 
 この5つを順に作っていきます。
 
@@ -123,7 +129,7 @@ p {
 
 「内容部分」とは、文字や画像などの中身が入る領域のことです。`padding` や `border` をあとから足すと、見た目はずいぶん広くなりますが、`width` と `height` が決めているのはあくまで **内容部分** の大きさです。このあと出てくる `padding` や `border` とは分けて覚えておいてください。
 
-`width` も `height` も指定しないと、要素は **親の幅いつぱいに広がろうとしたり、中身の高さに合わせて縮んだり** します。カードのように「同じ形の箱をくり返し並べたい」ときは、`width` と `height` を **両方とも指定** して形を固定するのが基本です。
+`width` も `height` も指定しないと、要素は **親の幅いっぱいに広がろうとしたり、中身の高さに合わせて縮んだり** します。カードのように「同じ形の箱をくり返し並べたい」ときは、`width` と `height` を **両方とも指定** して形を固定するのが基本です。
 
 次の例では、まだ `border` も `padding` も入れていませんが、`width` と `height` を指定するだけで固定サイズの四角になります。
 
@@ -190,18 +196,23 @@ p {
 .card {
     width: 300px;
     height: 220px;
-    border: 2px solid #333;
+    border: 2px solid #7a4b2a;
     padding: 20px;
+    background-color: #fff7ed;
 }
 
 .label {
-    border: 1px solid #333;
+    border: 1px solid #c2410c;
     padding: 4px;
+    background-color: #fed7aa;
+    color: #7c2d12;
 }
 
 .price {
-    border: 2px solid #333;
+    border: 2px solid #c2410c;
     padding: 8px;
+    background-color: #ffedd5;
+    color: #7c2d12;
 }
 ```
 
@@ -262,7 +273,7 @@ HTML には4つの class（`card`・`label`・`description`・`price`）が書�
 
 </CodePreview>
 
-**ステップ1からの変化**：CSS の空だった箇所に `.card` の `width` と `height` が加わり、箱が **縦 220px・横 300px** の大きさに固定されました。
+**ステップ1からの変化**：CSS の空だった箇所に `.card` の `width` と `height` が加わり、箱が **横 300px・縦 220px** の大きさに固定されました。
 
 ### ステップ3：カードに枠線と余白を入れる
 
@@ -313,13 +324,16 @@ HTML には4つの class（`card`・`label`・`description`・`price`）が書�
 .card {
     width: 300px;
     height: 220px;
-    border: 2px solid #333;
+    border: 2px solid #7a4b2a;
     padding: 20px;
+    background-color: #fff7ed;
 }
 
 .price {
-    border: 2px solid #333;
+    border: 2px solid #c2410c;
     padding: 8px;
+    background-color: #ffedd5;
+    color: #7c2d12;
 }
 ```
 
@@ -453,6 +467,7 @@ HTML には4つの class（`card`・`label`・`description`・`price`）が書�
 - 「**どの class** に **どの CSS** を当てたいか」を、自分で決めて書いてください
 - 同じ `border` でも、太さや色を変えるだけで **印象が変わる** ことに気をつけてみましょう
 - 「全体を四角く囲みたいから `.card`」「価格だけを強調したいから `.price`」と、**目的ごとに class を分ける** のが基本です
+- `.label` / `.price` の **背景色** を変えると、同じ border でも印象が変わる
 
 <CodePreview
     share={false}
@@ -492,18 +507,23 @@ HTML には4つの class（`card`・`label`・`description`・`price`）が書�
 .card {
     width: 300px;
     height: 220px;
-    border: 2px solid #333;
+    border: 2px solid #7a4b2a;
     padding: 20px;
+    background-color: #fff7ed;
 }
 
 .label {
-    border: 1px solid #333;
+    border: 1px solid #c2410c;
     padding: 4px;
+    background-color: #fed7aa;
+    color: #7c2d12;
 }
 
 .price {
-    border: 2px solid #333;
+    border: 2px solid #c2410c;
     padding: 8px;
+    background-color: #ffedd5;
+    color: #7c2d12;
 }
 ```
 
@@ -638,19 +658,24 @@ AI に質問するときのプロンプト例です。完成コードを答え�
 .card {
     width: 300px;
     height: 220px;
-    border: 2px solid #333;
+    border: 2px solid #7a4b2a;
     padding: 20px;
+    background-color: #fff7ed;
     border-radius: 8px;
 }
 
 .label {
-    border: 1px solid #333;
+    border: 1px solid #c2410c;
     padding: 4px;
+    background-color: #fed7aa;
+    color: #7c2d12;
 }
 
 .price {
-    border: 2px solid #333;
+    border: 2px solid #c2410c;
     padding: 8px;
+    background-color: #ffedd5;
+    color: #7c2d12;
 }
 ```
 
