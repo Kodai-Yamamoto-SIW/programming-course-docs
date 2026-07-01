@@ -15,16 +15,16 @@
 >
 
 ```html
-<div class="card">
-    <p class="label">おすすめ</p>
+<div class="waku">
+    <p class="shirushi">おすすめ</p>
     <h2>チョコドーナツ</h2>
-    <p class="description">ふんわり生地にチョコがけ。</p>
-    <p class="price">180円</p>
+    <p class="setsumei">ふんわり生地にチョコがけ。</p>
+    <p class="nedan">180円</p>
 </div>
 ```
 
 ```css
-.card {
+.waku {
     width: 300px;
     height: 220px;
     border: 2px solid #7a4b2a;
@@ -32,14 +32,14 @@
     background-color: #fff7ed;
 }
 
-.label {
+.shirushi {
     border: 1px solid #c2410c;
     padding: 4px;
     background-color: #fed7aa;
     color: #7c2d12;
 }
 
-.price {
+.nedan {
     border: 2px solid #c2410c;
     padding: 8px;
     background-color: #ffedd5;
@@ -49,18 +49,16 @@
 
 </CodePreview>
 
-今はコードの意味が全部分からなくても大丈夫です。このあと、部分の選び方・大きさ・枠線・余白に分けて見ていきます。
+まずは、完成した見た目だけ確認します。作り方はこのあと分けて見ていきます。
 
-ポイント:
+このページで作ること:
 
-- `.card` はカード全体を選ぶ
-- `.label` はラベルだけを選ぶ
-- `.price` は価格だけを選ぶ
-- `width` と `height` で大きさを決める
-- `border` と `padding` でカードらしくする
-- 枠線と背景色を合わせると、商品カードらしく見える
-
-この順に確認します。
+- カード全体に名前をつける
+- 「おすすめ」だけに名前をつける
+- 「180円」だけに名前をつける
+- 横幅と高さを決める
+- 枠線と内側の余白をつける
+- 色をそろえて商品カードらしくする
 
 ---
 
@@ -72,11 +70,11 @@
 >
 
 ```html
-<div class="card">
-    <p class="label">おすすめ</p>
+<div class="waku">
+    <p class="shirushi">おすすめ</p>
     <h2>チョコドーナツ</h2>
-    <p class="description">ふんわり生地にチョコがけ。</p>
-    <p class="price">180円</p>
+    <p class="setsumei">ふんわり生地にチョコがけ。</p>
+    <p class="nedan">180円</p>
 </div>
 ```
 
@@ -89,25 +87,25 @@ p {
 
 </CodePreview>
 
-これだと、ラベル・説明文・価格がすべて同じ色になります。価格だけを目立たせたいときには不便です。
+これだと、「おすすめ」も説明文も「180円」も、すべて同じ色になります。値段だけを目立たせたいときには不便です。
 
-`class` を使うと、特定の部分だけを選べます。HTMLで `class="price"` と書いた部分は、CSSで `.price` と書いて選びます。
+`class` を使うと、特定の部分だけを選べます。HTMLで `class="nedan"` と書いた部分は、CSSで `.nedan` と書いて選びます。
 
 <CodePreview
 
 >
 
 ```html
-<div class="card">
-    <p class="label">おすすめ</p>
+<div class="waku">
+    <p class="shirushi">おすすめ</p>
     <h2>チョコドーナツ</h2>
-    <p class="description">ふんわり生地にチョコがけ。</p>
-    <p class="price">180円</p>
+    <p class="setsumei">ふんわり生地にチョコがけ。</p>
+    <p class="nedan">180円</p>
 </div>
 ```
 
 ```css
-.price {
+.nedan {
     background-color: #ffedd5;
     color: #7c2d12;
 }
@@ -115,7 +113,7 @@ p {
 
 </CodePreview>
 
-`.price` と書いたので、「180円」だけにスタイルが当たります。これが `class` を使う理由です。
+`.nedan` と書いたので、「180円」だけにスタイルが当たります。class 名は自分でつけた名前です。
 
 ---
 
@@ -129,11 +127,11 @@ p {
 >
 
 ```html
-<div class="card">これは箱です</div>
+<div class="waku">これは箱です</div>
 ```
 
 ```css
-.card {
+.waku {
     width: 300px;
     height: 180px;
 }
@@ -153,16 +151,16 @@ p {
 >
 
 ```html
-<div class="card">
-    <p class="label">おすすめ</p>
+<div class="waku">
+    <p class="shirushi">おすすめ</p>
     <h2>チョコドーナツ</h2>
-    <p class="description">ふんわり生地にチョコがけ。</p>
-    <p class="price">180円</p>
+    <p class="setsumei">ふんわり生地にチョコがけ。</p>
+    <p class="nedan">180円</p>
 </div>
 ```
 
 ```css
-.card {
+.waku {
     width: 300px;
     height: 220px;
     border: 2px solid #7a4b2a;
@@ -170,14 +168,14 @@ p {
     background-color: #fff7ed;
 }
 
-.label {
+.shirushi {
     border: 1px solid #c2410c;
     padding: 4px;
     background-color: #fed7aa;
     color: #7c2d12;
 }
 
-.price {
+.nedan {
     border: 2px solid #c2410c;
     padding: 8px;
     background-color: #ffedd5;
@@ -201,11 +199,11 @@ p {
 >
 
 ```html
-<div class="card">
-    <p class="label">おすすめ</p>
+<div class="waku">
+    <p class="shirushi">おすすめ</p>
     <h2>チョコドーナツ</h2>
-    <p class="description">ふんわり生地にチョコがけ。</p>
-    <p class="price">180円</p>
+    <p class="setsumei">ふんわり生地にチョコがけ。</p>
+    <p class="nedan">180円</p>
 </div>
 ```
 
@@ -217,22 +215,22 @@ p {
 
 ### ステップ2：大きさを決める
 
-`.card` に `width` と `height` を書きます。カードの内容部分が、横300px・縦220pxになります。
+`.waku` に `width` と `height` を書きます。カードの内容部分が、横300px・縦220pxになります。
 
 <CodePreview
 >
 
 ```html
-<div class="card">
-    <p class="label">おすすめ</p>
+<div class="waku">
+    <p class="shirushi">おすすめ</p>
     <h2>チョコドーナツ</h2>
-    <p class="description">ふんわり生地にチョコがけ。</p>
-    <p class="price">180円</p>
+    <p class="setsumei">ふんわり生地にチョコがけ。</p>
+    <p class="nedan">180円</p>
 </div>
 ```
 
 ```css
-.card {
+.waku {
     width: 300px;
     height: 220px;
 }
@@ -242,22 +240,22 @@ p {
 
 ### ステップ3：枠線と余白を足す
 
-`.card` に `border` と `padding` を足します。これで、カード全体がひとつの箱に見えます。
+`.waku` に `border` と `padding` を足します。これで、カード全体がひとつの箱に見えます。
 
 <CodePreview
 >
 
 ```html
-<div class="card">
-    <p class="label">おすすめ</p>
+<div class="waku">
+    <p class="shirushi">おすすめ</p>
     <h2>チョコドーナツ</h2>
-    <p class="description">ふんわり生地にチョコがけ。</p>
-    <p class="price">180円</p>
+    <p class="setsumei">ふんわり生地にチョコがけ。</p>
+    <p class="nedan">180円</p>
 </div>
 ```
 
 ```css
-.card {
+.waku {
     width: 300px;
     height: 220px;
     border: 2px solid #333;
@@ -269,29 +267,29 @@ p {
 
 ### ステップ4：価格だけ目立たせる
 
-ステップ3から増えたのは `.price` だけです。`class="price"` の部分だけを選べるので、価格だけを目立たせられます。
+ステップ3から増えたのは `.nedan` だけです。`class="nedan"` の部分だけを選べるので、値段だけを目立たせられます。
 
 <CodePreview
 >
 
 ```html
-<div class="card">
-    <p class="label">おすすめ</p>
+<div class="waku">
+    <p class="shirushi">おすすめ</p>
     <h2>チョコドーナツ</h2>
-    <p class="description">ふんわり生地にチョコがけ。</p>
-    <p class="price">180円</p>
+    <p class="setsumei">ふんわり生地にチョコがけ。</p>
+    <p class="nedan">180円</p>
 </div>
 ```
 
 ```css
-.card {
+.waku {
     width: 300px;
     height: 220px;
     border: 2px solid #333;
     padding: 20px;
 }
 
-.price {
+.nedan {
     border: 2px solid #c2410c;
     padding: 8px;
     background-color: #ffedd5;
@@ -314,7 +312,7 @@ p {
 **HTML**:
 
 ```html
-<div class="card">
+<div class="waku">
     <h2>チョコドーナツ</h2>
     <p>ふんわり生地にチョコがけ。</p>
     <p>180円</p>
@@ -323,18 +321,20 @@ p {
 
 **CSS の条件**:
 
-- `.card` クラスに対してスタイルを書く
+- `.waku` に対してスタイルを書く
 - `width: 300px;`
 - `height: 180px;`
 - `border: 2px solid #333;`
 - `padding: 20px;`
+
+枠線のあるカードに見えればOKです。
 
 <CodePreview
     share={false}
 >
 
 ```html
-<div class="card">
+<div class="waku">
     <h2>チョコドーナツ</h2>
     <p>ふんわり生地にチョコがけ。</p>
     <p>180円</p>
@@ -354,7 +354,7 @@ p {
 >
 
 ```html
-<div class="card">
+<div class="waku">
     <h2>チョコドーナツ</h2>
     <p>ふんわり生地にチョコがけ。</p>
     <p>180円</p>
@@ -362,7 +362,7 @@ p {
 ```
 
 ```css
-.card {
+.waku {
     width: 300px;
     height: 180px;
     border: 2px solid #333;
@@ -383,35 +383,35 @@ p {
 **HTML**:
 
 ```html
-<div class="card">
-    <p class="label">おすすめ</p>
+<div class="waku">
+    <p class="shirushi">おすすめ</p>
     <h2>チョコドーナツ</h2>
-    <p class="description">ふんわり生地にチョコがけ。</p>
-    <p class="price">180円</p>
+    <p class="setsumei">ふんわり生地にチョコがけ。</p>
+    <p class="nedan">180円</p>
 </div>
 ```
 
-- `.card` はカード全体
-- `.label` はラベル
-- `.price` は価格
-- `.description` はCSSを書かなくてよい
+- `.waku` はカード全体
+- `.shirushi` は目印
+- `.nedan` は値段
+- `.setsumei` はCSSを書かなくてよい
 
 **考えること**:
 
-- カード全体は `.card`
-- ラベルだけなら `.label`
-- 価格だけなら `.price`
+- カード全体は `.waku`
+- 目印だけなら `.shirushi`
+- 値段だけなら `.nedan`
 
 <CodePreview
     share={false}
 >
 
 ```html
-<div class="card">
-    <p class="label">おすすめ</p>
+<div class="waku">
+    <p class="shirushi">おすすめ</p>
     <h2>チョコドーナツ</h2>
-    <p class="description">ふんわり生地にチョコがけ。</p>
-    <p class="price">180円</p>
+    <p class="setsumei">ふんわり生地にチョコがけ。</p>
+    <p class="nedan">180円</p>
 </div>
 ```
 
@@ -428,16 +428,16 @@ p {
 >
 
 ```html
-<div class="card">
-    <p class="label">おすすめ</p>
+<div class="waku">
+    <p class="shirushi">おすすめ</p>
     <h2>チョコドーナツ</h2>
-    <p class="description">ふんわり生地にチョコがけ。</p>
-    <p class="price">180円</p>
+    <p class="setsumei">ふんわり生地にチョコがけ。</p>
+    <p class="nedan">180円</p>
 </div>
 ```
 
 ```css
-.card {
+.waku {
     width: 300px;
     height: 220px;
     border: 2px solid #7a4b2a;
@@ -445,14 +445,14 @@ p {
     background-color: #fff7ed;
 }
 
-.label {
+.shirushi {
     border: 1px solid #c2410c;
     padding: 4px;
     background-color: #fed7aa;
     color: #7c2d12;
 }
 
-.price {
+.nedan {
     border: 2px solid #c2410c;
     padding: 8px;
     background-color: #ffedd5;
@@ -472,8 +472,8 @@ p {
 
 上から順に確認してください。
 
-- `class="card"` と `.card` の名前は同じですか
-- `class="price"` と `.price` の名前は同じですか
+- `class="waku"` と `.waku` の名前は同じですか
+- `class="nedan"` と `.nedan` の名前は同じですか
 - CSSファイルを保存しましたか
 - ブラウザを再読み込みしましたか
 - `border` に `solid` を書いていますか
@@ -492,12 +492,12 @@ AIに聞くときは、完成コードではなく確認手順を聞きます。
 
 ## 8. 完成チェック
 
-- □ `.card` を使っている
+- □ `.waku` を使っている
 - □ `width` で横幅を指定している
 - □ `height` で高さを指定している
 - □ `border` で枠線が出ている
 - □ `padding` で内側に余白がある
-- □ `.label` や `.price` で一部だけを指定している
+- □ `.shirushi` や `.nedan` で一部だけを指定している
 - □ ブラウザで見て、カードらしく見える
 
 ---
@@ -518,11 +518,11 @@ AIに聞くときは、完成コードではなく確認手順を聞きます。
 **HTML の骨組み**:
 
 ```html
-<div class="card">
-    <p class="label">ジャンル</p>
+<div class="waku">
+    <p class="shirushi">ジャンル</p>
     <h2>タイトル</h2>
-    <p class="description">説明文</p>
-    <p class="price">補足情報</p>
+    <p class="setsumei">説明文</p>
+    <p class="nedan">補足情報</p>
 </div>
 ```
 
@@ -531,11 +531,11 @@ AIに聞くときは、完成コードではなく確認手順を聞きます。
 >
 
 ```html
-<div class="card">
-    <p class="label">ジャンル</p>
+<div class="waku">
+    <p class="shirushi">ジャンル</p>
     <h2>タイトル</h2>
-    <p class="description">説明文</p>
-    <p class="price">補足情報</p>
+    <p class="setsumei">説明文</p>
+    <p class="nedan">補足情報</p>
 </div>
 ```
 
@@ -552,16 +552,16 @@ AIに聞くときは、完成コードではなく確認手順を聞きます。
 >
 
 ```html
-<div class="card">
-    <p class="label">おすすめ</p>
+<div class="waku">
+    <p class="shirushi">おすすめ</p>
     <h2>カフェラテ</h2>
-    <p class="description">ほっとひと息、ミルクたっぷり。</p>
-    <p class="price">420円</p>
+    <p class="setsumei">ほっとひと息、ミルクたっぷり。</p>
+    <p class="nedan">420円</p>
 </div>
 ```
 
 ```css
-.card {
+.waku {
     width: 300px;
     height: 220px;
     border: 2px solid #7a4b2a;
@@ -571,14 +571,14 @@ AIに聞くときは、完成コードではなく確認手順を聞きます。
     border-radius: 8px;
 }
 
-.label {
+.shirushi {
     border: 1px solid #c2410c;
     padding: 4px;
     background-color: #fed7aa;
     color: #7c2d12;
 }
 
-.price {
+.nedan {
     border: 2px solid #c2410c;
     padding: 8px;
     background-color: #ffedd5;
