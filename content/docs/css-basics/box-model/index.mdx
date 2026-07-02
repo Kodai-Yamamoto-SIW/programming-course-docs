@@ -470,6 +470,8 @@ HTMLで `class="名前"` と付けると、CSSでは `.名前` でその部分�
 </div>
 ```
 
+値段でやったのと同じように、「おすすめ」にも `class="shirushi"` を付けます。HTMLで付けた名前は、CSSでは `.shirushi` と書いて選びます。
+
 * `.waku` はカード全体
 * `.shirushi` は目印
 * `.nedan` は値段
@@ -482,9 +484,22 @@ HTMLで `class="名前"` と付けると、CSSでは `.名前` でその部分�
 
 **CSS の条件**:
 
-* `.waku` に `width` / `height` / `border` / `padding` / `background-color` を書く
-* `.shirushi` に `border` / `padding` / `background-color` / `color` を書く
-* `.nedan` に `border` / `padding` / `background-color` / `color` を書く
+* `.waku`
+    * `width: 300px;`
+    * `height: 220px;`
+    * `border: 2px solid #7a4b2a;`
+    * `padding: 20px;`
+    * `background-color: #fff7ed;`
+* `.shirushi`
+    * `border: 1px solid #c2410c;`
+    * `padding: 4px;`
+    * `background-color: #fed7aa;`
+    * `color: #7c2d12;`
+* `.nedan`
+    * `border: 2px solid #c2410c;`
+    * `padding: 8px;`
+    * `background-color: #ffedd5;`
+    * `color: #7c2d12;`
 
 <CodePreview
     share={false}
