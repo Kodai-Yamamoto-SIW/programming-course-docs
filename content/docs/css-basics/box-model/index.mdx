@@ -18,7 +18,7 @@
 <div class="waku">
     <p class="shirushi">おすすめ</p>
     <h2>チョコドーナツ</h2>
-    <p class="setsumei">ふんわり生地にチョコがけ。</p>
+    <p>ふんわり生地にチョコがけ。</p>
     <p class="nedan">180円</p>
 </div>
 ```
@@ -102,9 +102,11 @@ p {
 
 「おすすめ」も説明文も「180円」も同じ色になりました。値段だけを変えたいときには困ります。
 
+次は、今書いた `p { ... }` を消して、値段だけに使う `.nedan { ... }` に書き換えます。
+
 ### 値段だけにクラスを付ける
 
-値段の `<p>` だけに `class="nedan"` を付けます。
+値段の `<p>` だけに `class="nedan"` を付けます。CSSは、さっきの `p { ... }` を消して `.nedan { ... }` に書き換えます。
 
 <CodePreview
 >
@@ -137,7 +139,7 @@ HTMLで `class="名前"` と付けると、CSSでは `.名前` でその部分�
 
 ## 3. カード全体に名前を付ける
 
-次に、カード全体をまとめて選べるようにします。
+次に、カード全体をまとめて選べるようにします。`<div>` は、いくつかの要素をまとめるためのタグです。
 
 ### 全体をdivで囲む
 
@@ -339,18 +341,18 @@ HTMLで `class="名前"` と付けると、CSSでは `.名前` でその部分�
 
 文字と枠線のあいだが広がります。
 
-### 目印と値段を整える
+### 値段にも枠線と余白を足す
 
-最後に、「おすすめ」と「180円」だけを少し目立たせます。
+同じ考え方で、値段にも `border` と `padding` を足します。
 
 <CodePreview
 >
 
 ```html
 <div class="waku">
-    <p class="shirushi">おすすめ</p>
+    <p>おすすめ</p>
     <h2>チョコドーナツ</h2>
-    <p class="setsumei">ふんわり生地にチョコがけ。</p>
+    <p>ふんわり生地にチョコがけ。</p>
     <p class="nedan">180円</p>
 </div>
 ```
@@ -358,17 +360,10 @@ HTMLで `class="名前"` と付けると、CSSでは `.名前` でその部分�
 ```css
 .waku {
     width: 300px;
-    height: 220px;
-    border: 2px solid #7a4b2a;
-    padding: 20px;
+    height: 180px;
     background-color: #fff7ed;
-}
-
-.shirushi {
-    border: 1px solid #c2410c;
-    padding: 4px;
-    background-color: #fed7aa;
-    color: #7c2d12;
+    border: 2px solid #333;
+    padding: 20px;
 }
 
 .nedan {
@@ -381,7 +376,7 @@ HTMLで `class="名前"` と付けると、CSSでは `.名前` でその部分�
 
 </CodePreview>
 
-`shirushi` や `nedan` も、自分で付けたクラス名です。HTMLで付けた名前を、CSSでは `.` を付けて選びます。
+値段のまわりにも線と内側の余白が付きます。
 
 ---
 
@@ -470,7 +465,7 @@ HTMLで `class="名前"` と付けると、CSSでは `.名前` でその部分�
 <div class="waku">
     <p class="shirushi">おすすめ</p>
     <h2>チョコドーナツ</h2>
-    <p class="setsumei">ふんわり生地にチョコがけ。</p>
+    <p>ふんわり生地にチョコがけ。</p>
     <p class="nedan">180円</p>
 </div>
 ```
@@ -478,13 +473,18 @@ HTMLで `class="名前"` と付けると、CSSでは `.名前` でその部分�
 * `.waku` はカード全体
 * `.shirushi` は目印
 * `.nedan` は値段
-* `.setsumei` はCSSを書かなくてよい
 
 **考えること**:
 
 * カード全体は `.waku`
 * 目印だけなら `.shirushi`
 * 値段だけなら `.nedan`
+
+**CSS の条件**:
+
+* `.waku` に `width` / `height` / `border` / `padding` / `background-color` を書く
+* `.shirushi` に `border` / `padding` / `background-color` / `color` を書く
+* `.nedan` に `border` / `padding` / `background-color` / `color` を書く
 
 <CodePreview
     share={false}
@@ -494,7 +494,7 @@ HTMLで `class="名前"` と付けると、CSSでは `.名前` でその部分�
 <div class="waku">
     <p class="shirushi">おすすめ</p>
     <h2>チョコドーナツ</h2>
-    <p class="setsumei">ふんわり生地にチョコがけ。</p>
+    <p>ふんわり生地にチョコがけ。</p>
     <p class="nedan">180円</p>
 </div>
 ```
@@ -515,7 +515,7 @@ HTMLで `class="名前"` と付けると、CSSでは `.名前` でその部分�
 <div class="waku">
     <p class="shirushi">おすすめ</p>
     <h2>チョコドーナツ</h2>
-    <p class="setsumei">ふんわり生地にチョコがけ。</p>
+    <p>ふんわり生地にチョコがけ。</p>
     <p class="nedan">180円</p>
 </div>
 ```
@@ -552,7 +552,16 @@ HTMLで `class="名前"` と付けると、CSSでは `.名前` でその部分�
 
 ---
 
-## 8. 困ったとき
+## 8. 完成チェックと困ったとき
+
+まず、できたところを確認しましょう。
+
+* □ `.waku` を使っている
+* □ `.waku` に横幅と高さを指定している
+* □ `.waku` に枠線と内側の余白がある
+* □ `.shirushi` で「おすすめ」だけを指定している
+* □ `.nedan` で「180円」だけを指定している
+* □ ブラウザで見て、商品カードらしく見える
 
 上から順に確認してください。
 
@@ -570,7 +579,7 @@ AIに聞くときは、完成コードではなく確認手順を聞きます。
 完成コードを全部書くのではなく、どこを確認すればよいかを順番に教えてください。
 ```
 
-上のプロンプトのあとに、自分の HTML と CSS を貼り付けて送ると、段階的な確認手順を教えてもらいやすくなります。
+> 上のプロンプトのあとに、自分の HTML と CSS を貼り付けて送ると、段階的な確認手順を教えてもらいやすくなります。
 
 ---
 
@@ -578,7 +587,9 @@ AIに聞くときは、完成コードではなく確認手順を聞きます。
 
 <Exercise>
 
-基本の演習と同じ **4つの class 構成** のまま、中身のテーマだけ自由に変えて作ってみましょう。
+基本の演習と同じ **3つの class 構成** のまま、中身のテーマだけ自由に変えて作ってみましょう。
+
+角を丸くしたい人だけ、`border-radius` を追加してもよいです。
 
 * A. ゲーム紹介カード
 * B. カフェメニューカード
@@ -591,7 +602,7 @@ AIに聞くときは、完成コードではなく確認手順を聞きます。
 <div class="waku">
     <p class="shirushi">ジャンル</p>
     <h2>タイトル</h2>
-    <p class="setsumei">説明文</p>
+    <p>説明文</p>
     <p class="nedan">補足情報</p>
 </div>
 ```
@@ -604,7 +615,7 @@ AIに聞くときは、完成コードではなく確認手順を聞きます。
 <div class="waku">
     <p class="shirushi">ジャンル</p>
     <h2>タイトル</h2>
-    <p class="setsumei">説明文</p>
+    <p>説明文</p>
     <p class="nedan">補足情報</p>
 </div>
 ```
@@ -625,7 +636,7 @@ AIに聞くときは、完成コードではなく確認手順を聞きます。
 <div class="waku">
     <p class="shirushi">おすすめ</p>
     <h2>カフェラテ</h2>
-    <p class="setsumei">ほっとひと息、ミルクたっぷり。</p>
+    <p>ほっとひと息、ミルクたっぷり。</p>
     <p class="nedan">420円</p>
 </div>
 ```
