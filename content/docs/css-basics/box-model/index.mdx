@@ -225,7 +225,7 @@ HTMLで `class="nedan"` を付けた `<p>` にだけ CSS が当たるように�
 
 ### 横幅を決める
 
-`width` は **content（内容を書く場所）の横幅** を決めます。背景色は content だけでなく、そのあとで足す `padding` や `border` のところにも塗られます。
+`width` は **content（内容を書く場所）の横幅** を決めます。背景色は content と `padding` のところに塗られ、`border` はその外側に線として足されます。
 
 <CodePreview
 >
@@ -327,6 +327,33 @@ HTMLのすべての要素は、**「箱（ボックス）」** の形で表現�
 ### 枠線を足す
 
 `border` は、**要素のまわりに枠線**をつけます。
+
+今回使う `border: 2px solid #7a4b2a;` は、枠線の **太さ・種類・色** をまとめて書く指定です。
+
+<Concept title="border の3つの値">
+
+- `2px`：線の太さ
+- `solid`：線の種類（実線）
+- `#7a4b2a`：線の色
+
+</Concept>
+
+`border` の値は、必ずこの順番でないといけないわけではありません。CSSは、書かれた値が「太さ」「種類」「色」のどれなのかを見分けて解釈します。
+
+ただし、このレッスンでは読みやすくするために、**太さ → 種類 → 色** の順にそろえて書きます。
+
+:::note[よく使う線の種類]
+線の種類には、次のようなものがあります。
+
+- `solid`：実線
+- `dashed`：破線
+- `dotted`：点線
+- `double`：二重線
+
+このレッスンでは、まず `solid` だけ使えればOKです。
+:::
+
+線の種類を書かない場合、枠線の種類は `none` になります。そのため、`border: 2px #7a4b2a;` のように線の種類だけ抜けると、枠線は表示されません。
 
 <CodePreview
 >
@@ -472,6 +499,7 @@ HTMLのすべての要素は、**「箱（ボックス）」** の形で表現�
 次のプレビューと同じ見た目になったら正解です。
 
 <CodePreview
+    sourceId="box-model-ex1"
     previewVisible={true}
     htmlVisible={false}
     cssVisible={false}
@@ -516,7 +544,157 @@ HTMLのすべての要素は、**「箱（ボックス）」** の形で表現�
 
 完成コードは次のようになります。
 
+<CodePreview sourceId="box-model-ex1" />
+
+**目視チェック**:
+
+- [ ] 「おすすめ」だけに `.shirushi` のスタイルが効いている
+- [ ] 「180円」だけに `.nedan` のスタイルが効いている
+- [ ] カード全体に `.waku` の枠・余白・背景色が残っている
+
+</Solution>
+
+</Exercise>
+
+### 演習2
+
+<Exercise>
+
+同じ class を使って、2枚目の商品カードも作ります。
+
+今あるカードの下に、次の HTML を追加してください。
+
+```html
+<div>
+    <p>新商品</p>
+    <h2>カフェラテ</h2>
+    <p>ミルクたっぷり。</p>
+    <p>250円</p>
+</div>
+```
+
+**HTML でやること**:
+
+- 追加した `<div>` に `class="waku"` を付ける
+- 「新商品」の `<p>` に `class="shirushi"` を付ける
+- 「250円」の `<p>` に `class="nedan"` を付ける
+- 商品名と説明文は変えない
+
+**CSS でやること**:
+
+- 演習1で書いた `.waku`、`.shirushi`、`.nedan` をそのまま使う
+- 新しい CSS は書かなくてよい
+
+次のプレビューと同じ見た目になったら正解です。
+
 <CodePreview
+    sourceId="box-model-ex2"
+    previewVisible={true}
+    htmlVisible={false}
+    cssVisible={false}
+>
+
+```html
+<div class="waku">
+    <p class="shirushi">おすすめ</p>
+    <h2>チョコドーナツ</h2>
+    <p>ふんわり生地にチョコがけ。</p>
+    <p class="nedan">180円</p>
+</div>
+
+<div class="waku">
+    <p class="shirushi">新商品</p>
+    <h2>カフェラテ</h2>
+    <p>ミルクたっぷり。</p>
+    <p class="nedan">250円</p>
+</div>
+```
+
+```css
+.waku {
+    width: 300px;
+    height: 220px;
+    background-color: #fff7ed;
+    border: 2px solid #7a4b2a;
+    padding: 20px;
+}
+
+.shirushi {
+    border: 1px solid #c2410c;
+    padding: 4px;
+    background-color: #fed7aa;
+    color: #7c2d12;
+}
+
+.nedan {
+    border: 2px solid #c2410c;
+    padding: 8px;
+    background-color: #ffedd5;
+    color: #7c2d12;
+}
+```
+
+</CodePreview>
+
+<Solution>
+
+完成コードは次のようになります。
+
+<CodePreview sourceId="box-model-ex2" />
+
+**目視チェック**:
+
+- [ ] 2枚目のカード全体にも `.waku` のスタイルが効いている
+- [ ] 「新商品」だけに `.shirushi` のスタイルが効いている
+- [ ] 「250円」だけに `.nedan` のスタイルが効いている
+- [ ] 1枚目と2枚目で、同じ class 名を使い回せている
+
+</Solution>
+
+</Exercise>
+
+### 演習3
+
+<Exercise>
+
+次のコードには、class名のミスが1か所あります。
+
+「おすすめ」に目印のスタイルが効くように、HTML側の class名を直してください。
+
+**直す前のHTML**:
+
+```html
+<div class="waku">
+    <p class="sirushi">おすすめ</p>
+    <h2>チョコドーナツ</h2>
+    <p>ふんわり生地にチョコがけ。</p>
+    <p class="nedan">180円</p>
+</div>
+```
+
+**すでに書いてあるCSS**:
+
+```css
+.shirushi {
+    border: 1px solid #c2410c;
+    padding: 4px;
+    background-color: #fed7aa;
+    color: #7c2d12;
+}
+```
+
+**やること**:
+
+- HTML側の `class="sirushi"` を、CSS側の `.shirushi` と同じ名前に直す
+- CSSは変えない
+
+次のプレビューと同じ見た目になったら正解です。
+
+<CodePreview
+    sourceId="box-model-ex3"
+    previewVisible={true}
+    htmlVisible={false}
+    cssVisible={false}
 >
 
 ```html
@@ -554,11 +732,138 @@ HTMLのすべての要素は、**「箱（ボックス）」** の形で表現�
 
 </CodePreview>
 
+<Solution>
+
+`class="sirushi"` は、CSS側の `.shirushi` と名前が違います。
+
+HTML側を `class="shirushi"` に直します。
+
+<CodePreview sourceId="box-model-ex3" />
+
 **目視チェック**:
 
-- [ ] 「おすすめ」だけに `.shirushi` のスタイルが効いている
-- [ ] 「180円」だけに `.nedan` のスタイルが効いている
-- [ ] カード全体に `.waku` の枠・余白・背景色が残っている
+- [ ] HTML側が `class="shirushi"` になっている
+- [ ] CSS側が `.shirushi` になっている
+- [ ] HTML側とCSS側の名前が完全に一致している
+
+</Solution>
+
+</Exercise>
+
+### 発展演習（早く終わった人向け）
+
+<Exercise>
+
+余裕がある人は、3枚目の商品カードを追加して、線の種類が違う目印を作ってみましょう。
+
+今あるカードの下に、次の HTML を追加してください。
+
+```html
+<div>
+    <p>期間限定</p>
+    <h2>いちごドーナツ</h2>
+    <p>甘酸っぱいいちご味。</p>
+    <p>220円</p>
+</div>
+```
+
+**HTML でやること**:
+
+- 追加した `<div>` に `class="waku"` を付ける
+- 「期間限定」の `<p>` に `class="gentei"` を付ける
+- 「220円」の `<p>` に `class="nedan"` を付ける
+- 商品名と説明文は変えない
+
+**CSS でやること**:
+
+- `.waku` と `.nedan` は、これまで書いたものをそのまま使う
+- 新しく `.gentei` を書く
+- `.gentei` に次のスタイルを書く
+
+- `border: 2px dashed #c2410c;`
+- `padding: 4px;`
+- `background-color: #fef3c7;`
+- `color: #7c2d12;`
+
+`dashed` は、破線の枠線です。
+
+次のプレビューと同じ見た目になったら正解です。
+
+<CodePreview
+    sourceId="box-model-advanced"
+    previewVisible={true}
+    htmlVisible={false}
+    cssVisible={false}
+>
+
+```html
+<div class="waku">
+    <p class="shirushi">おすすめ</p>
+    <h2>チョコドーナツ</h2>
+    <p>ふんわり生地にチョコがけ。</p>
+    <p class="nedan">180円</p>
+</div>
+
+<div class="waku">
+    <p class="shirushi">新商品</p>
+    <h2>カフェラテ</h2>
+    <p>ミルクたっぷり。</p>
+    <p class="nedan">250円</p>
+</div>
+
+<div class="waku">
+    <p class="gentei">期間限定</p>
+    <h2>いちごドーナツ</h2>
+    <p>甘酸っぱいいちご味。</p>
+    <p class="nedan">220円</p>
+</div>
+```
+
+```css
+.waku {
+    width: 300px;
+    height: 220px;
+    background-color: #fff7ed;
+    border: 2px solid #7a4b2a;
+    padding: 20px;
+}
+
+.shirushi {
+    border: 1px solid #c2410c;
+    padding: 4px;
+    background-color: #fed7aa;
+    color: #7c2d12;
+}
+
+.gentei {
+    border: 2px dashed #c2410c;
+    padding: 4px;
+    background-color: #fef3c7;
+    color: #7c2d12;
+}
+
+.nedan {
+    border: 2px solid #c2410c;
+    padding: 8px;
+    background-color: #ffedd5;
+    color: #7c2d12;
+}
+```
+
+</CodePreview>
+
+<Solution>
+
+完成コードは次のようになります。
+
+<CodePreview sourceId="box-model-advanced" />
+
+**目視チェック**:
+
+- [ ] 3枚目のカード全体にも `.waku` のスタイルが効いている
+- [ ] 「期間限定」だけに `.gentei` のスタイルが効いている
+- [ ] `.gentei` の枠線が破線になっている
+- [ ] 「220円」だけに `.nedan` のスタイルが効いている
 
 </Solution>
 
@@ -574,8 +879,8 @@ HTMLのすべての要素は、**「箱（ボックス）」** の形で表現�
 
 - [ ] `.waku` に `width: 300px;` と `height: 220px;` がある
 - [ ] `.waku` に `border`・`padding`・`background-color` がある
-- [ ] `.shirushi` は「おすすめ」**だけ**に効いている
-- [ ] `.nedan` は「180円」**だけ**に効いている
+- [ ] `.shirushi` は「おすすめ」や「新商品」**だけ**に効いている
+- [ ] `.nedan` は「180円」や「250円」**だけ**に効いている
 - [ ] ブラウザで見て、4つのプロパティ（width・height・border・padding）がすべて反映されている
 
 **よくあるつまずき**:
@@ -585,7 +890,7 @@ HTMLのすべての要素は、**「箱（ボックス）」** の形で表現�
 - `class="shirushi"` と `.shirushi` の名前が同じですか
 - CSSファイルを保存しましたか
 - ブラウザを再読み込みしましたか
-- `border` に `solid` を書いていますか（書き忘れると線が出ないことがあります）
+- `border` に線の太さ・種類・色が書けていますか
 - CSSに全角の記号（全角スペース・全角の `:` など）が混ざっていませんか
 
 ### AI に質問するときのコツ
@@ -602,7 +907,7 @@ AIに「完成コードを全部書く」ように頼むと、丸ごと書き直
 ```
 
 :::note[使い方の流れ]
-上のプロンプトのあとに、自分の HTML と CSS を貼り付けて送ると、**「.waku の `.waku` のスペルは正しいか」「border の省略形 `2px solid` が揃っているか」**のような段階的な確認手順を教えてもらいやすくなります。
+上のプロンプトのあとに、自分の HTML と CSS を貼り付けて送ると、**「.waku の `.waku` のスペルは正しいか」「border の太さ・種類・色が揃っているか」**のような段階的な確認手順を教えてもらいやすくなります。
 :::
 
 </Section>
