@@ -12,6 +12,8 @@
             "DownloadLink",
             "Section",
             "Concept",
+            "Prerequisites",
+            "Reference",
             "Q1",
             "Q2",
             "Q3",
@@ -42,7 +44,9 @@
             "small",
             "head",
             "body",
-            "html"
+            "html",
+            "Verify",
+            "Checkpoint"
         ]
     },
     "MD041": false

@@ -3,11 +3,13 @@ title: カードを作ろう
 authoringMode: tutorial
 ---
 
-今日は、商品カードを少しずつ作ります。先生と同じように書きながら、見た目が変わるところを確認しましょう。
+今日は、商品カードを少しずつ作ります。先生と同じように、コードを書きながら見た目が変わるところを確認しましょう。
 
-このレッスンで覚えるのは、**HTMLの class と CSS の `.名前` を対応させて一部分だけを選ぶ**、**ボックスモデルの中身（content・padding・border・margin）**、そして **`width`・`height`・`border`・`padding` の4つでカードの見た目を作る**ことの3つです。
+このレッスンでは、次の3つを覚えます。
 
----
+- **HTML の `class` と CSS の `.名前` を対応させて、一部分だけを選ぶ**
+- ボックスモデルの 4 つの層（content / padding / border / margin）の役割
+- `width`・`height`・`border`・`padding` の 4 つのプロパティでカードの見た目を作る
 
 <Section title="完成形を見る" goal="これから作る商品カードの見た目を先に確認する">
 
@@ -57,8 +59,6 @@ authoringMode: tutorial
 このあと、**値段 → カード全体 → 大きさ → 枠線 → 内側の余白** の順に作ります。
 
 </Section>
-
----
 
 <Section title="一部分だけ色を変えてクラスを覚える" goal="HTML の class と CSS の `.名前` を使って、ページ内の1か所にだけスタイルを当てる方法を覚える">
 
@@ -149,9 +149,9 @@ HTMLで `class="nedan"` を付けた `<p>` にだけ CSS が当たるように�
 
 </Concept>
 
-</Section>
+<Verify>「180円」だけ背景色と文字色が変わっていて、他の段落は素のままである</Verify>
 
----
+</Section>
 
 <Section title="カード全体を `.waku` で選ぶ" goal="`<div>` で複数の要素をまとめて、`.waku` という名前を付けてカード全体を選べるようにする">
 
@@ -211,9 +211,9 @@ HTMLで `class="nedan"` を付けた `<p>` にだけ CSS が当たるように�
 
 **背景色が付いた範囲が、`.waku` で選ばれているカード全体です。**
 
-</Section>
+<Verify>カード全体の背景色が `.waku` のクラス名で塗られている</Verify>
 
----
+</Section>
 
 <Section title="カードの大きさを決める" goal="`width` と `height` を指定して、カードの横幅と高さを決める">
 
@@ -308,13 +308,13 @@ HTMLのすべての要素は、**「箱（ボックス）」** の形で表現�
 このレッスンで指定する `width: 300px` と `height: 220px` は、**一番内側の「content（内容）」の大きさ**を決めます。`padding` と `border` はこの大きさには含まれず、あとから別で足されます。
 :::
 
-本レッスンでは `padding` と `border` を扱います。`margin` は別のレッスンで学びます。
+本レッスンでは `padding` と `border` を扱います。`margin` は次の [margin](./margin/index.mdx) で学びます。
 
 </Concept>
 
-</Section>
+<Verify>カードの横幅が `300px`、高さが `220px` に広がっている（背景色の範囲で確認）</Verify>
 
----
+</Section>
 
 <Section title="枠線と内側の余白を足す" goal="`border` と `padding` を足してカードを商品カードらしく仕上げる">
 
@@ -426,9 +426,9 @@ HTMLのすべての要素は、**「箱（ボックス）」** の形で表現�
 
 値段のまわりにも線と内側の余白が付きます。
 
-</Section>
+<Verify>カードのまわりに枠線が出て、文字と枠線のあいだに余白ができている</Verify>
 
----
+</Section>
 
 <Section title="演習問題" goal="レッスンで学んだ4つのプロパティを、自分の手で書いて確認する">
 
@@ -633,9 +633,17 @@ HTMLのすべての要素は、**「箱（ボックス）」** の形で表現�
 
 </Section>
 
----
-
 <Section title="完成チェックと困ったとき" goal="自力で書いたカードが要件どおりに仕上がっているか、自分の目で確認する">
+
+<Checkpoint>
+
+- [ ] `.waku` の `width` と `height` でカードの大きさが決まっている
+- [ ] `.waku` の `border` と `padding` で枠線と内側の余白ができている
+- [ ] `.shirushi` は「おすすめ」**だけ**に効いている
+- [ ] `.nedan` は「180円」**だけ**に効いている
+- [ ] ブラウザで 4 つのプロパティがすべて反映されている
+
+</Checkpoint>
 
 まず、できたところを上から順に見直しましょう。
 
@@ -673,101 +681,5 @@ AIに「完成コードを全部書く」ように頼むと、丸ごと書き直
 :::note[使い方の流れ]
 上のプロンプトのあとに、自分の HTML と CSS を貼り付けて送ると、**「.waku の `.waku` のスペルは正しいか」「border の省略形 `2px solid` が揃っているか」**のような段階的な確認手順を教えてもらいやすくなります。
 :::
-
-</Section>
-
----
-
-<Section title="発展演習" goal="3つの class 構成のまま、自分の好きなテーマでカードを1枚完成させる">
-
-### 演習-発展1
-
-<Exercise>
-
-基本の演習と同じ **3つの class 構成** のまま、中身のテーマだけ自由に変えて作ってみましょう。
-
-角を丸くしたい人だけ、`border-radius` を追加してもよいです（本レッスンでは触れていないプロパティですが、`border` と並んで使うと分かります）。
-
-- A. ゲーム紹介カード
-- B. カフェメニューカード
-- C. お知らせカード
-- D. プロフィールカード
-
-**HTML の骨組み**:
-
-```html
-<div class="waku">
-    <p class="shirushi">ジャンル</p>
-    <h2>タイトル</h2>
-    <p>説明文</p>
-    <p class="nedan">補足情報</p>
-</div>
-```
-
-<CodePreview
-    share={false}
->
-
-```html
-<div class="waku">
-    <p class="shirushi">ジャンル</p>
-    <h2>タイトル</h2>
-    <p>説明文</p>
-    <p class="nedan">補足情報</p>
-</div>
-```
-
-```css
-/* ここに CSS を書いてください */
-
-```
-
-</CodePreview>
-
-<Solution>
-
-<CodePreview
->
-
-```html
-<div class="waku">
-    <p class="shirushi">おすすめ</p>
-    <h2>カフェラテ</h2>
-    <p>ほっとひと息、ミルクたっぷり。</p>
-    <p class="nedan">420円</p>
-</div>
-```
-
-```css
-.waku {
-    width: 300px;
-    height: 220px;
-    border: 2px solid #7a4b2a;
-    padding: 20px;
-    background-color: #fff7ed;
-    /* 余裕があれば追加 */
-    border-radius: 8px;
-}
-
-.shirushi {
-    border: 1px solid #c2410c;
-    padding: 4px;
-    background-color: #fed7aa;
-    color: #7c2d12;
-}
-
-.nedan {
-    border: 2px solid #c2410c;
-    padding: 8px;
-    background-color: #ffedd5;
-    color: #7c2d12;
-}
-```
-
-</CodePreview>
-
-</Solution>
-
-</Exercise>
 
 </Section>

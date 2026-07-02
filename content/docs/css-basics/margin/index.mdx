@@ -1,0 +1,500 @@
+---
+title: マージン
+authoringMode: tutorial
+---
+
+今日は、ボックスモデルの4つ目の層である **margin（マージン）** を覚えて、カードのあいだにゆとりを生みましょう。前回のレッスンでは `width`・`height`・`border`・`padding` の4つでカードの見た目を作りました。今回はその外側、`border` の **さらに外** にある余白の扱い方を学びます。
+
+---
+
+<Prerequisites>
+- [ボックスモデル](./box-model/index.mdx) レッスンを完了していること（`width` / `height` / `border` / `padding` を理解していること）
+</Prerequisites>
+
+---
+
+<Section title="完成形を見る" goal="2 枚のカードのあいだに margin でゆとりが入った見た目を、先に確認する">
+
+まずは完成形だけ見ます。**2 枚のカードが、margin の余白を挟んで並んでいる** 様子を確認してください。ここでは、まだコードは書きません。
+
+<CodePreview
+    previewVisible={true}
+    htmlVisible={false}
+    cssVisible={false}
+>
+
+```html
+<div class="card">チョコドーナツ</div>
+<div class="card">カフェラテ</div>
+```
+
+```css
+.card {
+    width: 200px;
+    border: 2px solid #7a4b2a;
+    padding: 12px;
+    margin-bottom: 24px;
+    background-color: #fff7ed;
+}
+```
+
+</CodePreview>
+
+2 枚のカードの **あいだ** にすき間ができています。**このすき間が `margin` のしわざ** です。
+
+</Section>
+
+---
+
+<Section title="外側の余白 `margin` を覚える" goal="`margin` が border の外側の余白であることを覚える">
+
+`padding` が **border の内側** の余白だったのに対し、`margin` は **border の外側** の余白です。**隣の要素とのあいだ** にすき間を作りたいときに使います。
+
+<Concept title="`margin` とは">
+
+`margin` は、要素の **外側** の余白です。**隣の要素とのあいだ** にすき間を作るために使います。`padding` が「border と内容（content）のあいだ」だったのに対し、`margin` は「border の **外**」にあります。
+
+</Concept>
+
+### 何も指定しない状態では、要素どうしがくっつく
+
+まずは **margin を指定しない** 状態を見てみます。2 枚のカードはくっついて並びます。
+
+<CodePreview
+>
+
+```html
+<div class="card">チョコドーナツ</div>
+<div class="card">カフェラテ</div>
+```
+
+```css
+.card {
+    width: 200px;
+    border: 2px solid #7a4b2a;
+    padding: 12px;
+    background-color: #fff7ed;
+}
+```
+
+</CodePreview>
+
+### `margin` を足すと、すき間ができる
+
+`.card` に `margin-bottom: 24px;` を追加します。**1 枚目のカードの下** に 24px のすき間ができます。
+
+<CodePreview
+>
+
+```html
+<div class="card">チョコドーナツ</div>
+<div class="card">カフェラテ</div>
+```
+
+```css
+.card {
+    width: 200px;
+    border: 2px solid #7a4b2a;
+    padding: 12px;
+    margin-bottom: 24px;
+    background-color: #fff7ed;
+}
+```
+
+</CodePreview>
+
+2 枚のカードのあいだに、**24px のすき間** が入りました。これが `margin` の効果です。
+
+</Section>
+
+---
+
+<Section title="margin と padding の違い" goal="`margin`（外側）と `padding`（内側）の使い分けを、はっきり区別できる">
+
+`padding` と `margin` は、**どちらも余白** ですが、**どこにある余白か** が違います。
+
+<Concept title="`padding` と `margin` の違い">
+
+- `padding`：**border の内側** の余白（border と content のあいだ）
+- `margin`：**border の外側** の余白（隣の要素とのあいだ）
+
+</Concept>
+
+### 図で確かめる
+
+同じ 1 枚のカードに対して、`padding` と `margin` が **どこにあるか** を図で確かめます。
+
+```text
+       ←─ margin（外側の余白）─→
+       +-----------------------+
+       |  border（枠線）         |
+       |  +-----------------+  |
+       |  |  padding（内側）|  |
+       |  |  +-----------+  |  |
+       |  |  |  content  |  |  |
+       |  |  +-----------+  |  |
+       |  +-----------------+  |
+       +-----------------------+
+```
+
+`padding` は **文字と枠線のあいだ** を広げ、`margin` は **枠線と隣のあいだ** を広げます。
+
+### 実際に並べた例
+
+`padding` だけ指定したカードと、`margin` も指定したカードを **横並びで** 比べると、**すき間の出どころ** が違います。
+
+<CodePreview
+>
+
+```html
+<div class="box padding-only">padding だけ</div>
+<div class="box with-margin">padding + margin</div>
+```
+
+```css
+.box {
+    width: 160px;
+    border: 2px solid #7a4b2a;
+    padding: 16px;
+    background-color: #fff7ed;
+}
+
+.padding-only {
+    /* margin なし */
+}
+
+.with-margin {
+    margin-top: 16px;
+    margin-left: 24px;
+    background-color: #ffedd5;
+}
+```
+
+</CodePreview>
+
+- **上のカード**（`padding-only`）：文字と枠線のあいだが広い（`padding` の効果）
+- **下のカード**（`with-margin`）：左と上に **別の要素とのあいだ** のすき間ができる（`margin` の効果）
+
+</Section>
+
+---
+
+<Section title="よく使う margin の書き方" goal="`margin` の代表的な 4 つの書き方を使い分けられる">
+
+`margin` には、よく使う 4 つの書き方があります。**どれも同じ結果** を **違う書き方** で表現できるので、少しずつ覚えていきましょう。
+
+### 1. 4 辺すべてに同じ値（`margin: 10px;`）
+
+`margin` に **1 つの数字** を書くと、**上下左右ぜんぶ** にその値が入ります。
+
+<CodePreview
+>
+
+```html
+<div class="card">カフェラテ</div>
+```
+
+```css
+.card {
+    margin: 10px;
+    border: 2px solid #7a4b2a;
+    padding: 12px;
+    background-color: #fff7ed;
+}
+```
+
+</CodePreview>
+
+### 2. 上下 / 左右で 2 つの値（`margin: 10px 20px;`）
+
+`margin` に **2 つの数字** を書くと、**上下** と **左右** に値が入ります。
+
+<CodePreview
+>
+
+```html
+<div class="card">カフェラテ</div>
+```
+
+```css
+.card {
+    margin: 10px 20px;
+    border: 2px solid #7a4b2a;
+    padding: 12px;
+    background-color: #fff7ed;
+}
+```
+
+</CodePreview>
+
+- 1 つ目の `10px` → **上下**
+- 2 つ目の `20px` → **左右**
+
+### 3. 4 辺を別々に指定（`margin: 10px 20px 10px 20px;`）
+
+`margin` に **4 つの数字** を書くと、**上・右・下・左** の順で別々に指定できます。
+
+<CodePreview
+>
+
+```html
+<div class="card">カフェラテ</div>
+```
+
+```css
+.card {
+    margin: 10px 20px 10px 20px;
+    border: 2px solid #7a4b2a;
+    padding: 12px;
+    background-color: #fff7ed;
+}
+```
+
+</CodePreview>
+
+<Reference title="4 つの数字の順番（覚え方）">
+
+| 数字の位置 | 1 つ目 | 2 つ目 | 3 つ目 | 4 つ目 |
+|---|---|---|---|---|
+| 対応する辺 | **上** | **右** | **下** | **左** |
+
+時計回りに **上 → 右 → 下 → 左** と覚えると、4 つの数字の順番を迷いません。
+
+</Reference>
+
+### 4. 1 辺ずつ指定（`margin-top` / `margin-right` / `margin-bottom` / `margin-left`）
+
+**1 つの辺だけ** を変えたいときは、専用のプロパティを使います。
+
+```css
+.card {
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+```
+
+<CodePreview
+>
+
+```html
+<div class="card">カフェラテ</div>
+```
+
+```css
+.card {
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    border: 2px solid #7a4b2a;
+    padding: 12px;
+    background-color: #fff7ed;
+}
+```
+
+</CodePreview>
+
+### `margin: 0 auto;` で中央に寄せる
+
+**`auto`** を使うと、**左右の余白を自動で均等に** 配ってくれます。カードを **ページの真ん中** に置きたいときに使います。
+
+<CodePreview
+>
+
+```html
+<div class="card">カフェラテ</div>
+```
+
+```css
+.card {
+    width: 200px;
+    margin: 0 auto;
+    border: 2px solid #7a4b2a;
+    padding: 12px;
+    background-color: #fff7ed;
+}
+```
+
+</CodePreview>
+
+`margin: 0 auto;` の意味は「**上下は 0、左右は auto**」です。**横幅（`width`）が決まっている** ときだけ、左右中央に寄せる効果が表れます。
+
+</Section>
+
+---
+
+<Section title="演習問題" goal="`margin` の書き方を、自分の手で書いて確認する">
+
+### 演習1
+
+<Exercise>
+
+下の HTML に対して、CSS を書いてください。
+
+**HTML**:
+
+```html
+<div class="card">チョコドーナツ</div>
+<div class="card">カフェラテ</div>
+```
+
+**CSS の条件**:
+
+- `.card` に対してスタイルを書く
+- 2 枚のカードの **あいだに 16px のすき間** を作る（`margin-bottom` を使う）
+
+**確認方法**:
+
+- プレビュー領域で、2 枚のカードのあいだに **16px のすき間** が入っている
+
+<CodePreview
+    share={false}
+>
+
+```html
+<div class="card">チョコドーナツ</div>
+<div class="card">カフェラテ</div>
+```
+
+```css
+/* ここに CSS を書いてください */
+
+```
+
+</CodePreview>
+
+<Solution>
+
+<CodePreview
+>
+
+```html
+<div class="card">チョコドーナツ</div>
+<div class="card">カフェラテ</div>
+```
+
+```css
+.card {
+    margin-bottom: 16px;
+}
+```
+
+</CodePreview>
+
+**目視チェック**:
+
+- [ ] 2 枚のカードのあいだに、**16px のすき間** が入っている
+
+</Solution>
+
+</Exercise>
+
+### 演習2
+
+<Exercise>
+
+下の HTML に対して、CSS を書いてください。
+
+**HTML**:
+
+```html
+<div class="card">カフェラテ</div>
+```
+
+**CSS の条件**:
+
+- `.card` に対してスタイルを書く
+- `width: 240px;` などの **横幅** を指定する
+- `margin: 0 auto;` を使って、**カードをページの中央** に寄せる
+
+**確認方法**:
+
+- プレビュー領域で、**カードがプレビューの中央** に寄っている
+
+<CodePreview
+    share={false}
+>
+
+```html
+<div class="card">カフェラテ</div>
+```
+
+```css
+/* ここに CSS を書いてください */
+
+```
+
+</CodePreview>
+
+<Solution>
+
+<CodePreview
+>
+
+```html
+<div class="card">カフェラテ</div>
+```
+
+```css
+.card {
+    width: 240px;
+    margin: 0 auto;
+}
+```
+
+</CodePreview>
+
+**目視チェック**:
+
+- [ ] カードが **プレビューの中央** に寄っている
+
+`margin: 0 auto;` が効くのは、`width` が **決まっている** ときだけです。`width` を書き忘れると、中央に寄らないので気をつけましょう。
+
+</Solution>
+
+</Exercise>
+
+</Section>
+
+---
+
+<Section title="完成チェックと困ったとき" goal="自力で書いた `margin` が要件どおりに反映されているか、自分の目で確認する">
+
+まず、できたところを上から順に見直しましょう。
+
+**動作の確認**:
+
+- [ ] 演習1で、2 枚のカードのあいだに **16px のすき間** が入っている
+- [ ] 演習2で、カードが **プレビューの中央** に寄っている
+- [ ] `margin: 0 auto;` を使うときに **`width` も指定** している
+
+**よくあるつまずき**:
+
+- `padding` と `margin` を間違えていないか（**内側** が padding、**外側** が margin）
+- `margin: 0 auto;` で中央に寄らない → **`width` を書き忘れていないか** 確認する
+- 数字を **2 つ** 書いたのに **4 つ** のつもりで書いていた、など数字の数と効果が合っていない
+- 上下の margin は **相殺** されることがあります（上下に `margin` を 2 つ並べると、**大きいほう** だけが残ります）
+- CSS ファイルを保存しましたか
+- ブラウザを再読み込みしましたか
+- CSS に全角の記号（全角スペース・全角の `:` など）が混ざっていませんか
+
+### AI に質問するときのコツ
+
+:::tip[確認手順を聞く]
+AIに「完成コードを全部書く」ように頼むと、丸ごと書き直されてしまい、何が違っていたか分からなくなります。**「どこを確認すればよいか」を手順として聞く**方が、自分で直すべき箇所が見つかります。
+:::
+
+次のプロンプトを AI に送ると、段階的な確認手順を教えてもらいやすくなります。
+
+```text
+次の HTML と CSS で、margin が思ったように反映されません。
+完成コードを全部書くのではなく、どこを確認すればよいかを順番に教えてください。
+```
+
+:::note[使い方の流れ]
+上のプロンプトのあとに、自分の HTML と CSS を貼り付けて送ると、**「`.card` に `margin-bottom` が付いているか」「`margin: 0 auto;` のときに `width` が指定されているか」** のような段階的な確認手順を教えてもらいやすくなります。
+:::
+
+</Section>

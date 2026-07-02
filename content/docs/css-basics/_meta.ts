@@ -3,6 +3,7 @@ const meta = {
     'css-units': {},
     'css-styling-basics': {},
     'box-model': {},
+    margin: {},
     'text-typography': {},
     'advanced-styling': {},
     'pseudo-classes': {},
