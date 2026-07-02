@@ -1,12 +1,12 @@
 # カードを作ろう
 
-今日は、商品ページでよく使うカードを作ります。`class` で部分を選び、`width` / `height` で大きさを決め、`border` / `padding` で枠線と内側の余白をつけます。
+今日は、商品カードを少しずつ作ります。先生と同じように書きながら、見た目が変わるところを確認しましょう。
 
 ---
 
 ## 1. 今日作るカード
 
-まずは完成形を見ましょう。
+まずは完成形だけ見ます。ここでは、まだコードを書きません。
 
 <CodePreview
     previewVisible={true}
@@ -49,33 +49,46 @@
 
 </CodePreview>
 
-まずは、完成した見た目だけ確認します。作り方はこのあと分けて見ていきます。
-
-このページで作ること:
-
-- カード全体に名前をつける
-- 「おすすめ」だけに名前をつける
-- 「180円」だけに名前をつける
-- 横幅と高さを決める
-- 枠線と内側の余白をつける
-- 色をそろえて商品カードらしくする
+このあと、値段、カード全体、大きさ、枠線、内側の余白の順に作ります。
 
 ---
 
-## 2. classで部分を選ぶ
+## 2. 値段だけ色を変える
 
-カードの中には、複数の `<p>` があります。タグ名セレクタだけで指定すると、すべての `<p>` に同じスタイルが当たります。
+ここから一緒に作業します。まずは、値段だけ色を変えたい場面を考えます。
+
+### まずはHTMLを書く
+
+最初は、どこにもクラスを付けません。
 
 <CodePreview
 >
 
 ```html
-<div class="waku">
-    <p class="shirushi">おすすめ</p>
-    <h2>チョコドーナツ</h2>
-    <p class="setsumei">ふんわり生地にチョコがけ。</p>
-    <p class="nedan">180円</p>
-</div>
+<p>おすすめ</p>
+<h2>チョコドーナツ</h2>
+<p>ふんわり生地にチョコがけ。</p>
+<p>180円</p>
+```
+
+```css
+/* ここに CSS を書いていきます */
+```
+
+</CodePreview>
+
+### pで指定してみる
+
+`p` にスタイルを書くと、すべての `<p>` が変わります。
+
+<CodePreview
+>
+
+```html
+<p>おすすめ</p>
+<h2>チョコドーナツ</h2>
+<p>ふんわり生地にチョコがけ。</p>
+<p>180円</p>
 ```
 
 ```css
@@ -87,19 +100,57 @@ p {
 
 </CodePreview>
 
-これだと、「おすすめ」も説明文も「180円」も、すべて同じ色になります。値段だけを目立たせたいときには不便です。
+「おすすめ」も説明文も「180円」も同じ色になりました。値段だけを変えたいときには困ります。
 
-`class` を使うと、特定の部分だけを選べます。HTMLで `class="nedan"` と書いた部分は、CSSで `.nedan` と書いて選びます。
+### 値段だけにクラスを付ける
+
+値段の `<p>` だけに `class="nedan"` を付けます。
 
 <CodePreview
-
 >
 
 ```html
-<div class="waku">
-    <p class="shirushi">おすすめ</p>
+<p>おすすめ</p>
+<h2>チョコドーナツ</h2>
+<p>ふんわり生地にチョコがけ。</p>
+<p class="nedan">180円</p>
+```
+
+```css
+.nedan {
+    background-color: #ffedd5;
+    color: #7c2d12;
+}
+```
+
+</CodePreview>
+
+`.nedan` と書いたので、`class="nedan"` が付いた「180円」だけが変わります。
+
+### クラスの書き方
+
+HTMLで `class="名前"` と付けると、CSSでは `.名前` でその部分を選べます。
+
+たとえば、HTMLで `class="nedan"` と付けた部分は、CSSで `.nedan` と書いて選びます。
+
+---
+
+## 3. カード全体に名前を付ける
+
+次に、カード全体をまとめて選べるようにします。
+
+### 全体をdivで囲む
+
+カードにしたい部分を `<div>` で囲みます。
+
+<CodePreview
+>
+
+```html
+<div>
+    <p>おすすめ</p>
     <h2>チョコドーナツ</h2>
-    <p class="setsumei">ふんわり生地にチョコがけ。</p>
+    <p>ふんわり生地にチョコがけ。</p>
     <p class="nedan">180円</p>
 </div>
 ```
@@ -113,39 +164,184 @@ p {
 
 </CodePreview>
 
-`.nedan` と書いたので、「180円」だけにスタイルが当たります。class 名は自分でつけた名前です。
+### divにクラスを付ける
 
----
-
-## 3. 大きさを決める
-
-`width` は内容部分の横幅、`height` は内容部分の高さを指定します。
-
-`padding` や `border` をあとから足すと、見た目の外側は大きくなります。`width` と `height` が決めるのは、あくまで内容部分の大きさです。
+この `<div>` に `class="waku"` を付けます。カード全体を選ぶための名前です。
 
 <CodePreview
 >
 
 ```html
-<div class="waku">これは箱です</div>
+<div class="waku">
+    <p>おすすめ</p>
+    <h2>チョコドーナツ</h2>
+    <p>ふんわり生地にチョコがけ。</p>
+    <p class="nedan">180円</p>
+</div>
+```
+
+```css
+.waku {
+    background-color: #fff7ed;
+}
+
+.nedan {
+    background-color: #ffedd5;
+    color: #7c2d12;
+}
+```
+
+</CodePreview>
+
+背景色が付いた範囲が、`.waku` で選ばれているカード全体です。
+
+---
+
+## 4. 大きさを決める
+
+カード全体に、横幅と高さを指定します。
+
+### 横幅を決める
+
+`width` は横幅を指定します。背景色の横幅が変わるところを確認します。
+
+<CodePreview
+>
+
+```html
+<div class="waku">
+    <p>おすすめ</p>
+    <h2>チョコドーナツ</h2>
+    <p>ふんわり生地にチョコがけ。</p>
+    <p class="nedan">180円</p>
+</div>
+```
+
+```css
+.waku {
+    width: 300px;
+    background-color: #fff7ed;
+}
+
+.nedan {
+    background-color: #ffedd5;
+    color: #7c2d12;
+}
+```
+
+</CodePreview>
+
+### 高さを決める
+
+`height` は高さを指定します。背景色の付いた四角が、指定した高さになります。
+
+<CodePreview
+>
+
+```html
+<div class="waku">
+    <p>おすすめ</p>
+    <h2>チョコドーナツ</h2>
+    <p>ふんわり生地にチョコがけ。</p>
+    <p class="nedan">180円</p>
+</div>
 ```
 
 ```css
 .waku {
     width: 300px;
     height: 180px;
+    background-color: #fff7ed;
+}
+
+.nedan {
+    background-color: #ffedd5;
+    color: #7c2d12;
 }
 ```
 
 </CodePreview>
 
+`width` と `height` は、内容部分の大きさを決めます。
+
 ---
 
-## 4. 枠線と余白を足す
+## 5. 枠線と余白を足す
 
-`border` は、要素のまわりに枠線をつけます。`border: 2px solid #333;` は、2pxの実線を指定する書き方です。
+最後に、カード全体に枠線と内側の余白を足します。
 
-`padding` は、内容と枠線のあいだの余白です。`padding: 20px;` と書くと、上下左右に20pxの余白が入ります。
+### 枠線を足す
+
+`border` は、要素のまわりに枠線をつけます。
+
+<CodePreview
+>
+
+```html
+<div class="waku">
+    <p>おすすめ</p>
+    <h2>チョコドーナツ</h2>
+    <p>ふんわり生地にチョコがけ。</p>
+    <p class="nedan">180円</p>
+</div>
+```
+
+```css
+.waku {
+    width: 300px;
+    height: 180px;
+    background-color: #fff7ed;
+    border: 2px solid #333;
+}
+
+.nedan {
+    background-color: #ffedd5;
+    color: #7c2d12;
+}
+```
+
+</CodePreview>
+
+カードの外側に線が出ます。
+
+### 内側に余白を足す
+
+`padding` は、内容と枠線のあいだの余白です。
+
+<CodePreview
+>
+
+```html
+<div class="waku">
+    <p>おすすめ</p>
+    <h2>チョコドーナツ</h2>
+    <p>ふんわり生地にチョコがけ。</p>
+    <p class="nedan">180円</p>
+</div>
+```
+
+```css
+.waku {
+    width: 300px;
+    height: 180px;
+    background-color: #fff7ed;
+    border: 2px solid #333;
+    padding: 20px;
+}
+
+.nedan {
+    background-color: #ffedd5;
+    color: #7c2d12;
+}
+```
+
+</CodePreview>
+
+文字と枠線のあいだが広がります。
+
+### 目印と値段を整える
+
+最後に、「おすすめ」と「180円」だけを少し目立たせます。
 
 <CodePreview
 >
@@ -185,129 +381,15 @@ p {
 
 </CodePreview>
 
----
-
-## 5. 一緒に作る
-
-4つの段階で、カードが変わる様子を確認します。
-
-### ステップ1：classを付ける
-
-まずはHTMLに class を付けます。まだCSSを書いていないので、見た目は変わりません。
-
-<CodePreview
->
-
-```html
-<div class="waku">
-    <p class="shirushi">おすすめ</p>
-    <h2>チョコドーナツ</h2>
-    <p class="setsumei">ふんわり生地にチョコがけ。</p>
-    <p class="nedan">180円</p>
-</div>
-```
-
-```css
-/* ここに CSS を書いていきます */
-```
-
-</CodePreview>
-
-### ステップ2：大きさを決める
-
-`.waku` に `width` と `height` を書きます。カードの内容部分が、横300px・縦220pxになります。
-
-<CodePreview
->
-
-```html
-<div class="waku">
-    <p class="shirushi">おすすめ</p>
-    <h2>チョコドーナツ</h2>
-    <p class="setsumei">ふんわり生地にチョコがけ。</p>
-    <p class="nedan">180円</p>
-</div>
-```
-
-```css
-.waku {
-    width: 300px;
-    height: 220px;
-}
-```
-
-</CodePreview>
-
-### ステップ3：枠線と余白を足す
-
-`.waku` に `border` と `padding` を足します。これで、カード全体がひとつの箱に見えます。
-
-<CodePreview
->
-
-```html
-<div class="waku">
-    <p class="shirushi">おすすめ</p>
-    <h2>チョコドーナツ</h2>
-    <p class="setsumei">ふんわり生地にチョコがけ。</p>
-    <p class="nedan">180円</p>
-</div>
-```
-
-```css
-.waku {
-    width: 300px;
-    height: 220px;
-    border: 2px solid #333;
-    padding: 20px;
-}
-```
-
-</CodePreview>
-
-### ステップ4：価格だけ目立たせる
-
-ステップ3から増えたのは `.nedan` だけです。`class="nedan"` の部分だけを選べるので、値段だけを目立たせられます。
-
-<CodePreview
->
-
-```html
-<div class="waku">
-    <p class="shirushi">おすすめ</p>
-    <h2>チョコドーナツ</h2>
-    <p class="setsumei">ふんわり生地にチョコがけ。</p>
-    <p class="nedan">180円</p>
-</div>
-```
-
-```css
-.waku {
-    width: 300px;
-    height: 220px;
-    border: 2px solid #333;
-    padding: 20px;
-}
-
-.nedan {
-    border: 2px solid #c2410c;
-    padding: 8px;
-    background-color: #ffedd5;
-    color: #7c2d12;
-}
-```
-
-</CodePreview>
+`shirushi` や `nedan` も、自分で付けたクラス名です。HTMLで付けた名前を、CSSでは `.` を付けて選びます。
 
 ---
 
-## 6. 演習
-
-### 演習1
+## 6. 演習1
 
 <Exercise>
 
-下の HTML に対して、CSS を書いてください。
+下の HTML に対して、CSSを書いてください。
 
 **HTML**:
 
@@ -321,11 +403,11 @@ p {
 
 **CSS の条件**:
 
-- `.waku` に対してスタイルを書く
-- `width: 300px;`
-- `height: 180px;`
-- `border: 2px solid #333;`
-- `padding: 20px;`
+* `.waku` に対してスタイルを書く
+* `width: 300px;`
+* `height: 180px;`
+* `border: 2px solid #333;`
+* `padding: 20px;`
 
 枠線のあるカードに見えればOKです。
 
@@ -376,7 +458,9 @@ p {
 
 </Exercise>
 
-### 演習2
+---
+
+## 7. 演習2
 
 <Exercise>
 
@@ -391,16 +475,16 @@ p {
 </div>
 ```
 
-- `.waku` はカード全体
-- `.shirushi` は目印
-- `.nedan` は値段
-- `.setsumei` はCSSを書かなくてよい
+* `.waku` はカード全体
+* `.shirushi` は目印
+* `.nedan` は値段
+* `.setsumei` はCSSを書かなくてよい
 
 **考えること**:
 
-- カード全体は `.waku`
-- 目印だけなら `.shirushi`
-- 値段だけなら `.nedan`
+* カード全体は `.waku`
+* 目印だけなら `.shirushi`
+* 値段だけなら `.nedan`
 
 <CodePreview
     share={false}
@@ -468,16 +552,16 @@ p {
 
 ---
 
-## 7. 困ったとき
+## 8. 困ったとき
 
 上から順に確認してください。
 
-- `class="waku"` と `.waku` の名前は同じですか
-- `class="nedan"` と `.nedan` の名前は同じですか
-- CSSファイルを保存しましたか
-- ブラウザを再読み込みしましたか
-- `border` に `solid` を書いていますか
-- CSSに全角の記号が混ざっていませんか
+* `class="waku"` と `.waku` の名前は同じですか
+* `class="nedan"` と `.nedan` の名前は同じですか
+* CSSファイルを保存しましたか
+* ブラウザを再読み込みしましたか
+* `border` に `solid` を書いていますか
+* CSSに全角の記号が混ざっていませんか
 
 AIに聞くときは、完成コードではなく確認手順を聞きます。
 
@@ -490,30 +574,16 @@ AIに聞くときは、完成コードではなく確認手順を聞きます。
 
 ---
 
-## 8. 完成チェック
-
-- □ `.waku` を使っている
-- □ `width` で横幅を指定している
-- □ `height` で高さを指定している
-- □ `border` で枠線が出ている
-- □ `padding` で内側に余白がある
-- □ `.shirushi` や `.nedan` で一部だけを指定している
-- □ ブラウザで見て、カードらしく見える
-
----
-
 ## 9. 発展
-
-### 演習-発展1
 
 <Exercise>
 
 基本の演習と同じ **4つの class 構成** のまま、中身のテーマだけ自由に変えて作ってみましょう。
 
-- A. ゲーム紹介カード
-- B. カフェメニューカード
-- C. お知らせカード
-- D. プロフィールカード
+* A. ゲーム紹介カード
+* B. カフェメニューカード
+* C. お知らせカード
+* D. プロフィールカード
 
 **HTML の骨組み**:
 
