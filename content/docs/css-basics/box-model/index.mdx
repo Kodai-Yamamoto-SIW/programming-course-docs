@@ -4,7 +4,7 @@ authoringMode: tutorial
 ---
 
 <Prerequisites>
-- [スタイリング](../../css-styling-basics/index.mdx) レッスンを完了していること（CSSファイルの読み方・`background-color`・`color` を知っていること）
+- [スタイリング](../css-styling-basics/index.mdx) レッスンを完了していること（CSSファイルの読み方・`background-color`・`color` を知っていること）
 </Prerequisites>
 
 今日は、商品カードを少しずつ作ります。先生と同じように、コードを書きながら見た目が変わるところを確認しましょう。
@@ -225,7 +225,7 @@ HTMLで `class="nedan"` を付けた `<p>` にだけ CSS が当たるように�
 
 ### 横幅を決める
 
-`width` は **要素そのものの横幅** を決めます。背景色は要素全体に塗られるので、幅を変えると背景色の範囲も同じく広がります。
+`width` は **content（内容を書く場所）の横幅** を決めます。背景色は content だけでなく、そのあとで足す `padding` や `border` のところにも塗られます。
 
 <CodePreview
 >
@@ -255,7 +255,7 @@ HTMLで `class="nedan"` を付けた `<p>` にだけ CSS が当たるように�
 
 ### 高さを決める
 
-`height` は **要素そのものの高さ** を決めます。
+`height` は **content（内容を書く場所）の高さ** を決めます。
 
 <CodePreview
 >
@@ -312,7 +312,7 @@ HTMLのすべての要素は、**「箱（ボックス）」** の形で表現�
 このレッスンで指定する `width: 300px` と `height: 220px` は、**一番内側の「content（内容）」の大きさ**を決めます。`padding` と `border` はこの大きさには含まれず、あとから別で足されます。
 :::
 
-本レッスンでは `padding` と `border` を扱います。`margin` は次の [margin](./margin/index.mdx) で学びます。
+本レッスンでは `padding` と `border` を扱います。`margin` は次の [margin](../margin/index.mdx) で学びます。
 
 </Concept>
 
@@ -395,7 +395,7 @@ HTMLのすべての要素は、**「箱（ボックス）」** の形で表現�
 
 ### 値段にも枠線と余白を足す
 
-同じ考え方で、値段にも `border` と `padding` を足します。`padding` の数字は見た目でちょうど良いものを採用しています（`.shirushi` は 4px、`.nedan` は 8px）。
+同じ考え方で、値段にも `border` と `padding` を足します。値段の `padding` は、見た目でちょうど良い `8px` にします。
 
 <CodePreview
 >
@@ -434,69 +434,55 @@ HTMLのすべての要素は、**「箱（ボックス）」** の形で表現�
 
 </Section>
 
-<Section title="演習問題" goal="レッスンで学んだ4つのプロパティを、自分の手で書いて確認する">
+<Section title="演習問題" goal="HTML に class を付け、CSS の `.名前` と対応させて商品カードを完成させる">
 
 ### 演習1
 
 <Exercise>
 
-下の HTML に対して、CSSを書いてください。
+ここまで作ってきたカードに、「おすすめ」の目印を追加して完成させます。
 
-**HTML**:
+今の HTML は、次のようになっているはずです。
 
 ```html
 <div class="waku">
+    <p>おすすめ</p>
     <h2>チョコドーナツ</h2>
     <p>ふんわり生地にチョコがけ。</p>
-    <p>180円</p>
+    <p class="nedan">180円</p>
 </div>
 ```
 
-**CSS の条件**:
+**HTML でやること**:
 
-- `.waku` に対してスタイルを書く
-- `width: 300px;`
-- `height: 220px;`
-- `border: 2px solid #7a4b2a;`
-- `padding: 20px;`
+- 「おすすめ」の `<p>` に `class="shirushi"` を付ける
+- ほかの HTML は変えない
 
-**確認方法**:
+**CSS でやること**:
 
-- プレビュー領域で `.waku` の背景色の横幅が、横一杯より狭くなっている
-- プレビュー領域で `.waku` の背景色の縦幅が、コンテンツより背が高くなっている
-- 文字と枠線のあいだに余白ができている
+- すでに書いた `.waku` と `.nedan` は消さずに残す
+- 新しく `.shirushi` を書く
+- `.shirushi` に次のスタイルを書く
 
-この3点が目視で確認できればOKです。
+- `border: 1px solid #c2410c;`
+- `padding: 4px;`
+- `background-color: #fed7aa;`
+- `color: #7c2d12;`
+
+次のプレビューと同じ見た目になったら正解です。
 
 <CodePreview
-    share={false}
+    previewVisible={true}
+    htmlVisible={false}
+    cssVisible={false}
 >
 
 ```html
 <div class="waku">
+    <p class="shirushi">おすすめ</p>
     <h2>チョコドーナツ</h2>
     <p>ふんわり生地にチョコがけ。</p>
-    <p>180円</p>
-</div>
-```
-
-```css
-/* ここに CSS を書いてください */
-
-```
-
-</CodePreview>
-
-<Solution>
-
-<CodePreview
->
-
-```html
-<div class="waku">
-    <h2>チョコドーナツ</h2>
-    <p>ふんわり生地にチョコがけ。</p>
-    <p>180円</p>
+    <p class="nedan">180円</p>
 </div>
 ```
 
@@ -504,88 +490,31 @@ HTMLのすべての要素は、**「箱（ボックス）」** の形で表現�
 .waku {
     width: 300px;
     height: 220px;
+    background-color: #fff7ed;
     border: 2px solid #7a4b2a;
     padding: 20px;
+}
+
+.shirushi {
+    border: 1px solid #c2410c;
+    padding: 4px;
+    background-color: #fed7aa;
+    color: #7c2d12;
+}
+
+.nedan {
+    border: 2px solid #c2410c;
+    padding: 8px;
+    background-color: #ffedd5;
+    color: #7c2d12;
 }
 ```
 
 </CodePreview>
 
-**目視チェック**:
-
-- [ ] `.waku` の横幅が 300px に広がっている（背景色の幅で確認）
-- [ ] `.waku` の高さが 220px に広がっている（背景色の縦幅で確認）
-- [ ] 文字と枠線のあいだに余白ができている
-
-</Solution>
-
-</Exercise>
-
-### 演習2
-
-<Exercise>
-
-**HTML**:
-
-```html
-<div class="waku">
-    <p class="shirushi">おすすめ</p>
-    <h2>チョコドーナツ</h2>
-    <p>ふんわり生地にチョコがけ。</p>
-    <p class="nedan">180円</p>
-</div>
-```
-
-値段でやったのと同じように、「おすすめ」にも `class="shirushi"` を付けます。HTMLで付けた名前は、CSSでは `.shirushi` と書いて選びます。
-
-演習2では、演習1で使った `.waku` をベースにして、**目印（.shirushi）と値段（.nedan）の両方を含んだカード**を作ります。
-
-**考えること**:
-
-- カード全体は `.waku`
-- 目印だけなら `.shirushi`
-- 値段だけなら `.nedan`
-
-**CSS の条件**:
-
-- `.waku`
-    - `width: 300px;`
-    - `height: 220px;`
-    - `border: 2px solid #7a4b2a;`
-    - `padding: 20px;`
-    - `background-color: #fff7ed;`
-- `.shirushi`
-    - `border: 1px solid #c2410c;`
-    - `padding: 4px;`
-    - `background-color: #fed7aa;`
-    - `color: #7c2d12;`
-- `.nedan`
-    - `border: 2px solid #c2410c;`
-    - `padding: 8px;`
-    - `background-color: #ffedd5;`
-    - `color: #7c2d12;`
-
-<CodePreview
-    share={false}
->
-
-```html
-<div class="waku">
-    <p class="shirushi">おすすめ</p>
-    <h2>チョコドーナツ</h2>
-    <p>ふんわり生地にチョコがけ。</p>
-    <p class="nedan">180円</p>
-</div>
-```
-
-```css
-/* ここに CSS を書いてください */
-
-```
-
-</CodePreview>
-
 <Solution>
+
+完成コードは次のようになります。
 
 <CodePreview
 >
@@ -603,9 +532,9 @@ HTMLのすべての要素は、**「箱（ボックス）」** の形で表現�
 .waku {
     width: 300px;
     height: 220px;
+    background-color: #fff7ed;
     border: 2px solid #7a4b2a;
     padding: 20px;
-    background-color: #fff7ed;
 }
 
 .shirushi {
@@ -627,9 +556,9 @@ HTMLのすべての要素は、**「箱（ボックス）」** の形で表現�
 
 **目視チェック**:
 
-- [ ] `.waku` の枠・背景色・余白が効いている
-- [ ] `.shirushi` のスタイルが「おすすめ」**だけ**に効いている（他の `<p>` に同じスタイルが漏れていない）
-- [ ] `.nedan` のスタイルが「180円」**だけ**に効いている
+- [ ] 「おすすめ」だけに `.shirushi` のスタイルが効いている
+- [ ] 「180円」だけに `.nedan` のスタイルが効いている
+- [ ] カード全体に `.waku` の枠・余白・背景色が残っている
 
 </Solution>
 
@@ -644,7 +573,7 @@ HTMLのすべての要素は、**「箱（ボックス）」** の形で表現�
 **動作の確認**:
 
 - [ ] `.waku` に `width: 300px;` と `height: 220px;` がある
-- [ ] `.waku` に `border` と `padding` がある
+- [ ] `.waku` に `border`・`padding`・`background-color` がある
 - [ ] `.shirushi` は「おすすめ」**だけ**に効いている
 - [ ] `.nedan` は「180円」**だけ**に効いている
 - [ ] ブラウザで見て、4つのプロパティ（width・height・border・padding）がすべて反映されている
