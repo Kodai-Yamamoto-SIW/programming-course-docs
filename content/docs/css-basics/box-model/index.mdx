@@ -764,13 +764,13 @@ HTML側を `class="shirushi"` に直します。
 
 </Exercise>
 
-### 発展演習（早く終わった人向け）
+### 演習-発展1
 
 <Exercise>
 
-余裕がある人は、3枚目の商品カードを追加して、線の種類が違う目印を作ってみましょう。
+3枚目の商品カードを追加して、線の種類が違う目印を作ります。
 
-今あるカードの下に、次の HTML を追加してください。
+演習2で作った2枚のカードの下に、次の HTML を追加してください。
 
 ```html
 <div>
@@ -804,7 +804,7 @@ HTML側を `class="shirushi"` に直します。
 次のプレビューと同じ見た目になったら正解です。
 
 <CodePreview
-    sourceId="box-model-advanced"
+    sourceId="box-model-advanced-1"
     previewVisible={true}
     htmlVisible={false}
     cssVisible={false}
@@ -870,7 +870,7 @@ HTML側を `class="shirushi"` に直します。
 
 完成コードは次のようになります。
 
-<CodePreview sourceId="box-model-advanced" />
+<CodePreview sourceId="box-model-advanced-1" />
 
 **目視チェック**:
 
@@ -878,6 +878,140 @@ HTML側を `class="shirushi"` に直します。
 - [ ] 「期間限定」だけに `.gentei` のスタイルが効いている
 - [ ] `.gentei` の枠線が破線になっている
 - [ ] 「220円」だけに `.nedan` のスタイルが効いている
+
+</Solution>
+
+</Exercise>
+
+### 演習-発展2
+
+<Exercise>
+
+4枚目の商品カードを追加して、もう1つ別の目印を作ります。
+
+演習-発展1で作った3枚のカードの下に、次の HTML を追加してください。
+
+```html
+<div>
+    <p>人気No.1</p>
+    <h2>メロンドーナツ</h2>
+    <p>さくっと甘いメロン風味。</p>
+    <p>230円</p>
+</div>
+```
+
+**HTML でやること**:
+
+- 追加した `<div>` に `class="waku"` を付ける
+- 「人気No.1」の `<p>` に `class="ninki"` を付ける
+- 「230円」の `<p>` に `class="nedan"` を付ける
+- 商品名と説明文は変えない
+
+**CSS でやること**:
+
+- `.waku`、`.shirushi`、`.gentei`、`.nedan` は、これまで書いたものをそのまま使う
+- 新しく `.ninki` を書く
+- `.ninki` に次のスタイルを書く
+
+- `border: 2px dotted #166534;`
+- `padding: 4px;`
+- `background-color: #dcfce7;`
+- `color: #14532d;`
+
+`dotted` は、点線の枠線です。
+
+次のプレビューと同じ見た目になったら正解です。
+
+<CodePreview
+    sourceId="box-model-advanced-2"
+    previewVisible={true}
+    htmlVisible={false}
+    cssVisible={false}
+>
+
+```html
+<div class="waku">
+    <p class="shirushi">おすすめ</p>
+    <h2>チョコドーナツ</h2>
+    <p>ふんわり生地にチョコがけ。</p>
+    <p class="nedan">180円</p>
+</div>
+
+<div class="waku">
+    <p class="shirushi">新商品</p>
+    <h2>カフェラテ</h2>
+    <p>ミルクたっぷり。</p>
+    <p class="nedan">250円</p>
+</div>
+
+<div class="waku">
+    <p class="gentei">期間限定</p>
+    <h2>いちごドーナツ</h2>
+    <p>甘酸っぱいいちご味。</p>
+    <p class="nedan">220円</p>
+</div>
+
+<div class="waku">
+    <p class="ninki">人気No.1</p>
+    <h2>メロンドーナツ</h2>
+    <p>さくっと甘いメロン風味。</p>
+    <p class="nedan">230円</p>
+</div>
+```
+
+```css
+.waku {
+    width: 300px;
+    height: 220px;
+    background-color: #fff7ed;
+    border: 2px solid #7a4b2a;
+    padding: 20px;
+}
+
+.shirushi {
+    border: 1px solid #c2410c;
+    padding: 4px;
+    background-color: #fed7aa;
+    color: #7c2d12;
+}
+
+.gentei {
+    border: 2px dashed #c2410c;
+    padding: 4px;
+    background-color: #fef3c7;
+    color: #7c2d12;
+}
+
+.ninki {
+    border: 2px dotted #166534;
+    padding: 4px;
+    background-color: #dcfce7;
+    color: #14532d;
+}
+
+.nedan {
+    border: 2px solid #c2410c;
+    padding: 8px;
+    background-color: #ffedd5;
+    color: #7c2d12;
+}
+```
+
+</CodePreview>
+
+<Solution>
+
+完成コードは次のようになります。
+
+<CodePreview sourceId="box-model-advanced-2" />
+
+**目視チェック**:
+
+- [ ] 4枚目のカード全体にも `.waku` のスタイルが効いている
+- [ ] 「人気No.1」だけに `.ninki` のスタイルが効いている
+- [ ] `.ninki` の枠線が点線になっている
+- [ ] 「230円」だけに `.nedan` のスタイルが効いている
+- [ ] `.gentei` と `.ninki` で、違う class 名・違う線の種類を使えている
 
 </Solution>
 
