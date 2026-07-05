@@ -887,38 +887,39 @@ HTML側を `class="shirushi"` に直します。
 
 <Exercise>
 
-4枚目の商品カードを追加して、もう1つ別の目印を作ります。
+1枚目の商品カードの中に、「おすすめポイント」の小さい箱を作ります。
 
-演習-発展1で作った3枚のカードの下に、次の HTML を追加してください。
+カードを増やすのではなく、**カードの中にもう1つ箱を作る**練習です。
+
+演習-発展1で作った3枚のカードのうち、1枚目のチョコドーナツのカードを修正してください。
+
+説明文の下、値段の上に、次の HTML を追加します。
 
 ```html
-<div>
-    <p>人気No.1</p>
-    <h2>メロンドーナツ</h2>
-    <p>さくっと甘いメロン風味。</p>
-    <p>230円</p>
+<div class="point">
+    <p>おすすめポイント</p>
+    <p>チョコがたっぷりで満足感があります。</p>
 </div>
 ```
 
 **HTML でやること**:
 
-- 追加した `<div>` に `class="waku"` を付ける
-- 「人気No.1」の `<p>` に `class="ninki"` を付ける
-- 「230円」の `<p>` に `class="nedan"` を付ける
-- 商品名と説明文は変えない
+- 1枚目のカードの中に、上の `<div class="point">` を追加する
+- 追加する場所は、説明文の `<p>` の下、値段の `<p class="nedan">` の上にする
+- 2枚目と3枚目の HTML は変えない
 
 **CSS でやること**:
 
-- `.waku`、`.shirushi`、`.gentei`、`.nedan` は、これまで書いたものをそのまま使う
-- 新しく `.ninki` を書く
-- `.ninki` に次のスタイルを書く
+- `.waku` の `height` を `300px` に変える
+- 新しく `.point` を書く
+- `.point` に次のスタイルを書く
 
-- `border: 2px dotted #166534;`
-- `padding: 4px;`
-- `background-color: #dcfce7;`
-- `color: #14532d;`
+- `border: 1px solid #7a4b2a;`
+- `padding: 10px;`
+- `background-color: #ffffff;`
+- `color: #3f2a1d;`
 
-`dotted` は、点線の枠線です。
+`.waku` の中に `.point` が入るので、**大きい箱の中に小さい箱を作る**形になります。
 
 次のプレビューと同じ見た目になったら正解です。
 
@@ -934,6 +935,10 @@ HTML側を `class="shirushi"` に直します。
     <p class="shirushi">おすすめ</p>
     <h2>チョコドーナツ</h2>
     <p>ふんわり生地にチョコがけ。</p>
+    <div class="point">
+        <p>おすすめポイント</p>
+        <p>チョコがたっぷりで満足感があります。</p>
+    </div>
     <p class="nedan">180円</p>
 </div>
 
@@ -950,19 +955,12 @@ HTML側を `class="shirushi"` に直します。
     <p>甘酸っぱいいちご味。</p>
     <p class="nedan">220円</p>
 </div>
-
-<div class="waku">
-    <p class="ninki">人気No.1</p>
-    <h2>メロンドーナツ</h2>
-    <p>さくっと甘いメロン風味。</p>
-    <p class="nedan">230円</p>
-</div>
 ```
 
 ```css
 .waku {
     width: 300px;
-    height: 220px;
+    height: 300px;
     background-color: #fff7ed;
     border: 2px solid #7a4b2a;
     padding: 20px;
@@ -982,11 +980,11 @@ HTML側を `class="shirushi"` に直します。
     color: #7c2d12;
 }
 
-.ninki {
-    border: 2px dotted #166534;
-    padding: 4px;
-    background-color: #dcfce7;
-    color: #14532d;
+.point {
+    border: 1px solid #7a4b2a;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #3f2a1d;
 }
 
 .nedan {
@@ -1007,11 +1005,10 @@ HTML側を `class="shirushi"` に直します。
 
 **目視チェック**:
 
-- [ ] 4枚目のカード全体にも `.waku` のスタイルが効いている
-- [ ] 「人気No.1」だけに `.ninki` のスタイルが効いている
-- [ ] `.ninki` の枠線が点線になっている
-- [ ] 「230円」だけに `.nedan` のスタイルが効いている
-- [ ] `.gentei` と `.ninki` で、違う class 名・違う線の種類を使えている
+- [ ] 1枚目のカードの中に `.point` の小さい箱がある
+- [ ] `.point` に枠線・内側の余白・背景色が付いている
+- [ ] `.point` は `.waku` の中に入っている
+- [ ] `.waku` の高さが `300px` になっている
 
 </Solution>
 
