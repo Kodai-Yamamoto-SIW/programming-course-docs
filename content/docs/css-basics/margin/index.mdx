@@ -824,29 +824,126 @@ p {
 
 <Exercise>
 
-カード同士の余白を変えて、見た目の印象を比べてください。
+ミニメニュー表を完成させてください。
 
-次のコードでは、カード同士の余白が `16px` になっています。`margin-bottom` を `8px`、`16px`、`32px` に変えて、それぞれの見え方を確認してください。最後に、自分が読みやすいと思う値を選びましょう。
+次のコードでは、3つの商品カードが並んでいます。
+ただし、カード同士の余白、最後のカードの下の余白、カード一覧全体の位置がまだ整っていません。
+
+**やること**:
+
+- `.menu-list` に `width: 320px;` と `margin: 0 auto;` を指定する
+- `.menu-card` に `margin-bottom: 16px;` を指定する
+- 最後のカードに `last-card` class を追加する
+- `.last-card` に `margin-bottom: 0;` を指定する
 
 <CodePreview
     share={false}
 >
 
 ```html
-<div class="card-list">
-    <div class="card">チョコドーナツ</div>
-    <div class="card">カフェラテ</div>
-    <div class="card last-card">サンドイッチ</div>
+<div class="menu-list">
+    <div class="menu-card">
+        <p class="label">おすすめ</p>
+        <h2>チョコドーナツ</h2>
+        <p>ふんわり生地にチョコがけ。</p>
+        <p class="price">180円</p>
+    </div>
+
+    <div class="menu-card">
+        <p class="label">ドリンク</p>
+        <h2>カフェラテ</h2>
+        <p>ミルクたっぷりのあたたかいラテ。</p>
+        <p class="price">320円</p>
+    </div>
+
+    <div class="menu-card">
+        <p class="label">軽食</p>
+        <h2>サンドイッチ</h2>
+        <p>野菜とたまごの定番サンド。</p>
+        <p class="price">420円</p>
+    </div>
 </div>
 ```
 
 ```css
-.card-list {
+.menu-list {
+}
+
+.menu-card {
+    border: 2px solid #7a4b2a;
+    padding: 16px;
+    background-color: #fff7ed;
+}
+
+.label {
+    margin-top: 0;
+    margin-bottom: 8px;
+    border: 1px solid #c2410c;
+    padding: 4px;
+    background-color: #fed7aa;
+    color: #7c2d12;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+p {
+    margin-top: 0;
+}
+
+.price {
+    margin-bottom: 0;
+    border: 2px solid #c2410c;
+    padding: 8px;
+    background-color: #ffedd5;
+    color: #7c2d12;
+}
+```
+
+</CodePreview>
+
+完成すると、3つの商品カードが中央に並び、カード同士に読みやすい余白ができます。
+
+<CodePreview
+    previewVisible={true}
+    htmlVisible={false}
+    cssVisible={false}
+>
+
+```html
+<div class="menu-list">
+    <div class="menu-card">
+        <p class="label">おすすめ</p>
+        <h2>チョコドーナツ</h2>
+        <p>ふんわり生地にチョコがけ。</p>
+        <p class="price">180円</p>
+    </div>
+
+    <div class="menu-card">
+        <p class="label">ドリンク</p>
+        <h2>カフェラテ</h2>
+        <p>ミルクたっぷりのあたたかいラテ。</p>
+        <p class="price">320円</p>
+    </div>
+
+    <div class="menu-card last-card">
+        <p class="label">軽食</p>
+        <h2>サンドイッチ</h2>
+        <p>野菜とたまごの定番サンド。</p>
+        <p class="price">420円</p>
+    </div>
+</div>
+```
+
+```css
+.menu-list {
     width: 320px;
     margin: 0 auto;
 }
 
-.card {
+.menu-card {
     border: 2px solid #7a4b2a;
     padding: 16px;
     margin-bottom: 16px;
@@ -856,27 +953,110 @@ p {
 .last-card {
     margin-bottom: 0;
 }
+
+.label {
+    margin-top: 0;
+    margin-bottom: 8px;
+    border: 1px solid #c2410c;
+    padding: 4px;
+    background-color: #fed7aa;
+    color: #7c2d12;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+p {
+    margin-top: 0;
+}
+
+.price {
+    margin-bottom: 0;
+    border: 2px solid #c2410c;
+    padding: 8px;
+    background-color: #ffedd5;
+    color: #7c2d12;
+}
 ```
 
 </CodePreview>
 
 <Solution>
 
-この演習には、1 つだけの正解はありません。
+<CodePreview>
 
-たとえば、次のように調整できます。
+```html
+<div class="menu-list">
+    <div class="menu-card">
+        <p class="label">おすすめ</p>
+        <h2>チョコドーナツ</h2>
+        <p>ふんわり生地にチョコがけ。</p>
+        <p class="price">180円</p>
+    </div>
+
+    <div class="menu-card">
+        <p class="label">ドリンク</p>
+        <h2>カフェラテ</h2>
+        <p>ミルクたっぷりのあたたかいラテ。</p>
+        <p class="price">320円</p>
+    </div>
+
+    <div class="menu-card last-card">
+        <p class="label">軽食</p>
+        <h2>サンドイッチ</h2>
+        <p>野菜とたまごの定番サンド。</p>
+        <p class="price">420円</p>
+    </div>
+</div>
+```
 
 ```css
-.card {
+.menu-list {
+    width: 320px;
+    margin: 0 auto;
+}
+
+.menu-card {
+    border: 2px solid #7a4b2a;
+    padding: 16px;
     margin-bottom: 16px;
+    background-color: #fff7ed;
+}
+
+.last-card {
+    margin-bottom: 0;
+}
+
+.label {
+    margin-top: 0;
+    margin-bottom: 8px;
+    border: 1px solid #c2410c;
+    padding: 4px;
+    background-color: #fed7aa;
+    color: #7c2d12;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+p {
+    margin-top: 0;
+}
+
+.price {
+    margin-bottom: 0;
+    border: 2px solid #c2410c;
+    padding: 8px;
+    background-color: #ffedd5;
+    color: #7c2d12;
 }
 ```
 
-確認するときは、次のように見比べましょう。
-
-- `8px`：カード同士が少し近く見える
-- `16px`：ほどよく離れて見える
-- `32px`：カード同士がかなり離れて見える
+</CodePreview>
 
 </Solution>
 
@@ -886,41 +1066,109 @@ p {
 
 <Exercise>
 
-余白の悪いカード一覧を、読みやすく直してください。
+ミニメニュー表に、新商品を追加してください。
 
-次のコードは、カード同士の余白が小さすぎ、カード一覧も左に寄っています。`.card` の `margin-bottom` を読みやすい値に直し、最後のカードだけ下の余白をなくし、カード一覧全体を中央に置いてください。
+演習-発展1では、3枚目の「サンドイッチ」が最後のカードでした。
+今度は、その下に「プリン」のカードを追加します。
+
+カードを追加すると、最後のカードが変わります。
+そのため、`last-card` class の位置も直す必要があります。
+
+**やること**:
+
+- 「サンドイッチ」のカードから `last-card` class を外す
+- 「プリン」のカードを一番下に追加する
+- 追加した「プリン」のカードに `last-card` class を付ける
+- 1〜3枚目の下には余白がある状態にする
+- 4枚目の下には余白がない状態にする
 
 <CodePreview
     share={false}
 >
 
 ```html
-<div class="card-list">
-    <div class="card">チョコドーナツ</div>
-    <div class="card">カフェラテ</div>
-    <div class="card last-card">サンドイッチ</div>
+<div class="menu-list">
+    <div class="menu-card">
+        <p class="label">おすすめ</p>
+        <h2>チョコドーナツ</h2>
+        <p>ふんわり生地にチョコがけ。</p>
+        <p class="price">180円</p>
+    </div>
+
+    <div class="menu-card">
+        <p class="label">ドリンク</p>
+        <h2>カフェラテ</h2>
+        <p>ミルクたっぷりのあたたかいラテ。</p>
+        <p class="price">320円</p>
+    </div>
+
+    <div class="menu-card last-card">
+        <p class="label">軽食</p>
+        <h2>サンドイッチ</h2>
+        <p>野菜とたまごの定番サンド。</p>
+        <p class="price">420円</p>
+    </div>
 </div>
 ```
 
 ```css
-.card-list {
+.menu-list {
     width: 320px;
+    margin: 0 auto;
 }
 
-.card {
+.menu-card {
     border: 2px solid #7a4b2a;
     padding: 16px;
-    margin-bottom: 2px;
+    margin-bottom: 16px;
     background-color: #fff7ed;
 }
 
 .last-card {
+    margin-bottom: 0;
+}
+
+.label {
+    margin-top: 0;
+    margin-bottom: 8px;
+    border: 1px solid #c2410c;
+    padding: 4px;
+    background-color: #fed7aa;
+    color: #7c2d12;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+p {
+    margin-top: 0;
+}
+
+.price {
+    margin-bottom: 0;
+    border: 2px solid #c2410c;
+    padding: 8px;
+    background-color: #ffedd5;
+    color: #7c2d12;
 }
 ```
 
 </CodePreview>
 
-完成すると、カード同士に読みやすい余白があり、カード一覧全体が中央に置かれ、最後のカードの下に余計な余白がない状態になります。
+追加するカードは、次の内容にしてください。
+
+```html
+<div class="menu-card last-card">
+    <p class="label">デザート</p>
+    <h2>プリン</h2>
+    <p>なめらかなカスタードプリン。</p>
+    <p class="price">260円</p>
+</div>
+```
+
+完成すると、「プリン」が最後のカードになり、プリンの下だけ余白がなくなります。
 
 <CodePreview
     previewVisible={true}
@@ -929,20 +1177,44 @@ p {
 >
 
 ```html
-<div class="card-list">
-    <div class="card">チョコドーナツ</div>
-    <div class="card">カフェラテ</div>
-    <div class="card last-card">サンドイッチ</div>
+<div class="menu-list">
+    <div class="menu-card">
+        <p class="label">おすすめ</p>
+        <h2>チョコドーナツ</h2>
+        <p>ふんわり生地にチョコがけ。</p>
+        <p class="price">180円</p>
+    </div>
+
+    <div class="menu-card">
+        <p class="label">ドリンク</p>
+        <h2>カフェラテ</h2>
+        <p>ミルクたっぷりのあたたかいラテ。</p>
+        <p class="price">320円</p>
+    </div>
+
+    <div class="menu-card">
+        <p class="label">軽食</p>
+        <h2>サンドイッチ</h2>
+        <p>野菜とたまごの定番サンド。</p>
+        <p class="price">420円</p>
+    </div>
+
+    <div class="menu-card last-card">
+        <p class="label">デザート</p>
+        <h2>プリン</h2>
+        <p>なめらかなカスタードプリン。</p>
+        <p class="price">260円</p>
+    </div>
 </div>
 ```
 
 ```css
-.card-list {
+.menu-list {
     width: 320px;
     margin: 0 auto;
 }
 
-.card {
+.menu-card {
     border: 2px solid #7a4b2a;
     padding: 16px;
     margin-bottom: 16px;
@@ -950,6 +1222,282 @@ p {
 }
 
 .last-card {
+    margin-bottom: 0;
+}
+
+.label {
+    margin-top: 0;
+    margin-bottom: 8px;
+    border: 1px solid #c2410c;
+    padding: 4px;
+    background-color: #fed7aa;
+    color: #7c2d12;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+p {
+    margin-top: 0;
+}
+
+.price {
+    margin-bottom: 0;
+    border: 2px solid #c2410c;
+    padding: 8px;
+    background-color: #ffedd5;
+    color: #7c2d12;
+}
+```
+
+</CodePreview>
+
+<Solution>
+
+<CodePreview>
+
+```html
+<div class="menu-list">
+    <div class="menu-card">
+        <p class="label">おすすめ</p>
+        <h2>チョコドーナツ</h2>
+        <p>ふんわり生地にチョコがけ。</p>
+        <p class="price">180円</p>
+    </div>
+
+    <div class="menu-card">
+        <p class="label">ドリンク</p>
+        <h2>カフェラテ</h2>
+        <p>ミルクたっぷりのあたたかいラテ。</p>
+        <p class="price">320円</p>
+    </div>
+
+    <div class="menu-card">
+        <p class="label">軽食</p>
+        <h2>サンドイッチ</h2>
+        <p>野菜とたまごの定番サンド。</p>
+        <p class="price">420円</p>
+    </div>
+
+    <div class="menu-card last-card">
+        <p class="label">デザート</p>
+        <h2>プリン</h2>
+        <p>なめらかなカスタードプリン。</p>
+        <p class="price">260円</p>
+    </div>
+</div>
+```
+
+```css
+.menu-list {
+    width: 320px;
+    margin: 0 auto;
+}
+
+.menu-card {
+    border: 2px solid #7a4b2a;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #fff7ed;
+}
+
+.last-card {
+    margin-bottom: 0;
+}
+
+.label {
+    margin-top: 0;
+    margin-bottom: 8px;
+    border: 1px solid #c2410c;
+    padding: 4px;
+    background-color: #fed7aa;
+    color: #7c2d12;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+p {
+    margin-top: 0;
+}
+
+.price {
+    margin-bottom: 0;
+    border: 2px solid #c2410c;
+    padding: 8px;
+    background-color: #ffedd5;
+    color: #7c2d12;
+}
+```
+
+</CodePreview>
+
+</Solution>
+
+</Exercise>
+
+### 演習-発展3
+
+<Exercise>
+
+クーポン付きのメニュー表にしてください。
+
+最後に、メニュー表の下にクーポンを追加します。
+カード同士の余白だけでなく、**メニュー表とクーポンのあいだの区切り** も `margin` で作ります。
+
+**やること**:
+
+- 全体を `.menu-page` で囲む
+- `.menu-page` に `width: 320px;` と `margin: 0 auto;` を指定する
+- `.menu-list` に `margin-bottom: 24px;` を指定する
+- `.coupon` に `border`、`padding`、`background-color` を指定する
+- `h2` と `p` の余白を整える
+
+<CodePreview
+    share={false}
+>
+
+```html
+<div class="menu-page">
+    <h2>今日のミニメニュー</h2>
+    <p>気になる商品を選んでみましょう。</p>
+
+    <div class="menu-list">
+        <div class="menu-card">
+            <p class="label">おすすめ</p>
+            <h2>チョコドーナツ</h2>
+            <p>ふんわり生地にチョコがけ。</p>
+            <p class="price">180円</p>
+        </div>
+
+        <div class="menu-card">
+            <p class="label">ドリンク</p>
+            <h2>カフェラテ</h2>
+            <p>ミルクたっぷりのあたたかいラテ。</p>
+            <p class="price">320円</p>
+        </div>
+
+        <div class="menu-card last-card">
+            <p class="label">軽食</p>
+            <h2>サンドイッチ</h2>
+            <p>野菜とたまごの定番サンド。</p>
+            <p class="price">420円</p>
+        </div>
+    </div>
+
+    <div class="coupon">
+        <h2>本日のクーポン</h2>
+        <p>ドリンクとセットで50円引き。</p>
+    </div>
+</div>
+```
+
+```css
+/* ここに CSS を書いてください */
+```
+
+</CodePreview>
+
+完成すると、メニュー表とクーポンが中央にまとまり、クーポンが別の内容として見やすく区切られます。
+
+<CodePreview
+    previewVisible={true}
+    htmlVisible={false}
+    cssVisible={false}
+>
+
+```html
+<div class="menu-page">
+    <h2>今日のミニメニュー</h2>
+    <p>気になる商品を選んでみましょう。</p>
+
+    <div class="menu-list">
+        <div class="menu-card">
+            <p class="label">おすすめ</p>
+            <h2>チョコドーナツ</h2>
+            <p>ふんわり生地にチョコがけ。</p>
+            <p class="price">180円</p>
+        </div>
+
+        <div class="menu-card">
+            <p class="label">ドリンク</p>
+            <h2>カフェラテ</h2>
+            <p>ミルクたっぷりのあたたかいラテ。</p>
+            <p class="price">320円</p>
+        </div>
+
+        <div class="menu-card last-card">
+            <p class="label">軽食</p>
+            <h2>サンドイッチ</h2>
+            <p>野菜とたまごの定番サンド。</p>
+            <p class="price">420円</p>
+        </div>
+    </div>
+
+    <div class="coupon">
+        <h2>本日のクーポン</h2>
+        <p>ドリンクとセットで50円引き。</p>
+    </div>
+</div>
+```
+
+```css
+.menu-page {
+    width: 320px;
+    margin: 0 auto;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+p {
+    margin-top: 0;
+}
+
+.menu-list {
+    margin-bottom: 24px;
+}
+
+.menu-card {
+    border: 2px solid #7a4b2a;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #fff7ed;
+}
+
+.last-card {
+    margin-bottom: 0;
+}
+
+.label {
+    margin-bottom: 8px;
+    border: 1px solid #c2410c;
+    padding: 4px;
+    background-color: #fed7aa;
+    color: #7c2d12;
+}
+
+.price {
+    margin-bottom: 0;
+    border: 2px solid #c2410c;
+    padding: 8px;
+    background-color: #ffedd5;
+    color: #7c2d12;
+}
+
+.coupon {
+    border: 2px dashed #15803d;
+    padding: 16px;
+    background-color: #dcfce7;
+}
+
+.coupon p {
     margin-bottom: 0;
 }
 ```
@@ -961,20 +1509,60 @@ p {
 <CodePreview>
 
 ```html
-<div class="card-list">
-    <div class="card">チョコドーナツ</div>
-    <div class="card">カフェラテ</div>
-    <div class="card last-card">サンドイッチ</div>
+<div class="menu-page">
+    <h2>今日のミニメニュー</h2>
+    <p>気になる商品を選んでみましょう。</p>
+
+    <div class="menu-list">
+        <div class="menu-card">
+            <p class="label">おすすめ</p>
+            <h2>チョコドーナツ</h2>
+            <p>ふんわり生地にチョコがけ。</p>
+            <p class="price">180円</p>
+        </div>
+
+        <div class="menu-card">
+            <p class="label">ドリンク</p>
+            <h2>カフェラテ</h2>
+            <p>ミルクたっぷりのあたたかいラテ。</p>
+            <p class="price">320円</p>
+        </div>
+
+        <div class="menu-card last-card">
+            <p class="label">軽食</p>
+            <h2>サンドイッチ</h2>
+            <p>野菜とたまごの定番サンド。</p>
+            <p class="price">420円</p>
+        </div>
+    </div>
+
+    <div class="coupon">
+        <h2>本日のクーポン</h2>
+        <p>ドリンクとセットで50円引き。</p>
+    </div>
 </div>
 ```
 
 ```css
-.card-list {
+.menu-page {
     width: 320px;
     margin: 0 auto;
 }
 
-.card {
+h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+p {
+    margin-top: 0;
+}
+
+.menu-list {
+    margin-bottom: 24px;
+}
+
+.menu-card {
     border: 2px solid #7a4b2a;
     padding: 16px;
     margin-bottom: 16px;
@@ -982,6 +1570,32 @@ p {
 }
 
 .last-card {
+    margin-bottom: 0;
+}
+
+.label {
+    margin-bottom: 8px;
+    border: 1px solid #c2410c;
+    padding: 4px;
+    background-color: #fed7aa;
+    color: #7c2d12;
+}
+
+.price {
+    margin-bottom: 0;
+    border: 2px solid #c2410c;
+    padding: 8px;
+    background-color: #ffedd5;
+    color: #7c2d12;
+}
+
+.coupon {
+    border: 2px dashed #15803d;
+    padding: 16px;
+    background-color: #dcfce7;
+}
+
+.coupon p {
     margin-bottom: 0;
 }
 ```
@@ -1008,6 +1622,8 @@ p {
 - [ ] `width` と `margin: 0 auto;` でカード一覧を中央に置ける
 - [ ] `h2` や `p` に最初から margin があることを知っている
 - [ ] `margin-top` と `margin-bottom` で、HTMLタグの余白を自分で指定できる
+- [ ] 商品を追加したときに、`last-card` を最後のカードへ付け替えられる
+- [ ] `margin` を使って、ページ内のまとまり同士の間隔を整えられる
 
 <Recovery title="中央に寄らないとき">
 
