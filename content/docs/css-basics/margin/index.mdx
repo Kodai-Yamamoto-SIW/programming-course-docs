@@ -347,22 +347,27 @@ authoringMode: tutorial
 
 たとえば、`h2` や `p` は、自分で `margin` を書いていなくても、上下に余白が付いて見えます。
 
-### 何も書いていなくても余白がある
+### `h2` と `p` の margin を書かなくても余白がある
 
 <CodePreview>
 
 ```html
 <h2>おすすめ商品</h2>
 <p>今日のおすすめを紹介します。</p>
+
+<div class="next-content">ここから次の内容です</div>
 ```
 
 ```css
-/* まだ CSS は書きません */
+.next-content {
+    padding: 8px;
+    background-color: #fde047;
+}
 ```
 
 </CodePreview>
 
-CSS を書いていなくても、見出しと段落のまわりに余白があります。
+`h2` や `p` に margin を書いていなくても、見出しと段落のまわりに余白があります。
 
 これは、ブラウザが `h2` や `p` に最初から付けている余白です。
 
@@ -375,6 +380,8 @@ CSS を書いていなくても、見出しと段落のまわりに余白があ�
 ```html
 <h2>おすすめ商品</h2>
 <p>今日のおすすめを紹介します。</p>
+
+<div class="next-content">ここから次の内容です</div>
 ```
 
 ```css
@@ -386,6 +393,11 @@ h2 {
 p {
     margin-top: 0;
     margin-bottom: 24px;
+}
+
+.next-content {
+    padding: 8px;
+    background-color: #fde047;
 }
 ```
 
@@ -716,7 +728,7 @@ p {
 
 この演習では、カード一覧は作りません。HTMLタグに最初から付いている余白を、自分で指定した `margin` に変える練習をします。
 
-まず CSS を書かずに表示して、`h2` と `p` のまわりに最初から余白があることを確認してください。そのあと、`h2` の上側の余白を `0`、下側の余白を `8px` にします。`p` の上側の余白を `0`、下側の余白を `24px` にします。
+まず `h2` と `p` の margin を書かずに表示して、`h2` と `p` のまわりに最初から余白があることを確認してください。そのあと、`h2` の上側の余白を `0`、下側の余白を `8px` にします。`p` の上側の余白を `0`、下側の余白を `24px` にします。
 
 <CodePreview
     share={false}
@@ -725,10 +737,17 @@ p {
 ```html
 <h2>お知らせ</h2>
 <p>次回は小テストを行います。</p>
+
+<div class="next-content">ここから次の内容です</div>
 ```
 
 ```css
-/* ここに CSS を書いてください */
+/* h2 と p の margin をここに書いてください */
+
+.next-content {
+    padding: 8px;
+    background-color: #fde047;
+}
 ```
 
 </CodePreview>
@@ -744,6 +763,8 @@ p {
 ```html
 <h2>お知らせ</h2>
 <p>次回は小テストを行います。</p>
+
+<div class="next-content">ここから次の内容です</div>
 ```
 
 ```css
@@ -755,6 +776,11 @@ h2 {
 p {
     margin-top: 0;
     margin-bottom: 24px;
+}
+
+.next-content {
+    padding: 8px;
+    background-color: #fde047;
 }
 ```
 
@@ -767,6 +793,8 @@ p {
 ```html
 <h2>お知らせ</h2>
 <p>次回は小テストを行います。</p>
+
+<div class="next-content">ここから次の内容です</div>
 ```
 
 ```css
@@ -778,6 +806,11 @@ h2 {
 p {
     margin-top: 0;
     margin-bottom: 24px;
+}
+
+.next-content {
+    padding: 8px;
+    background-color: #fde047;
 }
 ```
 
