@@ -1,21 +1,26 @@
 ---
-title: マージン
+title: カードの間隔を整えよう
 authoringMode: tutorial
 ---
 
-今日は、ボックスモデルの4つ目の層である **margin（マージン）** を覚えて、カードのあいだにゆとりを生みましょう。前回のレッスンでは `width`・`height`・`border`・`padding` の4つでカードの見た目を作りました。今回はその外側、`border` の **さらに外** にある余白の扱い方を学びます。
+前回は、`width`・`height`・`border`・`padding` を使って、1 枚の商品カードの見た目を作りました。
+
+今回は、カードを **複数枚並べたときの間隔** を整えます。カードの中ではなく、カードとカードの **外側のすき間** を作るために、`margin` を使います。
 
 ---
 
 <Prerequisites>
-- [ボックスモデル](./box-model/index.mdx) レッスンを完了していること（`width` / `height` / `border` / `padding` を理解していること）
+- [カードを作ろう](../box-model/index.mdx) レッスンを完了していること（`width` / `height` / `border` / `padding` を使えること）
+- `class` と `.クラス名` を使って、特定の要素に CSS を指定できること
 </Prerequisites>
 
 ---
 
-<Section title="完成形を見る" goal="2 枚のカードのあいだに margin でゆとりが入った見た目を、先に確認する">
+<Section title="完成形を見る" goal="margin を使って、カード一覧の間隔と配置を整えた完成形を確認する">
 
-まずは完成形だけ見ます。**2 枚のカードが、margin の余白を挟んで並んでいる** 様子を確認してください。ここでは、まだコードは書きません。
+まずは、今回作る完成形を見ます。
+
+今回は、カードの中身を作り込むことよりも、**カード一覧全体が読みやすく見える間隔** を作ることが目標です。
 
 <CodePreview
     previewVisible={true}
@@ -24,330 +29,360 @@ authoringMode: tutorial
 >
 
 ```html
-<div class="card">チョコドーナツ</div>
-<div class="card">カフェラテ</div>
+<div class="shop-page">
+    <h2 class="page-title">おすすめ商品</h2>
+    <p class="page-lead">今日のおすすめを3つ紹介します。</p>
+
+    <div class="card-list">
+        <div class="card">
+            <h3>チョコドーナツ</h3>
+            <p>甘いチョコをかけた人気商品です。</p>
+        </div>
+
+        <div class="card">
+            <h3>カフェラテ</h3>
+            <p>ミルクをたっぷり使ったドリンクです。</p>
+        </div>
+
+        <div class="card last-card">
+            <h3>サンドイッチ</h3>
+            <p>軽い昼食にぴったりの商品です。</p>
+        </div>
+    </div>
+</div>
 ```
 
 ```css
-.card {
-    width: 200px;
-    border: 2px solid #7a4b2a;
-    padding: 12px;
+.shop-page {
+    width: 360px;
+    margin: 0 auto;
+}
+
+.page-title {
+    margin-bottom: 8px;
+}
+
+.page-lead {
     margin-bottom: 24px;
+}
+
+.card {
+    border: 2px solid #7a4b2a;
+    padding: 16px;
+    margin-bottom: 16px;
     background-color: #fff7ed;
+}
+
+.last-card {
+    margin-bottom: 0;
 }
 ```
 
 </CodePreview>
 
-2 枚のカードの **あいだ** にすき間ができています。**このすき間が `margin` のしわざ** です。
+完成形では、次の 3 つを `margin` で整えています。
+
+- 見出しと説明文のあいだ
+- 説明文とカード一覧のあいだ
+- カードとカードのあいだ
+
+このように、`margin` は **要素どうしの距離** を整えるために使います。
 
 </Section>
 
 ---
 
-<Section title="外側の余白 `margin` を覚える" goal="`margin` が border の外側の余白であることを覚える">
+<Section title="margin は外側の余白" goal="`margin` が border の外側にある余白であることを理解する">
 
-`padding` が **border の内側** の余白だったのに対し、`margin` は **border の外側** の余白です。**隣の要素とのあいだ** にすき間を作りたいときに使います。
-
-<Concept title="`margin` とは">
-
-`margin` は、要素の **外側** の余白です。**隣の要素とのあいだ** にすき間を作るために使います。`padding` が「border と内容（content）のあいだ」だったのに対し、`margin` は「border の **外**」にあります。
-
-</Concept>
-
-### 何も指定しない状態では、要素どうしがくっつく
-
-まずは **margin を指定しない** 状態を見てみます。2 枚のカードはくっついて並びます。
-
-<CodePreview
->
-
-```html
-<div class="card">チョコドーナツ</div>
-<div class="card">カフェラテ</div>
-```
-
-```css
-.card {
-    width: 200px;
-    border: 2px solid #7a4b2a;
-    padding: 12px;
-    background-color: #fff7ed;
-}
-```
-
-</CodePreview>
-
-### `margin` を足すと、すき間ができる
-
-`.card` に `margin-bottom: 24px;` を追加します。**1 枚目のカードの下** に 24px のすき間ができます。
-
-<CodePreview
->
-
-```html
-<div class="card">チョコドーナツ</div>
-<div class="card">カフェラテ</div>
-```
-
-```css
-.card {
-    width: 200px;
-    border: 2px solid #7a4b2a;
-    padding: 12px;
-    margin-bottom: 24px;
-    background-color: #fff7ed;
-}
-```
-
-</CodePreview>
-
-2 枚のカードのあいだに、**24px のすき間** が入りました。これが `margin` の効果です。
-
-</Section>
-
----
-
-<Section title="margin と padding の違い" goal="`margin`（外側）と `padding`（内側）の使い分けを、はっきり区別できる">
-
-`padding` と `margin` は、**どちらも余白** ですが、**どこにある余白か** が違います。
+`padding` と `margin` は、どちらも余白を作る CSS です。ただし、余白ができる場所が違います。
 
 <Concept title="`padding` と `margin` の違い">
 
-- `padding`：**border の内側** の余白（border と content のあいだ）
-- `margin`：**border の外側** の余白（隣の要素とのあいだ）
+- `padding`：`border` の **内側** の余白
+- `margin`：`border` の **外側** の余白
 
 </Concept>
 
-### 図で確かめる
+### padding だけだと、カード同士は近いまま
 
-同じ 1 枚のカードに対して、`padding` と `margin` が **どこにあるか** を図で確かめます。
+次の例では、カードに `padding` はありますが、`margin` はありません。
 
-```text
-       ←─ margin（外側の余白）─→
-       +-----------------------+
-       |  border（枠線）         |
-       |  +-----------------+  |
-       |  |  padding（内側）|  |
-       |  |  +-----------+  |  |
-       |  |  |  content  |  |  |
-       |  |  +-----------+  |  |
-       |  +-----------------+  |
-       +-----------------------+
-```
-
-`padding` は **文字と枠線のあいだ** を広げ、`margin` は **枠線と隣のあいだ** を広げます。
-
-### 実際に並べた例
-
-`padding` だけ指定したカードと、`margin` も指定したカードを **横並びで** 比べると、**すき間の出どころ** が違います。
-
-<CodePreview
->
+<CodePreview>
 
 ```html
-<div class="box padding-only">padding だけ</div>
-<div class="box with-margin">padding + margin</div>
+<div class="card">チョコドーナツ</div>
+<div class="card">カフェラテ</div>
+<div class="card">サンドイッチ</div>
 ```
 
 ```css
-.box {
-    width: 160px;
+.card {
     border: 2px solid #7a4b2a;
     padding: 16px;
     background-color: #fff7ed;
 }
+```
 
-.padding-only {
-    /* margin なし */
-}
+</CodePreview>
 
-.with-margin {
-    margin-top: 16px;
-    margin-left: 24px;
-    background-color: #ffedd5;
+`padding` はカードの **内側** を広げます。文字と枠線のあいだは広がりますが、カードとカードのあいだは広がりません。
+
+### margin-bottom を足すと、カード同士が離れる
+
+カード同士のあいだを広げたいときは、`margin-bottom` を使います。
+
+<CodePreview>
+
+```html
+<div class="card">チョコドーナツ</div>
+<div class="card">カフェラテ</div>
+<div class="card">サンドイッチ</div>
+```
+
+```css
+.card {
+    border: 2px solid #7a4b2a;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #fff7ed;
 }
 ```
 
 </CodePreview>
 
-- **上のカード**（`padding-only`）：文字と枠線のあいだが広い（`padding` の効果）
-- **下のカード**（`with-margin`）：左と上に **別の要素とのあいだ** のすき間ができる（`margin` の効果）
+`margin-bottom: 16px;` は、要素の **下側の外側** に 16px の余白を作ります。
+
+そのため、上のカードと下のカードのあいだにすき間ができます。
 
 </Section>
 
 ---
 
-<Section title="よく使う margin の書き方" goal="`margin` の代表的な 4 つの書き方を使い分けられる">
+<Section title="最後のカードだけ余白をなくす" goal="共通の class と追加の class を組み合わせて、一部だけ見た目を変える">
 
-`margin` には、よく使う 4 つの書き方があります。**どれも同じ結果** を **違う書き方** で表現できるので、少しずつ覚えていきましょう。
+`.card` に `margin-bottom` を指定すると、すべてのカードの下に余白ができます。
 
-### 1. 4 辺すべてに同じ値（`margin: 10px;`）
+ただし、最後のカードの下には、余計な余白がいらないことがあります。
 
-`margin` に **1 つの数字** を書くと、**上下左右ぜんぶ** にその値が入ります。
-
-<CodePreview
->
+<CodePreview>
 
 ```html
+<div class="card">チョコドーナツ</div>
 <div class="card">カフェラテ</div>
+<div class="card">サンドイッチ</div>
 ```
 
 ```css
 .card {
-    margin: 10px;
     border: 2px solid #7a4b2a;
-    padding: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
     background-color: #fff7ed;
 }
 ```
 
 </CodePreview>
 
-### 2. 上下 / 左右で 2 つの値（`margin: 10px 20px;`）
-
-`margin` に **2 つの数字** を書くと、**上下** と **左右** に値が入ります。
-
-<CodePreview
->
+最後のカードだけ変えたいときは、HTML に class を追加します。
 
 ```html
+<div class="card last-card">サンドイッチ</div>
+```
+
+`class="card last-card"` のように、class はスペースで区切ると複数つけられます。
+
+- `card`：すべてのカードに共通する見た目
+- `last-card`：最後のカードだけ変える見た目
+
+<CodePreview>
+
+```html
+<div class="card">チョコドーナツ</div>
 <div class="card">カフェラテ</div>
+<div class="card last-card">サンドイッチ</div>
 ```
 
 ```css
 .card {
-    margin: 10px 20px;
     border: 2px solid #7a4b2a;
-    padding: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
     background-color: #fff7ed;
+}
+
+.last-card {
+    margin-bottom: 0;
 }
 ```
 
 </CodePreview>
 
-- 1 つ目の `10px` → **上下**
-- 2 つ目の `20px` → **左右**
+`.last-card` で `margin-bottom: 0;` と書くと、最後のカードだけ下の余白をなくせます。
 
-### 3. 4 辺を別々に指定（`margin: 10px 20px 10px 20px;`）
+<Checkpoint title="ここまでの確認">
 
-`margin` に **4 つの数字** を書くと、**上・右・下・左** の順で別々に指定できます。
+- カード同士のあいだを空けるときは、`padding` ではなく `margin` を使う
+- 下側の外側余白は `margin-bottom` で作る
+- 一部だけ変えたいときは、追加の class を使う
 
-<CodePreview
->
+</Checkpoint>
 
-```html
-<div class="card">カフェラテ</div>
-```
+</Section>
 
-```css
-.card {
-    margin: 10px 20px 10px 20px;
-    border: 2px solid #7a4b2a;
-    padding: 12px;
-    background-color: #fff7ed;
-}
-```
+---
 
-</CodePreview>
+<Section title="カード一覧を中央に置く" goal="`width` と `margin: 0 auto;` を組み合わせて、まとまり全体を中央に配置する">
 
-<Reference title="4 つの数字の順番（覚え方）">
+カード一覧が画面の左に寄っていると、少し見づらく感じることがあります。
 
-| 数字の位置 | 1 つ目 | 2 つ目 | 3 つ目 | 4 つ目 |
-|---|---|---|---|---|
-| 対応する辺 | **上** | **右** | **下** | **左** |
-
-時計回りに **上 → 右 → 下 → 左** と覚えると、4 つの数字の順番を迷いません。
-
-</Reference>
-
-### 4. 1 辺ずつ指定（`margin-top` / `margin-right` / `margin-bottom` / `margin-left`）
-
-**1 つの辺だけ** を変えたいときは、専用のプロパティを使います。
-
-```css
-.card {
-    margin-top: 10px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-    margin-left: 20px;
-}
-```
-
-<CodePreview
->
+カード一覧全体を中央に置きたいときは、カードを包む要素を作ります。
 
 ```html
-<div class="card">カフェラテ</div>
+<div class="card-list">
+    <div class="card">チョコドーナツ</div>
+    <div class="card">カフェラテ</div>
+    <div class="card last-card">サンドイッチ</div>
+</div>
 ```
 
-```css
-.card {
-    margin-top: 10px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-    margin-left: 20px;
-    border: 2px solid #7a4b2a;
-    padding: 12px;
-    background-color: #fff7ed;
-}
-```
+この `.card-list` に、横幅と `margin: 0 auto;` を指定します。
 
-</CodePreview>
-
-### `margin: 0 auto;` で中央に寄せる
-
-**`auto`** を使うと、**左右の余白を自動で均等に** 配ってくれます。カードを **ページの真ん中** に置きたいときに使います。
-
-<CodePreview
->
+<CodePreview>
 
 ```html
-<div class="card">カフェラテ</div>
+<div class="card-list">
+    <div class="card">チョコドーナツ</div>
+    <div class="card">カフェラテ</div>
+    <div class="card last-card">サンドイッチ</div>
+</div>
 ```
 
 ```css
-.card {
-    width: 200px;
+.card-list {
+    width: 320px;
     margin: 0 auto;
+}
+
+.card {
     border: 2px solid #7a4b2a;
-    padding: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
     background-color: #fff7ed;
+}
+
+.last-card {
+    margin-bottom: 0;
 }
 ```
 
 </CodePreview>
 
-`margin: 0 auto;` の意味は「**上下は 0、左右は auto**」です。**横幅（`width`）が決まっている** ときだけ、左右中央に寄せる効果が表れます。
+`margin: 0 auto;` は、次の意味です。
+
+- 上下の余白：`0`
+- 左右の余白：`auto`
+
+左右の余白を自動で同じくらいにすることで、要素が中央に置かれます。
+
+<Concept title="中央寄せの注意点">
+
+`margin: 0 auto;` で中央に寄せるには、`width` が必要です。
+
+横幅が決まっていないと、どのくらい左右に余白を作ればよいか決められないためです。
+
+</Concept>
 
 </Section>
 
 ---
 
-<Section title="演習問題" goal="`margin` の書き方を、自分の手で書いて確認する">
+<Section title="見出しとカード一覧の距離を整える" goal="カード同士だけでなく、見出しや説明文との距離も margin で調整できることを理解する">
+
+`margin` は、カード同士の間隔だけでなく、見出しや説明文との距離を整えるときにも使えます。
+
+たとえば、見出しと説明文のあいだを少し空けたいときは、見出しに `margin-bottom` を指定します。
+
+<CodePreview>
+
+```html
+<div class="shop-page">
+    <h2 class="page-title">おすすめ商品</h2>
+    <p class="page-lead">今日のおすすめを3つ紹介します。</p>
+
+    <div class="card-list">
+        <div class="card">チョコドーナツ</div>
+        <div class="card">カフェラテ</div>
+        <div class="card last-card">サンドイッチ</div>
+    </div>
+</div>
+```
+
+```css
+.shop-page {
+    width: 360px;
+    margin: 0 auto;
+}
+
+.page-title {
+    margin-bottom: 8px;
+}
+
+.page-lead {
+    margin-bottom: 24px;
+}
+
+.card {
+    border: 2px solid #7a4b2a;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #fff7ed;
+}
+
+.last-card {
+    margin-bottom: 0;
+}
+```
+
+</CodePreview>
+
+よく使う margin の指定は、次の 4 つです。
+
+```css
+.example {
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    margin-left: 16px;
+}
+```
+
+今回よく使うのは、下側の余白を作る `margin-bottom` です。
+
+上下左右を一度に細かく指定する書き方もありますが、まずは **どの方向に余白を作りたいのか** を考えて、`margin-bottom` のように 1 つずつ指定できるようになりましょう。
+
+</Section>
+
+---
+
+<Section title="演習問題" goal="margin を使って、カード一覧の間隔と中央寄せを自分で調整できる">
 
 ### 演習1
 
 <Exercise>
 
-下の HTML に対して、CSS を書いてください。
+カード同士のあいだに、`margin-bottom` で余白を作ってください。
 
-**HTML**:
+**やること**:
 
-```html
-<div class="card">チョコドーナツ</div>
-<div class="card">カフェラテ</div>
-```
+- `.card` に CSS を書く
+- カード同士のあいだに 16px のすき間を作る
+- 内側の余白ではなく、外側の余白を使う
 
-**CSS の条件**:
+**成功条件**:
 
-- `.card` に対してスタイルを書く
-- 2 枚のカードの **あいだに 16px のすき間** を作る（`margin-bottom` を使う）
-
-**確認方法**:
-
-- プレビュー領域で、2 枚のカードのあいだに **16px のすき間** が入っている
+- 3 枚のカードがくっついていない
+- `.card` に `margin-bottom: 16px;` が書けている
+- `padding` だけで間隔を作ろうとしていない
 
 <CodePreview
     share={false}
@@ -356,28 +391,35 @@ authoringMode: tutorial
 ```html
 <div class="card">チョコドーナツ</div>
 <div class="card">カフェラテ</div>
+<div class="card">サンドイッチ</div>
 ```
 
 ```css
-/* ここに CSS を書いてください */
-
+.card {
+    border: 2px solid #7a4b2a;
+    padding: 16px;
+    background-color: #fff7ed;
+}
 ```
 
 </CodePreview>
 
 <Solution>
 
-<CodePreview
->
+<CodePreview>
 
 ```html
 <div class="card">チョコドーナツ</div>
 <div class="card">カフェラテ</div>
+<div class="card">サンドイッチ</div>
 ```
 
 ```css
 .card {
+    border: 2px solid #7a4b2a;
+    padding: 16px;
     margin-bottom: 16px;
+    background-color: #fff7ed;
 }
 ```
 
@@ -385,7 +427,8 @@ authoringMode: tutorial
 
 **目視チェック**:
 
-- [ ] 2 枚のカードのあいだに、**16px のすき間** が入っている
+- [ ] 1 枚目と 2 枚目のあいだにすき間がある
+- [ ] 2 枚目と 3 枚目のあいだにすき間がある
 
 </Solution>
 
@@ -395,52 +438,61 @@ authoringMode: tutorial
 
 <Exercise>
 
-下の HTML に対して、CSS を書いてください。
+最後のカードだけ、下の余白をなくしてください。
 
-**HTML**:
+**やること**:
 
-```html
-<div class="card">カフェラテ</div>
-```
+- 最後のカードに `last-card` class を追加する
+- `.last-card` に `margin-bottom: 0;` を指定する
+- 1 枚目と 2 枚目の下には余白を残す
 
-**CSS の条件**:
+**成功条件**:
 
-- `.card` に対してスタイルを書く
-- `width: 240px;` などの **横幅** を指定する
-- `margin: 0 auto;` を使って、**カードをページの中央** に寄せる
-
-**確認方法**:
-
-- プレビュー領域で、**カードがプレビューの中央** に寄っている
+- 1 枚目と 2 枚目の下には余白がある
+- 3 枚目の下には余計な余白がない
+- `class="card last-card"` のように、class を 2 つつけている
 
 <CodePreview
     share={false}
 >
 
 ```html
+<div class="card">チョコドーナツ</div>
 <div class="card">カフェラテ</div>
+<div class="card">サンドイッチ</div>
 ```
 
 ```css
-/* ここに CSS を書いてください */
-
+.card {
+    border: 2px solid #7a4b2a;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #fff7ed;
+}
 ```
 
 </CodePreview>
 
 <Solution>
 
-<CodePreview
->
+<CodePreview>
 
 ```html
+<div class="card">チョコドーナツ</div>
 <div class="card">カフェラテ</div>
+<div class="card last-card">サンドイッチ</div>
 ```
 
 ```css
 .card {
-    width: 240px;
-    margin: 0 auto;
+    border: 2px solid #7a4b2a;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #fff7ed;
+}
+
+.last-card {
+    margin-bottom: 0;
 }
 ```
 
@@ -448,9 +500,386 @@ authoringMode: tutorial
 
 **目視チェック**:
 
-- [ ] カードが **プレビューの中央** に寄っている
+- [ ] 最後のカードに `last-card` class が追加されている
+- [ ] `.last-card` で `margin-bottom: 0;` を指定している
 
-`margin: 0 auto;` が効くのは、`width` が **決まっている** ときだけです。`width` を書き忘れると、中央に寄らないので気をつけましょう。
+</Solution>
+
+</Exercise>
+
+### 演習3
+
+<Exercise>
+
+カード一覧全体を、ページの中央に置いてください。
+
+**やること**:
+
+- `.card-list` に横幅を指定する
+- `.card-list` に `margin: 0 auto;` を指定する
+- カード1枚だけではなく、カード一覧全体を中央に置く
+
+**成功条件**:
+
+- カード一覧が中央に寄っている
+- `.card-list` に `width` がある
+- `.card-list` に `margin: 0 auto;` がある
+
+<CodePreview
+    share={false}
+>
+
+```html
+<div class="card-list">
+    <div class="card">チョコドーナツ</div>
+    <div class="card">カフェラテ</div>
+    <div class="card last-card">サンドイッチ</div>
+</div>
+```
+
+```css
+.card {
+    border: 2px solid #7a4b2a;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #fff7ed;
+}
+
+.last-card {
+    margin-bottom: 0;
+}
+```
+
+</CodePreview>
+
+<Solution>
+
+<CodePreview>
+
+```html
+<div class="card-list">
+    <div class="card">チョコドーナツ</div>
+    <div class="card">カフェラテ</div>
+    <div class="card last-card">サンドイッチ</div>
+</div>
+```
+
+```css
+.card-list {
+    width: 320px;
+    margin: 0 auto;
+}
+
+.card {
+    border: 2px solid #7a4b2a;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #fff7ed;
+}
+
+.last-card {
+    margin-bottom: 0;
+}
+```
+
+</CodePreview>
+
+**目視チェック**:
+
+- [ ] カード一覧全体が中央に寄っている
+- [ ] `width` と `margin: 0 auto;` の両方を書いている
+
+</Solution>
+
+</Exercise>
+
+### 演習4
+
+<Exercise>
+
+お知らせ一覧を、読みやすいカード一覧に整えてください。
+
+**やること**:
+
+- `.notice-list` を中央に置く
+- `.notice` 同士のあいだに 16px の余白を作る
+- 最後のお知らせだけ、下の余白をなくす
+- 見出しと説明文の距離も `margin-bottom` で整える
+
+**成功条件**:
+
+- お知らせ一覧が中央に置かれている
+- お知らせカード同士がくっついていない
+- 最後のお知らせの下に余計な余白がない
+- 見出し、説明文、カード一覧の距離が読みやすい
+
+<CodePreview
+    share={false}
+>
+
+```html
+<div class="notice-page">
+    <h2 class="notice-title">お知らせ</h2>
+    <p class="notice-lead">授業に関する連絡です。</p>
+
+    <div class="notice-list">
+        <div class="notice">次回は小テストを行います。</div>
+        <div class="notice">課題は金曜日までに提出してください。</div>
+        <div class="notice last-notice">忘れ物に注意してください。</div>
+    </div>
+</div>
+```
+
+```css
+.notice-page {
+}
+
+.notice-title {
+}
+
+.notice-lead {
+}
+
+.notice-list {
+}
+
+.notice {
+    border: 2px solid #3f4f6f;
+    padding: 16px;
+    background-color: #eef2ff;
+}
+
+.last-notice {
+}
+```
+
+</CodePreview>
+
+<Solution>
+
+<CodePreview>
+
+```html
+<div class="notice-page">
+    <h2 class="notice-title">お知らせ</h2>
+    <p class="notice-lead">授業に関する連絡です。</p>
+
+    <div class="notice-list">
+        <div class="notice">次回は小テストを行います。</div>
+        <div class="notice">課題は金曜日までに提出してください。</div>
+        <div class="notice last-notice">忘れ物に注意してください。</div>
+    </div>
+</div>
+```
+
+```css
+.notice-page {
+    width: 360px;
+    margin: 0 auto;
+}
+
+.notice-title {
+    margin-bottom: 8px;
+}
+
+.notice-lead {
+    margin-bottom: 24px;
+}
+
+.notice-list {
+    width: 320px;
+    margin: 0 auto;
+}
+
+.notice {
+    border: 2px solid #3f4f6f;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #eef2ff;
+}
+
+.last-notice {
+    margin-bottom: 0;
+}
+```
+
+</CodePreview>
+
+**目視チェック**:
+
+- [ ] `.notice-list` が中央に寄っている
+- [ ] `.notice` に `margin-bottom` がある
+- [ ] `.last-notice` で最後の余白をなくしている
+
+</Solution>
+
+</Exercise>
+
+### 演習-発展1
+
+<Exercise>
+
+カード同士の余白を変えて、見た目の印象を比べてください。
+
+**やること**:
+
+- `margin-bottom` を `8px` にして確認する
+- `margin-bottom` を `16px` にして確認する
+- `margin-bottom` を `32px` にして確認する
+- どの余白が読みやすいか、自分で選ぶ
+
+**成功条件**:
+
+- 3 つの値を実際に試している
+- 余白が小さすぎる場合、大きすぎる場合の見え方を比べている
+- 最後に、自分が読みやすいと思う値を選んでいる
+
+<CodePreview
+    share={false}
+>
+
+```html
+<div class="card-list">
+    <div class="card">チョコドーナツ</div>
+    <div class="card">カフェラテ</div>
+    <div class="card last-card">サンドイッチ</div>
+</div>
+```
+
+```css
+.card-list {
+    width: 320px;
+    margin: 0 auto;
+}
+
+.card {
+    border: 2px solid #7a4b2a;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #fff7ed;
+}
+
+.last-card {
+    margin-bottom: 0;
+}
+```
+
+</CodePreview>
+
+<Solution>
+
+この演習には、1 つだけの正解はありません。
+
+たとえば、次のように調整できます。
+
+```css
+.card {
+    margin-bottom: 16px;
+}
+```
+
+確認するときは、次のように見比べましょう。
+
+- `8px`：カード同士が少し近く見える
+- `16px`：ほどよく離れて見える
+- `32px`：カード同士がかなり離れて見える
+
+**目視チェック**:
+
+- [ ] 3 つの値を試した
+- [ ] 読みやすいと思う値を自分で選んだ
+
+</Solution>
+
+</Exercise>
+
+### 演習-発展2
+
+<Exercise>
+
+余白の悪いカード一覧を、読みやすく直してください。
+
+次のコードは、カード同士の余白が小さすぎます。`margin-bottom` を直して、読みやすいカード一覧にしてください。
+
+**やること**:
+
+- `.card` の `margin-bottom` を読みやすい値に直す
+- 最後のカードだけ、下の余白をなくす
+- カード一覧全体を中央に置く
+
+**成功条件**:
+
+- カード同士が近すぎない
+- カード一覧が中央にある
+- 最後のカードの下に余計な余白がない
+
+<CodePreview
+    share={false}
+>
+
+```html
+<div class="card-list">
+    <div class="card">チョコドーナツ</div>
+    <div class="card">カフェラテ</div>
+    <div class="card last-card">サンドイッチ</div>
+</div>
+```
+
+```css
+.card-list {
+    width: 320px;
+}
+
+.card {
+    border: 2px solid #7a4b2a;
+    padding: 16px;
+    margin-bottom: 2px;
+    background-color: #fff7ed;
+}
+
+.last-card {
+}
+```
+
+</CodePreview>
+
+<Solution>
+
+<CodePreview>
+
+```html
+<div class="card-list">
+    <div class="card">チョコドーナツ</div>
+    <div class="card">カフェラテ</div>
+    <div class="card last-card">サンドイッチ</div>
+</div>
+```
+
+```css
+.card-list {
+    width: 320px;
+    margin: 0 auto;
+}
+
+.card {
+    border: 2px solid #7a4b2a;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #fff7ed;
+}
+
+.last-card {
+    margin-bottom: 0;
+}
+```
+
+</CodePreview>
+
+**目視チェック**:
+
+- [ ] `.card-list` に `margin: 0 auto;` を追加した
+- [ ] `.card` の `margin-bottom` を読みやすい値にした
+- [ ] `.last-card` で最後の余白をなくした
 
 </Solution>
 
@@ -460,41 +889,50 @@ authoringMode: tutorial
 
 ---
 
-<Section title="完成チェックと困ったとき" goal="自力で書いた `margin` が要件どおりに反映されているか、自分の目で確認する">
+<Section title="完成チェックと困ったとき" goal="margin が意図した場所に効いているか、自分で確認できる">
 
-まず、できたところを上から順に見直しましょう。
+最後に、できたところを確認しましょう。
 
-**動作の確認**:
+**完成チェック**:
 
-- [ ] 演習1で、2 枚のカードのあいだに **16px のすき間** が入っている
-- [ ] 演習2で、カードが **プレビューの中央** に寄っている
-- [ ] `margin: 0 auto;` を使うときに **`width` も指定** している
+- [ ] `padding` と `margin` の違いを説明できる
+- [ ] カード同士のあいだを `margin-bottom` で空けられる
+- [ ] 最後のカードだけ `margin-bottom: 0;` にできる
+- [ ] `width` と `margin: 0 auto;` でカード一覧を中央に置ける
+- [ ] 見出しや説明文との距離も `margin-bottom` で調整できる
 
-**よくあるつまずき**:
+<Recovery title="中央に寄らないとき">
 
-- `padding` と `margin` を間違えていないか（**内側** が padding、**外側** が margin）
-- `margin: 0 auto;` で中央に寄らない → **`width` を書き忘れていないか** 確認する
-- 数字を **2 つ** 書いたのに **4 つ** のつもりで書いていた、など数字の数と効果が合っていない
-- 上下の margin は **相殺** されることがあります（上下に `margin` を 2 つ並べると、**大きいほう** だけが残ります）
-- CSS ファイルを保存しましたか
-- ブラウザを再読み込みしましたか
-- CSS に全角の記号（全角スペース・全角の `:` など）が混ざっていませんか
+`margin: 0 auto;` を書いても中央に寄らないときは、次を確認してください。
+
+- 中央に置きたい要素に `width` を指定しているか
+- `margin: 0 auto;` を、カード1枚ではなく、中央に置きたいまとまりに書いているか
+- class 名の先頭に `.` をつけて CSS を書いているか
+
+</Recovery>
+
+<Recovery title="カード同士の間隔が変わらないとき">
+
+カード同士の間隔が変わらないときは、次を確認してください。
+
+- `padding` ではなく `margin-bottom` を書いているか
+- `margin-bottom: 16px;` のように、数字のあとに `px` を書いているか
+- CSS ファイルを保存しているか
+- ブラウザを再読み込みしているか
+
+</Recovery>
 
 ### AI に質問するときのコツ
 
 :::tip[確認手順を聞く]
-AIに「完成コードを全部書く」ように頼むと、丸ごと書き直されてしまい、何が違っていたか分からなくなります。**「どこを確認すればよいか」を手順として聞く**方が、自分で直すべき箇所が見つかります。
+AI に「完成コードを全部書いて」と頼むと、どこを直せばよかったのか分かりにくくなります。**「どこを確認すればよいか」を順番に聞く** と、自分で直す練習になります。
 :::
 
-次のプロンプトを AI に送ると、段階的な確認手順を教えてもらいやすくなります。
+次のプロンプトを使うと、確認しやすくなります。
 
 ```text
 次の HTML と CSS で、margin が思ったように反映されません。
 完成コードを全部書くのではなく、どこを確認すればよいかを順番に教えてください。
 ```
-
-:::note[使い方の流れ]
-上のプロンプトのあとに、自分の HTML と CSS を貼り付けて送ると、**「`.card` に `margin-bottom` が付いているか」「`margin: 0 auto;` のときに `width` が指定されているか」** のような段階的な確認手順を教えてもらいやすくなります。
-:::
 
 </Section>
