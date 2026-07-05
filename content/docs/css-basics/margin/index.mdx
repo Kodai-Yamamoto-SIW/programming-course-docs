@@ -112,6 +112,30 @@ authoringMode: tutorial
 
 カード同士のあいだを広げたいときは、`margin-bottom` を使います。
 
+まず、`margin-bottom` を指定していない状態を見てみましょう。
+
+<CodePreview>
+
+```html
+<div class="card">チョコドーナツ</div>
+<div class="card">カフェラテ</div>
+<div class="card">サンドイッチ</div>
+```
+
+```css
+.card {
+    border: 2px solid #7a4b2a;
+    padding: 16px;
+    background-color: #fff7ed;
+}
+```
+
+</CodePreview>
+
+カード同士が近く、少し詰まって見えます。
+
+そこで、`.card` に `margin-bottom: 16px;` を追加します。
+
 <CodePreview>
 
 ```html
@@ -151,7 +175,7 @@ authoringMode: tutorial
 
 `.card` に `margin-bottom` を指定すると、すべてのカードの下に余白ができます。
 
-ただし、最後のカードの下には、余計な余白がいらないことがあります。
+カードの下に何もないと、最後のカードの余白は見えにくいです。そこで、カード一覧の下に「次の内容」を置いて確認します。
 
 <CodePreview>
 
@@ -159,6 +183,8 @@ authoringMode: tutorial
 <div class="card">チョコドーナツ</div>
 <div class="card">カフェラテ</div>
 <div class="card">サンドイッチ</div>
+
+<div class="next-content">ここから次の内容です</div>
 ```
 
 ```css
@@ -168,11 +194,18 @@ authoringMode: tutorial
     margin-bottom: 16px;
     background-color: #fff7ed;
 }
+
+.next-content {
+    padding: 8px;
+    background-color: #e3f2fd;
+}
 ```
 
 </CodePreview>
 
-最後のカードだけ変えたいときは、HTML に class を追加します。
+3 枚目のカードにも `margin-bottom: 16px;` が効いているため、最後のカードと次の内容のあいだにも余白ができます。
+
+最後のカードの下だけ余白をなくしたいときは、最後のカードに class を追加します。
 
 ```html
 <div class="card last-card">サンドイッチ</div>
@@ -183,12 +216,16 @@ authoringMode: tutorial
 - `card`：すべてのカードに共通する見た目
 - `last-card`：最後のカードだけ変える見た目
 
+次のように、`.last-card` で最後のカードだけ `margin-bottom` を `0` にします。
+
 <CodePreview>
 
 ```html
 <div class="card">チョコドーナツ</div>
 <div class="card">カフェラテ</div>
 <div class="card last-card">サンドイッチ</div>
+
+<div class="next-content">ここから次の内容です</div>
 ```
 
 ```css
@@ -201,6 +238,11 @@ authoringMode: tutorial
 
 .last-card {
     margin-bottom: 0;
+}
+
+.next-content {
+    padding: 8px;
+    background-color: #e3f2fd;
 }
 ```
 
@@ -224,6 +266,7 @@ authoringMode: tutorial
 - 最後のカードには `class="card last-card"` のように class を 2 つ付ける
 - `.last-card` で `margin-bottom: 0;` を指定する
 - `.last-card` は `.card` より後ろに書く
+- 最後のカードの下に次の内容があると、余白をなくす意味が見えやすい
 
 </Checkpoint>
 
@@ -233,9 +276,11 @@ authoringMode: tutorial
 
 <Section title="カード一覧を中央に置く" goal="`width` と `margin: 0 auto;` を組み合わせて、まとまり全体を中央に配置する">
 
-カード一覧が画面の左に寄っていると、少し見づらく感じることがあります。
+カード一覧を横幅いっぱいではなく、決まった幅のまとまりとして見せたいことがあります。
 
-カード一覧全体を中央に置きたいときは、カードを包む要素を作ります。
+まず、`.card-list` に `width: 320px;` だけを指定してみます。
+
+<CodePreview>
 
 ```html
 <div class="card-list">
@@ -245,7 +290,28 @@ authoringMode: tutorial
 </div>
 ```
 
-この `.card-list` に、横幅と `margin: 0 auto;` を指定します。
+```css
+.card-list {
+    width: 320px;
+}
+
+.card {
+    border: 2px solid #7a4b2a;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #fff7ed;
+}
+
+.last-card {
+    margin-bottom: 0;
+}
+```
+
+</CodePreview>
+
+カード一覧の幅は 320px になります。ただし、このままだとカード一覧は画面の左側に寄っています。
+
+カード一覧全体を中央に置きたいときは、`.card-list` に `margin: 0 auto;` を追加します。
 
 <CodePreview>
 
@@ -368,19 +434,9 @@ p {
 
 <Exercise>
 
-カード同士のあいだに、`margin-bottom` で余白を作ってください。
+次の 3 枚のカードに、カード同士のあいだの余白を作ってください。
 
-**やること**:
-
-- `.card` に CSS を書く
-- カード同士のあいだに 16px のすき間を作る
-- 内側の余白ではなく、外側の余白を使う
-
-**成功条件**:
-
-- 3 枚のカードがくっついていない
-- `.card` に `margin-bottom: 16px;` が書けている
-- `padding` だけで間隔を作ろうとしていない
+いまはカード同士が近く、少し詰まって見えます。`.card` に `margin-bottom: 16px;` を追加して、カードとカードのあいだを空けましょう。`padding` ではなく、外側の余白である `margin-bottom` を使います。
 
 <CodePreview
     share={false}
@@ -396,6 +452,31 @@ p {
 .card {
     border: 2px solid #7a4b2a;
     padding: 16px;
+    background-color: #fff7ed;
+}
+```
+
+</CodePreview>
+
+完成すると、次のようにカード同士のあいだにすき間ができます。
+
+<CodePreview
+    previewVisible={true}
+    htmlVisible={false}
+    cssVisible={false}
+>
+
+```html
+<div class="card">チョコドーナツ</div>
+<div class="card">カフェラテ</div>
+<div class="card">サンドイッチ</div>
+```
+
+```css
+.card {
+    border: 2px solid #7a4b2a;
+    padding: 16px;
+    margin-bottom: 16px;
     background-color: #fff7ed;
 }
 ```
@@ -422,11 +503,6 @@ p {
 ```
 
 </CodePreview>
-
-**目視チェック**:
-
-- [ ] 1 枚目と 2 枚目のあいだにすき間がある
-- [ ] 2 枚目と 3 枚目のあいだにすき間がある
 
 </Solution>
 
@@ -438,19 +514,9 @@ p {
 
 最後のカードだけ、下の余白をなくしてください。
 
-**やること**:
+次のコードでは、3 枚目のカードの下にも `margin-bottom: 16px;` が残っているため、最後のカードと「ここから次の内容です」のあいだが少し空きすぎています。
 
-- 最後のカードに `last-card` class を追加する
-- `.last-card` に `margin-bottom: 0;` を指定する
-- `.last-card` は `.card` より後ろに書く
-- 1 枚目と 2 枚目の下には余白を残す
-
-**成功条件**:
-
-- 1 枚目と 2 枚目の下には余白がある
-- 3 枚目の下には余計な余白がない
-- `class="card last-card"` のように、class を 2 つつけている
-- `.last-card` が `.card` より後ろに書かれている
+最後のカードに `last-card` class を追加し、`.last-card` を `.card` より後ろに書いて、最後のカードだけ `margin-bottom` を `0` にしてください。
 
 <CodePreview
     share={false}
@@ -460,6 +526,8 @@ p {
 <div class="card">チョコドーナツ</div>
 <div class="card">カフェラテ</div>
 <div class="card">サンドイッチ</div>
+
+<div class="next-content">ここから次の内容です</div>
 ```
 
 ```css
@@ -469,18 +537,29 @@ p {
     margin-bottom: 16px;
     background-color: #fff7ed;
 }
+
+.next-content {
+    padding: 8px;
+    background-color: #e3f2fd;
+}
 ```
 
 </CodePreview>
 
-<Solution>
+完成すると、最後のカードと次の内容のあいだの余白がなくなります。
 
-<CodePreview>
+<CodePreview
+    previewVisible={true}
+    htmlVisible={false}
+    cssVisible={false}
+>
 
 ```html
 <div class="card">チョコドーナツ</div>
 <div class="card">カフェラテ</div>
 <div class="card last-card">サンドイッチ</div>
+
+<div class="next-content">ここから次の内容です</div>
 ```
 
 ```css
@@ -494,15 +573,46 @@ p {
 .last-card {
     margin-bottom: 0;
 }
+
+.next-content {
+    padding: 8px;
+    background-color: #e3f2fd;
+}
 ```
 
 </CodePreview>
 
-**目視チェック**:
+<Solution>
 
-- [ ] 最後のカードに `last-card` class が追加されている
-- [ ] `.last-card` で `margin-bottom: 0;` を指定している
-- [ ] `.last-card` が `.card` より後ろに書かれている
+<CodePreview>
+
+```html
+<div class="card">チョコドーナツ</div>
+<div class="card">カフェラテ</div>
+<div class="card last-card">サンドイッチ</div>
+
+<div class="next-content">ここから次の内容です</div>
+```
+
+```css
+.card {
+    border: 2px solid #7a4b2a;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #fff7ed;
+}
+
+.last-card {
+    margin-bottom: 0;
+}
+
+.next-content {
+    padding: 8px;
+    background-color: #e3f2fd;
+}
+```
+
+</CodePreview>
 
 </Solution>
 
@@ -514,17 +624,9 @@ p {
 
 カード一覧全体を、ページの中央に置いてください。
 
-**やること**:
+次のコードでは、`.card-list` に `width: 320px;` だけが指定されています。カード一覧の幅は 320px になっていますが、画面の左側に寄っています。
 
-- `.card-list` に横幅を指定する
-- `.card-list` に `margin: 0 auto;` を指定する
-- カード1枚だけではなく、カード一覧全体を中央に置く
-
-**成功条件**:
-
-- カード一覧が中央に寄っている
-- `.card-list` に `width` がある
-- `.card-list` に `margin: 0 auto;` がある
+`.card-list` に `margin: 0 auto;` を追加して、カード一覧全体を中央に置いてください。
 
 <CodePreview
     share={false}
@@ -539,6 +641,46 @@ p {
 ```
 
 ```css
+.card-list {
+    width: 320px;
+}
+
+.card {
+    border: 2px solid #7a4b2a;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #fff7ed;
+}
+
+.last-card {
+    margin-bottom: 0;
+}
+```
+
+</CodePreview>
+
+完成すると、次のようにカード一覧全体が中央に置かれます。
+
+<CodePreview
+    previewVisible={true}
+    htmlVisible={false}
+    cssVisible={false}
+>
+
+```html
+<div class="card-list">
+    <div class="card">チョコドーナツ</div>
+    <div class="card">カフェラテ</div>
+    <div class="card last-card">サンドイッチ</div>
+</div>
+```
+
+```css
+.card-list {
+    width: 320px;
+    margin: 0 auto;
+}
+
 .card {
     border: 2px solid #7a4b2a;
     padding: 16px;
@@ -585,11 +727,6 @@ p {
 
 </CodePreview>
 
-**目視チェック**:
-
-- [ ] カード一覧全体が中央に寄っている
-- [ ] `width` と `margin: 0 auto;` の両方を書いている
-
 </Solution>
 
 </Exercise>
@@ -602,25 +739,7 @@ p {
 
 この演習では、カード一覧は作りません。HTMLタグに最初から付いている余白を、自分で指定した `margin` に変える練習をします。
 
-**最初に確認すること**:
-
-- まず CSS を書かずに表示して、`h2` と `p` のまわりに最初から余白があることを確認する
-- そのあと CSS を書いて、余白が変わることを確認する
-
-**やること**:
-
-- `h2` の上側の余白を `0` にする
-- `h2` の下側の余白を `8px` にする
-- `p` の上側の余白を `0` にする
-- `p` の下側の余白を `24px` にする
-
-**成功条件**:
-
-- CSS を書く前に、`h2` と `p` のまわりに最初から余白があることを確認している
-- CSS を書いたあと、余白が変わったことを確認している
-- `h2` に `margin-top: 0;` と `margin-bottom: 8px;` がある
-- `p` に `margin-top: 0;` と `margin-bottom: 24px;` がある
-- `h2` と `p` の距離を、自分で指定した margin で調整できている
+まず CSS を書かずに表示して、`h2` と `p` のまわりに最初から余白があることを確認してください。そのあと、`h2` の上側の余白を `0`、下側の余白を `8px` にします。`p` の上側の余白を `0`、下側の余白を `24px` にします。
 
 <CodePreview
     share={false}
@@ -633,6 +752,33 @@ p {
 
 ```css
 /* ここに CSS を書いてください */
+```
+
+</CodePreview>
+
+完成すると、`h2` と `p` の余白を自分で指定した状態になります。
+
+<CodePreview
+    previewVisible={true}
+    htmlVisible={false}
+    cssVisible={false}
+>
+
+```html
+<h2>お知らせ</h2>
+<p>次回は小テストを行います。</p>
+```
+
+```css
+h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 24px;
+}
 ```
 
 </CodePreview>
@@ -660,14 +806,6 @@ p {
 
 </CodePreview>
 
-**目視チェック**:
-
-- [ ] CSS を書く前に、最初から余白があることを確認した
-- [ ] CSS を書いたあと、余白が変わったことを確認した
-- [ ] `h2` の上側の余白がなくなっている
-- [ ] `h2` と `p` のあいだが近すぎず、離れすぎていない
-- [ ] `p` の下側に 24px の余白がある
-
 </Solution>
 
 </Exercise>
@@ -678,18 +816,7 @@ p {
 
 カード同士の余白を変えて、見た目の印象を比べてください。
 
-**やること**:
-
-- `margin-bottom` を `8px` にして確認する
-- `margin-bottom` を `16px` にして確認する
-- `margin-bottom` を `32px` にして確認する
-- どの余白が読みやすいか、自分で選ぶ
-
-**成功条件**:
-
-- 3 つの値を実際に試している
-- 余白が小さすぎる場合、大きすぎる場合の見え方を比べている
-- 最後に、自分が読みやすいと思う値を選んでいる
+次のコードでは、カード同士の余白が `16px` になっています。`margin-bottom` を `8px`、`16px`、`32px` に変えて、それぞれの見え方を確認してください。最後に、自分が読みやすいと思う値を選びましょう。
 
 <CodePreview
     share={false}
@@ -741,11 +868,6 @@ p {
 - `16px`：ほどよく離れて見える
 - `32px`：カード同士がかなり離れて見える
 
-**目視チェック**:
-
-- [ ] 3 つの値を試した
-- [ ] 読みやすいと思う値を自分で選んだ
-
 </Solution>
 
 </Exercise>
@@ -756,19 +878,7 @@ p {
 
 余白の悪いカード一覧を、読みやすく直してください。
 
-次のコードは、カード同士の余白が小さすぎます。`margin-bottom` を直して、読みやすいカード一覧にしてください。
-
-**やること**:
-
-- `.card` の `margin-bottom` を読みやすい値に直す
-- 最後のカードだけ、下の余白をなくす
-- カード一覧全体を中央に置く
-
-**成功条件**:
-
-- カード同士が近すぎない
-- カード一覧が中央にある
-- 最後のカードの下に余計な余白がない
+次のコードは、カード同士の余白が小さすぎ、カード一覧も左に寄っています。`.card` の `margin-bottom` を読みやすい値に直し、最後のカードだけ下の余白をなくし、カード一覧全体を中央に置いてください。
 
 <CodePreview
     share={false}
@@ -795,6 +905,42 @@ p {
 }
 
 .last-card {
+}
+```
+
+</CodePreview>
+
+完成すると、カード同士に読みやすい余白があり、カード一覧全体が中央に置かれ、最後のカードの下に余計な余白がない状態になります。
+
+<CodePreview
+    previewVisible={true}
+    htmlVisible={false}
+    cssVisible={false}
+>
+
+```html
+<div class="card-list">
+    <div class="card">チョコドーナツ</div>
+    <div class="card">カフェラテ</div>
+    <div class="card last-card">サンドイッチ</div>
+</div>
+```
+
+```css
+.card-list {
+    width: 320px;
+    margin: 0 auto;
+}
+
+.card {
+    border: 2px solid #7a4b2a;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #fff7ed;
+}
+
+.last-card {
+    margin-bottom: 0;
 }
 ```
 
@@ -831,12 +977,6 @@ p {
 ```
 
 </CodePreview>
-
-**目視チェック**:
-
-- [ ] `.card-list` に `margin: 0 auto;` を追加した
-- [ ] `.card` の `margin-bottom` を読みやすい値にした
-- [ ] `.last-card` で最後の余白をなくした
 
 </Solution>
 
