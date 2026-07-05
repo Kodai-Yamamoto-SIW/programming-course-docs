@@ -110,31 +110,9 @@ authoringMode: tutorial
 
 <Section title="カード同士の間隔を作る" goal="下側の外側余白を作る `margin-bottom` を使えるようになる">
 
-カード同士のあいだを広げたいときは、`margin-bottom` を使います。
+前の例では、`padding` を指定してもカード同士のあいだは広がりませんでした。
 
-まず、`margin-bottom` を指定していない状態を見てみましょう。
-
-<CodePreview>
-
-```html
-<div class="card">チョコドーナツ</div>
-<div class="card">カフェラテ</div>
-<div class="card">サンドイッチ</div>
-```
-
-```css
-.card {
-    border: 2px solid #7a4b2a;
-    padding: 16px;
-    background-color: #fff7ed;
-}
-```
-
-</CodePreview>
-
-カード同士が近く、少し詰まって見えます。
-
-そこで、`.card` に `margin-bottom: 16px;` を追加します。
+カード同士のあいだを広げたいときは、`.card` に `margin-bottom` を指定します。
 
 <CodePreview>
 
