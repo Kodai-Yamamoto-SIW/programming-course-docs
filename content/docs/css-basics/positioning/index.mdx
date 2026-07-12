@@ -475,7 +475,6 @@ body {
 ### 演習1（固定ボタン）
 
 <Exercise>
-
 class="top" のついたボタンが、下のプレビューのような見た目になるように、CSSを書いてください。
 
 <CodePreview
@@ -510,7 +509,11 @@ class="top" のついたボタンが、下のプレビューのような見た�
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.top`・`#f7f7f7`・`#1976d2` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview
   sourceId="pos-ex1"
@@ -519,14 +522,12 @@ class="top" のついたボタンが、下のプレビューのような見た�
   previewVisible={true}
 />
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習1-発展（モーダルウィンドウ）
 
 <Exercise>
-
 .overlay と .modal が、下のプレビューのように画面中央に固定表示されるように、CSSを書いてください。
 .overlay は画面全体を覆う半透明の背景、.modal は白いボックスです。
 
@@ -579,7 +580,11 @@ class="top" のついたボタンが、下のプレビューのような見た�
 > **ヒント**
 > モーダルを画面中央に配置するには、`top`、`left` を `50%` に設定し、`transform: translate(-50%, -50%);` で要素の中心を基準点に合わせる方法を考えてみましょう。
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`top`・`left`・`50%` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview
   sourceId="pos-ex1-adv"
@@ -595,8 +600,7 @@ class="top" のついたボタンが、下のプレビューのような見た�
 - `.modal` も `position: fixed` で画面中央に固定します。
 - `top: 50%; left: 50%;` で左上を中央に配置し、`transform: translate(-50%, -50%);` でモーダル自体の中心を画面中央に合わせます。
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ---
@@ -655,7 +659,6 @@ class="top" のついたボタンが、下のプレビューのような見た�
 ### 演習2（stickyな見出し）
 
 <Exercise>
-
 h4.pin が、下のプレビューのようにスクロール時に上部へ貼り付くように、CSSを書いてください。  
 その際、メニューの背景が透けて下のテキストが見えないように設定してください。
 
@@ -698,7 +701,11 @@ h4.pin が、下のプレビューのようにスクロール時に上部へ貼�
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.hero`・`.pin`・`#667eea` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview
   sourceId="pos-ex2"
@@ -707,14 +714,12 @@ h4.pin が、下のプレビューのようにスクロール時に上部へ貼�
   previewVisible={true}
 />
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習2-発展1（stickyサイドバー）
 
 <Exercise>
-
 左カラムの aside.sidebar が、下のプレビューのように親コンテナ内で上部に貼り付くように、CSSを書いてください。
 
 <CodePreview
@@ -749,7 +754,11 @@ h4.pin が、下のプレビューのようにスクロール時に上部へ貼�
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.sidebar`・`#ddd`・`#ccc` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview
   sourceId="pos-ex2-adv"
@@ -758,14 +767,12 @@ h4.pin が、下のプレビューのようにスクロール時に上部へ貼�
   previewVisible={true}
 />
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習2-発展2（stickyヘッダー）
 
 <Exercise>
-
 header.head が、下のプレビューのようになるように CSS を書いてください（ヘッダーはスクロールで上部に貼り付く）。
 
 <CodePreview
@@ -798,7 +805,11 @@ header.head が、下のプレビューのようになるように CSS を書い
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.head`・`.page`・`#f7f7f7` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview
   sourceId="pos-ex2-adv-header"
@@ -807,14 +818,12 @@ header.head が、下のプレビューのようになるように CSS を書い
   previewVisible={true}
 />
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習2-発展3（複数stickyの積み重なり）
 
 <Exercise>
-
 h3.lv3 と h4.lv4 の見出しが、下のプレビューのように上下に積み重なって貼り付くように、CSSを書いてください。
 
 <CodePreview
@@ -853,7 +862,11 @@ h3.lv3 と h4.lv4 の見出しが、下のプレビューのように上下に�
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.lv3`・`.lv4`・`#fafafa` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview
   sourceId="pos-ex2-plus"
@@ -862,8 +875,7 @@ h3.lv3 と h4.lv4 の見出しが、下のプレビューのように上下に�
   previewVisible={true}
 />
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ---
@@ -925,7 +937,6 @@ h3.lv3 と h4.lv4 の見出しが、下のプレビューのように上下に�
 ### 演習3（absoluteで角に配置）
 
 <Exercise>
-
 span.tag のラベルが、下のプレビューのようにカード右上へ重なる見た目になるように、CSSを書いてください。
 
 <CodePreview
@@ -967,7 +978,11 @@ span.tag のラベルが、下のプレビューのようにカード右上へ�
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.card`・`.tag`・`#ccc` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview
   sourceId="pos-ex3"
@@ -976,14 +991,12 @@ span.tag のラベルが、下のプレビューのようにカード右上へ�
   previewVisible={true}
 />
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習3-発展（ツールチップ）
 
 <Exercise>
-
 btn クラスのついたボタンにカーソルを載せると、下のプレビューのように span.tooltip が表示されるように、CSSを書いてください。
 
 <CodePreview
@@ -1057,7 +1070,11 @@ btn クラスのついたボタンにカーソルを載せると、下のプレ�
 > `visibility` プロパティで、要素の「見える／見えない」を切り替えることができます。  
 > `visibility: hidden;` で非表示、`visibility: visible;` で表示されます。
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`bottom`・`%`・`bottom: 30%;` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview
   sourceId="pos-ex3-adv"
@@ -1074,8 +1091,7 @@ btn クラスのついたボタンにカーソルを載せると、下のプレ�
 - `margin-bottom: 6px` でボタンとの間に少しスペースを作ります。
 - ボタンにカーソルを載せたとき（`:hover`）だけ、内側のツールチップを `visibility: visible` で表示します。
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ---

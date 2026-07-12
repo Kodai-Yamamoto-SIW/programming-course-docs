@@ -215,7 +215,6 @@ body {
 ### 演習1（横並びのボタン）
 
 <Exercise>
-
 3つのボタンが横に並ぶようにCSSを書いてください。下のプレビューのような見た目になるようにしてください。
 
 <CodePreview
@@ -242,7 +241,11 @@ body {
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.btngroup`・`.btn`・`#1565c0` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview sourceId="flex-ex1" htmlVisible={true} cssVisible={true} />
 
@@ -251,8 +254,7 @@ body {
 - `.btngroup` に `display: flex;` を指定することで、直下の `.btn` 要素（`div`）が横並びになります。
 - `div` は通常 `display: block` なので縦に並びますが、親に `display: flex` を指定することで横並びになります。
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ---
@@ -325,7 +327,6 @@ body {
 ### 演習2（余白のあるカード）
 
 <Exercise>
-
 3つのカードが横に並び、カード間に余白が入るようにCSSを書いてください。下のプレビューのような見た目になるようにしてください。
 
 <CodePreview
@@ -355,7 +356,11 @@ body {
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.cardlist`・`.card`・`#ddd` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview sourceId="flex-ex2" htmlVisible={true} cssVisible={true} />
 
@@ -364,14 +369,12 @@ body {
 - `display: flex;` で横並びにし、`gap: 12px;` で要素間の余白を指定します。
 - `gap` を使うことで、各カードに個別に `margin` を指定する必要がなくなります。
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習2-発展（ナビゲーションメニュー）
 
 <Exercise>
-
 ナビゲーションメニューのリンクが横に並び、リンク間に余白が入るようにCSSを書いてください。下のプレビューのような見た目になるようにしてください。
 
 <CodePreview
@@ -396,7 +399,11 @@ body {
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.navi` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview sourceId="flex-ex2-adv" htmlVisible={true} cssVisible={true} />
 
@@ -405,8 +412,7 @@ body {
 - ナビゲーションメニューは、Flexboxを使った横並びレイアウトの典型的な例です。
 - `gap` を使うことで、リンク間の余白を統一できます。
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ---
@@ -530,7 +536,6 @@ body {
 ### 演習3（中央寄せのボタングループ）
 
 <Exercise>
-
 2つのボタンが中央に配置され、ボタン間に余白が入るようにCSSを書いてください。下のプレビューのような見た目になるようにしてください。
 
 <CodePreview
@@ -558,7 +563,11 @@ button {
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.btns`・`#388e3c` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview sourceId="flex-ex3" htmlVisible={true} cssVisible={true} />
 
@@ -567,14 +576,12 @@ button {
 - `justify-content: center;` で要素を中央に配置します。
 - `gap` で要素間の余白も指定しています。
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習3-発展1（ヘッダーの左右配置）
 
 <Exercise>
-
 ヘッダー内で、ロゴを左端に、ナビゲーションメニューを右端に配置してください。ナビゲーションメニューのリンクは横に並び、リンク間に余白が入るようにしてください。下のプレビューのような見た目になるようにしてください。
 
 <CodePreview
@@ -606,7 +613,11 @@ button {
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.head`・`.logo`・`.navi` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview sourceId="flex-ex3-adv" htmlVisible={true} cssVisible={true} />
 
@@ -615,14 +626,12 @@ button {
 - `justify-content: space-between;` で、最初の要素（ロゴ）を左端、最後の要素（ナビゲーション）を右端に配置します。
 - ヘッダーレイアウトの典型的なパターンです。
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習3-発展2（均等配置のアイコンメニュー）
 
 <Exercise>
-
 4つのアイコンが横に並び、すべての余白（左端・アイコン間・右端）が均等になるようにCSSを書いてください。下のプレビューのような見た目になるようにしてください。
 
 <CodePreview
@@ -647,7 +656,11 @@ button {
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.iconlist`・`.icon` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview sourceId="flex-ex3-adv2" htmlVisible={true} cssVisible={true} />
 
@@ -656,8 +669,7 @@ button {
 - `justify-content: space-evenly;` で、すべての余白を均等に配置します。
 - モバイルアプリのような下部ナビゲーションバーでよく使われるパターンです。
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ---
@@ -740,7 +752,6 @@ button {
 ### 演習4（折り返しのあるカードグリッド）
 
 <Exercise>
-
 商品カードが横に並び、親要素の幅に収まらない場合は次の行に折り返されるようにCSSを書いてください。カード間には余白を入れてください。下のプレビューのような見た目になるようにしてください。
 
 <CodePreview
@@ -774,7 +785,11 @@ button {
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.shohin`・`.card`・`#90caf9` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview sourceId="flex-ex4" htmlVisible={true} cssVisible={true} />
 
@@ -783,14 +798,12 @@ button {
 - `flex-wrap: wrap;` で要素が折り返されます。
 - 商品一覧やギャラリーなど、レスポンシブなグリッドレイアウトに最適です。
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習4-発展1（タグクラウド）
 
 <Exercise>
-
 タグが中央に配置され、横に並び、親要素の幅に収まらない場合は次の行に折り返されるようにCSSを書いてください。タグ間には余白を入れてください。下のプレビューのような見た目になるようにしてください。
 
 <CodePreview
@@ -825,7 +838,11 @@ button {
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.taglist`・`.tag`・`#2196f3` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview sourceId="flex-ex4-adv" htmlVisible={true} cssVisible={true} />
 
@@ -834,14 +851,12 @@ button {
 - `flex-wrap: wrap;` で折り返し、`justify-content: center;` で中央寄せにします。
 - タグクラウドやラベル一覧など、動的なコンテンツの表示に便利です。
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習4-発展2（レスポンシブな画像ギャラリー）
 
 <Exercise>
-
 画像が横に並び、親要素の幅に収まらない場合は次の行に折り返されるようにCSSを書いてください。画像間には余白を入れてください。下のプレビューのような見た目になるようにしてください。
 
 <CodePreview
@@ -877,7 +892,11 @@ button {
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.gazou`・`.photo`・`#999` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview sourceId="flex-ex4-adv2" htmlVisible={true} cssVisible={true} />
 
@@ -886,14 +905,12 @@ button {
 - `display: flex;` と `flex-wrap: wrap;` を組み合わせることで、画像ギャラリーのようなレスポンシブなグリッドレイアウトが作れます。
 - `gap` で画像間の余白を統一します。
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習4-発展3（カードレイアウトの完成形）
 
 <Exercise>
-
 カードが中央に配置され、横に並び、親要素の幅に収まらない場合は次の行に折り返されるようにCSSを書いてください。カード間には余白を入れてください。下のプレビューのような見た目になるようにしてください。
 
 <CodePreview
@@ -937,7 +954,11 @@ button {
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.cardoya`・`.card`・`#e0e0e0` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview sourceId="flex-ex4-adv3" htmlVisible={true} cssVisible={true} />
 
@@ -946,8 +967,7 @@ button {
 - `display: flex;` で横並び、`flex-wrap: wrap;` で折り返し、`gap: 20px;` で余白、`justify-content: center;` で中央寄せを実現します。
 - これらのプロパティを組み合わせることで、実用的なカードレイアウトが簡単に作れます。
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ---

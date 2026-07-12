@@ -1,6 +1,5 @@
 ---
 title: カードの間隔を整えよう
-authoringMode: tutorial
 ---
 
 前回は、`width`・`height`・`border`・`padding` を使って、1 枚の商品カードの見た目を作りました。
@@ -422,7 +421,6 @@ p {
 ### 演習1
 
 <Exercise>
-
 次の 3 枚のカードに、カード同士のあいだの余白を作ってください。
 
 いまはカード同士が近く、少し詰まって見えます。`.card` に `margin-bottom: 16px;` を追加して、カードとカードのあいだを空けましょう。`padding` ではなく、外側の余白である `margin-bottom` を使います。
@@ -472,7 +470,11 @@ p {
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.card`・`margin-bottom: 16px;`・`padding` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview>
 
@@ -493,14 +495,12 @@ p {
 
 </CodePreview>
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習2
 
 <Exercise>
-
 最後のカードだけ、下の余白をなくしてください。
 
 次のコードでは、3 枚目のカードの下にも `margin-bottom: 16px;` が残っているため、最後のカードと「ここから次の内容です」のあいだが少し空きすぎています。
@@ -571,7 +571,11 @@ p {
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`margin-bottom: 16px;`・`last-card`・`.last-card` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview>
 
@@ -603,14 +607,12 @@ p {
 
 </CodePreview>
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習3
 
 <Exercise>
-
 カード一覧全体を、ページの中央に置いてください。
 
 次のコードでは、`.card-list` に `width: 320px;` だけが指定されています。カード一覧の幅は 320px になっていますが、画面の左側に寄っています。
@@ -684,7 +686,11 @@ p {
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.card-list`・`width: 320px;`・`margin: 0 auto;` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview>
 
@@ -716,14 +722,12 @@ p {
 
 </CodePreview>
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習4
 
 <Exercise>
-
 `h2` と `p` の余白を、自分で指定してください。
 
 この演習では、カード一覧は作りません。HTMLタグに最初から付いている余白を、自分で指定した `margin` に変える練習をします。
@@ -786,7 +790,11 @@ p {
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`h2`・`p`・`margin` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview>
 
@@ -816,14 +824,12 @@ p {
 
 </CodePreview>
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習-発展1
 
 <Exercise>
-
 ミニメニュー表を完成させてください。
 
 次のコードでは、3つの商品カードが並んでいます。
@@ -983,7 +989,11 @@ p {
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.menu-list`・`width: 320px;`・`margin: 0 auto;` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview>
 
@@ -1058,14 +1068,12 @@ p {
 
 </CodePreview>
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習-発展2
 
 <Exercise>
-
 ミニメニュー表に、新商品を追加してください。
 
 演習-発展1では、3枚目の「サンドイッチ」が最後のカードでした。
@@ -1254,7 +1262,11 @@ p {
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`last-card`・`.menu-list`・`.menu-card` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview>
 
@@ -1336,14 +1348,12 @@ p {
 
 </CodePreview>
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習-発展3
 
 <Exercise>
-
 クーポン付きのメニュー表にしてください。
 
 最後に、メニュー表の下にクーポンを追加します。
@@ -1504,7 +1514,11 @@ p {
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`margin`・`.menu-page`・`width: 320px;` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview>
 
@@ -1602,8 +1616,7 @@ p {
 
 </CodePreview>
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 </Section>

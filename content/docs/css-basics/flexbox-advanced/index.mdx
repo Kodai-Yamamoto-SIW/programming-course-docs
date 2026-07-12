@@ -100,7 +100,6 @@ Flexbox の基本（`display: flex` / `gap` / `justify-content` / `flex-wrap`）
 ### 演習1（縦中央にそろえたヘッダー）
 
 <Exercise>
-
 ヘッダー内のロゴとメニューが**上下中央**にそろうようにCSSを書いてください。
 
 要件:
@@ -153,7 +152,11 @@ Flexbox の基本（`display: flex` / `gap` / `justify-content` / `flex-wrap`）
 
 ヒント: `align-items` で縦方向のそろえ方を指定します。
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.head`・`.logo`・`24px` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview sourceId="flex-adv-ex1" htmlVisible={true} cssVisible={true} />
 
@@ -163,14 +166,12 @@ Flexbox の基本（`display: flex` / `gap` / `justify-content` / `flex-wrap`）
 - `align-items: center;` でロゴとメニューを上下中央にそろえます。
 - 高さが異なる要素でも、縦方向の中央にそろえることができます。
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習1-発展（高さが違うカードのそろえ方）
 
 <Exercise>
-
 高さの違うカード 3 枚を横並びにし、**下そろえ**にしてください。
 
 要件:
@@ -224,7 +225,11 @@ Flexbox の基本（`display: flex` / `gap` / `justify-content` / `flex-wrap`）
 
 ヒント: 親要素に `align-items` を指定して、下そろえになる値を選びます。
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.cardlist`・`.tall`・`height: 140px;` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview sourceId="flex-adv-ex1-adv" htmlVisible={true} cssVisible={true} />
 
@@ -234,8 +239,7 @@ Flexbox の基本（`display: flex` / `gap` / `justify-content` / `flex-wrap`）
 - `align-items: flex-end;` で、カードの下辺をそろえます。
 - `stretch`（初期値）では高さがそろって伸びますが、`flex-end` では下辺だけがそろい、各カードの高さは保たれます。
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ---
@@ -309,7 +313,6 @@ B が A・C の 2 倍の幅になっていることを確認してください�
 ### 演習2（幅が 2:1 のレイアウト）
 
 <Exercise>
-
 左のメインコンテンツを右のサイドバーの**2 倍の幅**にしてください。
 
 要件:
@@ -352,7 +355,11 @@ B が A・C の 2 倍の幅になっていることを確認してください�
 
 ヒント: `.main` と `.side` に、それぞれ違う `flex` の値を指定します。
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.layout`・`.main`・`.side` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview sourceId="flex-adv-ex2" htmlVisible={true} cssVisible={true} />
 
@@ -362,14 +369,12 @@ B が A・C の 2 倍の幅になっていることを確認してください�
 - `.main { flex: 2; }`、`.side { flex: 1; }` とすることで、2:1 の幅になります。
 - `flex` の値の比率で、要素の幅が決まります。
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習2-発展1（ボタンの自動伸縮）
 
 <Exercise>
-
 3 つのボタンを横並びにし、**横幅いっぱいに伸ばして**、ボタンの幅を同じにしてください。
 
 要件:
@@ -407,7 +412,11 @@ button {
 
 ヒント: ボタンに `flex` を指定し、`gap` でボタン間の余白を作ります。
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.btns2`・`flex`・`gap` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview
   sourceId="flex-adv-ex2-adv1"
@@ -420,14 +429,12 @@ button {
 - `.btns2` に `display: flex;` と `gap: 12px;` を指定します。
 - `button { flex: 1; }` とすることで、3 つのボタンが同じ幅で横に広がり、親要素の幅いっぱいに伸びます。
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習2-発展2（強調カードを少し広くする）
 
 <Exercise>
-
 3 枚のカードのうち、**真ん中のカードだけ少し広く**してください。
 
 要件:
@@ -471,7 +478,11 @@ button {
 
 ヒント: 両端のカードと真ん中のカードで、`flex` の値を変えます。
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.cards2`・`flex`・`.card` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview
   sourceId="flex-adv-ex2-adv2"
@@ -485,8 +496,7 @@ button {
 - `.main { flex: 1.5; }` で、真ん中のカードだけ 1.5 倍の幅にします。
 - これにより、おすすめプランを強調できます。
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ---
@@ -588,7 +598,6 @@ button {
 ### 演習3（縦並びのメニューボックス）
 
 <Exercise>
-
 スマホ用メニューのように、リンクを**縦並び**にしてください。
 
 要件:
@@ -628,7 +637,11 @@ a {
 
 ヒント: `flex-direction` に縦方向の値を指定します。余白は `gap` を使うと簡単です。
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.menu`・`flex-direction`・`gap` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview sourceId="flex-adv-ex3" htmlVisible={true} cssVisible={true} />
 
@@ -638,14 +651,12 @@ a {
 - `flex-direction: column;` で、横並びの初期値（row）を縦並びに変更します。
 - `gap` でリンク同士の間隔を統一できます。
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習3-発展1（横並びと縦並びのカード配置）
 
 <Exercise>
-
 カードを**横並び**と**縦並び**の2パターンで作ってください。
 
 要件:
@@ -701,7 +712,11 @@ a {
 
 ヒント: `.pc` と `.sp` で `flex-direction` の値を変えます。
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.cards3`・`.pc`・`.sp` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview
   sourceId="flex-adv-ex3-adv1"
@@ -715,14 +730,12 @@ a {
 - `.pc` では `flex-direction: row;`（横並び）、`.sp` では `flex-direction: column;`（縦並び）として、レイアウトの向きを切り替えます。
 - 実際のレスポンシブ対応では、メディアクエリを使って画面幅に応じて自動的に切り替えます（詳細は別ページで学習します）。
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習3-発展2（flex-direction と align-items の組み合わせ）
 
 <Exercise>
-
 アイコンとテキストをまとめた「メニュー項目」を 3 つ作り、**縦並び**かつ、アイコンとテキストを**横並び上下中央揃え**にしてください。
 
 要件:
@@ -774,7 +787,11 @@ a {
 - `.nav` では `flex-direction` を縦にします。
 - `.item` の中でも Flexbox を使い、アイコンとテキストを**横並び上下中央揃え**にします。
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`.nav`・`.item`・`flex-direction` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 <CodePreview
   sourceId="flex-adv-ex3-adv2"
@@ -788,8 +805,7 @@ a {
 - `.item` の中でも `display: flex; align-items: center;` を使い、アイコンとテキストを横並びかつ上下中央にそろえます。
 - Flexbox は入れ子にすることで、複雑なレイアウトを実現できます。
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ---

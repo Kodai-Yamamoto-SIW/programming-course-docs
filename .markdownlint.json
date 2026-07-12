@@ -7,7 +7,9 @@
     "MD033": {
         "allowed_elements": [
             "Exercise",
-            "Solution",
+            "Hint",
+            "Answer",
+            "QuickCheck",
             "CodePreview",
             "DownloadLink",
             "Section",
@@ -46,6 +48,7 @@
             "body",
             "html",
             "Verify",
+            "Recovery",
             "Checkpoint"
         ]
     },

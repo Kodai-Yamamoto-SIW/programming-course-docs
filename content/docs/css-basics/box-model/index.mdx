@@ -1,6 +1,5 @@
 ---
 title: カードを作ろう
-authoringMode: tutorial
 ---
 
 <Prerequisites>
@@ -480,7 +479,6 @@ padding: 8px;
 ### 演習1
 
 <Exercise>
-
 ここまで作ってきたカードに、「おすすめ」の目印を追加して完成させます。
 
 今の HTML は、次のようになっているはずです。
@@ -554,7 +552,11 @@ padding: 8px;
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`<p>`・`class="shirushi"`・`.waku` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 完成コードは次のようになります。
 
@@ -566,14 +568,12 @@ padding: 8px;
 - [ ] 「180円」だけに `.nedan` のスタイルが効いている
 - [ ] カード全体に `.waku` の枠・余白・背景色が残っている
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習2
 
 <Exercise>
-
 同じ class を使って、2枚目の商品カードも作ります。
 
 今あるカードの下に、次の HTML を追加してください。
@@ -650,7 +650,11 @@ padding: 8px;
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`<div>`・`class="waku"`・`<p>` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 完成コードは次のようになります。
 
@@ -663,14 +667,12 @@ padding: 8px;
 - [ ] 「250円」だけに `.nedan` のスタイルが効いている
 - [ ] 1枚目と2枚目で、同じ class 名を使い回せている
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習3
 
 <Exercise>
-
 次のコードには、class名のミスが1か所あります。
 
 「おすすめ」に目印のスタイルが効くように、HTML側の class名を直してください。
@@ -746,7 +748,11 @@ padding: 8px;
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`class="sirushi"`・`.shirushi`・`.waku` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 `class="sirushi"` は、CSS側の `.shirushi` と名前が違います。
 
@@ -760,14 +766,12 @@ HTML側を `class="shirushi"` に直します。
 - [ ] CSS側が `.shirushi` になっている
 - [ ] HTML側とCSS側の名前が完全に一致している
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習-発展1
 
 <Exercise>
-
 3枚目の商品カードを追加して、線の種類が違う目印を作ります。
 
 演習2で作った2枚のカードの下に、次の HTML を追加してください。
@@ -866,7 +870,11 @@ HTML側を `class="shirushi"` に直します。
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`<div>`・`class="waku"`・`<p>` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 完成コードは次のようになります。
 
@@ -879,14 +887,12 @@ HTML側を `class="shirushi"` に直します。
 - [ ] `.gentei` の枠線が破線になっている
 - [ ] 「220円」だけに `.nedan` のスタイルが効いている
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 ### 演習-発展2
 
 <Exercise>
-
 1枚目の商品カードの中に、「おすすめポイント」の小さい箱を作ります。
 
 カードを増やすのではなく、**カードの中にもう1つ箱を作る**練習です。
@@ -997,7 +1003,11 @@ HTML側を `class="shirushi"` に直します。
 
 </CodePreview>
 
-<Solution>
+<Hint>
+コードを書く前に、問題文のHTMLで指定を当てたい要素を先に確認しましょう。`<div class="point">`・`<p>`・`<p class="nedan">` は、対象を決めたあとに必要なタグ・セレクタ・値として入れると迷いにくくなります。
+</Hint>
+
+<Answer>
 
 完成コードは次のようになります。
 
@@ -1010,8 +1020,7 @@ HTML側を `class="shirushi"` に直します。
 - [ ] `.point` は `.waku` の中に入っている
 - [ ] `.waku` の高さが `360px` になっている
 
-</Solution>
-
+</Answer>
 </Exercise>
 
 </Section>
