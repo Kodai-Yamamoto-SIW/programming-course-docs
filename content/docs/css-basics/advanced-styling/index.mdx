@@ -15,7 +15,7 @@ title: デザインカンプからHTMLとCSSを書こう
 >
 
 ```html
-<header class="header">
+<header class="top">
     <p class="label">AFTER SCHOOL EVENT</p>
     <h1 class="title">放課後ゲーム交流会</h1>
     <p class="lead">
@@ -23,7 +23,7 @@ title: デザインカンプからHTMLとCSSを書こう
     </p>
 </header>
 
-<main class="main">
+<main class="content">
     <section class="box">
         <h2 class="subtitle">イベントについて</h2>
         <p>初めて参加する人も歓迎です。</p>
@@ -52,7 +52,7 @@ title: デザインカンプからHTMLとCSSを書こう
     </section>
 </main>
 
-<footer class="footer">
+<footer class="bottom">
     <p class="copy">Programming School Event</p>
 </footer>
 ```
@@ -65,7 +65,7 @@ body {
     line-height: 1.7;
 }
 
-.header {
+.top {
     background-color: navy;
     color: white;
     padding: 32px;
@@ -86,7 +86,7 @@ body {
     margin: 0;
 }
 
-.main {
+.content {
     width: 600px;
     margin: 32px auto;
 }
@@ -108,7 +108,7 @@ body {
     line-height: 2;
 }
 
-.footer {
+.bottom {
     background-color: lightsteelblue;
     color: darkslategray;
     padding: 16px;
@@ -131,14 +131,15 @@ body {
 
 完成見本のHTMLのみを書いてください。CSSはまだ書かないでください。
 
+手順1〜3では、まだ文章のテキストは書かないでください。まずHTMLの構造だけを作ります。
+
 ### 1. HTMLの基本構造を書く
 
-`index.html`を作り、次の内容を書いてください。
+`index.html`を作り、以下の要素を使ってHTMLの基本構造を書いてください。
 
 - `<!DOCTYPE html>`
 - `html`
 - `head`
-- `meta`
 - `title`
 - `body`
 
@@ -159,7 +160,7 @@ body {
 
 ### 4. 見出しや文章を書く
 
-プレビュー内の文章をコピーし、内容に合ったHTML要素を使ってください。
+プレビュー内の文章をコピーし、内容に合ったHTML要素を使ってマークアップしてください。
 
 - ページ全体の見出し：`h1`（1ページに1つを推奨）
 - 各まとまりの見出し：`h2`
@@ -207,9 +208,8 @@ body {
 
 ```html
 <!DOCTYPE html>
-<html lang="ja">
+<html>
     <head>
-        <meta charset="UTF-8">
         <title>放課後ゲーム交流会</title>
     </head>
     <body>
@@ -290,7 +290,7 @@ body {
 
 次のクラス名を使ってください。
 
-- `header`：ヘッダー全体
+- `top`：ヘッダー全体
 - `label`：ヘッダー上部の英字
 - `title`：ページ全体の見出し
 - `lead`：見出しの下にある文章
@@ -300,7 +300,7 @@ body {
 次の順番でCSSを書いてください。
 
 1. `body`
-2. `.header`
+2. `.top`
 3. `.label`
 4. `.title`
 5. `.lead`
@@ -317,7 +317,7 @@ body {
 HTMLには、次のようにクラスを付けます。
 
 ```html
-<header class="header">
+<header class="top">
     <p class="label">AFTER SCHOOL EVENT</p>
     <h1 class="title">放課後ゲーム交流会</h1>
     <p class="lead">
@@ -332,7 +332,7 @@ CSSは、次の大きな部分から順に書いてください。
 body {
 }
 
-.header {
+.top {
 }
 
 .label {
@@ -357,14 +357,13 @@ body {
 
 ```html
 <!DOCTYPE html>
-<html lang="ja">
+<html>
     <head>
-        <meta charset="UTF-8">
         <title>放課後ゲーム交流会</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <header class="header">
+        <header class="top">
             <p class="label">AFTER SCHOOL EVENT</p>
             <h1 class="title">放課後ゲーム交流会</h1>
             <p class="lead">
@@ -416,7 +415,7 @@ body {
     line-height: 1.7;
 }
 
-.header {
+.top {
     background-color: navy;
     color: white;
     padding: 32px;
@@ -454,7 +453,7 @@ body {
 
 ### 1. メイン部分にクラスを付ける
 
-`main`に`main`クラスを付けてください。
+`main`に`content`クラスを付けてください。
 
 完成見本を確認し、メイン部分の幅、位置、上下の間隔を整えてください。
 
@@ -468,7 +467,7 @@ body {
 
 ### 3. メイン部分のCSSを書く
 
-`.main`を書いた後に、`.box`を書いてください。
+`.content`を書いた後に、`.box`を書いてください。
 
 完成見本を確認し、次の部分を整えてください。
 
@@ -483,7 +482,7 @@ body {
 HTMLには、次のようにクラスを付けます。
 
 ```html
-<main class="main">
+<main class="content">
     <section class="box">
     </section>
 
@@ -509,14 +508,13 @@ HTMLには、次のようにクラスを付けます。
 
 ```html
 <!DOCTYPE html>
-<html lang="ja">
+<html>
     <head>
-        <meta charset="UTF-8">
         <title>放課後ゲーム交流会</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <header class="header">
+        <header class="top">
             <p class="label">AFTER SCHOOL EVENT</p>
             <h1 class="title">放課後ゲーム交流会</h1>
             <p class="lead">
@@ -524,7 +522,7 @@ HTMLには、次のようにクラスを付けます。
             </p>
         </header>
 
-        <main class="main">
+        <main class="content">
             <section class="box">
                 <h2>イベントについて</h2>
                 <p>初めて参加する人も歓迎です。</p>
@@ -568,7 +566,7 @@ body {
     line-height: 1.7;
 }
 
-.header {
+.top {
     background-color: navy;
     color: white;
     padding: 32px;
@@ -589,7 +587,7 @@ body {
     margin: 0;
 }
 
-.main {
+.content {
     width: 600px;
     margin: 32px auto;
 }
@@ -626,7 +624,7 @@ body {
 
 次のクラス名を使ってください。
 
-- `footer`：フッター全体
+- `bottom`：フッター全体
 - `copy`：フッター内の文章
 
 ### 3. 見出しとフッターのCSSを書く
@@ -635,7 +633,7 @@ body {
 
 1. `.subtitle`
 2. `.list`
-3. `.footer`
+3. `.bottom`
 4. `.copy`
 
 CSSは、外側から内側へ、ページの上から下へ、大きな部分から細かい部分へ書くと進めやすくなります。
@@ -655,7 +653,7 @@ CSSは、外側から内側へ、ページの上から下へ、大きな部分�
 フッターには、次のようにクラスを付けます。
 
 ```html
-<footer class="footer">
+<footer class="bottom">
     <p class="copy">Programming School Event</p>
 </footer>
 ```
@@ -674,14 +672,13 @@ CSSは、外側から内側へ、ページの上から下へ、大きな部分�
 
 ```html
 <!DOCTYPE html>
-<html lang="ja">
+<html>
     <head>
-        <meta charset="UTF-8">
         <title>放課後ゲーム交流会</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <header class="header">
+        <header class="top">
             <p class="label">AFTER SCHOOL EVENT</p>
             <h1 class="title">放課後ゲーム交流会</h1>
             <p class="lead">
@@ -689,7 +686,7 @@ CSSは、外側から内側へ、ページの上から下へ、大きな部分�
             </p>
         </header>
 
-        <main class="main">
+        <main class="content">
             <section class="box">
                 <h2 class="subtitle">イベントについて</h2>
                 <p>初めて参加する人も歓迎です。</p>
@@ -718,7 +715,7 @@ CSSは、外側から内側へ、ページの上から下へ、大きな部分�
             </section>
         </main>
 
-        <footer class="footer">
+        <footer class="bottom">
             <p class="copy">Programming School Event</p>
         </footer>
     </body>
@@ -733,7 +730,7 @@ body {
     line-height: 1.7;
 }
 
-.header {
+.top {
     background-color: navy;
     color: white;
     padding: 32px;
@@ -754,7 +751,7 @@ body {
     margin: 0;
 }
 
-.main {
+.content {
     width: 600px;
     margin: 32px auto;
 }
@@ -776,7 +773,7 @@ body {
     line-height: 2;
 }
 
-.footer {
+.bottom {
     background-color: lightsteelblue;
     color: darkslategray;
     padding: 16px;
@@ -810,13 +807,13 @@ body {
 >
 
 ```html
-<header class="header">
+<header class="top">
     <p class="label">WEEKEND THEATER</p>
     <h1 class="title">週末ミニシアター</h1>
     <p class="lead">教室で短編映画を楽しむ、週末限定の上映会です。</p>
 </header>
 
-<main class="main">
+<main class="content">
     <section class="box">
         <h2 class="subtitle">上映会について</h2>
         <p>
@@ -851,7 +848,7 @@ body {
     </section>
 </main>
 
-<footer class="footer">
+<footer class="bottom">
     <p class="copy">Weekend Theater Club</p>
 </footer>
 ```
@@ -864,7 +861,7 @@ body {
     line-height: 1.7;
 }
 
-.header {
+.top {
     background-color: darkred;
     color: white;
     padding: 32px;
@@ -885,7 +882,7 @@ body {
     margin: 0;
 }
 
-.main {
+.content {
     width: 620px;
     margin: 32px auto;
 }
@@ -921,7 +918,7 @@ body {
     font-size: 20px;
 }
 
-.footer {
+.bottom {
     background-color: wheat;
     padding: 16px;
     text-align: center;
@@ -1010,14 +1007,13 @@ CSSは、`.movie`を先に書き、`.pick`を後に書きます。
 
 ```html
 <!DOCTYPE html>
-<html lang="ja">
+<html>
     <head>
-        <meta charset="UTF-8">
         <title>週末ミニシアター</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <header class="header">
+        <header class="top">
             <p class="label">WEEKEND THEATER</p>
             <h1 class="title">週末ミニシアター</h1>
             <p class="lead">
@@ -1025,7 +1021,7 @@ CSSは、`.movie`を先に書き、`.pick`を後に書きます。
             </p>
         </header>
 
-        <main class="main">
+        <main class="content">
             <section class="box">
                 <h2 class="subtitle">上映会について</h2>
                 <p>
@@ -1064,7 +1060,7 @@ CSSは、`.movie`を先に書き、`.pick`を後に書きます。
             </section>
         </main>
 
-        <footer class="footer">
+        <footer class="bottom">
             <p class="copy">Weekend Theater Club</p>
         </footer>
     </body>
@@ -1079,7 +1075,7 @@ body {
     line-height: 1.7;
 }
 
-.header {
+.top {
     background-color: darkred;
     color: white;
     padding: 32px;
@@ -1100,7 +1096,7 @@ body {
     margin: 0;
 }
 
-.main {
+.content {
     width: 620px;
     margin: 32px auto;
 }
@@ -1136,7 +1132,7 @@ body {
     font-size: 20px;
 }
 
-.footer {
+.bottom {
     background-color: wheat;
     padding: 16px;
     text-align: center;
