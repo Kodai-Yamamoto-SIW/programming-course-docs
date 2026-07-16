@@ -36,7 +36,7 @@ title: デザインカンプからHTMLとCSSを書こう
     <section class="box">
         <h2 class="subtitle">開催情報</h2>
         <p>次の日時と場所で開催します。</p>
-        <ul class="list">
+        <ul>
             <li>日時：7月24日（金）16:30〜18:00</li>
             <li>場所：2号館 203教室</li>
             <li>参加費：無料</li>
@@ -103,10 +103,6 @@ body {
     margin-top: 0;
     color: navy;
     font-size: 22px;
-}
-
-.list {
-    line-height: 2;
 }
 
 .bottom {
@@ -653,8 +649,6 @@ body {
 
 3つの`h2`すべてに`subtitle`クラスを付けてください。
 
-開催情報の`ul`には`list`クラスを付けてください。
-
 ### 2. フッターにクラスを付ける
 
 次のクラス名を使ってください。
@@ -667,9 +661,8 @@ body {
 次の順番でCSSを書いてください。
 
 1. `.subtitle`
-2. `.list`
-3. `.bottom`
-4. `.copy`
+2. `.bottom`
+3. `.copy`
 
 CSSは、外側から内側へ、ページの上から下へ、大きな部分から細かい部分へ書くと進めやすくなります。
 
@@ -733,7 +726,7 @@ CSSは、外側から内側へ、ページの上から下へ、大きな部分�
             <section class="box">
                 <h2 class="subtitle">開催情報</h2>
                 <p>次の日時と場所で開催します。</p>
-                <ul class="list">
+                <ul>
                     <li>日時：7月24日（金）16:30〜18:00</li>
                     <li>場所：2号館 203教室</li>
                     <li>参加費：無料</li>
@@ -802,10 +795,6 @@ body {
     margin-top: 0;
     color: navy;
     font-size: 22px;
-}
-
-.list {
-    line-height: 2;
 }
 
 .bottom {
