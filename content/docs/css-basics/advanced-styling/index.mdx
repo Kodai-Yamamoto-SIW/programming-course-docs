@@ -1,68 +1,1157 @@
-import advancedStylingCompleteZipUrl from './assets/advanced-styling-complete.zip';
-
-# 発展スタイリング
-
-## 前提
-
-この授業では、[スタイリング](../css-styling-basics/index.mdx) で作成したHTML・CSSに対して、さらにスタイリングを**追加**していきます。
-
+---
+title: デザインカンプからHTMLとCSSを書こう
 ---
 
-## 今回のゴール
+文章は、下記のプレビュー内からコピーして使ってください。
 
-- CSSでスタイリングを行い、**Figmaで作成したデザイン**（[Figmaデザインはこちら](https://www.figma.com/design/ZiOoQg0bRrdeAvOQiyBgO3/CSS-Advanced-Styling?node-id=0-1&t=pYxbhnfwFKjmReb7-1)）を忠実に再現して下さい。
-- CSSは、既存の記述を変更・削除せず、追記のみで対応する。
-- HTMLは、既存の構造・テキストは変更せず、class/id の追加のみ可。
+色や間隔、配置などは、カンプと完全に同じでなくても、だいたい同じ見た目になっていればOKです。
 
----
+## 完成見本
 
-:::note
-
-**補足**
-HTMLを修正するときは、既存の構造・テキストはそのままに、class/id の追加のみ行ってください。
-
-:::
-
----
-
-## 追加するCSSのプロパティ一覧
-
-- `margin`
-- `padding`
-- `border`
-- `width`
-- `height`
-- `font-size`
-- `text-align`
-- `line-height`
-
-:::note
-
-**補足**
-`margin`、`padding`、`border` については、`margin-left` や `padding-top`、`border-bottom` のように、特定の方向だけ指定する方法もあります。必要に応じて使ってみても構いません。
-
-:::
-
----
-
-## 追加のポイント
-
-- **HTMLは、既存の構造・テキストは変更せず、class/id の追加のみ可。**
-- **CSSは、既存の記述を変更・削除せず、追記のみで対応する。**
-- ピンポイントで装飾したい個所には、**クラス名やIDをHTMLに追加**しましょう。
-- 追加したクラスやIDに対して、上記のプロパティだけを使って**Figmaデザインの特徴を再現**してください。
-
----
-
-## 📥 完成例のダウンロード
-
-授業終了時点での完成例ファイルをダウンロードできます：
-
-<DownloadLink
-  file={advancedStylingCompleteZipUrl}
-  filename="advanced-styling-complete.zip"
+<CodePreview
+  htmlVisible={false}
+  cssVisible={false}
+  previewVisible
 >
-  advanced-styling-complete.zip
-</DownloadLink>
+
+```html
+<header class="header">
+    <p class="label">AFTER SCHOOL EVENT</p>
+    <h1 class="title">放課後ゲーム交流会</h1>
+    <p class="lead">
+        好きなゲームを持ち寄って、みんなで遊ぶ交流イベントです。
+    </p>
+</header>
+
+<main class="main">
+    <section class="box">
+        <h2 class="subtitle">イベントについて</h2>
+        <p>初めて参加する人も歓迎です。</p>
+        <p>
+            ボードゲームやカードゲームを遊びながら、学年を越えて交流します。
+        </p>
+    </section>
+
+    <section class="box">
+        <h2 class="subtitle">開催情報</h2>
+        <p>次の日時と場所で開催します。</p>
+        <ul class="list">
+            <li>日時：7月24日（金）16:30〜18:00</li>
+            <li>場所：2号館 203教室</li>
+            <li>参加費：無料</li>
+            <li>持ち物：筆記用具</li>
+        </ul>
+    </section>
+
+    <section class="box">
+        <h2 class="subtitle">参加方法</h2>
+        <p>
+            参加を希望する人は、当日の16:20までに会場へ来てください。
+        </p>
+        <p>事前の申し込みは必要ありません。</p>
+    </section>
+</main>
+
+<footer class="footer">
+    <p class="copy">Programming School Event</p>
+</footer>
+```
+
+```css
+body {
+    margin: 0;
+    background-color: aliceblue;
+    color: darkslategray;
+    line-height: 1.7;
+}
+
+.header {
+    background-color: navy;
+    color: white;
+    padding: 32px;
+    text-align: center;
+}
+
+.label {
+    margin: 0;
+    font-size: 14px;
+}
+
+.title {
+    margin: 8px 0;
+    font-size: 32px;
+}
+
+.lead {
+    margin: 0;
+}
+
+.main {
+    width: 600px;
+    margin: 32px auto;
+}
+
+.box {
+    margin-bottom: 24px;
+    border: 2px solid steelblue;
+    padding: 24px;
+    background-color: white;
+}
+
+.subtitle {
+    margin-top: 0;
+    color: navy;
+    font-size: 22px;
+}
+
+.list {
+    line-height: 2;
+}
+
+.footer {
+    background-color: lightsteelblue;
+    color: darkslategray;
+    padding: 16px;
+    text-align: center;
+}
+
+.copy {
+    margin: 0;
+    font-size: 12px;
+}
+```
+
+</CodePreview>
 
 ---
+
+## 演習1：HTMLを書こう
+
+<Exercise>
+
+完成見本のHTMLのみを書いてください。CSSはまだ書かないでください。
+
+### 1. HTMLの基本構造を書く
+
+`index.html`を作り、次の内容を書いてください。
+
+- `<!DOCTYPE html>`
+- `html`
+- `head`
+- `meta`
+- `title`
+- `body`
+
+### 2. ページを大きく3つに分ける
+
+`body`の中を、次の3つの要素に分けてください。
+
+- ページ上部：`header`
+- ページの中心となる内容：`main`
+- ページ下部：`footer`
+
+### 3. 内容のまとまりを作る
+
+`main`の中を、内容のまとまりごとに分けてください。
+
+見出しがあるまとまりには`section`を使います。  
+見出しがないまとまりには`div`を使います。
+
+### 4. 見出しや文章を書く
+
+プレビュー内の文章をコピーし、内容に合ったHTML要素を使ってください。
+
+- ページ全体の見出し：`h1`（1ページに1つを推奨）
+- 各まとまりの見出し：`h2`
+- 文章：`p`
+- 項目の一覧：`ul`と`li`
+
+<Hint>
+
+まず、`body`の中を次の形に分けてください。
+
+```html
+<body>
+    <header>
+    </header>
+
+    <main>
+        <section>
+        </section>
+
+        <section>
+        </section>
+
+        <section>
+        </section>
+    </main>
+
+    <footer>
+    </footer>
+</body>
+```
+
+その後、それぞれの中に見出し、文章、一覧を追加してください。
+
+</Hint>
+
+<Answer>
+
+完成したHTMLは次のとおりです。
+
+<CodePreview
+  htmlVisible
+  cssVisible={false}
+  previewVisible
+>
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>放課後ゲーム交流会</title>
+    </head>
+    <body>
+        <header>
+            <p>AFTER SCHOOL EVENT</p>
+            <h1>放課後ゲーム交流会</h1>
+            <p>
+                好きなゲームを持ち寄って、みんなで遊ぶ交流イベントです。
+            </p>
+        </header>
+
+        <main>
+            <section>
+                <h2>イベントについて</h2>
+                <p>初めて参加する人も歓迎です。</p>
+                <p>
+                    ボードゲームやカードゲームを遊びながら、学年を越えて交流します。
+                </p>
+            </section>
+
+            <section>
+                <h2>開催情報</h2>
+                <p>次の日時と場所で開催します。</p>
+                <ul>
+                    <li>日時：7月24日（金）16:30〜18:00</li>
+                    <li>場所：2号館 203教室</li>
+                    <li>参加費：無料</li>
+                    <li>持ち物：筆記用具</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>参加方法</h2>
+                <p>
+                    参加を希望する人は、当日の16:20までに会場へ来てください。
+                </p>
+                <p>事前の申し込みは必要ありません。</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>Programming School Event</p>
+        </footer>
+    </body>
+</html>
+```
+
+```css
+```
+
+</CodePreview>
+
+</Answer>
+
+</Exercise>
+
+---
+
+## 演習2：ページ全体とヘッダーを整えよう
+
+<Exercise>
+
+`style.css`を作り、ページ全体とヘッダーの見た目を整えてください。
+
+実務では、ページ全体に共通する基本設定を除き、特定の見た目を付けるときはクラスを使うことが一般的です。
+
+今回も、`body`の基本設定以外は、要素にクラスを付けてCSSを指定してください。
+
+クラスを使うと、一部の要素にだけ特定のスタイルを適用したり、複数の要素に同じスタイルを適用することが楽にできます。
+
+色は、`red`や`blue`などのカラーネームで指定してください。
+
+### 1. CSSを読み込む
+
+`head`の中で`style.css`を読み込んでください。
+
+### 2. ヘッダーにクラスを付ける
+
+次のクラス名を使ってください。
+
+- `header`：ヘッダー全体
+- `label`：ヘッダー上部の英字
+- `title`：ページ全体の見出し
+- `lead`：見出しの下にある文章
+
+### 3. ページ全体とヘッダーのCSSを書く
+
+次の順番でCSSを書いてください。
+
+1. `body`
+2. `.header`
+3. `.label`
+4. `.title`
+5. `.lead`
+
+完成見本を確認し、次の部分を整えてください。
+
+- ページ全体の背景色、文字色、行間
+- ヘッダーの背景色、文字色、内側の余白
+- ヘッダー内の文字の配置
+- 英字、見出し、文章の文字サイズと余白
+
+<Hint>
+
+HTMLには、次のようにクラスを付けます。
+
+```html
+<header class="header">
+    <p class="label">AFTER SCHOOL EVENT</p>
+    <h1 class="title">放課後ゲーム交流会</h1>
+    <p class="lead">
+        好きなゲームを持ち寄って、みんなで遊ぶ交流イベントです。
+    </p>
+</header>
+```
+
+CSSは、次の大きな部分から順に書いてください。
+
+```css
+body {
+}
+
+.header {
+}
+
+.label {
+}
+
+.title {
+}
+
+.lead {
+}
+```
+
+</Hint>
+
+<Answer>
+
+<CodePreview
+  htmlVisible
+  cssVisible
+  previewVisible
+>
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>放課後ゲーム交流会</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header class="header">
+            <p class="label">AFTER SCHOOL EVENT</p>
+            <h1 class="title">放課後ゲーム交流会</h1>
+            <p class="lead">
+                好きなゲームを持ち寄って、みんなで遊ぶ交流イベントです。
+            </p>
+        </header>
+
+        <main>
+            <section>
+                <h2>イベントについて</h2>
+                <p>初めて参加する人も歓迎です。</p>
+                <p>
+                    ボードゲームやカードゲームを遊びながら、学年を越えて交流します。
+                </p>
+            </section>
+
+            <section>
+                <h2>開催情報</h2>
+                <p>次の日時と場所で開催します。</p>
+                <ul>
+                    <li>日時：7月24日（金）16:30〜18:00</li>
+                    <li>場所：2号館 203教室</li>
+                    <li>参加費：無料</li>
+                    <li>持ち物：筆記用具</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>参加方法</h2>
+                <p>
+                    参加を希望する人は、当日の16:20までに会場へ来てください。
+                </p>
+                <p>事前の申し込みは必要ありません。</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>Programming School Event</p>
+        </footer>
+    </body>
+</html>
+```
+
+```css
+body {
+    margin: 0;
+    background-color: aliceblue;
+    color: darkslategray;
+    line-height: 1.7;
+}
+
+.header {
+    background-color: navy;
+    color: white;
+    padding: 32px;
+    text-align: center;
+}
+
+.label {
+    margin: 0;
+    font-size: 14px;
+}
+
+.title {
+    margin: 8px 0;
+    font-size: 32px;
+}
+
+.lead {
+    margin: 0;
+}
+```
+
+</CodePreview>
+
+</Answer>
+
+</Exercise>
+
+---
+
+## 演習3：メイン部分を整えよう
+
+<Exercise>
+
+メイン部分にクラスを付け、3つの内容を同じデザインの箱にしてください。
+
+### 1. メイン部分にクラスを付ける
+
+`main`に`main`クラスを付けてください。
+
+完成見本を確認し、メイン部分の幅、位置、上下の間隔を整えてください。
+
+### 2. 同じ見た目の要素を探す
+
+「イベントについて」「開催情報」「参加方法」の3つは、同じ見た目の箱になっています。
+
+3つの`section`すべてに`box`クラスを付けてください。
+
+同じ見た目の要素に同じクラスを付けると、1つのCSSでまとめて見た目を変更できます。
+
+### 3. メイン部分のCSSを書く
+
+`.main`を書いた後に、`.box`を書いてください。
+
+完成見本を確認し、次の部分を整えてください。
+
+- メイン部分の幅と左右の位置
+- 箱の背景色
+- 箱の枠線
+- 箱の内側の余白
+- 箱同士の間隔
+
+<Hint>
+
+HTMLには、次のようにクラスを付けます。
+
+```html
+<main class="main">
+    <section class="box">
+    </section>
+
+    <section class="box">
+    </section>
+
+    <section class="box">
+    </section>
+</main>
+```
+
+幅を指定した要素を左右中央に配置するときは、`width`と`margin: 0 auto;`を組み合わせます。
+
+</Hint>
+
+<Answer>
+
+<CodePreview
+  htmlVisible
+  cssVisible
+  previewVisible
+>
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>放課後ゲーム交流会</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header class="header">
+            <p class="label">AFTER SCHOOL EVENT</p>
+            <h1 class="title">放課後ゲーム交流会</h1>
+            <p class="lead">
+                好きなゲームを持ち寄って、みんなで遊ぶ交流イベントです。
+            </p>
+        </header>
+
+        <main class="main">
+            <section class="box">
+                <h2>イベントについて</h2>
+                <p>初めて参加する人も歓迎です。</p>
+                <p>
+                    ボードゲームやカードゲームを遊びながら、学年を越えて交流します。
+                </p>
+            </section>
+
+            <section class="box">
+                <h2>開催情報</h2>
+                <p>次の日時と場所で開催します。</p>
+                <ul>
+                    <li>日時：7月24日（金）16:30〜18:00</li>
+                    <li>場所：2号館 203教室</li>
+                    <li>参加費：無料</li>
+                    <li>持ち物：筆記用具</li>
+                </ul>
+            </section>
+
+            <section class="box">
+                <h2>参加方法</h2>
+                <p>
+                    参加を希望する人は、当日の16:20までに会場へ来てください。
+                </p>
+                <p>事前の申し込みは必要ありません。</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>Programming School Event</p>
+        </footer>
+    </body>
+</html>
+```
+
+```css
+body {
+    margin: 0;
+    background-color: aliceblue;
+    color: darkslategray;
+    line-height: 1.7;
+}
+
+.header {
+    background-color: navy;
+    color: white;
+    padding: 32px;
+    text-align: center;
+}
+
+.label {
+    margin: 0;
+    font-size: 14px;
+}
+
+.title {
+    margin: 8px 0;
+    font-size: 32px;
+}
+
+.lead {
+    margin: 0;
+}
+
+.main {
+    width: 600px;
+    margin: 32px auto;
+}
+
+.box {
+    margin-bottom: 24px;
+    border: 2px solid steelblue;
+    padding: 24px;
+    background-color: white;
+}
+```
+
+</CodePreview>
+
+</Answer>
+
+</Exercise>
+
+---
+
+## 演習4：見出しとフッターを整えよう
+
+<Exercise>
+
+各セクションの見出しとフッターにクラスを付け、ページを完成させてください。
+
+### 1. 同じ見た目の見出しにクラスを付ける
+
+3つの`h2`すべてに`subtitle`クラスを付けてください。
+
+開催情報の`ul`には`list`クラスを付けてください。
+
+### 2. フッターにクラスを付ける
+
+次のクラス名を使ってください。
+
+- `footer`：フッター全体
+- `copy`：フッター内の文章
+
+### 3. 見出しとフッターのCSSを書く
+
+次の順番でCSSを書いてください。
+
+1. `.subtitle`
+2. `.list`
+3. `.footer`
+4. `.copy`
+
+CSSは、外側から内側へ、ページの上から下へ、大きな部分から細かい部分へ書くと進めやすくなります。
+
+最後に完成見本と見比べ、文字の大きさや余白を調整してください。
+
+<Hint>
+
+同じ見た目の見出しには、同じクラスを付けます。
+
+```html
+<h2 class="subtitle">イベントについて</h2>
+<h2 class="subtitle">開催情報</h2>
+<h2 class="subtitle">参加方法</h2>
+```
+
+フッターには、次のようにクラスを付けます。
+
+```html
+<footer class="footer">
+    <p class="copy">Programming School Event</p>
+</footer>
+```
+
+</Hint>
+
+<Answer>
+
+完成したHTMLとCSSは次のとおりです。
+
+<CodePreview
+  htmlVisible
+  cssVisible
+  previewVisible
+>
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>放課後ゲーム交流会</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header class="header">
+            <p class="label">AFTER SCHOOL EVENT</p>
+            <h1 class="title">放課後ゲーム交流会</h1>
+            <p class="lead">
+                好きなゲームを持ち寄って、みんなで遊ぶ交流イベントです。
+            </p>
+        </header>
+
+        <main class="main">
+            <section class="box">
+                <h2 class="subtitle">イベントについて</h2>
+                <p>初めて参加する人も歓迎です。</p>
+                <p>
+                    ボードゲームやカードゲームを遊びながら、学年を越えて交流します。
+                </p>
+            </section>
+
+            <section class="box">
+                <h2 class="subtitle">開催情報</h2>
+                <p>次の日時と場所で開催します。</p>
+                <ul class="list">
+                    <li>日時：7月24日（金）16:30〜18:00</li>
+                    <li>場所：2号館 203教室</li>
+                    <li>参加費：無料</li>
+                    <li>持ち物：筆記用具</li>
+                </ul>
+            </section>
+
+            <section class="box">
+                <h2 class="subtitle">参加方法</h2>
+                <p>
+                    参加を希望する人は、当日の16:20までに会場へ来てください。
+                </p>
+                <p>事前の申し込みは必要ありません。</p>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p class="copy">Programming School Event</p>
+        </footer>
+    </body>
+</html>
+```
+
+```css
+body {
+    margin: 0;
+    background-color: aliceblue;
+    color: darkslategray;
+    line-height: 1.7;
+}
+
+.header {
+    background-color: navy;
+    color: white;
+    padding: 32px;
+    text-align: center;
+}
+
+.label {
+    margin: 0;
+    font-size: 14px;
+}
+
+.title {
+    margin: 8px 0;
+    font-size: 32px;
+}
+
+.lead {
+    margin: 0;
+}
+
+.main {
+    width: 600px;
+    margin: 32px auto;
+}
+
+.box {
+    margin-bottom: 24px;
+    border: 2px solid steelblue;
+    padding: 24px;
+    background-color: white;
+}
+
+.subtitle {
+    margin-top: 0;
+    color: navy;
+    font-size: 22px;
+}
+
+.list {
+    line-height: 2;
+}
+
+.footer {
+    background-color: lightsteelblue;
+    color: darkslategray;
+    padding: 16px;
+    text-align: center;
+}
+
+.copy {
+    margin: 0;
+    font-size: 12px;
+}
+```
+
+</CodePreview>
+
+</Answer>
+
+</Exercise>
+
+---
+
+## 演習-発展：週末ミニシアター
+
+文章は、下記のプレビュー内からコピーして使ってください。
+
+色や間隔、配置などは、カンプと完全に同じでなくても、だいたい同じ見た目になっていればOKです。
+
+<CodePreview
+  htmlVisible={false}
+  cssVisible={false}
+  previewVisible
+>
+
+```html
+<header class="header">
+    <p class="label">WEEKEND THEATER</p>
+    <h1 class="title">週末ミニシアター</h1>
+    <p class="lead">教室で短編映画を楽しむ、週末限定の上映会です。</p>
+</header>
+
+<main class="main">
+    <section class="box">
+        <h2 class="subtitle">上映会について</h2>
+        <p>
+            初めて見る作品にも出会えるように、毎回異なるテーマで作品を選びます。
+        </p>
+    </section>
+
+    <section class="box">
+        <h2 class="subtitle">上映作品</h2>
+        <p>今回は、次の3作品を上映します。</p>
+
+        <section class="movie">
+            <h3 class="name">空色の手紙</h3>
+            <p>海辺の町を舞台にした、心温まる物語です。</p>
+        </section>
+
+        <section class="movie pick">
+            <h3 class="name">夜の図書館</h3>
+            <p>閉館後の図書館で起こる、不思議な出来事を描いた作品です。</p>
+        </section>
+
+        <section class="movie">
+            <h3 class="name">小さなロボット</h3>
+            <p>古い工場で目を覚ましたロボットの冒険を描いた作品です。</p>
+        </section>
+    </section>
+
+    <section class="box">
+        <h2 class="subtitle">参加方法</h2>
+        <p>上映開始の10分前までに会場へ来てください。</p>
+        <p>参加費は無料です。</p>
+    </section>
+</main>
+
+<footer class="footer">
+    <p class="copy">Weekend Theater Club</p>
+</footer>
+```
+
+```css
+body {
+    margin: 0;
+    background-color: oldlace;
+    color: saddlebrown;
+    line-height: 1.7;
+}
+
+.header {
+    background-color: darkred;
+    color: white;
+    padding: 32px;
+    text-align: center;
+}
+
+.label {
+    margin: 0;
+    font-size: 14px;
+}
+
+.title {
+    margin: 8px 0;
+    font-size: 32px;
+}
+
+.lead {
+    margin: 0;
+}
+
+.main {
+    width: 620px;
+    margin: 32px auto;
+}
+
+.box {
+    margin-bottom: 24px;
+    border: 2px solid sienna;
+    padding: 24px;
+    background-color: white;
+}
+
+.subtitle {
+    margin-top: 0;
+    color: darkred;
+    font-size: 22px;
+}
+
+.movie {
+    margin-bottom: 16px;
+    border: 2px solid tan;
+    padding: 16px;
+    background-color: linen;
+}
+
+.pick {
+    border: 3px solid goldenrod;
+    background-color: lightyellow;
+}
+
+.name {
+    margin-top: 0;
+    color: saddlebrown;
+    font-size: 20px;
+}
+
+.footer {
+    background-color: wheat;
+    padding: 16px;
+    text-align: center;
+}
+
+.copy {
+    margin: 0;
+    font-size: 12px;
+}
+```
+
+</CodePreview>
+
+<Exercise>
+
+完成見本と同じようなページを、HTMLとCSSで作成してください。
+
+基本演習と同じように、HTMLを完成させてから、大きなまとまりごとにクラスを付けてCSSを書いてください。
+
+### HTML
+
+- `html`、`head`、`title`、`body`を含む基本構造を書く
+- ページ全体を`header`、`main`、`footer`に分ける
+- `main`の中を、見出しのあるまとまりごとに`section`で分ける
+- ページ全体の見出しに`h1`を使う
+- 大きなまとまりの見出しに`h2`を使う
+- 各作品の見出しに`h3`を使う
+- 文章に`p`を使う
+
+### クラスとCSS
+
+同じ見た目の3つの作品には、同じクラスを付けてください。
+
+注目されている1つの作品には、共通のクラスに加えて、別のクラスを付けてください。
+
+CSSは、共通のスタイルを先に書き、一部だけ異なるスタイルを後に書いてください。
+
+色は、`red`や`blue`などのカラーネームで指定してください。
+
+<Hint>
+
+「上映作品」の`section`の中に、3つの`section`があります。
+
+```html
+<section>
+    <h2>上映作品</h2>
+
+    <section>
+        <h3>作品名</h3>
+    </section>
+
+    <section>
+        <h3>作品名</h3>
+    </section>
+
+    <section>
+        <h3>作品名</h3>
+    </section>
+</section>
+```
+
+3つの作品に共通するクラスを付け、注目作品だけクラスを追加します。
+
+```html
+<section class="movie">
+</section>
+
+<section class="movie pick">
+</section>
+
+<section class="movie">
+</section>
+```
+
+CSSは、`.movie`を先に書き、`.pick`を後に書きます。
+
+</Hint>
+
+<Answer>
+
+<CodePreview
+  htmlVisible
+  cssVisible
+  previewVisible
+>
+
+```html
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>週末ミニシアター</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header class="header">
+            <p class="label">WEEKEND THEATER</p>
+            <h1 class="title">週末ミニシアター</h1>
+            <p class="lead">
+                教室で短編映画を楽しむ、週末限定の上映会です。
+            </p>
+        </header>
+
+        <main class="main">
+            <section class="box">
+                <h2 class="subtitle">上映会について</h2>
+                <p>
+                    初めて見る作品にも出会えるように、毎回異なるテーマで作品を選びます。
+                </p>
+            </section>
+
+            <section class="box">
+                <h2 class="subtitle">上映作品</h2>
+                <p>今回は、次の3作品を上映します。</p>
+
+                <section class="movie">
+                    <h3 class="name">空色の手紙</h3>
+                    <p>海辺の町を舞台にした、心温まる物語です。</p>
+                </section>
+
+                <section class="movie pick">
+                    <h3 class="name">夜の図書館</h3>
+                    <p>
+                        閉館後の図書館で起こる、不思議な出来事を描いた作品です。
+                    </p>
+                </section>
+
+                <section class="movie">
+                    <h3 class="name">小さなロボット</h3>
+                    <p>
+                        古い工場で目を覚ましたロボットの冒険を描いた作品です。
+                    </p>
+                </section>
+            </section>
+
+            <section class="box">
+                <h2 class="subtitle">参加方法</h2>
+                <p>上映開始の10分前までに会場へ来てください。</p>
+                <p>参加費は無料です。</p>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p class="copy">Weekend Theater Club</p>
+        </footer>
+    </body>
+</html>
+```
+
+```css
+body {
+    margin: 0;
+    background-color: oldlace;
+    color: saddlebrown;
+    line-height: 1.7;
+}
+
+.header {
+    background-color: darkred;
+    color: white;
+    padding: 32px;
+    text-align: center;
+}
+
+.label {
+    margin: 0;
+    font-size: 14px;
+}
+
+.title {
+    margin: 8px 0;
+    font-size: 32px;
+}
+
+.lead {
+    margin: 0;
+}
+
+.main {
+    width: 620px;
+    margin: 32px auto;
+}
+
+.box {
+    margin-bottom: 24px;
+    border: 2px solid sienna;
+    padding: 24px;
+    background-color: white;
+}
+
+.subtitle {
+    margin-top: 0;
+    color: darkred;
+    font-size: 22px;
+}
+
+.movie {
+    margin-bottom: 16px;
+    border: 2px solid tan;
+    padding: 16px;
+    background-color: linen;
+}
+
+.pick {
+    border: 3px solid goldenrod;
+    background-color: lightyellow;
+}
+
+.name {
+    margin-top: 0;
+    color: saddlebrown;
+    font-size: 20px;
+}
+
+.footer {
+    background-color: wheat;
+    padding: 16px;
+    text-align: center;
+}
+
+.copy {
+    margin: 0;
+    font-size: 12px;
+}
+```
+
+</CodePreview>
+
+共通する見た目は`.movie`にまとめ、注目作品だけに`.pick`を追加しています。
+
+</Answer>
+
+</Exercise>
