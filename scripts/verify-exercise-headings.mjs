@@ -8,7 +8,7 @@ const contentDir = path.join(repoRoot, 'content');
 
 const exerciseOpeningTagPattern = /<Exercise\b[\s\S]*?>/g;
 const titlePropPattern = /\btitle\s*=/;
-const headingPattern = /^#{2,6}\s+\S/;
+const headingPattern = /^#{3,6}\s+\S/;
 
 const listMdxFiles = (dirPath) => {
     const entries = fs.readdirSync(dirPath, { withFileTypes: true });
@@ -69,7 +69,7 @@ for (const filePath of listMdxFiles(contentDir)) {
         const previousLine = previousNonBlankLine(lines, lineNumber - 1);
         if (!previousLine || !headingPattern.test(previousLine.line.trim())) {
             violations.push(
-                `${relativePath}:${lineNumber} <Exercise> must be immediately preceded by a non-empty Markdown heading at level 2-6.`
+                `${relativePath}:${lineNumber} <Exercise> must be immediately preceded by a non-empty Markdown heading at level 3-6.`
             );
         }
     }
