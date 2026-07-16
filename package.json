@@ -5,7 +5,7 @@
         "prepare": "husky",
         "format": "prettier --write . && node scripts/normalize-html-void-elements.mjs --write",
         "format:check": "node scripts/verify-prettier-normalized-formatting.mjs && node scripts/normalize-html-void-elements.mjs --check",
-        "lint:md": "markdownlint **/*.mdx **/*.md --ignore AGENTS.md --ignore node_modules/** --ignore agent-rules-private/**",
+        "lint:md": "markdownlint \"**/*.mdx\" \"**/*.md\" --ignore AGENTS.md --ignore \"node_modules/**\" --ignore \"agent-rules-private/**\"",
         "lint:md:fix": "npm run lint:md -- --fix",
         "verify:content": "node scripts/verify-code-block-indentation.mjs && node scripts/verify-exercise-headings.mjs",
         "test:content-guard": "node --test scripts/content-guard.test.mjs",
